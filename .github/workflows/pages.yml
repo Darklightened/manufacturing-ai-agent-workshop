@@ -1,0 +1,52 @@
+name: Deploy workshop
+on:
+  workflow_dispatch:
+    inputs:
+      media_url:
+        description: HTTPS release URL of the reviewed source_pack ZIP
+        required: true
+        type: string
+      media_sha256:
+        description: SHA256 of that exact media ZIP
+        required: true
+        type: string
+permissions:
+  contents: read
+concurrency:
+  group: pages
+  cancel-in-progress: false
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/configure-pages@v5
+      - name: Import reviewed media
+        env:
+          WORKSHOP_MEDIA_URL: ${{ inputs.media_url }}
+          WORKSHOP_MEDIA_SHA: ${{ inputs.media_sha256 }}
+        run: python scripts/import_media.py --url "$WORKSHOP_MEDIA_URL" --sha256 "$WORKSHOP_MEDIA_SHA"
+      - name: Verify core
+        run: node --test tests/*.test.mjs
+      - name: Verify immutable recording and deterministic replay
+        run: |
+          python scripts/verify_recording.py
+          node tests/core-recorded-audit.mjs
+      - name: Build static candidate
+        run: python scripts/build.py
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: dist
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy
+        id: deployment
+        uses: actions/deploy-pages@v4

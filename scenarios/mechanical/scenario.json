@@ -1,0 +1,217 @@
+{
+  "id": "mechanical",
+  "title": "기계 조립과 최종 검수",
+  "description": "차체·브래킷·바퀴 축의 작업군을 따라가며 가림과 최종 외관 증거를 기록합니다.",
+  "sourceNote": "IndustReal 실제 원본 프레임과 행동 주석을 참고한 교육용 fixture입니다. 작업군은 교재용 묶음이며 토크·강도 검증을 포함하지 않습니다.",
+  "companyId": "edu-dynin",
+  "processId": "ASM-001",
+  "mode": "fixture",
+  "tasks": [
+    {
+      "id": "chassis",
+      "label": "차체 결합"
+    },
+    {
+      "id": "bracket",
+      "label": "전방 브래킷"
+    },
+    {
+      "id": "axle",
+      "label": "바퀴 축"
+    },
+    {
+      "id": "final",
+      "label": "최종 외관"
+    }
+  ],
+  "criteria": [
+    {
+      "id": "M-CHASSIS",
+      "taskId": "chassis",
+      "label": "차체 연결 외관 확인",
+      "target": "chassis-01",
+      "kind": "visual",
+      "unit": "",
+      "lower": "",
+      "upper": "",
+      "allowWorker": false
+    },
+    {
+      "id": "M-BRACKET",
+      "taskId": "bracket",
+      "label": "전방 브래킷 배치 확인",
+      "target": "chassis-01",
+      "kind": "visual",
+      "unit": "",
+      "lower": "",
+      "upper": "",
+      "allowWorker": false
+    },
+    {
+      "id": "M-AXLE",
+      "taskId": "axle",
+      "label": "바퀴 축 조립 외관 확인",
+      "target": "chassis-01",
+      "kind": "visual",
+      "unit": "",
+      "lower": "",
+      "upper": "",
+      "allowWorker": false
+    },
+    {
+      "id": "M-FINAL",
+      "taskId": "final",
+      "label": "최종 차체와 네 바퀴 외관 기록",
+      "target": "chassis-01",
+      "kind": "visual",
+      "unit": "",
+      "lower": "",
+      "upper": "",
+      "allowWorker": false
+    }
+  ],
+  "media": {
+    "path": "data/source_pack/assembly/01_assy_0_1/01_assy_0_1.mp4",
+    "codec": "mpeg4-part2",
+    "browserPlayable": false
+  },
+  "sources": [
+    {
+      "label": "IndustReal 공식 원본",
+      "url": "https://github.com/TimSchoonbeek/IndustReal",
+      "license": "Apache-2.0"
+    }
+  ],
+  "exercises": [
+    "가려진 체결부에 답변해도 시각적 검증은 남는지 확인하세요.",
+    "최종 외관과 체결 토크의 검증 범위를 구분하세요.",
+    "전체 영상은 별도 다운로드하고 현재 앱은 검증된 정지 프레임으로 진행합니다."
+  ],
+  "variants": [
+    {
+      "id": "maintenance",
+      "label": "부품 교체 후 재검수",
+      "config": "scenarios/maintenance/scenario.json"
+    }
+  ],
+  "checkpoints": [
+    {
+      "id": "m1",
+      "time": 33,
+      "taskId": "chassis",
+      "target": "chassis-01",
+      "label": "차체 결합 중",
+      "note": "교육용으로 작성한 관찰·판정 입력입니다. 실제 모델 예측이나 독립 품질 인증이 아닙니다.",
+      "origin": "authored_fixture",
+      "image": "data/source_pack/assembly/01_assy_0_1/frames/t033.000.jpg",
+      "assessments": [
+        {
+          "criterionId": "M-CHASSIS",
+          "verdict": "unknown",
+          "reason": "부품을 결합하는 중이며 완료된 연결부의 충분한 시야가 없습니다."
+        }
+      ]
+    },
+    {
+      "id": "m2",
+      "time": 63,
+      "taskId": "chassis",
+      "target": "chassis-01",
+      "label": "가림 확인 요청",
+      "note": "교육용으로 작성한 관찰·판정 입력입니다. 실제 모델 예측이나 독립 품질 인증이 아닙니다.",
+      "origin": "authored_fixture",
+      "image": "data/source_pack/assembly/01_assy_0_1/frames/t063.000.jpg",
+      "assessments": [
+        {
+          "criterionId": "M-CHASSIS",
+          "verdict": "unknown",
+          "reason": "손이 체결 위치를 가립니다. 연결부가 보이는 증거가 필요합니다."
+        }
+      ]
+    },
+    {
+      "id": "m3",
+      "time": 80,
+      "taskId": "bracket",
+      "target": "chassis-01",
+      "label": "전방 브래킷 배치",
+      "note": "교육용으로 작성한 관찰·판정 입력입니다. 실제 모델 예측이나 독립 품질 인증이 아닙니다.",
+      "origin": "authored_fixture",
+      "image": "data/source_pack/assembly/01_assy_0_1/frames/t080.000.jpg",
+      "assessments": [
+        {
+          "criterionId": "M-BRACKET",
+          "verdict": "unknown",
+          "reason": "브래킷 배치 작업은 보이지만 최종 고정 상태는 별도 확인합니다."
+        }
+      ]
+    },
+    {
+      "id": "m4",
+      "time": 123,
+      "taskId": "axle",
+      "target": "chassis-01",
+      "label": "첫 바퀴 축 조립",
+      "note": "교육용으로 작성한 관찰·판정 입력입니다. 실제 모델 예측이나 독립 품질 인증이 아닙니다.",
+      "origin": "authored_fixture",
+      "image": "data/source_pack/assembly/01_assy_0_1/frames/t123.000.jpg",
+      "assessments": [
+        {
+          "criterionId": "M-AXLE",
+          "verdict": "unknown",
+          "reason": "축을 장착하는 과정이며 다른 축과 최종 상태까지 확인하지 않았습니다."
+        }
+      ]
+    },
+    {
+      "id": "m5",
+      "time": 167,
+      "taskId": "axle",
+      "target": "chassis-01",
+      "label": "풀리 포함 축 조립",
+      "note": "교육용으로 작성한 관찰·판정 입력입니다. 실제 모델 예측이나 독립 품질 인증이 아닙니다.",
+      "origin": "authored_fixture",
+      "image": "data/source_pack/assembly/01_assy_0_1/frames/t167.000.jpg",
+      "assessments": [
+        {
+          "criterionId": "M-AXLE",
+          "verdict": "unknown",
+          "reason": "풀리와 축 조립 장면입니다. 가려진 체결과 구름 기능은 아직 확인하지 않았습니다."
+        }
+      ]
+    },
+    {
+      "id": "m6",
+      "time": 181,
+      "taskId": "final",
+      "target": "chassis-01",
+      "label": "최종 외관 증거",
+      "note": "교육용으로 작성한 관찰·판정 입력입니다. 실제 모델 예측이나 독립 품질 인증이 아닙니다.",
+      "origin": "authored_fixture",
+      "image": "data/source_pack/assembly/01_assy_0_1/frames/t181.000.jpg",
+      "assessments": [
+        {
+          "criterionId": "M-FINAL",
+          "verdict": "met",
+          "reason": "교육용 외관 조건: 최종 프레임에 조립된 차체와 네 바퀴가 보입니다. 토크·강도·구름 성능은 범위 밖입니다."
+        }
+      ]
+    }
+  ],
+  "documents": [
+    {
+      "id": "sop",
+      "title": "교육용 작업 절차 PDF",
+      "path": "scenarios/mechanical/SOP.pdf",
+      "type": "pdf"
+    },
+    {
+      "id": "criteria",
+      "title": "교육용 검사 기준 CSV",
+      "path": "scenarios/mechanical/criteria.csv",
+      "type": "csv"
+    }
+  ],
+  "fixtureNotice": "모든 체크포인트 판정은 사람이 작성한 교육용 입력입니다. 모델 실행은 0회입니다.",
+  "version": "education-v1"
+}

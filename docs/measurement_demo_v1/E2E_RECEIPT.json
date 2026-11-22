@@ -1,0 +1,197 @@
+{
+  "schema": "seminar.measurement-demo.v1",
+  "date_kst": "2026-11-22",
+  "status": "passed",
+  "mode": "authored_demo",
+  "demo_kind": "measurement",
+  "model_calls": 0,
+  "published": false,
+  "core_tests": {
+    "passed": 76,
+    "failed": 0,
+    "retained": 60,
+    "new": 16,
+    "evidence": "validation/measurement_demo_v1/core_tests_01.log"
+  },
+  "browser": {
+    "status": "passed",
+    "mode": "authored_demo",
+    "scenarios": [
+      "measurement_demo",
+      "measurement_precision_demo"
+    ],
+    "checks": [
+      "explicit product selection loads distinct drawing/limits",
+      "real PDF extraction and SQLite identity/feature mapping",
+      "A/B/C drawing values update only from recorded data",
+      "uncertain candidate stays unknown until delivery and numeric confirmation",
+      "wrong unit and target rejected",
+      "example fill is explicit and does not submit",
+      "confirmed value and original raw candidate retained",
+      "range change preserves original drawing limits and raw numeric",
+      "578 remains 578 and fails rather than decimal normalization",
+      "answer correction retains old answers",
+      "product switch clears previous measurements and changes specimen",
+      "precision length correctly violates narrower limit",
+      "HTML report and inspection contain embedded drawing/scenes/font",
+      "standalone exported HTML opens offline",
+      "CSV and SQLite reflect product/values plus original versus applied bounds and pending confirmation",
+      "exact reload and fresh-context import",
+      "mobile no horizontal overflow",
+      "no model/external/POST/recording requests"
+    ],
+    "staticGets": 183,
+    "externalOrNonGetRequests": 0,
+    "pageErrors": [],
+    "httpErrors": [],
+    "modelCalls": 0,
+    "limitations": [
+      "Product/drawing/instrument scenes and readings are authored classroom examples; not OCR results or physical inspection certification.",
+      "TTS actual listening quality is not verified."
+    ]
+  },
+  "browser_evidence": "validation/measurement_demo_v1/browser_final_02/E2E_RECEIPT.json",
+  "regression": {
+    "electronics": {
+      "status": "passed",
+      "scenario": "electronics_demo",
+      "mode": "demo",
+      "inputOrigin": "authored_demo",
+      "videoCheck": {
+        "status": "browser_codec_limitation",
+        "readyState": 0,
+        "error": {
+          "code": 4,
+          "message": "DEMUXER_ERROR_NO_SUPPORTED_STREAMS: FFmpegDemuxer: no supported streams"
+        },
+        "testMessage": "Page.wait_for_function: Timeout 20000ms exceeded.",
+        "frameFallbackVerified": true
+      },
+      "checks": [
+        "default classroom and advanced legacy separation",
+        "real PDF extraction and SQLite compilation",
+        "six checkpoints and six final met criteria",
+        "delivery required before quick answer",
+        "positive and negative explicit worker response",
+        "raw example observation retained",
+        "strict-policy hold and policy restoration",
+        "answer correction retains prior answers",
+        "embedded-image and font reports plus inspection export",
+        "standalone report and inspection render offline",
+        "SQLite row matches current result",
+        "exact reload and fresh-context import",
+        "mobile no horizontal overflow",
+        "no actual-recording fetch, model API, POST or external request"
+      ],
+      "localGetRequests": 136,
+      "externalOrNonGetRequests": 0,
+      "pageErrors": [],
+      "modelCalls": 0,
+      "limitations": [
+        "Authored classroom observation, not a model-quality or real product certification test.",
+        "Speech playback availability and classroom speaker quality are not verified.",
+        "This Chromium cannot decode the original H.264 MP4; video metadata/seek did not pass. Frame-based interaction and the explicit playback fallback passed."
+      ]
+    },
+    "fixtures": {
+      "schema": "seminar.browser-e2e.v1",
+      "status": "passed",
+      "scenarios": [
+        {
+          "scenario": "electronics",
+          "checkpoints": 6,
+          "pdf_extraction": true,
+          "sqlite": true,
+          "journal_export_import": true,
+          "refresh_restore": true,
+          "mode": "authored_fixture"
+        },
+        {
+          "scenario": "electronics_error",
+          "checkpoints": 5,
+          "pdf_extraction": true,
+          "sqlite": true,
+          "journal_export_import": true,
+          "refresh_restore": true,
+          "mode": "authored_fixture"
+        },
+        {
+          "scenario": "instruments",
+          "checkpoints": 3,
+          "pdf_extraction": true,
+          "sqlite": true,
+          "journal_export_import": true,
+          "refresh_restore": true,
+          "mode": "authored_fixture"
+        },
+        {
+          "scenario": "mechanical",
+          "checkpoints": 6,
+          "pdf_extraction": true,
+          "sqlite": true,
+          "journal_export_import": true,
+          "refresh_restore": true,
+          "mode": "authored_fixture"
+        },
+        {
+          "scenario": "maintenance",
+          "checkpoints": 5,
+          "pdf_extraction": true,
+          "sqlite": true,
+          "journal_export_import": true,
+          "refresh_restore": true,
+          "mode": "authored_fixture"
+        }
+      ],
+      "page_errors": [],
+      "mobile_overflow": false,
+      "inference_calls": 0,
+      "verification_scope": "Browser controller rehearsal with authored fixtures; not model/measurement accuracy."
+    },
+    "actual_recording_browser_rerun": false
+  },
+  "preservation": {
+    "files": 36,
+    "changed": 0,
+    "evidence": "validation/measurement_demo_v1/preservation_verified.json"
+  },
+  "source_hashes": {
+    "app.mjs": "a6c86e155e49f6e5769ad83bdc323b11a9450dc5d3ffa1f1a1fab7ed6c34b751",
+    "styles.css": "62d9de0a9ea86946d278b8435b6336895a78a7b0dd1de774d8cb420acf2bd8a0",
+    "index.html": "707507256d8e12cbb830f7a27ed8ef71bb3a0ff33ab021f418f6185ff769afd5",
+    "packages/core/core.mjs": "1d1a31553d9be71908f30fe70cd82f6ac38d8c000b34473ba6b10b80e31be0d2",
+    "tests/core-measurement-demo.test.mjs": "e647ed5ed3b1e1cf6a63ce94dd88df3b721e4a24eedcd83f5bf7dae0d4693bff",
+    "tests/browser_measurement_demo_e2e.py": "600c11fab4c79d740826c8f9f56def2203933db8016e344b36ca368b85ab9c6c",
+    "scripts/prepare_measurement_demo.py": "e83273582e500c7d2ec4879beed5afadbe34d3bbf8134db2bfc7817b3444659b",
+    "scenarios/measurement_demo/SOP.extracted.txt": "66921f2420b6cd09e6eb5535bde643cc08013ee5c135ed0660831fc0cddf5240",
+    "scenarios/measurement_demo/SOP.pdf": "b7ef6997cab123ae06990bacdf464dbebddff5a5e119d539dcd30a55994d462b",
+    "scenarios/measurement_demo/criteria.csv": "e62a23d6e28fbd652ce3ea1322c1a079972ab7eb445d889af3090f63d58664da",
+    "scenarios/measurement_demo/drawing.pdf": "c42667364b07f6f5823a079b4d71790e0daf449bf3fa8fd2384b008f6f85c8af",
+    "scenarios/measurement_demo/drawing.svg": "3455e4c27652fba3f476719e5d74e76a397bcd8d865b4f8703de2df30e1a8362",
+    "scenarios/measurement_demo/product.svg": "9a363bc3112585e804c6979a1a1c4d0b26aafa57f2b802e6fe8e57766bc193b2",
+    "scenarios/measurement_demo/scenario.json": "c0b5f24b9ccd3ae94666018b11f876823ab8b68b2d776c2eb71d2b5e52c7c415",
+    "scenarios/measurement_demo/scene-a.svg": "08e14f1dddb7bee17852508e2f06c083274dc0d7a00c845748184509b0dac0c8",
+    "scenarios/measurement_demo/scene-b.svg": "8294257ef483a27286e9e89e706cfc19122c7d3a30ff732963a068eda7571321",
+    "scenarios/measurement_demo/scene-c.svg": "09657bda216d0b8545eca7d90026c443cc89ef9b71c7387e09e5cdb973c70a6f",
+    "scenarios/measurement_precision_demo/SOP.extracted.txt": "b8ede847a99c6a96a3ffa5b4f6383cc3ea17ffa5cf6f0dd101782db160660681",
+    "scenarios/measurement_precision_demo/SOP.pdf": "8266e795619d4eac6d95a474906c107c505791dd22ec8ef6b300a7518ec3f922",
+    "scenarios/measurement_precision_demo/criteria.csv": "8267d3f10195c507134eb25203f93106f889b4be602d154088974d6882c9601e",
+    "scenarios/measurement_precision_demo/drawing.pdf": "ea9e3b6b0b5ad15c2255d30f874648c76bd7093541f0555775fd23e7ad3c4519",
+    "scenarios/measurement_precision_demo/drawing.svg": "39ec5f3167069cc5b07100532e04dc4f902de3bd1ff66c8d1a221a5fbb4169e9",
+    "scenarios/measurement_precision_demo/product.svg": "7c48eade1faf6bd0bfbeb12b5690ef777efff50f76e03a981f8a18b0675f83d8",
+    "scenarios/measurement_precision_demo/scenario.json": "3bdf7029a790203b84ff2a97fa97c55c1599a7dac889680898147df4cf25d88e",
+    "scenarios/measurement_precision_demo/scene-a.svg": "8a6a7d02160fcba17781e39a2987e6bc3fa3010642485c1ddeb54ca5c094827a",
+    "scenarios/measurement_precision_demo/scene-b.svg": "8c32ceaea620de7c658ecf571fae429bd48e02e5c57b4ce92abe45f10c5d835b",
+    "scenarios/measurement_precision_demo/scene-c.svg": "4c8cf19f5619204cfa0946b1371c544660b7181bf7206ba1d1ca85a525d28956"
+  },
+  "scope": "Functional classroom controller verification only. Product, scene and initial readings are authored examples, not OCR/model outputs.",
+  "limits": [
+    "TTS listening not verified.",
+    "Electronics H.264 decoding unsupported in test Chromium; image fallback passed."
+  ],
+  "examples": [
+    "examples/inspection-standard.html",
+    "examples/inspection-precision.html",
+    "examples/report-standard.html"
+  ]
+}

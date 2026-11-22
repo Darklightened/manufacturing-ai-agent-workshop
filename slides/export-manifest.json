@@ -1,0 +1,72 @@
+{
+  "status": "passed",
+  "slides": 24,
+  "page_errors": [],
+  "external_requests": [],
+  "layout_violations": [],
+  "checks": [
+    "file:// without external requests",
+    "all embedded images decode",
+    "keyboard prev/next",
+    "speaker notes",
+    "contents navigation",
+    "image zoom",
+    "all slide bounds",
+    "1280x720 fit",
+    "PDF export"
+  ],
+  "model_calls": 0,
+  "pdf_pages": 24,
+  "pdf_text_chars": [
+    323,
+    496,
+    370,
+    360,
+    425,
+    317,
+    351,
+    301,
+    308,
+    324,
+    283,
+    308,
+    304,
+    300,
+    303,
+    525,
+    305,
+    339,
+    339,
+    373,
+    307,
+    341,
+    302,
+    280
+  ],
+  "pptx_slides": 24,
+  "pptx_notes": 24,
+  "pptx_type": "presentation_image_with_speaker_notes",
+  "outputs": {
+    "실습_안내.html": {
+      "bytes": 7335893,
+      "sha256": "59b1b0e266ad24420f6b8dae0289327c9f5af922620920d577382a6b21b087fd"
+    },
+    "실습_안내.pdf": {
+      "bytes": 2083879,
+      "sha256": "d1c8021c52f5efd6cfa19187031185a65ccec29d0987b58a6d065568adf27859"
+    },
+    "실습_안내.pptx": {
+      "bytes": 3285435,
+      "sha256": "4b48f4347dec4e6d9cd714179386d873f0c262a47630c685ccce747bfeb32cd1"
+    }
+  },
+  "edition": "0.5.1 — conventional topic titles and noun-ending bullets",
+  "scope": "Slide wording only; screenshots and scenario data preserved",
+  "visual_review": "Slide 06 data conversion and slide 17 measurement confirmation visually inspected; all24 automated layout checks passed.",
+  "limits": [
+    "Actual UI/source-image wording is preserved verbatim.",
+    "Speaker notes remain natural spoken sentences.",
+    "PPTX is presentation-image format with speaker notes, not native editable text shapes.",
+    "Native Microsoft PowerPoint slideshow was not available for direct verification."
+  ]
+}

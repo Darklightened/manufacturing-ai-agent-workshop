@@ -1,0 +1,86 @@
+{
+  "schema": "seminar.source-native-reference.v1",
+  "recordingId": "S1790005",
+  "sourcePath": "data/source_pack/electronics/S1790005/timeline.json",
+  "sourceSha256": "36376bc5a6917bb413e0c586fe009407fe2bb2e99152a9f25d8fadaa9869f865",
+  "sourceUrl": "https://y-haneji.github.io/EgoOops-project-page/",
+  "license": "CC BY-SA 4.0",
+  "role": "Post-capture source review only; never model input",
+  "nativeSegments": [
+    {
+      "segment_id": "S1790005_00",
+      "start_s": 2.188305,
+      "end_s": 16.251588,
+      "instruction_index": 0,
+      "source_instruction": "Connect the battery box and switch S1 in series.",
+      "authority": "dataset_native_annotation; not a new model prediction or certified inspection"
+    },
+    {
+      "segment_id": "S1790005_01",
+      "start_s": 17.745301,
+      "end_s": 22.975751,
+      "instruction_index": 1,
+      "source_instruction": "Connect the switch S1 and motor in series.",
+      "authority": "dataset_native_annotation; not a new model prediction or certified inspection"
+    },
+    {
+      "segment_id": "S1790005_02",
+      "start_s": 27.084153,
+      "end_s": 67.062784,
+      "instruction_index": 2,
+      "source_instruction": "Connect switch S2 and lamp L1 in parallel.",
+      "authority": "dataset_native_annotation; not a new model prediction or certified inspection"
+    },
+    {
+      "segment_id": "S1790005_03",
+      "start_s": 68.46892,
+      "end_s": 84.993874,
+      "instruction_index": 3,
+      "source_instruction": "Connect the switch S2 in series with the motor and the battery box.",
+      "authority": "dataset_native_annotation; not a new model prediction or certified inspection"
+    },
+    {
+      "segment_id": "S1790005_04",
+      "start_s": 86.196809,
+      "end_s": 93.121725,
+      "instruction_index": 4,
+      "source_instruction": "Put a propeller on the motor.",
+      "authority": "dataset_native_annotation; not a new model prediction or certified inspection"
+    },
+    {
+      "segment_id": "S1790005_05",
+      "start_s": 94.210695,
+      "end_s": 105.240346,
+      "instruction_index": 5,
+      "source_instruction": "Put two battery in the battery box.",
+      "authority": "dataset_native_annotation; not a new model prediction or certified inspection"
+    },
+    {
+      "segment_id": "S1790005_06",
+      "start_s": 106.428527,
+      "end_s": 107.564151,
+      "instruction_index": 6,
+      "source_instruction": "Turn on the switch S1.",
+      "authority": "dataset_native_annotation; not a new model prediction or certified inspection"
+    },
+    {
+      "segment_id": "S1790005_07",
+      "start_s": 108.766539,
+      "end_s": 118.974306,
+      "instruction_index": 7,
+      "source_instruction": "Turn on the switch S2.",
+      "authority": "dataset_native_annotation; not a new model prediction or certified inspection"
+    }
+  ],
+  "educationalGrouping": {
+    "0": "circuit",
+    "1": "circuit",
+    "2": "circuit",
+    "3": "circuit",
+    "4": "propeller",
+    "5": "battery",
+    "6": "switch",
+    "7": "switch"
+  },
+  "scope": "Native activity intervals are not physical inspection quality labels; the sixth checkpoint120.021 is outside these native intervals."
+}

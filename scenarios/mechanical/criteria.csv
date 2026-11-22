@@ -1,0 +1,5 @@
+id,taskId,label,target,kind,unit,lower,upper,allowWorker
+M-CHASSIS,chassis,차체 연결 외관 확인,chassis-01,visual,,,,false
+M-BRACKET,bracket,전방 브래킷 배치 확인,chassis-01,visual,,,,false
+M-AXLE,axle,바퀴 축 조립 외관 확인,chassis-01,visual,,,,false
+M-FINAL,final,최종 차체와 네 바퀴 외관 기록,chassis-01,visual,,,,false

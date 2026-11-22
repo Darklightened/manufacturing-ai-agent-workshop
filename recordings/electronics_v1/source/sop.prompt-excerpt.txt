@@ -1,0 +1,39 @@
+작업 순서
+task_id: circuit
+1. circuit | 회로 연결
+task_id: propeller
+2. propeller | 프로펠러 장착
+task_id: battery
+3. battery | 배터리 삽입
+task_id: switch
+4. switch | 스위치 확인
+task_id: final
+5. final | 최종 외관
+원본 절차 8단계의 교육용 번역
+1. 배터리 홀더와 S1을 직렬로 연결한다.
+2. S1과 모터를 직렬로 연결한다.
+3. S2와 L1을 병렬로 연결한다.
+4. S2를 모터·배터리 홀더 회로와 직렬로 연결한다.
+5. 모터에 프로펠러를 장착한다.
+6. 배터리 홀더에 배터리 두 개를 삽입한다.
+7. S1을 켠다.
+8. S2를 켠다.
+출처: EgoOops, Yuto Haneji et al. / CC BY-SA 4.0
+한국어 번역·작업군 구성·검사 정책은 교육용 편집입니다.
+교육용 검사 규정
+E-CONNECTION | S2와 L1의 병렬 연결을 확인
+교육용 외관·증거 검토. 보이지 않는 조건은 보류.
+대상: circuit-board / 작업자 수치 확인 허용: 아니오
+E-PROPELLER | 모터의 프로펠러 장착 외관
+교육용 외관·증거 검토. 보이지 않는 조건은 보류.
+대상: circuit-board / 작업자 수치 확인 허용: 아니오
+E-BATTERY | 배터리 2개와 삽입 방향 확인
+
+교육용 외관·증거 검토. 보이지 않는 조건은 보류.
+대상: circuit-board / 작업자 수치 확인 허용: 아니오
+E-SWITCH | S1·S2 조작 순서 확인
+교육용 외관·증거 검토. 보이지 않는 조건은 보류.
+대상: circuit-board / 작업자 수치 확인 허용: 아니오
+E-FINAL | 최종 프로펠러 장착 외관 기록
+교육용 외관·증거 검토. 보이지 않는 조건은 보류.
+대상: circuit-board / 작업자 수치 확인 허용: 아니오

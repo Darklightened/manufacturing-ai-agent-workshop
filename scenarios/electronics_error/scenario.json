@@ -1,0 +1,207 @@
+{
+  "id": "electronics_error",
+  "title": "전자 조립 오류 주석 비교",
+  "description": "병렬·직렬 연결의 원본 오류 주석과 수정 행동을 비교합니다.",
+  "sourceNote": "EgoOops S1790010 원본 오류 주석을 참고한 교육용 fixture입니다. 오류 탐지를 실제 모델이 수행한 결과가 아닙니다. S1790005와 별도 개체/실행입니다.",
+  "companyId": "edu-dynin",
+  "processId": "ELEC-ERR-001",
+  "mode": "fixture",
+  "tasks": [
+    {
+      "id": "circuit",
+      "label": "회로 연결"
+    },
+    {
+      "id": "propeller",
+      "label": "프로펠러 장착"
+    },
+    {
+      "id": "battery",
+      "label": "배터리 삽입"
+    },
+    {
+      "id": "switch",
+      "label": "스위치 확인"
+    },
+    {
+      "id": "final",
+      "label": "최종 외관"
+    }
+  ],
+  "criteria": [
+    {
+      "id": "E-CONNECTION",
+      "taskId": "circuit",
+      "label": "S2와 L1의 병렬 연결을 확인",
+      "target": "circuit-board",
+      "kind": "visual",
+      "unit": "",
+      "lower": "",
+      "upper": "",
+      "allowWorker": false
+    },
+    {
+      "id": "E-PROPELLER",
+      "taskId": "propeller",
+      "label": "모터의 프로펠러 장착 외관",
+      "target": "circuit-board",
+      "kind": "visual",
+      "unit": "",
+      "lower": "",
+      "upper": "",
+      "allowWorker": false
+    },
+    {
+      "id": "E-BATTERY",
+      "taskId": "battery",
+      "label": "배터리 2개와 삽입 방향 확인",
+      "target": "circuit-board",
+      "kind": "visual",
+      "unit": "",
+      "lower": "",
+      "upper": "",
+      "allowWorker": false
+    },
+    {
+      "id": "E-SWITCH",
+      "taskId": "switch",
+      "label": "S1·S2 조작 순서 확인",
+      "target": "circuit-board",
+      "kind": "visual",
+      "unit": "",
+      "lower": "",
+      "upper": "",
+      "allowWorker": false
+    },
+    {
+      "id": "E-FINAL",
+      "taskId": "final",
+      "label": "최종 프로펠러 장착 외관 기록",
+      "target": "circuit-board",
+      "kind": "visual",
+      "unit": "",
+      "lower": "",
+      "upper": "",
+      "allowWorker": false
+    }
+  ],
+  "media": {
+    "path": "data/source_pack/electronics/S1790010/S1790010.mp4",
+    "codec": "h264",
+    "browserPlayable": true
+  },
+  "sources": [
+    {
+      "label": "EgoOops 공개 원본 및 절차 주석",
+      "url": "https://y-haneji.github.io/EgoOops-project-page/",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "exercises": [
+    "원본 주석 기반 오류 이벤트와 실제 모델 관찰을 구분하세요.",
+    "수정 행동을 했다는 사실만으로 방향 검사까지 끝났다고 처리하는지 확인하세요."
+  ],
+  "checkpoints": [
+    {
+      "id": "ee1",
+      "time": 72.444,
+      "taskId": "circuit",
+      "target": "circuit-board",
+      "label": "연결 오류 주석 구간",
+      "note": "교육용으로 작성한 관찰·판정 입력입니다. 실제 모델 예측이나 독립 품질 인증이 아닙니다.",
+      "origin": "authored_fixture",
+      "image": "data/source_pack/electronics/S1790010/frame_03_0072.444s.jpg",
+      "assessments": [
+        {
+          "criterionId": "E-CONNECTION",
+          "verdict": "violated",
+          "reason": "교육 이벤트: 원본 주석은 S2와 L1을 병렬 대신 직렬로 연결했다고 설명합니다. 독립 시각 검수 결과는 아닙니다."
+        }
+      ]
+    },
+    {
+      "id": "ee2",
+      "time": 164.071,
+      "taskId": "propeller",
+      "target": "circuit-board",
+      "label": "프로펠러 장착 작업",
+      "note": "교육용으로 작성한 관찰·판정 입력입니다. 실제 모델 예측이나 독립 품질 인증이 아닙니다.",
+      "origin": "authored_fixture",
+      "image": "data/source_pack/electronics/S1790010/frame_05_0164.071s.jpg",
+      "assessments": [
+        {
+          "criterionId": "E-PROPELLER",
+          "verdict": "unknown",
+          "reason": "장착 중인 프레임입니다. 완료된 안착 상태를 추가 확인해야 합니다."
+        }
+      ]
+    },
+    {
+      "id": "ee3",
+      "time": 195.45,
+      "taskId": "battery",
+      "target": "circuit-board",
+      "label": "배터리 방향 오류 주석",
+      "note": "교육용으로 작성한 관찰·판정 입력입니다. 실제 모델 예측이나 독립 품질 인증이 아닙니다.",
+      "origin": "authored_fixture",
+      "image": "data/source_pack/electronics/S1790010/frame_07_0195.450s.jpg",
+      "assessments": [
+        {
+          "criterionId": "E-BATTERY",
+          "verdict": "violated",
+          "reason": "교육 이벤트: 원본 오류 주석은 배터리 방향 문제를 설명합니다. 새 모델 판정이 아닙니다."
+        }
+      ]
+    },
+    {
+      "id": "ee4",
+      "time": 202.977,
+      "taskId": "battery",
+      "target": "circuit-board",
+      "label": "수정 행동 이후 재확인",
+      "note": "교육용으로 작성한 관찰·판정 입력입니다. 실제 모델 예측이나 독립 품질 인증이 아닙니다.",
+      "origin": "authored_fixture",
+      "image": "data/source_pack/electronics/S1790010/frame_08_0202.977s.jpg",
+      "assessments": [
+        {
+          "criterionId": "E-BATTERY",
+          "verdict": "unknown",
+          "reason": "원본에 수정 행동이 기록되지만 수정 후 방향 확인은 별도 증거가 필요합니다."
+        }
+      ]
+    },
+    {
+      "id": "ee5",
+      "time": 222.168,
+      "taskId": "switch",
+      "target": "circuit-board",
+      "label": "최종 작동 단계",
+      "note": "교육용으로 작성한 관찰·판정 입력입니다. 실제 모델 예측이나 독립 품질 인증이 아닙니다.",
+      "origin": "authored_fixture",
+      "image": "data/source_pack/electronics/S1790010/frame_11_0222.168s.jpg",
+      "assessments": [
+        {
+          "criterionId": "E-SWITCH",
+          "verdict": "unknown",
+          "reason": "최종 조작 장면과 전체 순서 검증은 구분합니다."
+        }
+      ]
+    }
+  ],
+  "documents": [
+    {
+      "id": "sop",
+      "title": "교육용 작업 절차 PDF",
+      "path": "scenarios/electronics_error/SOP.pdf",
+      "type": "pdf"
+    },
+    {
+      "id": "criteria",
+      "title": "교육용 검사 기준 CSV",
+      "path": "scenarios/electronics_error/criteria.csv",
+      "type": "csv"
+    }
+  ],
+  "fixtureNotice": "모든 체크포인트 판정은 사람이 작성한 교육용 입력입니다. 모델 실행은 0회입니다.",
+  "version": "education-v1"
+}

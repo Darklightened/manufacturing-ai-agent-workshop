@@ -1,0 +1,18 @@
+# Local builds, generated evidence and learner data
+dist/
+.validation/
+node_modules/
+__pycache__/
+*.pyc
+.DS_Store
+.env
+.env.*
+sessions/
+reports/
+*.log
+# Original archive is a separate versioned media pack; never git-add the archive blindly.
+data/source_pack/
+data/import_manifest.json
+data/preparation_validation.json
+*.zip
+validation/

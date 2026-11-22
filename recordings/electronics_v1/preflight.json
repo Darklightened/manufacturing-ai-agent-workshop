@@ -1,0 +1,119 @@
+{
+  "status": "passed",
+  "inferenceCalls": 0,
+  "sourcePins": {
+    "pdf": {
+      "path": "scenarios/electronics/SOP.pdf",
+      "sha256": "e0bb4c49c06c9dee399d548425c4e238a0524f9b390d0ea41f20936328f9801d"
+    },
+    "criteriaCsv": {
+      "path": "scenarios/electronics/criteria.csv",
+      "sha256": "944190d234014c587e9a3d14bab6cf599ee1b259bb32d6a78db7805e7ed791ef"
+    },
+    "scenario": {
+      "path": "scenarios/electronics/scenario.json",
+      "sha256": "8616f23420157deac5761b522e89d8a67548597207e0d051fd458f9ebda53f9f"
+    },
+    "video": {
+      "path": "data/source_pack/electronics/S1790005/S1790005.mp4",
+      "sha256": "91221f85368f091154c14e6b517998398ababfc413c88fff151fa60d905d4dbd"
+    }
+  },
+  "checks": [
+    {
+      "checkpointId": "e1",
+      "sourceTime": 20.361,
+      "images": 3,
+      "imageIds": [
+        "S1790005-frame-00",
+        "S1790005-frame-01",
+        "S1790005-frame-02"
+      ],
+      "noFuture": true,
+      "fixtureAnswerKeysAbsent": true
+    },
+    {
+      "checkpointId": "e2",
+      "sourceTime": 76.731,
+      "images": 5,
+      "imageIds": [
+        "S1790005-frame-00",
+        "S1790005-frame-01",
+        "S1790005-frame-02",
+        "S1790005-frame-03",
+        "S1790005-frame-04"
+      ],
+      "noFuture": true,
+      "fixtureAnswerKeysAbsent": true
+    },
+    {
+      "checkpointId": "e3",
+      "sourceTime": 89.659,
+      "images": 6,
+      "imageIds": [
+        "S1790005-frame-00",
+        "S1790005-frame-01",
+        "S1790005-frame-02",
+        "S1790005-frame-03",
+        "S1790005-frame-04",
+        "S1790005-frame-05"
+      ],
+      "noFuture": true,
+      "fixtureAnswerKeysAbsent": true
+    },
+    {
+      "checkpointId": "e4",
+      "sourceTime": 99.726,
+      "images": 7,
+      "imageIds": [
+        "S1790005-frame-00",
+        "S1790005-frame-01",
+        "S1790005-frame-02",
+        "S1790005-frame-03",
+        "S1790005-frame-04",
+        "S1790005-frame-05",
+        "S1790005-frame-06"
+      ],
+      "noFuture": true,
+      "fixtureAnswerKeysAbsent": true
+    },
+    {
+      "checkpointId": "e5",
+      "sourceTime": 113.87,
+      "images": 9,
+      "imageIds": [
+        "S1790005-frame-00",
+        "S1790005-frame-01",
+        "S1790005-frame-02",
+        "S1790005-frame-03",
+        "S1790005-frame-04",
+        "S1790005-frame-05",
+        "S1790005-frame-06",
+        "S1790005-frame-07",
+        "S1790005-frame-08"
+      ],
+      "noFuture": true,
+      "fixtureAnswerKeysAbsent": true
+    },
+    {
+      "checkpointId": "e6",
+      "sourceTime": 120.021,
+      "images": 10,
+      "imageIds": [
+        "S1790005-frame-00",
+        "S1790005-frame-01",
+        "S1790005-frame-02",
+        "S1790005-frame-03",
+        "S1790005-frame-04",
+        "S1790005-frame-05",
+        "S1790005-frame-06",
+        "S1790005-frame-07",
+        "S1790005-frame-08",
+        "S1790005-frame-09"
+      ],
+      "noFuture": true,
+      "fixtureAnswerKeysAbsent": true
+    }
+  ],
+  "previewRequestSha256": "eb335d70e8a775211b379242aa3a7f75d2cccf7e27e9f772df5358fbdb1d59af"
+}

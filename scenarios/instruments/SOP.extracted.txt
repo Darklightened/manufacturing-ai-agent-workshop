@@ -1,0 +1,30 @@
+교육용 작업 절차 및 검사 기준
+계측 판독과 추가 확인
+문서 버전: education-v1 / 실제 회사 SOP 아님
+company_id: edu-dynin
+process_id: MEASURE-001
+schema_version: workshop-company-v1
+서로 다른 장비·사진의 독립 판독 사례입니다. 같은 제품의 여러 치수가 아닙니다. 허용 범위와
+판독 제안은 교육용 fixture입니다.
+작업 순서
+task_id: digital
+1. digital | 디지털 캘리퍼스
+task_id: micrometer
+2. micrometer | 마이크로미터 확인
+task_id: vernier
+3. vernier | 버니어 관찰
+교육용 검사 규정
+I-DIGITAL | 디지털 사례 교육 허용 범위
+교육 허용 범위 26.0 - 26.5 mm
+대상: digital-case / 작업자 수치 확인 허용: 예
+I-MICRO | 마이크로미터 값과 단위 확인
+교육 허용 범위 5.7 - 5.8 mm
+대상: micrometer-case / 작업자 수치 확인 허용: 예
+I-VERNIER | 버니어 눈금의 안정적 판독 가능성
+교육용 외관·증거 검토. 보이지 않는 조건은 보류.
+대상: vernier-case / 작업자 수치 확인 허용: 아니오
+근거와 한계
+원본 절차/사진과 교육용 증거 정책은 구분합니다.
+현재 판정 입력은 작성한 교육용 fixture입니다. 모델 추론 결과가 아닙니다.
+시각적 확인이 필요한 항목은 말로 확인해도 자동 완료하지 않습니다.
+정보가 부족한 항목은 보류하고 원본 증거와 질문을 보고서에 남깁니다.

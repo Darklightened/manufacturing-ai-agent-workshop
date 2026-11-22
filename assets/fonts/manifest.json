@@ -1,0 +1,24 @@
+{
+  "license": "SIL Open Font License 1.1",
+  "files": [
+    {
+      "path": "NotoSansKR.ttf",
+      "source": "https://raw.githubusercontent.com/google/fonts/main/ofl/notosanskr/NotoSansKR%5Bwght%5D.ttf",
+      "bytes": 10414588,
+      "sha256": "194018e6b2b293a7964f037b25c0249ce1418bc9ab3c971060a03aa57861e252"
+    },
+    {
+      "path": "OFL.txt",
+      "source": "https://raw.githubusercontent.com/google/fonts/main/ofl/notosanskr/OFL.txt",
+      "bytes": 4388,
+      "sha256": "1c05c68c34f9708415aada51f17e1b0092d2cea709bf4a94cd38114f9e73d7d9"
+    },
+    {
+      "path": "NotoSansKR.woff2",
+      "derived_from": "NotoSansKR.ttf",
+      "transformation": "lossless WOFF2 packaging, full glyph set and variation axes retained",
+      "bytes": 3908652,
+      "sha256": "595d02b6812da7493347da4381fdeda9397992730c3cf038ccc15818ea9ac14a"
+    }
+  ]
+}

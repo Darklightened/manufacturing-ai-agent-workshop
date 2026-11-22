@@ -1,0 +1,6 @@
+id,taskId,label,target,kind,unit,lower,upper,allowWorker
+R-CURRENT,remove,현재 구성의 외관 확인 · 변경 시 재검사,repair-01,visual,,,,false
+R-REMOVE,remove,기존 부품 분리 확인,repair-01,visual,,,,false
+R-REPLACE,replace,짧은 부품으로 교체 확인,repair-01,visual,,,,false
+R-AXLE,reassemble,분리한 축의 재조립 검토,repair-01,visual,,,,false
+R-FINAL,review,새 시도의 최종 외관 확인,repair-01,visual,,,,false

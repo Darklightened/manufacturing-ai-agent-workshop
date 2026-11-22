@@ -1,0 +1,1101 @@
+{
+  "schema": "seminar.recording.v1",
+  "id": "electronics_v1",
+  "scenarioId": "electronics",
+  "model": "seminar-qwen38-27b-fp8",
+  "modelDetails": {
+    "family": "Qwen3.8-27B-FP8",
+    "revision": "017b9c7af6b5689d5dd426a76e0bc077eb5ca20a",
+    "thinking": false,
+    "maxTokens": 2560,
+    "temperature": 0,
+    "seed": 22
+  },
+  "condition": "electronics-sparse-causal-allcriteria-v1",
+  "baseContract": {
+    "companyId": "edu-dynin",
+    "processId": "ELEC-001",
+    "tasks": [
+      {
+        "id": "circuit",
+        "label": "회로 연결"
+      },
+      {
+        "id": "propeller",
+        "label": "프로펠러 장착"
+      },
+      {
+        "id": "battery",
+        "label": "배터리 삽입"
+      },
+      {
+        "id": "switch",
+        "label": "스위치 확인"
+      },
+      {
+        "id": "final",
+        "label": "최종 외관"
+      }
+    ],
+    "criteria": [
+      {
+        "id": "E-CONNECTION",
+        "taskId": "circuit",
+        "label": "S2와 L1의 병렬 연결을 확인",
+        "target": "circuit-board",
+        "kind": "visual",
+        "unit": "",
+        "lower": "",
+        "upper": "",
+        "allowWorker": false
+      },
+      {
+        "id": "E-PROPELLER",
+        "taskId": "propeller",
+        "label": "모터의 프로펠러 장착 외관",
+        "target": "circuit-board",
+        "kind": "visual",
+        "unit": "",
+        "lower": "",
+        "upper": "",
+        "allowWorker": false
+      },
+      {
+        "id": "E-BATTERY",
+        "taskId": "battery",
+        "label": "배터리 2개와 삽입 방향 확인",
+        "target": "circuit-board",
+        "kind": "visual",
+        "unit": "",
+        "lower": "",
+        "upper": "",
+        "allowWorker": false
+      },
+      {
+        "id": "E-SWITCH",
+        "taskId": "switch",
+        "label": "S1·S2 조작 순서 확인",
+        "target": "circuit-board",
+        "kind": "visual",
+        "unit": "",
+        "lower": "",
+        "upper": "",
+        "allowWorker": false
+      },
+      {
+        "id": "E-FINAL",
+        "taskId": "final",
+        "label": "최종 프로펠러 장착 외관 기록",
+        "target": "circuit-board",
+        "kind": "visual",
+        "unit": "",
+        "lower": "",
+        "upper": "",
+        "allowWorker": false
+      }
+    ],
+    "checkpoints": [
+      {
+        "id": "e1",
+        "time": 20.361,
+        "taskId": "circuit",
+        "target": "circuit-board",
+        "image": "data/source_pack/electronics/S1790005/frame_02_0020.361s.jpg",
+        "sourceTime": 20.361
+      },
+      {
+        "id": "e2",
+        "time": 76.731,
+        "taskId": "circuit",
+        "target": "circuit-board",
+        "image": "data/source_pack/electronics/S1790005/frame_04_0076.731s.jpg",
+        "sourceTime": 76.731
+      },
+      {
+        "id": "e3",
+        "time": 89.659,
+        "taskId": "propeller",
+        "target": "circuit-board",
+        "image": "data/source_pack/electronics/S1790005/frame_05_0089.659s.jpg",
+        "sourceTime": 89.659
+      },
+      {
+        "id": "e4",
+        "time": 99.726,
+        "taskId": "battery",
+        "target": "circuit-board",
+        "image": "data/source_pack/electronics/S1790005/frame_06_0099.726s.jpg",
+        "sourceTime": 99.726
+      },
+      {
+        "id": "e5",
+        "time": 113.87,
+        "taskId": "switch",
+        "target": "circuit-board",
+        "image": "data/source_pack/electronics/S1790005/frame_08_0113.870s.jpg",
+        "sourceTime": 113.87
+      },
+      {
+        "id": "e6",
+        "time": 120.021,
+        "taskId": "final",
+        "target": "circuit-board",
+        "image": "data/source_pack/electronics/S1790005/frame_09_0120.021s.jpg",
+        "sourceTime": 120.021
+      }
+    ]
+  },
+  "observationSchedule": [
+    {
+      "checkpointId": "e1",
+      "criterionIds": [
+        "E-CONNECTION",
+        "E-PROPELLER",
+        "E-BATTERY",
+        "E-SWITCH",
+        "E-FINAL"
+      ]
+    },
+    {
+      "checkpointId": "e2",
+      "criterionIds": [
+        "E-CONNECTION",
+        "E-PROPELLER",
+        "E-BATTERY",
+        "E-SWITCH",
+        "E-FINAL"
+      ]
+    },
+    {
+      "checkpointId": "e3",
+      "criterionIds": [
+        "E-CONNECTION",
+        "E-PROPELLER",
+        "E-BATTERY",
+        "E-SWITCH",
+        "E-FINAL"
+      ]
+    },
+    {
+      "checkpointId": "e4",
+      "criterionIds": [
+        "E-CONNECTION",
+        "E-PROPELLER",
+        "E-BATTERY",
+        "E-SWITCH",
+        "E-FINAL"
+      ]
+    },
+    {
+      "checkpointId": "e5",
+      "criterionIds": [
+        "E-CONNECTION",
+        "E-PROPELLER",
+        "E-BATTERY",
+        "E-SWITCH",
+        "E-FINAL"
+      ]
+    },
+    {
+      "checkpointId": "e6",
+      "criterionIds": [
+        "E-CONNECTION",
+        "E-PROPELLER",
+        "E-BATTERY",
+        "E-SWITCH",
+        "E-FINAL"
+      ]
+    }
+  ],
+  "sourcePins": {
+    "pdf": {
+      "path": "scenarios/electronics/SOP.pdf",
+      "sha256": "e0bb4c49c06c9dee399d548425c4e238a0524f9b390d0ea41f20936328f9801d"
+    },
+    "criteriaCsv": {
+      "path": "scenarios/electronics/criteria.csv",
+      "sha256": "944190d234014c587e9a3d14bab6cf599ee1b259bb32d6a78db7805e7ed791ef"
+    },
+    "scenario": {
+      "path": "scenarios/electronics/scenario.json",
+      "sha256": "8616f23420157deac5761b522e89d8a67548597207e0d051fd458f9ebda53f9f"
+    },
+    "video": {
+      "path": "data/source_pack/electronics/S1790005/S1790005.mp4",
+      "sha256": "91221f85368f091154c14e6b517998398ababfc413c88fff151fa60d905d4dbd"
+    }
+  },
+  "entries": [
+    {
+      "checkpointId": "e1",
+      "receipt": {
+        "id": "electronics_v1-e1",
+        "model": "seminar-qwen38-27b-fp8",
+        "requestSha256": "eb335d70e8a775211b379242aa3a7f75d2cccf7e27e9f772df5358fbdb1d59af",
+        "responseSha256": "58b6d4dd54064c59f880d4dd2a66428267d6183bd07de2ed36ed2c245edf83b1",
+        "requestPath": "recordings/electronics_v1/requests/e1.json",
+        "responsePath": "recordings/electronics_v1/responses/e1.json",
+        "requestedAt": "2026-11-21T15:23:25.025442+00:00",
+        "receivedAt": "2026-11-21T15:23:34.068585+00:00",
+        "httpStatus": 200,
+        "serviceSeconds": 9.039239723235369,
+        "finishReason": "stop",
+        "usage": {
+          "prompt_tokens": 4002,
+          "total_tokens": 4818,
+          "completion_tokens": 816,
+          "prompt_tokens_details": null,
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        }
+      },
+      "inputImages": [
+        {
+          "id": "S1790005-frame-00",
+          "path": "data/source_pack/electronics/S1790005/frame_00_0000.500s.jpg",
+          "time": 0.5,
+          "sha256": "249e3960e25736efd5c3052c76b857e7d3dfc4e0643610b522a6032e595fe4e5",
+          "role": "historical"
+        },
+        {
+          "id": "S1790005-frame-01",
+          "path": "data/source_pack/electronics/S1790005/frame_01_0009.220s.jpg",
+          "time": 9.22,
+          "sha256": "9dcfe40c2cadfe807b09ad23322674bb61b2ca4f86b768fc0f1cae7109f1af6e",
+          "role": "historical"
+        },
+        {
+          "id": "S1790005-frame-02",
+          "path": "data/source_pack/electronics/S1790005/frame_02_0020.361s.jpg",
+          "time": 20.361,
+          "sha256": "61671b8045565fb3073ab4bc9d6b35dc0640913b8fab90fb607e7c8785f7b318",
+          "role": "current"
+        }
+      ],
+      "output": {
+        "checkpointId": "e1",
+        "observedTaskId": "circuit",
+        "phase": "in_progress",
+        "summaryKo": "작업자가 회로 보드 위에 스위치와 배터리 홀더를 배치하고 연결하는 작업을 진행 중입니다. 프로펠러, 배터리, 최종 외관 등 후속 작업은 아직 시작되지 않았습니다.",
+        "assessments": [
+          {
+            "criterionId": "E-CONNECTION",
+            "target": "circuit-board",
+            "observation": "unclear",
+            "applicability": "due",
+            "targetConfirmed": true,
+            "evidenceIds": [
+              "S1790005-frame-02"
+            ],
+            "reason": "현재 프레임에서 작업자가 회로 보드 위에서 스위치와 배터리 홀더를 조작하고 있어 회로 연결 작업 시점에 해당합니다. 그러나 S2와 L1의 병렬 연결 구조를 명확히 식별할 수 있는 시각적 증거가 부족하여 판단을 보류합니다."
+          },
+          {
+            "criterionId": "E-PROPELLER",
+            "target": "circuit-board",
+            "observation": "absent",
+            "applicability": "not_due",
+            "targetConfirmed": true,
+            "evidenceIds": [
+              "S1790005-frame-02"
+            ],
+            "reason": "모터에 프로펠러가 장착된 상태가 아니며, 현재 시점에서 프로펠러가 회로 보드나 모터에 연결되어 있지 않습니다. 프로펠러는 아직 테이블 위에 분리된 상태로 놓여 있습니다."
+          },
+          {
+            "criterionId": "E-BATTERY",
+            "target": "circuit-board",
+            "observation": "absent",
+            "applicability": "not_due",
+            "targetConfirmed": true,
+            "evidenceIds": [
+              "S1790005-frame-02"
+            ],
+            "reason": "배터리 홀더에 배터리가 삽입되어 있지 않으며, 배터리는 테이블 위에 분리된 상태로 놓여 있습니다. 배터리 삽입 작업은 아직 수행되지 않았습니다."
+          },
+          {
+            "criterionId": "E-SWITCH",
+            "target": "circuit-board",
+            "observation": "unclear",
+            "applicability": "not_due",
+            "targetConfirmed": true,
+            "evidenceIds": [
+              "S1790005-frame-02"
+            ],
+            "reason": "스위치 조작 순서를 확인할 수 있는 동작이 관찰되지 않았습니다. 현재는 스위치를 회로에 연결하는 단계로 보이며, 실제 조작(켜기)은 아직 이루어지지 않았습니다."
+          },
+          {
+            "criterionId": "E-FINAL",
+            "target": "circuit-board",
+            "observation": "absent",
+            "applicability": "not_due",
+            "targetConfirmed": true,
+            "evidenceIds": [
+              "S1790005-frame-02"
+            ],
+            "reason": "최종 외관 기록을 위한 프로펠러 장착이 완료되지 않았으므로, 최종 외관 확인 시점은 아직 도래하지 않았습니다."
+          }
+        ],
+        "questions": [
+          {
+            "criterionId": "E-CONNECTION",
+            "text": "S2와 L1의 병렬 연결 구조를 명확히 확인할 수 있는 각도나 시점의 추가 영상이 필요합니다."
+          }
+        ]
+      },
+      "responseContent": "{\n  \"checkpointId\": \"e1\",\n  \"observedTaskId\": \"circuit\",\n  \"phase\": \"in_progress\",\n  \"summaryKo\": \"작업자가 회로 보드 위에 스위치와 배터리 홀더를 배치하고 연결하는 작업을 진행 중입니다. 프로펠러, 배터리, 최종 외관 등 후속 작업은 아직 시작되지 않았습니다.\",\n  \"assessments\": [\n    {\n      \"criterionId\": \"E-CONNECTION\",\n      \"target\": \"circuit-board\",\n      \"observation\": \"unclear\",\n      \"applicability\": \"due\",\n      \"targetConfirmed\": true,\n      \"evidenceIds\": [\n        \"S1790005-frame-02\"\n      ],\n      \"reason\": \"현재 프레임에서 작업자가 회로 보드 위에서 스위치와 배터리 홀더를 조작하고 있어 회로 연결 작업 시점에 해당합니다. 그러나 S2와 L1의 병렬 연결 구조를 명확히 식별할 수 있는 시각적 증거가 부족하여 판단을 보류합니다.\"\n    },\n    {\n      \"criterionId\": \"E-PROPELLER\",\n      \"target\": \"circuit-board\",\n      \"observation\": \"absent\",\n      \"applicability\": \"not_due\",\n      \"targetConfirmed\": true,\n      \"evidenceIds\": [\n        \"S1790005-frame-02\"\n      ],\n      \"reason\": \"모터에 프로펠러가 장착된 상태가 아니며, 현재 시점에서 프로펠러가 회로 보드나 모터에 연결되어 있지 않습니다. 프로펠러는 아직 테이블 위에 분리된 상태로 놓여 있습니다.\"\n    },\n    {\n      \"criterionId\": \"E-BATTERY\",\n      \"target\": \"circuit-board\",\n      \"observation\": \"absent\",\n      \"applicability\": \"not_due\",\n      \"targetConfirmed\": true,\n      \"evidenceIds\": [\n        \"S1790005-frame-02\"\n      ],\n      \"reason\": \"배터리 홀더에 배터리가 삽입되어 있지 않으며, 배터리는 테이블 위에 분리된 상태로 놓여 있습니다. 배터리 삽입 작업은 아직 수행되지 않았습니다.\"\n    },\n    {\n      \"criterionId\": \"E-SWITCH\",\n      \"target\": \"circuit-board\",\n      \"observation\": \"unclear\",\n      \"applicability\": \"not_due\",\n      \"targetConfirmed\": true,\n      \"evidenceIds\": [\n        \"S1790005-frame-02\"\n      ],\n      \"reason\": \"스위치 조작 순서를 확인할 수 있는 동작이 관찰되지 않았습니다. 현재는 스위치를 회로에 연결하는 단계로 보이며, 실제 조작(켜기)은 아직 이루어지지 않았습니다.\"\n    },\n    {\n      \"criterionId\": \"E-FINAL\",\n      \"target\": \"circuit-board\",\n      \"observation\": \"absent\",\n      \"applicability\": \"not_due\",\n      \"targetConfirmed\": true,\n      \"evidenceIds\": [\n        \"S1790005-frame-02\"\n      ],\n      \"reason\": \"최종 외관 기록을 위한 프로펠러 장착이 완료되지 않았으므로, 최종 외관 확인 시점은 아직 도래하지 않았습니다.\"\n    }\n  ],\n  \"questions\": [\n    {\n      \"criterionId\": \"E-CONNECTION\",\n      \"text\": \"S2와 L1의 병렬 연결 구조를 명확히 확인할 수 있는 각도나 시점의 추가 영상이 필요합니다.\"\n    }\n  ]\n}"
+    },
+    {
+      "checkpointId": "e2",
+      "receipt": {
+        "id": "electronics_v1-e2",
+        "model": "seminar-qwen38-27b-fp8",
+        "requestSha256": "844e4f9dab72334ea2cbe6d89144d40e46b72d07e0a78da74f5f037a8959c292",
+        "responseSha256": "887bd92f903c54dd5d02022d7f7390768467fff8fba4c3386f7e46dfbc56e717",
+        "requestPath": "recordings/electronics_v1/requests/e2.json",
+        "responsePath": "recordings/electronics_v1/responses/e2.json",
+        "requestedAt": "2026-11-21T15:23:34.119073+00:00",
+        "receivedAt": "2026-11-21T15:23:42.201624+00:00",
+        "httpStatus": 200,
+        "serviceSeconds": 8.077567610889673,
+        "finishReason": "stop",
+        "usage": {
+          "prompt_tokens": 6391,
+          "total_tokens": 7198,
+          "completion_tokens": 807,
+          "prompt_tokens_details": null,
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        }
+      },
+      "inputImages": [
+        {
+          "id": "S1790005-frame-00",
+          "path": "data/source_pack/electronics/S1790005/frame_00_0000.500s.jpg",
+          "time": 0.5,
+          "sha256": "249e3960e25736efd5c3052c76b857e7d3dfc4e0643610b522a6032e595fe4e5",
+          "role": "historical"
+        },
+        {
+          "id": "S1790005-frame-01",
+          "path": "data/source_pack/electronics/S1790005/frame_01_0009.220s.jpg",
+          "time": 9.22,
+          "sha256": "9dcfe40c2cadfe807b09ad23322674bb61b2ca4f86b768fc0f1cae7109f1af6e",
+          "role": "historical"
+        },
+        {
+          "id": "S1790005-frame-02",
+          "path": "data/source_pack/electronics/S1790005/frame_02_0020.361s.jpg",
+          "time": 20.361,
+          "sha256": "61671b8045565fb3073ab4bc9d6b35dc0640913b8fab90fb607e7c8785f7b318",
+          "role": "historical"
+        },
+        {
+          "id": "S1790005-frame-03",
+          "path": "data/source_pack/electronics/S1790005/frame_03_0047.073s.jpg",
+          "time": 47.073,
+          "sha256": "35372bc32f27c0207e3eb8d248c961144fc235216ed214f50bcce6d06f2fe9df",
+          "role": "historical"
+        },
+        {
+          "id": "S1790005-frame-04",
+          "path": "data/source_pack/electronics/S1790005/frame_04_0076.731s.jpg",
+          "time": 76.731,
+          "sha256": "6a258d17a6ace40c919e7f093d86cf825f685c2656630996eecd059f1b8153c7",
+          "role": "current"
+        }
+      ],
+      "output": {
+        "checkpointId": "e2",
+        "observedTaskId": "circuit",
+        "phase": "in_progress",
+        "summaryKo": "작업자가 회로 보드 위에서 스위치, 배터리 홀더, 모터 등 부품을 배치하고 연결하는 작업을 계속 진행 중입니다. 프로펠러와 배터리는 여전히 테이블 위에 분리된 상태로 남아 있어 후속 작업은 시작되지 않았습니다.",
+        "assessments": [
+          {
+            "criterionId": "E-CONNECTION",
+            "target": "circuit-board",
+            "observation": "unclear",
+            "applicability": "due",
+            "targetConfirmed": true,
+            "evidenceIds": [
+              "S1790005-frame-04"
+            ],
+            "reason": "현재 프레임에서 작업자가 회로 보드 위에서 부품을 조립하고 있어 회로 연결 작업 시점에 해당합니다. 그러나 S2와 L1의 병렬 연결 구조를 명확히 식별할 수 있는 시각적 증거가 부족하여 판단을 보류합니다."
+          },
+          {
+            "criterionId": "E-PROPELLER",
+            "target": "circuit-board",
+            "observation": "absent",
+            "applicability": "not_due",
+            "targetConfirmed": true,
+            "evidenceIds": [
+              "S1790005-frame-04"
+            ],
+            "reason": "모터에 프로펠러가 장착된 상태가 아니며, 프로펠러는 아직 테이블 위에 분리된 상태로 놓여 있습니다. 프로펠러 장착 작업은 아직 수행되지 않았습니다."
+          },
+          {
+            "criterionId": "E-BATTERY",
+            "target": "circuit-board",
+            "observation": "absent",
+            "applicability": "not_due",
+            "targetConfirmed": true,
+            "evidenceIds": [
+              "S1790005-frame-04"
+            ],
+            "reason": "배터리 홀더에 배터리가 삽입되어 있지 않으며, 배터리는 테이블 위에 분리된 상태로 놓여 있습니다. 배터리 삽입 작업은 아직 수행되지 않았습니다."
+          },
+          {
+            "criterionId": "E-SWITCH",
+            "target": "circuit-board",
+            "observation": "unclear",
+            "applicability": "not_due",
+            "targetConfirmed": true,
+            "evidenceIds": [
+              "S1790005-frame-04"
+            ],
+            "reason": "스위치 조작 순서를 확인할 수 있는 동작이 관찰되지 않았습니다. 현재는 스위치를 회로에 연결하는 단계로 보이며, 실제 조작(켜기)은 아직 이루어지지 않았습니다."
+          },
+          {
+            "criterionId": "E-FINAL",
+            "target": "circuit-board",
+            "observation": "absent",
+            "applicability": "not_due",
+            "targetConfirmed": true,
+            "evidenceIds": [
+              "S1790005-frame-04"
+            ],
+            "reason": "최종 외관 기록을 위한 프로펠러 장착이 완료되지 않았으므로, 최종 외관 확인 시점은 아직 도래하지 않았습니다."
+          }
+        ],
+        "questions": [
+          {
+            "criterionId": "E-CONNECTION",
+            "text": "S2와 L1의 병렬 연결 구조를 명확히 확인할 수 있는 각도나 시점의 추가 영상이 필요합니다."
+          }
+        ]
+      },
+      "responseContent": "{\n  \"checkpointId\": \"e2\",\n  \"observedTaskId\": \"circuit\",\n  \"phase\": \"in_progress\",\n  \"summaryKo\": \"작업자가 회로 보드 위에서 스위치, 배터리 홀더, 모터 등 부품을 배치하고 연결하는 작업을 계속 진행 중입니다. 프로펠러와 배터리는 여전히 테이블 위에 분리된 상태로 남아 있어 후속 작업은 시작되지 않았습니다.\",\n  \"assessments\": [\n    {\n      \"criterionId\": \"E-CONNECTION\",\n      \"target\": \"circuit-board\",\n      \"observation\": \"unclear\",\n      \"applicability\": \"due\",\n      \"targetConfirmed\": true,\n      \"evidenceIds\": [\n        \"S1790005-frame-04\"\n      ],\n      \"reason\": \"현재 프레임에서 작업자가 회로 보드 위에서 부품을 조립하고 있어 회로 연결 작업 시점에 해당합니다. 그러나 S2와 L1의 병렬 연결 구조를 명확히 식별할 수 있는 시각적 증거가 부족하여 판단을 보류합니다.\"\n    },\n    {\n      \"criterionId\": \"E-PROPELLER\",\n      \"target\": \"circuit-board\",\n      \"observation\": \"absent\",\n      \"applicability\": \"not_due\",\n      \"targetConfirmed\": true,\n      \"evidenceIds\": [\n        \"S1790005-frame-04\"\n      ],\n      \"reason\": \"모터에 프로펠러가 장착된 상태가 아니며, 프로펠러는 아직 테이블 위에 분리된 상태로 놓여 있습니다. 프로펠러 장착 작업은 아직 수행되지 않았습니다.\"\n    },\n    {\n      \"criterionId\": \"E-BATTERY\",\n      \"target\": \"circuit-board\",\n      \"observation\": \"absent\",\n      \"applicability\": \"not_due\",\n      \"targetConfirmed\": true,\n      \"evidenceIds\": [\n        \"S1790005-frame-04\"\n      ],\n      \"reason\": \"배터리 홀더에 배터리가 삽입되어 있지 않으며, 배터리는 테이블 위에 분리된 상태로 놓여 있습니다. 배터리 삽입 작업은 아직 수행되지 않았습니다.\"\n    },\n    {\n      \"criterionId\": \"E-SWITCH\",\n      \"target\": \"circuit-board\",\n      \"observation\": \"unclear\",\n      \"applicability\": \"not_due\",\n      \"targetConfirmed\": true,\n      \"evidenceIds\": [\n        \"S1790005-frame-04\"\n      ],\n      \"reason\": \"스위치 조작 순서를 확인할 수 있는 동작이 관찰되지 않았습니다. 현재는 스위치를 회로에 연결하는 단계로 보이며, 실제 조작(켜기)은 아직 이루어지지 않았습니다.\"\n    },\n    {\n      \"criterionId\": \"E-FINAL\",\n      \"target\": \"circuit-board\",\n      \"observation\": \"absent\",\n      \"applicability\": \"not_due\",\n      \"targetConfirmed\": true,\n      \"evidenceIds\": [\n        \"S1790005-frame-04\"\n      ],\n      \"reason\": \"최종 외관 기록을 위한 프로펠러 장착이 완료되지 않았으므로, 최종 외관 확인 시점은 아직 도래하지 않았습니다.\"\n    }\n  ],\n  \"questions\": [\n    {\n      \"criterionId\": \"E-CONNECTION\",\n      \"text\": \"S2와 L1의 병렬 연결 구조를 명확히 확인할 수 있는 각도나 시점의 추가 영상이 필요합니다.\"\n    }\n  ]\n}"
+    },
+    {
+      "checkpointId": "e3",
+      "receipt": {
+        "id": "electronics_v1-e3",
+        "model": "seminar-qwen38-27b-fp8",
+        "requestSha256": "e39194d889a4798980b9c31f8f7634768da396a06840a922a2a87251bc6469f5",
+        "responseSha256": "12f03a38edac12f1f0fabdc5ed1f0b4de73041a4f6cc7d920997adc899d67233",
+        "requestPath": "recordings/electronics_v1/requests/e3.json",
+        "responsePath": "recordings/electronics_v1/responses/e3.json",
+        "requestedAt": "2026-11-21T15:23:42.227746+00:00",
+        "receivedAt": "2026-11-21T15:23:50.171869+00:00",
+        "httpStatus": 200,
+        "serviceSeconds": 7.9376230873167515,
+        "finishReason": "stop",
+        "usage": {
+          "prompt_tokens": 8001,
+          "total_tokens": 8785,
+          "completion_tokens": 784,
+          "prompt_tokens_details": null,
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        }
+      },
+      "inputImages": [
+        {
+          "id": "S1790005-frame-00",
+          "path": "data/source_pack/electronics/S1790005/frame_00_0000.500s.jpg",
+          "time": 0.5,
+          "sha256": "249e3960e25736efd5c3052c76b857e7d3dfc4e0643610b522a6032e595fe4e5",
+          "role": "historical"
+        },
+        {
+          "id": "S1790005-frame-01",
+          "path": "data/source_pack/electronics/S1790005/frame_01_0009.220s.jpg",
+          "time": 9.22,
+          "sha256": "9dcfe40c2cadfe807b09ad23322674bb61b2ca4f86b768fc0f1cae7109f1af6e",
+          "role": "historical"
+        },
+        {
+          "id": "S1790005-frame-02",
+          "path": "data/source_pack/electronics/S1790005/frame_02_0020.361s.jpg",
+          "time": 20.361,
+          "sha256": "61671b8045565fb3073ab4bc9d6b35dc0640913b8fab90fb607e7c8785f7b318",
+          "role": "historical"
+        },
+        {
+          "id": "S1790005-frame-03",
+          "path": "data/source_pack/electronics/S1790005/frame_03_0047.073s.jpg",
+          "time": 47.073,
+          "sha256": "35372bc32f27c0207e3eb8d248c961144fc235216ed214f50bcce6d06f2fe9df",
+          "role": "historical"
+        },
+        {
+          "id": "S1790005-frame-04",
+          "path": "data/source_pack/electronics/S1790005/frame_04_0076.731s.jpg",
+          "time": 76.731,
+          "sha256": "6a258d17a6ace40c919e7f093d86cf825f685c2656630996eecd059f1b8153c7",
+          "role": "historical"
+        },
+        {
+          "id": "S1790005-frame-05",
+          "path": "data/source_pack/electronics/S1790005/frame_05_0089.659s.jpg",
+          "time": 89.659,
+          "sha256": "043fdadaa2e8875870c37dca456639f4a66e38620a712456f0861f2e56484297",
+          "role": "current"
+        }
+      ],
+      "output": {
+        "checkpointId": "e3",
+        "observedTaskId": "propeller",
+        "phase": "in_progress",
+        "summaryKo": "작업자가 회로 보드 조립을 마친 후, 빨간색 프로펠러를 양손으로 들어 모터에 장착하는 작업을 시작했습니다. 배터리는 여전히 테이블 위에 분리된 상태로 남아 있습니다.",
+        "assessments": [
+          {
+            "criterionId": "E-CONNECTION",
+            "target": "circuit-board",
+            "observation": "unclear",
+            "applicability": "due",
+            "targetConfirmed": true,
+            "evidenceIds": [
+              "S1790005-frame-05"
+            ],
+            "reason": "회로 연결 작업이 진행되었으나, 현재 프레임에서 S2와 L1의 병렬 연결 구조를 명확히 식별할 수 있는 시각적 증거가 부족하여 판단을 보류합니다."
+          },
+          {
+            "criterionId": "E-PROPELLER",
+            "target": "circuit-board",
+            "observation": "unclear",
+            "applicability": "due",
+            "targetConfirmed": true,
+            "evidenceIds": [
+              "S1790005-frame-05"
+            ],
+            "reason": "작업자가 프로펠러를 모터에 장착하는 동작을 수행 중이나, 프로펠러가 모터에 완전히 고정된 최종 외관 상태를 확인하기에는 시점이 이르거나 가림이 있어 보류합니다."
+          },
+          {
+            "criterionId": "E-BATTERY",
+            "target": "circuit-board",
+            "observation": "absent",
+            "applicability": "not_due",
+            "targetConfirmed": true,
+            "evidenceIds": [
+              "S1790005-frame-05"
+            ],
+            "reason": "배터리 홀더에 배터리가 삽입되어 있지 않으며, 배터리는 테이블 위에 분리된 상태로 놓여 있습니다. 배터리 삽입 작업은 아직 수행되지 않았습니다."
+          },
+          {
+            "criterionId": "E-SWITCH",
+            "target": "circuit-board",
+            "observation": "unclear",
+            "applicability": "not_due",
+            "targetConfirmed": true,
+            "evidenceIds": [
+              "S1790005-frame-05"
+            ],
+            "reason": "스위치 조작 순서를 확인할 수 있는 동작이 관찰되지 않았습니다. 현재는 프로펠러 장착 단계로 보이며, 실제 조작(켜기)은 아직 이루어지지 않았습니다."
+          },
+          {
+            "criterionId": "E-FINAL",
+            "target": "circuit-board",
+            "observation": "absent",
+            "applicability": "not_due",
+            "targetConfirmed": true,
+            "evidenceIds": [
+              "S1790005-frame-05"
+            ],
+            "reason": "최종 외관 기록을 위한 프로펠러 장착이 완료되지 않았으므로, 최종 외관 확인 시점은 아직 도래하지 않았습니다."
+          }
+        ],
+        "questions": [
+          {
+            "criterionId": "E-PROPELLER",
+            "text": "프로펠러가 모터에 완전히 장착된 상태의 외관을 확인할 수 있는 추가 영상이 필요합니다."
+          }
+        ]
+      },
+      "responseContent": "{\n  \"checkpointId\": \"e3\",\n  \"observedTaskId\": \"propeller\",\n  \"phase\": \"in_progress\",\n  \"summaryKo\": \"작업자가 회로 보드 조립을 마친 후, 빨간색 프로펠러를 양손으로 들어 모터에 장착하는 작업을 시작했습니다. 배터리는 여전히 테이블 위에 분리된 상태로 남아 있습니다.\",\n  \"assessments\": [\n    {\n      \"criterionId\": \"E-CONNECTION\",\n      \"target\": \"circuit-board\",\n      \"observation\": \"unclear\",\n      \"applicability\": \"due\",\n      \"targetConfirmed\": true,\n      \"evidenceIds\": [\n        \"S1790005-frame-05\"\n      ],\n      \"reason\": \"회로 연결 작업이 진행되었으나, 현재 프레임에서 S2와 L1의 병렬 연결 구조를 명확히 식별할 수 있는 시각적 증거가 부족하여 판단을 보류합니다.\"\n    },\n    {\n      \"criterionId\": \"E-PROPELLER\",\n      \"target\": \"circuit-board\",\n      \"observation\": \"unclear\",\n      \"applicability\": \"due\",\n      \"targetConfirmed\": true,\n      \"evidenceIds\": [\n        \"S1790005-frame-05\"\n      ],\n      \"reason\": \"작업자가 프로펠러를 모터에 장착하는 동작을 수행 중이나, 프로펠러가 모터에 완전히 고정된 최종 외관 상태를 확인하기에는 시점이 이르거나 가림이 있어 보류합니다.\"\n    },\n    {\n      \"criterionId\": \"E-BATTERY\",\n      \"target\": \"circuit-board\",\n      \"observation\": \"absent\",\n      \"applicability\": \"not_due\",\n      \"targetConfirmed\": true,\n      \"evidenceIds\": [\n        \"S1790005-frame-05\"\n      ],\n      \"reason\": \"배터리 홀더에 배터리가 삽입되어 있지 않으며, 배터리는 테이블 위에 분리된 상태로 놓여 있습니다. 배터리 삽입 작업은 아직 수행되지 않았습니다.\"\n    },\n    {\n      \"criterionId\": \"E-SWITCH\",\n      \"target\": \"circuit-board\",\n      \"observation\": \"unclear\",\n      \"applicability\": \"not_due\",\n      \"targetConfirmed\": true,\n      \"evidenceIds\": [\n        \"S1790005-frame-05\"\n      ],\n      \"reason\": \"스위치 조작 순서를 확인할 수 있는 동작이 관찰되지 않았습니다. 현재는 프로펠러 장착 단계로 보이며, 실제 조작(켜기)은 아직 이루어지지 않았습니다.\"\n    },\n    {\n      \"criterionId\": \"E-FINAL\",\n      \"target\": \"circuit-board\",\n      \"observation\": \"absent\",\n      \"applicability\": \"not_due\",\n      \"targetConfirmed\": true,\n      \"evidenceIds\": [\n        \"S1790005-frame-05\"\n      ],\n      \"reason\": \"최종 외관 기록을 위한 프로펠러 장착이 완료되지 않았으므로, 최종 외관 확인 시점은 아직 도래하지 않았습니다.\"\n    }\n  ],\n  \"questions\": [\n    {\n      \"criterionId\": \"E-PROPELLER\",\n      \"text\": \"프로펠러가 모터에 완전히 장착된 상태의 외관을 확인할 수 있는 추가 영상이 필요합니다.\"\n    }\n  ]\n}"
+    },
+    {
+      "checkpointId": "e4",
+      "receipt": {
+        "id": "electronics_v1-e4",
+        "model": "seminar-qwen38-27b-fp8",
+        "requestSha256": "f53c8be4a6d16dbd1cc094f2ced39c41c794f5ec4cd6e5db09fe74eb9751c630",
+        "responseSha256": "d21d45835a935faddbfcbdfaba7c92bda902c918adcb76a6e2a383f8af0443ea",
+        "requestPath": "recordings/electronics_v1/requests/e4.json",
+        "responsePath": "recordings/electronics_v1/responses/e4.json",
+        "requestedAt": "2026-11-21T15:23:50.198615+00:00",
+        "receivedAt": "2026-11-21T15:23:58.394256+00:00",
+        "httpStatus": 200,
+        "serviceSeconds": 8.190779224038124,
+        "finishReason": "stop",
+        "usage": {
+          "prompt_tokens": 9588,
+          "total_tokens": 10387,
+          "completion_tokens": 799,
+          "prompt_tokens_details": null,
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        }
+      },
+      "inputImages": [
+        {
+          "id": "S1790005-frame-00",
+          "path": "data/source_pack/electronics/S1790005/frame_00_0000.500s.jpg",
+          "time": 0.5,
+          "sha256": "249e3960e25736efd5c3052c76b857e7d3dfc4e0643610b522a6032e595fe4e5",
+          "role": "historical"
+        },
+        {
+          "id": "S1790005-frame-01",
+          "path": "data/source_pack/electronics/S1790005/frame_01_0009.220s.jpg",
+          "time": 9.22,
+          "sha256": "9dcfe40c2cadfe807b09ad23322674bb61b2ca4f86b768fc0f1cae7109f1af6e",
+          "role": "historical"
+        },
+        {
+          "id": "S1790005-frame-02",
+          "path": "data/source_pack/electronics/S1790005/frame_02_0020.361s.jpg",
+          "time": 20.361,
+          "sha256": "61671b8045565fb3073ab4bc9d6b35dc0640913b8fab90fb607e7c8785f7b318",
+          "role": "historical"
+        },
+        {
+          "id": "S1790005-frame-03",
+          "path": "data/source_pack/electronics/S1790005/frame_03_0047.073s.jpg",
+          "time": 47.073,
+          "sha256": "35372bc32f27c0207e3eb8d248c961144fc235216ed214f50bcce6d06f2fe9df",
+          "role": "historical"
+        },
+        {
+          "id": "S1790005-frame-04",
+          "path": "data/source_pack/electronics/S1790005/frame_04_0076.731s.jpg",
+          "time": 76.731,
+          "sha256": "6a258d17a6ace40c919e7f093d86cf825f685c2656630996eecd059f1b8153c7",
+          "role": "historical"
+        },
+        {
+          "id": "S1790005-frame-05",
+          "path": "data/source_pack/electronics/S1790005/frame_05_0089.659s.jpg",
+          "time": 89.659,
+          "sha256": "043fdadaa2e8875870c37dca456639f4a66e38620a712456f0861f2e56484297",
+          "role": "historical"
+        },
+        {
+          "id": "S1790005-frame-06",
+          "path": "data/source_pack/electronics/S1790005/frame_06_0099.726s.jpg",
+          "time": 99.726,
+          "sha256": "1dca3a47705f064265848fc33b5a9ae570755ff1c0246c610e0f947b0f07405b",
+          "role": "current"
+        }
+      ],
+      "output": {
+        "checkpointId": "e4",
+        "observedTaskId": "propeller",
+        "phase": "in_progress",
+        "summaryKo": "작업자가 회로 보드 위에 빨간색 프로펠러를 모터에 장착하는 작업을 진행 중입니다. 프로펠러가 모터 축 위에 놓여 있으나 완전히 고정된 상태는 아닙니다. 배터리는 여전히 테이블 위에 분리된 상태로 남아 있습니다.",
+        "assessments": [
+          {
+            "criterionId": "E-CONNECTION",
+            "target": "circuit-board",
+            "observation": "unclear",
+            "applicability": "due",
+            "targetConfirmed": true,
+            "evidenceIds": [
+              "S1790005-frame-06"
+            ],
+            "reason": "회로 보드 위에 부품을 조립하는 작업이 진행되었으나, 현재 프레임에서 S2와 L1의 병렬 연결 구조를 명확히 식별할 수 있는 시각적 증거가 부족하여 판단을 보류합니다."
+          },
+          {
+            "criterionId": "E-PROPELLER",
+            "target": "circuit-board",
+            "observation": "unclear",
+            "applicability": "due",
+            "targetConfirmed": true,
+            "evidenceIds": [
+              "S1790005-frame-06"
+            ],
+            "reason": "작업자가 프로펠러를 모터에 장착하는 동작을 수행 중이나, 프로펠러가 모터에 완전히 고정된 최종 외관 상태를 확인하기에는 시점이 이르거나 가림이 있어 보류합니다."
+          },
+          {
+            "criterionId": "E-BATTERY",
+            "target": "circuit-board",
+            "observation": "absent",
+            "applicability": "not_due",
+            "targetConfirmed": true,
+            "evidenceIds": [
+              "S1790005-frame-06"
+            ],
+            "reason": "배터리 홀더에 배터리가 삽입되어 있지 않으며, 배터리는 테이블 위에 분리된 상태로 놓여 있습니다. 배터리 삽입 작업은 아직 수행되지 않았습니다."
+          },
+          {
+            "criterionId": "E-SWITCH",
+            "target": "circuit-board",
+            "observation": "unclear",
+            "applicability": "not_due",
+            "targetConfirmed": true,
+            "evidenceIds": [
+              "S1790005-frame-06"
+            ],
+            "reason": "스위치 조작 순서를 확인할 수 있는 동작이 관찰되지 않았습니다. 현재는 프로펠러 장착 단계로 보이며, 실제 조작(켜기)은 아직 이루어지지 않았습니다."
+          },
+          {
+            "criterionId": "E-FINAL",
+            "target": "circuit-board",
+            "observation": "absent",
+            "applicability": "not_due",
+            "targetConfirmed": true,
+            "evidenceIds": [
+              "S1790005-frame-06"
+            ],
+            "reason": "최종 외관 기록을 위한 프로펠러 장착이 완료되지 않았으므로, 최종 외관 확인 시점은 아직 도래하지 않았습니다."
+          }
+        ],
+        "questions": [
+          {
+            "criterionId": "E-PROPELLER",
+            "text": "프로펠러가 모터에 완전히 장착된 상태의 외관을 확인할 수 있는 추가 영상이 필요합니다."
+          }
+        ]
+      },
+      "responseContent": "{\n  \"checkpointId\": \"e4\",\n  \"observedTaskId\": \"propeller\",\n  \"phase\": \"in_progress\",\n  \"summaryKo\": \"작업자가 회로 보드 위에 빨간색 프로펠러를 모터에 장착하는 작업을 진행 중입니다. 프로펠러가 모터 축 위에 놓여 있으나 완전히 고정된 상태는 아닙니다. 배터리는 여전히 테이블 위에 분리된 상태로 남아 있습니다.\",\n  \"assessments\": [\n    {\n      \"criterionId\": \"E-CONNECTION\",\n      \"target\": \"circuit-board\",\n      \"observation\": \"unclear\",\n      \"applicability\": \"due\",\n      \"targetConfirmed\": true,\n      \"evidenceIds\": [\n        \"S1790005-frame-06\"\n      ],\n      \"reason\": \"회로 보드 위에 부품을 조립하는 작업이 진행되었으나, 현재 프레임에서 S2와 L1의 병렬 연결 구조를 명확히 식별할 수 있는 시각적 증거가 부족하여 판단을 보류합니다.\"\n    },\n    {\n      \"criterionId\": \"E-PROPELLER\",\n      \"target\": \"circuit-board\",\n      \"observation\": \"unclear\",\n      \"applicability\": \"due\",\n      \"targetConfirmed\": true,\n      \"evidenceIds\": [\n        \"S1790005-frame-06\"\n      ],\n      \"reason\": \"작업자가 프로펠러를 모터에 장착하는 동작을 수행 중이나, 프로펠러가 모터에 완전히 고정된 최종 외관 상태를 확인하기에는 시점이 이르거나 가림이 있어 보류합니다.\"\n    },\n    {\n      \"criterionId\": \"E-BATTERY\",\n      \"target\": \"circuit-board\",\n      \"observation\": \"absent\",\n      \"applicability\": \"not_due\",\n      \"targetConfirmed\": true,\n      \"evidenceIds\": [\n        \"S1790005-frame-06\"\n      ],\n      \"reason\": \"배터리 홀더에 배터리가 삽입되어 있지 않으며, 배터리는 테이블 위에 분리된 상태로 놓여 있습니다. 배터리 삽입 작업은 아직 수행되지 않았습니다.\"\n    },\n    {\n      \"criterionId\": \"E-SWITCH\",\n      \"target\": \"circuit-board\",\n      \"observation\": \"unclear\",\n      \"applicability\": \"not_due\",\n      \"targetConfirmed\": true,\n      \"evidenceIds\": [\n        \"S1790005-frame-06\"\n      ],\n      \"reason\": \"스위치 조작 순서를 확인할 수 있는 동작이 관찰되지 않았습니다. 현재는 프로펠러 장착 단계로 보이며, 실제 조작(켜기)은 아직 이루어지지 않았습니다.\"\n    },\n    {\n      \"criterionId\": \"E-FINAL\",\n      \"target\": \"circuit-board\",\n      \"observation\": \"absent\",\n      \"applicability\": \"not_due\",\n      \"targetConfirmed\": true,\n      \"evidenceIds\": [\n        \"S1790005-frame-06\"\n      ],\n      \"reason\": \"최종 외관 기록을 위한 프로펠러 장착이 완료되지 않았으므로, 최종 외관 확인 시점은 아직 도래하지 않았습니다.\"\n    }\n  ],\n  \"questions\": [\n    {\n      \"criterionId\": \"E-PROPELLER\",\n      \"text\": \"프로펠러가 모터에 완전히 장착된 상태의 외관을 확인할 수 있는 추가 영상이 필요합니다.\"\n    }\n  ]\n}"
+    },
+    {
+      "checkpointId": "e5",
+      "receipt": {
+        "id": "electronics_v1-e5",
+        "model": "seminar-qwen38-27b-fp8",
+        "requestSha256": "07de2faaf5e5a2063491bf4acc7c7b28fbb665eb38f8b6eee060d22afa6b2659",
+        "responseSha256": "8c0b32a1c6083016110ec1843f97dec8016e269f3a6749698463dc158fd8c7dd",
+        "requestPath": "recordings/electronics_v1/requests/e5.json",
+        "responsePath": "recordings/electronics_v1/responses/e5.json",
+        "requestedAt": "2026-11-21T15:23:58.425127+00:00",
+        "receivedAt": "2026-11-21T15:24:06.620786+00:00",
+        "httpStatus": 200,
+        "serviceSeconds": 8.189780524000525,
+        "finishReason": "stop",
+        "usage": {
+          "prompt_tokens": 11963,
+          "total_tokens": 12754,
+          "completion_tokens": 791,
+          "prompt_tokens_details": null,
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        }
+      },
+      "inputImages": [
+        {
+          "id": "S1790005-frame-00",
+          "path": "data/source_pack/electronics/S1790005/frame_00_0000.500s.jpg",
+          "time": 0.5,
+          "sha256": "249e3960e25736efd5c3052c76b857e7d3dfc4e0643610b522a6032e595fe4e5",
+          "role": "historical"
+        },
+        {
+          "id": "S1790005-frame-01",
+          "path": "data/source_pack/electronics/S1790005/frame_01_0009.220s.jpg",
+          "time": 9.22,
+          "sha256": "9dcfe40c2cadfe807b09ad23322674bb61b2ca4f86b768fc0f1cae7109f1af6e",
+          "role": "historical"
+        },
+        {
+          "id": "S1790005-frame-02",
+          "path": "data/source_pack/electronics/S1790005/frame_02_0020.361s.jpg",
+          "time": 20.361,
+          "sha256": "61671b8045565fb3073ab4bc9d6b35dc0640913b8fab90fb607e7c8785f7b318",
+          "role": "historical"
+        },
+        {
+          "id": "S1790005-frame-03",
+          "path": "data/source_pack/electronics/S1790005/frame_03_0047.073s.jpg",
+          "time": 47.073,
+          "sha256": "35372bc32f27c0207e3eb8d248c961144fc235216ed214f50bcce6d06f2fe9df",
+          "role": "historical"
+        },
+        {
+          "id": "S1790005-frame-04",
+          "path": "data/source_pack/electronics/S1790005/frame_04_0076.731s.jpg",
+          "time": 76.731,
+          "sha256": "6a258d17a6ace40c919e7f093d86cf825f685c2656630996eecd059f1b8153c7",
+          "role": "historical"
+        },
+        {
+          "id": "S1790005-frame-05",
+          "path": "data/source_pack/electronics/S1790005/frame_05_0089.659s.jpg",
+          "time": 89.659,
+          "sha256": "043fdadaa2e8875870c37dca456639f4a66e38620a712456f0861f2e56484297",
+          "role": "historical"
+        },
+        {
+          "id": "S1790005-frame-06",
+          "path": "data/source_pack/electronics/S1790005/frame_06_0099.726s.jpg",
+          "time": 99.726,
+          "sha256": "1dca3a47705f064265848fc33b5a9ae570755ff1c0246c610e0f947b0f07405b",
+          "role": "historical"
+        },
+        {
+          "id": "S1790005-frame-07",
+          "path": "data/source_pack/electronics/S1790005/frame_07_0106.996s.jpg",
+          "time": 106.996,
+          "sha256": "1a94e650852382fe8bfbd55e1e5d139658b62ed1dbc9c1cdbc2ff4810ddded10",
+          "role": "historical"
+        },
+        {
+          "id": "S1790005-frame-08",
+          "path": "data/source_pack/electronics/S1790005/frame_08_0113.870s.jpg",
+          "time": 113.87,
+          "sha256": "1691e87fe1c8439285402269a43b320795cd253339d68545311745811e2fc4a7",
+          "role": "current"
+        }
+      ],
+      "output": {
+        "checkpointId": "e5",
+        "observedTaskId": "battery",
+        "phase": "in_progress",
+        "summaryKo": "작업자가 회로 보드 조립을 마친 후, 두 개의 배터리를 배터리 홀더에 삽입하는 작업을 진행 중입니다. 프로펠러는 이미 모터에 장착된 상태이며, 작업자는 현재 배터리 삽입 단계에 있습니다.",
+        "assessments": [
+          {
+            "criterionId": "E-CONNECTION",
+            "target": "circuit-board",
+            "observation": "unclear",
+            "applicability": "due",
+            "targetConfirmed": true,
+            "evidenceIds": [
+              "S1790005-frame-08"
+            ],
+            "reason": "회로 보드 조립이 완료되었으나, 현재 프레임에서 S2와 L1의 병렬 연결 구조를 명확히 식별할 수 있는 시각적 증거가 부족하여 판단을 보류합니다."
+          },
+          {
+            "criterionId": "E-PROPELLER",
+            "target": "circuit-board",
+            "observation": "present",
+            "applicability": "due",
+            "targetConfirmed": true,
+            "evidenceIds": [
+              "S1790005-frame-08"
+            ],
+            "reason": "빨간색 프로펠러가 모터 축에 장착된 상태가 명확히 확인됩니다."
+          },
+          {
+            "criterionId": "E-BATTERY",
+            "target": "circuit-board",
+            "observation": "unclear",
+            "applicability": "due",
+            "targetConfirmed": true,
+            "evidenceIds": [
+              "S1790005-frame-08"
+            ],
+            "reason": "작업자가 두 개의 배터리를 배터리 홀더에 삽입하는 동작을 수행 중이나, 배터리의 삽입 방향(극성)을 명확히 확인할 수 있는 시각적 증거가 부족하여 판단을 보류합니다."
+          },
+          {
+            "criterionId": "E-SWITCH",
+            "target": "circuit-board",
+            "observation": "unclear",
+            "applicability": "not_due",
+            "targetConfirmed": true,
+            "evidenceIds": [
+              "S1790005-frame-08"
+            ],
+            "reason": "스위치 조작 순서를 확인할 수 있는 동작이 관찰되지 않았습니다. 현재는 배터리 삽입 단계로 보이며, 실제 조작(켜기)은 아직 이루어지지 않았습니다."
+          },
+          {
+            "criterionId": "E-FINAL",
+            "target": "circuit-board",
+            "observation": "absent",
+            "applicability": "not_due",
+            "targetConfirmed": true,
+            "evidenceIds": [
+              "S1790005-frame-08"
+            ],
+            "reason": "최종 외관 기록을 위한 배터리 삽입 및 스위치 조작이 완료되지 않았으므로, 최종 외관 확인 시점은 아직 도래하지 않았습니다."
+          }
+        ],
+        "questions": [
+          {
+            "criterionId": "E-BATTERY",
+            "text": "배터리가 홀더에 완전히 삽입된 후, 배터리의 극성(방향)을 명확히 확인할 수 있는 각도의 추가 영상이 필요합니다."
+          }
+        ]
+      },
+      "responseContent": "{\n  \"checkpointId\": \"e5\",\n  \"observedTaskId\": \"battery\",\n  \"phase\": \"in_progress\",\n  \"summaryKo\": \"작업자가 회로 보드 조립을 마친 후, 두 개의 배터리를 배터리 홀더에 삽입하는 작업을 진행 중입니다. 프로펠러는 이미 모터에 장착된 상태이며, 작업자는 현재 배터리 삽입 단계에 있습니다.\",\n  \"assessments\": [\n    {\n      \"criterionId\": \"E-CONNECTION\",\n      \"target\": \"circuit-board\",\n      \"observation\": \"unclear\",\n      \"applicability\": \"due\",\n      \"targetConfirmed\": true,\n      \"evidenceIds\": [\n        \"S1790005-frame-08\"\n      ],\n      \"reason\": \"회로 보드 조립이 완료되었으나, 현재 프레임에서 S2와 L1의 병렬 연결 구조를 명확히 식별할 수 있는 시각적 증거가 부족하여 판단을 보류합니다.\"\n    },\n    {\n      \"criterionId\": \"E-PROPELLER\",\n      \"target\": \"circuit-board\",\n      \"observation\": \"present\",\n      \"applicability\": \"due\",\n      \"targetConfirmed\": true,\n      \"evidenceIds\": [\n        \"S1790005-frame-08\"\n      ],\n      \"reason\": \"빨간색 프로펠러가 모터 축에 장착된 상태가 명확히 확인됩니다.\"\n    },\n    {\n      \"criterionId\": \"E-BATTERY\",\n      \"target\": \"circuit-board\",\n      \"observation\": \"unclear\",\n      \"applicability\": \"due\",\n      \"targetConfirmed\": true,\n      \"evidenceIds\": [\n        \"S1790005-frame-08\"\n      ],\n      \"reason\": \"작업자가 두 개의 배터리를 배터리 홀더에 삽입하는 동작을 수행 중이나, 배터리의 삽입 방향(극성)을 명확히 확인할 수 있는 시각적 증거가 부족하여 판단을 보류합니다.\"\n    },\n    {\n      \"criterionId\": \"E-SWITCH\",\n      \"target\": \"circuit-board\",\n      \"observation\": \"unclear\",\n      \"applicability\": \"not_due\",\n      \"targetConfirmed\": true,\n      \"evidenceIds\": [\n        \"S1790005-frame-08\"\n      ],\n      \"reason\": \"스위치 조작 순서를 확인할 수 있는 동작이 관찰되지 않았습니다. 현재는 배터리 삽입 단계로 보이며, 실제 조작(켜기)은 아직 이루어지지 않았습니다.\"\n    },\n    {\n      \"criterionId\": \"E-FINAL\",\n      \"target\": \"circuit-board\",\n      \"observation\": \"absent\",\n      \"applicability\": \"not_due\",\n      \"targetConfirmed\": true,\n      \"evidenceIds\": [\n        \"S1790005-frame-08\"\n      ],\n      \"reason\": \"최종 외관 기록을 위한 배터리 삽입 및 스위치 조작이 완료되지 않았으므로, 최종 외관 확인 시점은 아직 도래하지 않았습니다.\"\n    }\n  ],\n  \"questions\": [\n    {\n      \"criterionId\": \"E-BATTERY\",\n      \"text\": \"배터리가 홀더에 완전히 삽입된 후, 배터리의 극성(방향)을 명확히 확인할 수 있는 각도의 추가 영상이 필요합니다.\"\n    }\n  ]\n}"
+    },
+    {
+      "checkpointId": "e6",
+      "receipt": {
+        "id": "electronics_v1-e6",
+        "model": "seminar-qwen38-27b-fp8",
+        "requestSha256": "2abab55917736dbf2974cea0a1dfe2a1283f438510e5527d388a0db5d51b843a",
+        "responseSha256": "1f04a6d282d824804a8d66ae61f8c7b4ce73815a38fefe181f076f44ebcc8f8f",
+        "requestPath": "recordings/electronics_v1/requests/e6.json",
+        "responsePath": "recordings/electronics_v1/responses/e6.json",
+        "requestedAt": "2026-11-21T15:24:06.650596+00:00",
+        "receivedAt": "2026-11-21T15:24:15.014473+00:00",
+        "httpStatus": 200,
+        "serviceSeconds": 8.355519143864512,
+        "finishReason": "stop",
+        "usage": {
+          "prompt_tokens": 13560,
+          "total_tokens": 14352,
+          "completion_tokens": 792,
+          "prompt_tokens_details": null,
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        }
+      },
+      "inputImages": [
+        {
+          "id": "S1790005-frame-00",
+          "path": "data/source_pack/electronics/S1790005/frame_00_0000.500s.jpg",
+          "time": 0.5,
+          "sha256": "249e3960e25736efd5c3052c76b857e7d3dfc4e0643610b522a6032e595fe4e5",
+          "role": "historical"
+        },
+        {
+          "id": "S1790005-frame-01",
+          "path": "data/source_pack/electronics/S1790005/frame_01_0009.220s.jpg",
+          "time": 9.22,
+          "sha256": "9dcfe40c2cadfe807b09ad23322674bb61b2ca4f86b768fc0f1cae7109f1af6e",
+          "role": "historical"
+        },
+        {
+          "id": "S1790005-frame-02",
+          "path": "data/source_pack/electronics/S1790005/frame_02_0020.361s.jpg",
+          "time": 20.361,
+          "sha256": "61671b8045565fb3073ab4bc9d6b35dc0640913b8fab90fb607e7c8785f7b318",
+          "role": "historical"
+        },
+        {
+          "id": "S1790005-frame-03",
+          "path": "data/source_pack/electronics/S1790005/frame_03_0047.073s.jpg",
+          "time": 47.073,
+          "sha256": "35372bc32f27c0207e3eb8d248c961144fc235216ed214f50bcce6d06f2fe9df",
+          "role": "historical"
+        },
+        {
+          "id": "S1790005-frame-04",
+          "path": "data/source_pack/electronics/S1790005/frame_04_0076.731s.jpg",
+          "time": 76.731,
+          "sha256": "6a258d17a6ace40c919e7f093d86cf825f685c2656630996eecd059f1b8153c7",
+          "role": "historical"
+        },
+        {
+          "id": "S1790005-frame-05",
+          "path": "data/source_pack/electronics/S1790005/frame_05_0089.659s.jpg",
+          "time": 89.659,
+          "sha256": "043fdadaa2e8875870c37dca456639f4a66e38620a712456f0861f2e56484297",
+          "role": "historical"
+        },
+        {
+          "id": "S1790005-frame-06",
+          "path": "data/source_pack/electronics/S1790005/frame_06_0099.726s.jpg",
+          "time": 99.726,
+          "sha256": "1dca3a47705f064265848fc33b5a9ae570755ff1c0246c610e0f947b0f07405b",
+          "role": "historical"
+        },
+        {
+          "id": "S1790005-frame-07",
+          "path": "data/source_pack/electronics/S1790005/frame_07_0106.996s.jpg",
+          "time": 106.996,
+          "sha256": "1a94e650852382fe8bfbd55e1e5d139658b62ed1dbc9c1cdbc2ff4810ddded10",
+          "role": "historical"
+        },
+        {
+          "id": "S1790005-frame-08",
+          "path": "data/source_pack/electronics/S1790005/frame_08_0113.870s.jpg",
+          "time": 113.87,
+          "sha256": "1691e87fe1c8439285402269a43b320795cd253339d68545311745811e2fc4a7",
+          "role": "historical"
+        },
+        {
+          "id": "S1790005-frame-09",
+          "path": "data/source_pack/electronics/S1790005/frame_09_0120.021s.jpg",
+          "time": 120.021,
+          "sha256": "a06ee6e9d739e7d3d7b9ab3bb081b002a3694b500d1a35e33401c80d0bc88b23",
+          "role": "current"
+        }
+      ],
+      "output": {
+        "checkpointId": "e6",
+        "observedTaskId": "switch",
+        "phase": "in_progress",
+        "summaryKo": "작업자가 회로 보드 조립을 마친 후, 양손을 테이블 위에 내려놓은 상태로 회로 보드를 바라보고 있습니다. 프로펠러는 모터에 장착되어 있고, 두 개의 배터리는 홀더에 삽입된 상태입니다. 다음 단계인 스위치 조작을 준비하는 것으로 보입니다.",
+        "assessments": [
+          {
+            "criterionId": "E-CONNECTION",
+            "target": "circuit-board",
+            "observation": "unclear",
+            "applicability": "due",
+            "targetConfirmed": true,
+            "evidenceIds": [
+              "S1790005-frame-09"
+            ],
+            "reason": "회로 보드 조립이 완료되었으나, 현재 프레임의 해상도와 각도에서는 S2와 L1의 병렬 연결 구조를 명확히 식별할 수 있는 시각적 증거가 부족하여 판단을 보류합니다."
+          },
+          {
+            "criterionId": "E-PROPELLER",
+            "target": "circuit-board",
+            "observation": "present",
+            "applicability": "due",
+            "targetConfirmed": true,
+            "evidenceIds": [
+              "S1790005-frame-09"
+            ],
+            "reason": "빨간색 프로펠러가 회로 보드 위 모터 축에 장착된 상태가 명확히 확인됩니다."
+          },
+          {
+            "criterionId": "E-BATTERY",
+            "target": "circuit-board",
+            "observation": "unclear",
+            "applicability": "due",
+            "targetConfirmed": true,
+            "evidenceIds": [
+              "S1790005-frame-09"
+            ],
+            "reason": "배터리 홀더에 두 개의 배터리가 삽입된 것이 확인되나, 배터리의 삽입 방향(극성)을 명확히 확인할 수 있는 시각적 증거가 부족하여 판단을 보류합니다."
+          },
+          {
+            "criterionId": "E-SWITCH",
+            "target": "circuit-board",
+            "observation": "unclear",
+            "applicability": "due",
+            "targetConfirmed": true,
+            "evidenceIds": [
+              "S1790005-frame-09"
+            ],
+            "reason": "작업자가 스위치 조작을 준비하는 단계로 보이나, S1과 S2의 실제 조작 순서를 확인할 수 있는 동작이 아직 관찰되지 않아 판단을 보류합니다."
+          },
+          {
+            "criterionId": "E-FINAL",
+            "target": "circuit-board",
+            "observation": "absent",
+            "applicability": "not_due",
+            "targetConfirmed": true,
+            "evidenceIds": [
+              "S1790005-frame-09"
+            ],
+            "reason": "스위치 조작이 완료되지 않았으므로, 최종 외관 기록을 위한 시점은 아직 도래하지 않았습니다."
+          }
+        ],
+        "questions": [
+          {
+            "criterionId": "E-SWITCH",
+            "text": "S1과 S2 스위치를 조작하는 순서를 확인할 수 있는 추가 영상이 필요합니다."
+          }
+        ]
+      },
+      "responseContent": "{\n  \"checkpointId\": \"e6\",\n  \"observedTaskId\": \"switch\",\n  \"phase\": \"in_progress\",\n  \"summaryKo\": \"작업자가 회로 보드 조립을 마친 후, 양손을 테이블 위에 내려놓은 상태로 회로 보드를 바라보고 있습니다. 프로펠러는 모터에 장착되어 있고, 두 개의 배터리는 홀더에 삽입된 상태입니다. 다음 단계인 스위치 조작을 준비하는 것으로 보입니다.\",\n  \"assessments\": [\n    {\n      \"criterionId\": \"E-CONNECTION\",\n      \"target\": \"circuit-board\",\n      \"observation\": \"unclear\",\n      \"applicability\": \"due\",\n      \"targetConfirmed\": true,\n      \"evidenceIds\": [\n        \"S1790005-frame-09\"\n      ],\n      \"reason\": \"회로 보드 조립이 완료되었으나, 현재 프레임의 해상도와 각도에서는 S2와 L1의 병렬 연결 구조를 명확히 식별할 수 있는 시각적 증거가 부족하여 판단을 보류합니다.\"\n    },\n    {\n      \"criterionId\": \"E-PROPELLER\",\n      \"target\": \"circuit-board\",\n      \"observation\": \"present\",\n      \"applicability\": \"due\",\n      \"targetConfirmed\": true,\n      \"evidenceIds\": [\n        \"S1790005-frame-09\"\n      ],\n      \"reason\": \"빨간색 프로펠러가 회로 보드 위 모터 축에 장착된 상태가 명확히 확인됩니다.\"\n    },\n    {\n      \"criterionId\": \"E-BATTERY\",\n      \"target\": \"circuit-board\",\n      \"observation\": \"unclear\",\n      \"applicability\": \"due\",\n      \"targetConfirmed\": true,\n      \"evidenceIds\": [\n        \"S1790005-frame-09\"\n      ],\n      \"reason\": \"배터리 홀더에 두 개의 배터리가 삽입된 것이 확인되나, 배터리의 삽입 방향(극성)을 명확히 확인할 수 있는 시각적 증거가 부족하여 판단을 보류합니다.\"\n    },\n    {\n      \"criterionId\": \"E-SWITCH\",\n      \"target\": \"circuit-board\",\n      \"observation\": \"unclear\",\n      \"applicability\": \"due\",\n      \"targetConfirmed\": true,\n      \"evidenceIds\": [\n        \"S1790005-frame-09\"\n      ],\n      \"reason\": \"작업자가 스위치 조작을 준비하는 단계로 보이나, S1과 S2의 실제 조작 순서를 확인할 수 있는 동작이 아직 관찰되지 않아 판단을 보류합니다.\"\n    },\n    {\n      \"criterionId\": \"E-FINAL\",\n      \"target\": \"circuit-board\",\n      \"observation\": \"absent\",\n      \"applicability\": \"not_due\",\n      \"targetConfirmed\": true,\n      \"evidenceIds\": [\n        \"S1790005-frame-09\"\n      ],\n      \"reason\": \"스위치 조작이 완료되지 않았으므로, 최종 외관 기록을 위한 시점은 아직 도래하지 않았습니다.\"\n    }\n  ],\n  \"questions\": [\n    {\n      \"criterionId\": \"E-SWITCH\",\n      \"text\": \"S1과 S2 스위치를 조작하는 순서를 확인할 수 있는 추가 영상이 필요합니다.\"\n    }\n  ]\n}"
+    }
+  ],
+  "capturedAt": "2026-11-21T15:24:15.026065+00:00",
+  "scopeLimits": [
+    "sparse keyframes, not continuous video",
+    "education SOP, not certified company requirements",
+    "no ASR/OCR/measured values",
+    "no independent human labels",
+    "no worker replies during model capture"
+  ],
+  "independentQualityLabels": 0
+}

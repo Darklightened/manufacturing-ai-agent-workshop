@@ -1,0 +1,115 @@
+{
+  "schema": "seminar.e2e-closeout.v1",
+  "dateKst": "2026-11-22",
+  "captured": {
+    "model": "seminar-qwen38-27b-fp8",
+    "requests": 6,
+    "accepted": 6,
+    "observations": 30,
+    "httpServiceSeconds": 49.790509313344955
+  },
+  "coreTests": 43,
+  "actualCoreAudit": {
+    "status": "passed",
+    "fileHashChecks": 56,
+    "actualTransmittedImageChecks": 40,
+    "defaultFinal": {
+      "met": 1,
+      "violated": 0,
+      "unknown": 3,
+      "not_due": 1,
+      "unassessed": 0
+    },
+    "interactions": [
+      {
+        "condition": "visual_only_with_answer",
+        "criterionId": "E-CONNECTION",
+        "verdict": "unknown",
+        "origin": "recorded_model",
+        "counts": {
+          "met": 1,
+          "violated": 0,
+          "unknown": 3,
+          "not_due": 1,
+          "unassessed": 0
+        }
+      },
+      {
+        "condition": "worker_attestation_positive",
+        "criterionId": "E-CONNECTION",
+        "verdict": "met",
+        "origin": "worker_confirmed",
+        "counts": {
+          "met": 2,
+          "violated": 0,
+          "unknown": 2,
+          "not_due": 1,
+          "unassessed": 0
+        }
+      },
+      {
+        "condition": "revert_visual_only",
+        "criterionId": "E-CONNECTION",
+        "verdict": "unknown",
+        "origin": "recorded_model",
+        "counts": {
+          "met": 1,
+          "violated": 0,
+          "unknown": 3,
+          "not_due": 1,
+          "unassessed": 0
+        }
+      },
+      {
+        "condition": "worker_attestation_negative",
+        "criterionId": "E-CONNECTION",
+        "verdict": "violated",
+        "origin": "worker_confirmed",
+        "counts": {
+          "met": 1,
+          "violated": 1,
+          "unknown": 2,
+          "not_due": 1,
+          "unassessed": 0
+        }
+      }
+    ]
+  },
+  "browser": {
+    "schema": "seminar.recorded-browser-e2e.v1",
+    "status": "passed",
+    "packId": "electronics_v1",
+    "model": "seminar-qwen38-27b-fp8",
+    "checkpoints": 6,
+    "workerPolicyCriterion": "E-CONNECTION",
+    "ruleAndReplyStates": [
+      "unknown",
+      "worker_confirmed:met",
+      "unknown:policy_reverted",
+      "worker_confirmed:violated"
+    ],
+    "sourcePdfExtraction": true,
+    "sqlitePolicyAndVerdict": true,
+    "actualRequestResponseInspector": true,
+    "rawProposalsUnchanged": true,
+    "wrongTargetRejected": true,
+    "refreshAndImportExact": true,
+    "forgedSessionRejected": true,
+    "missingResponseRejectsRecordedMode": true,
+    "reportsWithEmbeddedImagesAndFont": true,
+    "mobileOverflow": false,
+    "browserRequests": 455,
+    "nonGetRequests": 0,
+    "externalRequests": 0,
+    "inferenceCalls": 0,
+    "pageErrors": [],
+    "scope": "Actual saved model responses and deterministic controller/browser behavior; worker test answers are authored and not independent physical quality truth."
+  },
+  "qualityScope": "Source-reviewed single-video teaching diagnostic. Known task lag remains. No independent quality accuracy claim.",
+  "baselineFixtureBrowserRegression": {
+    "status": "passed",
+    "packs": 5,
+    "checkpoints": 25,
+    "pageErrors": []
+  }
+}

@@ -1,0 +1,164 @@
+{
+  "id": "instruments",
+  "title": "계측 판독과 추가 확인",
+  "description": "소수점·단위·작업자 확인을 분리해 기록하고 교육용 허용 범위를 비교합니다.",
+  "sourceNote": "서로 다른 장비·사진의 독립 판독 사례입니다. 같은 제품의 여러 치수가 아닙니다. 허용 범위와 판독 제안은 교육용 fixture입니다.",
+  "companyId": "edu-dynin",
+  "processId": "MEASURE-001",
+  "mode": "fixture",
+  "timelineKind": "lesson_case_order_not_continuous_video",
+  "tasks": [
+    {
+      "id": "digital",
+      "label": "디지털 캘리퍼스"
+    },
+    {
+      "id": "micrometer",
+      "label": "마이크로미터 확인"
+    },
+    {
+      "id": "vernier",
+      "label": "버니어 관찰"
+    }
+  ],
+  "criteria": [
+    {
+      "id": "I-DIGITAL",
+      "taskId": "digital",
+      "label": "디지털 사례 교육 허용 범위",
+      "target": "digital-case",
+      "kind": "range",
+      "unit": "mm",
+      "lower": 26.0,
+      "upper": 26.5,
+      "allowWorker": true
+    },
+    {
+      "id": "I-MICRO",
+      "taskId": "micrometer",
+      "label": "마이크로미터 값과 단위 확인",
+      "target": "micrometer-case",
+      "kind": "range",
+      "unit": "mm",
+      "lower": 5.7,
+      "upper": 5.8,
+      "allowWorker": true
+    },
+    {
+      "id": "I-VERNIER",
+      "taskId": "vernier",
+      "label": "버니어 눈금의 안정적 판독 가능성",
+      "target": "vernier-case",
+      "kind": "visual",
+      "unit": "",
+      "lower": "",
+      "upper": "",
+      "allowWorker": false
+    }
+  ],
+  "media": {
+    "path": "",
+    "codec": "mixed",
+    "browserPlayable": false
+  },
+  "sources": [
+    {
+      "label": "디지털 캘리퍼스 사진 · Elektrobjørn",
+      "url": "https://commons.wikimedia.org/wiki/File:Measure_pipe_thread.jpg",
+      "license": "CC0"
+    },
+    {
+      "label": "마이크로미터 사진 · Glenn McKechnie",
+      "url": "https://commons.wikimedia.org/wiki/File:578metric-micrometer.jpg",
+      "license": "CC BY-SA 3.0 photo; benchmark record CC BY-SA 4.0"
+    },
+    {
+      "label": "Dynamic Gauge Dataset",
+      "url": "https://zenodo.org/records/20624895",
+      "license": "CC BY 4.0"
+    }
+  ],
+  "exercises": [
+    "26.30mm의 교육용 상한을26.5에서26.2로 바꾸어 판정이 달라지는지 확인하세요.",
+    "마이크로미터 확인 답변은 예: 5.78 mm입니다. 실제 교정/측정 인증이 아니라 수강생 확인 기록입니다.",
+    "버니어와 디지털 사진은 같은 제품의 서로 다른 부위로 연결하지 않습니다."
+  ],
+  "checkpoints": [
+    {
+      "id": "i1",
+      "time": 0,
+      "taskId": "digital",
+      "target": "digital-case",
+      "label": "디지털 표시 읽기",
+      "note": "교육용으로 작성한 관찰·판정 입력입니다. 실제 모델 예측이나 독립 품질 인증이 아닙니다.",
+      "origin": "authored_fixture",
+      "image": "data/source_pack/measurement/Measure pipe thread.jpg",
+      "assessments": [
+        {
+          "criterionId": "I-DIGITAL",
+          "verdict": "met",
+          "reason": "사진에서 읽은 값을 바탕으로 만든 교육용 판독 제안입니다. 규칙 엔진이 범위를 별도로 비교합니다.",
+          "value": "26.30",
+          "unit": "mm",
+          "raw": "26.30 mm"
+        }
+      ],
+      "sourceTime": 0
+    },
+    {
+      "id": "i2",
+      "time": 10,
+      "taskId": "micrometer",
+      "target": "micrometer-case",
+      "label": "눈금 해석 확인 요청",
+      "note": "교육용으로 작성한 관찰·판정 입력입니다. 실제 모델 예측이나 독립 품질 인증이 아닙니다.",
+      "origin": "authored_fixture",
+      "image": "data/source_pack/measurement/micrometer_0_benchmark_image.jpg",
+      "assessments": [
+        {
+          "criterionId": "I-MICRO",
+          "verdict": "unknown",
+          "reason": "본척과 회전척 합산 값을 확인해 주세요. 예시 원본 판독 범위는5.7–5.8mm이며 교정된 제품 치수를 뜻하지 않습니다.",
+          "raw": "소수점과 눈금 확인 필요",
+          "unit": "mm"
+        }
+      ],
+      "sourceTime": 0
+    },
+    {
+      "id": "i3",
+      "time": 20,
+      "taskId": "vernier",
+      "target": "vernier-case",
+      "label": "움직이는 눈금의 판독 한계",
+      "note": "교육용으로 작성한 관찰·판정 입력입니다. 실제 모델 예측이나 독립 품질 인증이 아닙니다.",
+      "origin": "authored_fixture",
+      "image": "data/source_pack/measurement/analog_vernier_closing_v1_slow.poster.png",
+      "assessments": [
+        {
+          "criterionId": "I-VERNIER",
+          "verdict": "unknown",
+          "reason": "움직임과 눈금 정렬 때문에 안정된 값의 확인이 필요합니다. 단일 프레임에 자동 합격을 주지 않습니다."
+        }
+      ],
+      "video": "data/source_pack/measurement/analog_vernier_closing_v1_slow.mp4",
+      "sourceTime": 12.256
+    }
+  ],
+  "documents": [
+    {
+      "id": "sop",
+      "title": "교육용 작업 절차 PDF",
+      "path": "scenarios/instruments/SOP.pdf",
+      "type": "pdf"
+    },
+    {
+      "id": "criteria",
+      "title": "교육용 검사 기준 CSV",
+      "path": "scenarios/instruments/criteria.csv",
+      "type": "csv"
+    }
+  ],
+  "fixtureNotice": "모든 체크포인트 판정은 사람이 작성한 교육용 입력입니다. 모델 실행은 0회입니다.",
+  "version": "education-v1"
+}

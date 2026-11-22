@@ -1,0 +1,7 @@
+id,taskId,label,target,kind,unit,lower,upper,allowWorker
+E-PREP,preparation,보드·연결 부품·모터·프로펠러·배터리·지시서 준비,circuit-board,visual,,,,false
+E-CONNECTION,circuit,작업지시서에 따른 회로 연결 완료,circuit-board,visual,,,,false
+E-PROPELLER,propeller,프로펠러가 모터 축에 장착됨,circuit-board,visual,,,,false
+E-BATTERY,battery,배터리 두 개의 방향이 홀더 표시와 일치,circuit-board,visual,,,,true
+E-SWITCH,switch,S1 확인 후 S2 확인 순서 준수,circuit-board,visual,,,,false
+E-FINAL,final,조립 완료 외관 사진과 확인 기록 확보,circuit-board,visual,,,,false

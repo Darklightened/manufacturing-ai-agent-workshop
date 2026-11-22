@@ -1,0 +1,102 @@
+{
+  "status": "passed",
+  "scope": "Actual stored wire and response integrity; not semantic correctness or independent model accuracy",
+  "requestCount": 6,
+  "assessmentCount": 30,
+  "observations": {
+    "unclear": 16,
+    "absent": 12,
+    "present": 2
+  },
+  "applicability": {
+    "due": 13,
+    "not_due": 17
+  },
+  "receipts": [
+    {
+      "checkpointId": "e1",
+      "sourceTime": 20.361,
+      "images": 3,
+      "priorOutputs": 0,
+      "requestSha256": "eb335d70e8a775211b379242aa3a7f75d2cccf7e27e9f772df5358fbdb1d59af",
+      "responseSha256": "58b6d4dd54064c59f880d4dd2a66428267d6183bd07de2ed36ed2c245edf83b1",
+      "wireImagesMatch": true,
+      "noFutureImages": true,
+      "actualCausalOutputChain": true,
+      "allCriteriaInRequest": true,
+      "finishReason": "stop",
+      "serviceSeconds": 9.039239723235369
+    },
+    {
+      "checkpointId": "e2",
+      "sourceTime": 76.731,
+      "images": 5,
+      "priorOutputs": 1,
+      "requestSha256": "844e4f9dab72334ea2cbe6d89144d40e46b72d07e0a78da74f5f037a8959c292",
+      "responseSha256": "887bd92f903c54dd5d02022d7f7390768467fff8fba4c3386f7e46dfbc56e717",
+      "wireImagesMatch": true,
+      "noFutureImages": true,
+      "actualCausalOutputChain": true,
+      "allCriteriaInRequest": true,
+      "finishReason": "stop",
+      "serviceSeconds": 8.077567610889673
+    },
+    {
+      "checkpointId": "e3",
+      "sourceTime": 89.659,
+      "images": 6,
+      "priorOutputs": 2,
+      "requestSha256": "e39194d889a4798980b9c31f8f7634768da396a06840a922a2a87251bc6469f5",
+      "responseSha256": "12f03a38edac12f1f0fabdc5ed1f0b4de73041a4f6cc7d920997adc899d67233",
+      "wireImagesMatch": true,
+      "noFutureImages": true,
+      "actualCausalOutputChain": true,
+      "allCriteriaInRequest": true,
+      "finishReason": "stop",
+      "serviceSeconds": 7.9376230873167515
+    },
+    {
+      "checkpointId": "e4",
+      "sourceTime": 99.726,
+      "images": 7,
+      "priorOutputs": 3,
+      "requestSha256": "f53c8be4a6d16dbd1cc094f2ced39c41c794f5ec4cd6e5db09fe74eb9751c630",
+      "responseSha256": "d21d45835a935faddbfcbdfaba7c92bda902c918adcb76a6e2a383f8af0443ea",
+      "wireImagesMatch": true,
+      "noFutureImages": true,
+      "actualCausalOutputChain": true,
+      "allCriteriaInRequest": true,
+      "finishReason": "stop",
+      "serviceSeconds": 8.190779224038124
+    },
+    {
+      "checkpointId": "e5",
+      "sourceTime": 113.87,
+      "images": 9,
+      "priorOutputs": 4,
+      "requestSha256": "07de2faaf5e5a2063491bf4acc7c7b28fbb665eb38f8b6eee060d22afa6b2659",
+      "responseSha256": "8c0b32a1c6083016110ec1843f97dec8016e269f3a6749698463dc158fd8c7dd",
+      "wireImagesMatch": true,
+      "noFutureImages": true,
+      "actualCausalOutputChain": true,
+      "allCriteriaInRequest": true,
+      "finishReason": "stop",
+      "serviceSeconds": 8.189780524000525
+    },
+    {
+      "checkpointId": "e6",
+      "sourceTime": 120.021,
+      "images": 10,
+      "priorOutputs": 5,
+      "requestSha256": "2abab55917736dbf2974cea0a1dfe2a1283f438510e5527d388a0db5d51b843a",
+      "responseSha256": "1f04a6d282d824804a8d66ae61f8c7b4ce73815a38fefe181f076f44ebcc8f8f",
+      "wireImagesMatch": true,
+      "noFutureImages": true,
+      "actualCausalOutputChain": true,
+      "allCriteriaInRequest": true,
+      "finishReason": "stop",
+      "serviceSeconds": 8.355519143864512
+    }
+  ],
+  "modelRawFilesModified": false
+}

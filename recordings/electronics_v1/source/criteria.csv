@@ -1,0 +1,6 @@
+id,taskId,label,target,kind,unit,lower,upper,allowWorker
+E-CONNECTION,circuit,S2와 L1의 병렬 연결을 확인,circuit-board,visual,,,,false
+E-PROPELLER,propeller,모터의 프로펠러 장착 외관,circuit-board,visual,,,,false
+E-BATTERY,battery,배터리 2개와 삽입 방향 확인,circuit-board,visual,,,,false
+E-SWITCH,switch,S1·S2 조작 순서 확인,circuit-board,visual,,,,false
+E-FINAL,final,최종 프로펠러 장착 외관 기록,circuit-board,visual,,,,false

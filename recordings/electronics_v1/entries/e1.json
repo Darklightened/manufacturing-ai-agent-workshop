@@ -1,0 +1,118 @@
+{
+  "checkpointId": "e1",
+  "receipt": {
+    "id": "electronics_v1-e1",
+    "model": "seminar-qwen38-27b-fp8",
+    "requestSha256": "eb335d70e8a775211b379242aa3a7f75d2cccf7e27e9f772df5358fbdb1d59af",
+    "responseSha256": "58b6d4dd54064c59f880d4dd2a66428267d6183bd07de2ed36ed2c245edf83b1",
+    "requestPath": "recordings/electronics_v1/requests/e1.json",
+    "responsePath": "recordings/electronics_v1/responses/e1.json",
+    "requestedAt": "2026-11-21T15:23:25.025442+00:00",
+    "receivedAt": "2026-11-21T15:23:34.068585+00:00",
+    "httpStatus": 200,
+    "serviceSeconds": 9.039239723235369,
+    "finishReason": "stop",
+    "usage": {
+      "prompt_tokens": 4002,
+      "total_tokens": 4818,
+      "completion_tokens": 816,
+      "prompt_tokens_details": null,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0
+      }
+    }
+  },
+  "inputImages": [
+    {
+      "id": "S1790005-frame-00",
+      "path": "data/source_pack/electronics/S1790005/frame_00_0000.500s.jpg",
+      "time": 0.5,
+      "sha256": "249e3960e25736efd5c3052c76b857e7d3dfc4e0643610b522a6032e595fe4e5",
+      "role": "historical"
+    },
+    {
+      "id": "S1790005-frame-01",
+      "path": "data/source_pack/electronics/S1790005/frame_01_0009.220s.jpg",
+      "time": 9.22,
+      "sha256": "9dcfe40c2cadfe807b09ad23322674bb61b2ca4f86b768fc0f1cae7109f1af6e",
+      "role": "historical"
+    },
+    {
+      "id": "S1790005-frame-02",
+      "path": "data/source_pack/electronics/S1790005/frame_02_0020.361s.jpg",
+      "time": 20.361,
+      "sha256": "61671b8045565fb3073ab4bc9d6b35dc0640913b8fab90fb607e7c8785f7b318",
+      "role": "current"
+    }
+  ],
+  "output": {
+    "checkpointId": "e1",
+    "observedTaskId": "circuit",
+    "phase": "in_progress",
+    "summaryKo": "작업자가 회로 보드 위에 스위치와 배터리 홀더를 배치하고 연결하는 작업을 진행 중입니다. 프로펠러, 배터리, 최종 외관 등 후속 작업은 아직 시작되지 않았습니다.",
+    "assessments": [
+      {
+        "criterionId": "E-CONNECTION",
+        "target": "circuit-board",
+        "observation": "unclear",
+        "applicability": "due",
+        "targetConfirmed": true,
+        "evidenceIds": [
+          "S1790005-frame-02"
+        ],
+        "reason": "현재 프레임에서 작업자가 회로 보드 위에서 스위치와 배터리 홀더를 조작하고 있어 회로 연결 작업 시점에 해당합니다. 그러나 S2와 L1의 병렬 연결 구조를 명확히 식별할 수 있는 시각적 증거가 부족하여 판단을 보류합니다."
+      },
+      {
+        "criterionId": "E-PROPELLER",
+        "target": "circuit-board",
+        "observation": "absent",
+        "applicability": "not_due",
+        "targetConfirmed": true,
+        "evidenceIds": [
+          "S1790005-frame-02"
+        ],
+        "reason": "모터에 프로펠러가 장착된 상태가 아니며, 현재 시점에서 프로펠러가 회로 보드나 모터에 연결되어 있지 않습니다. 프로펠러는 아직 테이블 위에 분리된 상태로 놓여 있습니다."
+      },
+      {
+        "criterionId": "E-BATTERY",
+        "target": "circuit-board",
+        "observation": "absent",
+        "applicability": "not_due",
+        "targetConfirmed": true,
+        "evidenceIds": [
+          "S1790005-frame-02"
+        ],
+        "reason": "배터리 홀더에 배터리가 삽입되어 있지 않으며, 배터리는 테이블 위에 분리된 상태로 놓여 있습니다. 배터리 삽입 작업은 아직 수행되지 않았습니다."
+      },
+      {
+        "criterionId": "E-SWITCH",
+        "target": "circuit-board",
+        "observation": "unclear",
+        "applicability": "not_due",
+        "targetConfirmed": true,
+        "evidenceIds": [
+          "S1790005-frame-02"
+        ],
+        "reason": "스위치 조작 순서를 확인할 수 있는 동작이 관찰되지 않았습니다. 현재는 스위치를 회로에 연결하는 단계로 보이며, 실제 조작(켜기)은 아직 이루어지지 않았습니다."
+      },
+      {
+        "criterionId": "E-FINAL",
+        "target": "circuit-board",
+        "observation": "absent",
+        "applicability": "not_due",
+        "targetConfirmed": true,
+        "evidenceIds": [
+          "S1790005-frame-02"
+        ],
+        "reason": "최종 외관 기록을 위한 프로펠러 장착이 완료되지 않았으므로, 최종 외관 확인 시점은 아직 도래하지 않았습니다."
+      }
+    ],
+    "questions": [
+      {
+        "criterionId": "E-CONNECTION",
+        "text": "S2와 L1의 병렬 연결 구조를 명확히 확인할 수 있는 각도나 시점의 추가 영상이 필요합니다."
+      }
+    ]
+  },
+  "responseContent": "{\n  \"checkpointId\": \"e1\",\n  \"observedTaskId\": \"circuit\",\n  \"phase\": \"in_progress\",\n  \"summaryKo\": \"작업자가 회로 보드 위에 스위치와 배터리 홀더를 배치하고 연결하는 작업을 진행 중입니다. 프로펠러, 배터리, 최종 외관 등 후속 작업은 아직 시작되지 않았습니다.\",\n  \"assessments\": [\n    {\n      \"criterionId\": \"E-CONNECTION\",\n      \"target\": \"circuit-board\",\n      \"observation\": \"unclear\",\n      \"applicability\": \"due\",\n      \"targetConfirmed\": true,\n      \"evidenceIds\": [\n        \"S1790005-frame-02\"\n      ],\n      \"reason\": \"현재 프레임에서 작업자가 회로 보드 위에서 스위치와 배터리 홀더를 조작하고 있어 회로 연결 작업 시점에 해당합니다. 그러나 S2와 L1의 병렬 연결 구조를 명확히 식별할 수 있는 시각적 증거가 부족하여 판단을 보류합니다.\"\n    },\n    {\n      \"criterionId\": \"E-PROPELLER\",\n      \"target\": \"circuit-board\",\n      \"observation\": \"absent\",\n      \"applicability\": \"not_due\",\n      \"targetConfirmed\": true,\n      \"evidenceIds\": [\n        \"S1790005-frame-02\"\n      ],\n      \"reason\": \"모터에 프로펠러가 장착된 상태가 아니며, 현재 시점에서 프로펠러가 회로 보드나 모터에 연결되어 있지 않습니다. 프로펠러는 아직 테이블 위에 분리된 상태로 놓여 있습니다.\"\n    },\n    {\n      \"criterionId\": \"E-BATTERY\",\n      \"target\": \"circuit-board\",\n      \"observation\": \"absent\",\n      \"applicability\": \"not_due\",\n      \"targetConfirmed\": true,\n      \"evidenceIds\": [\n        \"S1790005-frame-02\"\n      ],\n      \"reason\": \"배터리 홀더에 배터리가 삽입되어 있지 않으며, 배터리는 테이블 위에 분리된 상태로 놓여 있습니다. 배터리 삽입 작업은 아직 수행되지 않았습니다.\"\n    },\n    {\n      \"criterionId\": \"E-SWITCH\",\n      \"target\": \"circuit-board\",\n      \"observation\": \"unclear\",\n      \"applicability\": \"not_due\",\n      \"targetConfirmed\": true,\n      \"evidenceIds\": [\n        \"S1790005-frame-02\"\n      ],\n      \"reason\": \"스위치 조작 순서를 확인할 수 있는 동작이 관찰되지 않았습니다. 현재는 스위치를 회로에 연결하는 단계로 보이며, 실제 조작(켜기)은 아직 이루어지지 않았습니다.\"\n    },\n    {\n      \"criterionId\": \"E-FINAL\",\n      \"target\": \"circuit-board\",\n      \"observation\": \"absent\",\n      \"applicability\": \"not_due\",\n      \"targetConfirmed\": true,\n      \"evidenceIds\": [\n        \"S1790005-frame-02\"\n      ],\n      \"reason\": \"최종 외관 기록을 위한 프로펠러 장착이 완료되지 않았으므로, 최종 외관 확인 시점은 아직 도래하지 않았습니다.\"\n    }\n  ],\n  \"questions\": [\n    {\n      \"criterionId\": \"E-CONNECTION\",\n      \"text\": \"S2와 L1의 병렬 연결 구조를 명확히 확인할 수 있는 각도나 시점의 추가 영상이 필요합니다.\"\n    }\n  ]\n}"
+}

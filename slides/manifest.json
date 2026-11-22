@@ -1,0 +1,32 @@
+{
+  "schema": "seminar.slides.v1",
+  "title": "제조 AI Agent 실습",
+  "slide_count": 24,
+  "mode": "authored_classroom_explanation",
+  "inference_calls": 0,
+  "self_contained": true,
+  "font_license": "../assets/fonts/OFL.txt",
+  "sources": {
+    "data/source_pack/electronics/S1790005/frame_04_0076.731s.jpg": "6a258d17a6ace40c919e7f093d86cf825f685c2656630996eecd059f1b8153c7",
+    "scenarios/measurement_demo/scene-a.svg": "08e14f1dddb7bee17852508e2f06c083274dc0d7a00c845748184509b0dac0c8",
+    "slides/assets/electronics-documents.png": "fd0e3ae300c46eef3bce93d92cb59af798951480ae2c3af8d83f24a8d2ce7f56",
+    "data/source_pack/electronics/S1790005/frame_00_0000.500s.jpg": "249e3960e25736efd5c3052c76b857e7d3dfc4e0643610b522a6032e595fe4e5",
+    "data/source_pack/electronics/S1790005/frame_05_0089.659s.jpg": "043fdadaa2e8875870c37dca456639f4a66e38620a712456f0861f2e56484297",
+    "data/source_pack/electronics/S1790005/frame_06_0099.726s.jpg": "1dca3a47705f064265848fc33b5a9ae570755ff1c0246c610e0f947b0f07405b",
+    "data/source_pack/electronics/S1790005/frame_08_0113.870s.jpg": "1691e87fe1c8439285402269a43b320795cd253339d68545311745811e2fc4a7",
+    "data/source_pack/electronics/S1790005/frame_09_0120.021s.jpg": "a06ee6e9d739e7d3d7b9ab3bb081b002a3694b500d1a35e33401c80d0bc88b23",
+    "slides/assets/electronics-question.png": "f516908ede5e8025698706b2b94dfe2b031c8b0e0dd048e65bad09f4af760f6f",
+    "slides/assets/electronics-report.png": "891be5c192808a63d8e2ab2273e6ce4d497e142f603f627d3860747787895b28",
+    "slides/assets/measurement-product-selection.png": "7d56ecd49842dc2833c6bcc4ce99b39573da60471341f47dba605fea5370969e",
+    "scenarios/measurement_demo/drawing.svg": "3455e4c27652fba3f476719e5d74e76a397bcd8d865b4f8703de2df30e1a8362",
+    "scenarios/measurement_demo/scene-b.svg": "8294257ef483a27286e9e89e706cfc19122c7d3a30ff732963a068eda7571321",
+    "scenarios/measurement_demo/scene-c.svg": "09657bda216d0b8545eca7d90026c443cc89ef9b71c7387e09e5cdb973c70a6f",
+    "slides/assets/measurement-question.png": "79f6563f54c20c534c462107eb6ad4cbafee9e59cd35ebef6d550e9c59f2e885",
+    "slides/assets/measurement-inspection-header.png": "f8b1d18c8902c93be396f2708f097f385dccde48401d4e0e0457d94c375379eb",
+    "slides/assets/measurement-inspection-table.png": "91bd23eb9ab37b972c3f57f7ae4c1f5fe9660b1cfacc83ab6d2d6f177a43d17d",
+    "assets/fonts/NotoSansKR.woff2": "595d02b6812da7493347da4381fdeda9397992730c3cf038ccc15818ea9ac14a"
+  },
+  "content_sha256": "c9074584e8783df16d7b385df9c3919b6a4fa31b64dc6c15ea2695a0a181179f",
+  "html_sha256": "59b1b0e266ad24420f6b8dae0289327c9f5af922620920d577382a6b21b087fd",
+  "published": false
+}

@@ -1,0 +1,34 @@
+{
+  "schema": "seminar.serving-receipt.v1",
+  "modelRepositoryLabel": "Qwen/Qwen3.8-27B-FP8",
+  "snapshotRevision": "017b9c7af6b5689d5dd426a76e0bc077eb5ca20a",
+  "resolvedArchitecture": "Qwen3_5ForConditionalGeneration",
+  "servingArguments": {
+    "served-model-name": "seminar-qwen38-27b-fp8",
+    "dtype": "bfloat16",
+    "tensor-parallel-size": "1",
+    "max-model-len": "65536",
+    "max-num-seqs": "8",
+    "max-num-batched-tokens": "32768",
+    "mm-processor-kwargs": "{\"min_pixels\":65536,\"max_pixels\":602112}",
+    "limit-mm-per-prompt": "{\"image\":{\"count\":32,\"width\":768,\"height\":784},\"video\":{\"count\":0}}",
+    "compilation-config": "{\"mode\":3,\"cudagraph_mode\":\"FULL_AND_PIECEWISE\",\"compile_mm_encoder\":false,\"cudagraph_mm_encoder\":false,\"encoder_cudagraph_token_budgets\":[512,1024,2048,4096,8192,16384,32768],\"encoder_cudagraph_max_vision_items_per_batch\":32}",
+    "mamba-ssm-cache-dtype": "float32",
+    "gpu-memory-utilization": "0.75"
+  },
+  "servedOnPhysicalGpu": 0,
+  "rawImageResolution": [
+    1280,
+    720
+  ],
+  "internalVisionResolution": "vLLM processor resizes; max_pixels=602112, not the rawJPEG pixel count; per-image effective token counts not separately measured",
+  "visionProfileWarning": "image.height override784 exceeds profiler maximum672; ignored",
+  "sourceLogSha256": "f5a483409fe6e31e1ff34a4674816527bc6ca51dbd4ba9321b23fc80f7a500cc",
+  "serverStartedEpoch": 1795274421.4798203,
+  "serverReadyEpoch": 1795274601.547085,
+  "serverStoppedEpoch": 1795274656.854788,
+  "boundedCaptureExit": 0,
+  "gpuReleasedAfterCapture": true,
+  "oldGpuHoldRestored": true,
+  "classroomPlaybackRequiresGpu": false
+}

@@ -1,0 +1,266 @@
+{
+  "id": "electronics_demo",
+  "version": "teaching-demo-v1",
+  "mode": "demo",
+  "title": "전자 조립 · 바람빛 회로 키트",
+  "description": "부품 준비부터 조립, 작업자 확인, 검수조서까지. 질문 하나에 답하고 결과가 바뀌는 과정을 체험합니다.",
+  "companyId": "edu-daon",
+  "companyName": "다온에듀테크",
+  "processId": "ELEC-DEMO-001",
+  "productName": "바람빛 회로 키트",
+  "orderId": "DEMO-001",
+  "sourceNote": "EgoOops S1790005 공개 영상을 활용한 강의용 예시입니다. 회사·제품·작업지시서·판정 이벤트는 수업을 위해 작성했습니다. 원본 영상의 실제 모델 분석이나 품질 판정 결과가 아닙니다.",
+  "fixtureNotice": "강의용 예시 · 공개 영상 + 미리 작성한 관찰 · GPU/API 없이 실행",
+  "demoNotice": "예시 관찰을 재생하며, 확인 답변과 검사 정책은 실습 중 직접 바꿀 수 있습니다.",
+  "timelineKind": "source_video_timestamps_with_authored_teaching_events",
+  "tasks": [
+    {
+      "id": "preparation",
+      "label": "부품과 작업 준비"
+    },
+    {
+      "id": "circuit",
+      "label": "회로 연결"
+    },
+    {
+      "id": "propeller",
+      "label": "프로펠러 장착"
+    },
+    {
+      "id": "battery",
+      "label": "배터리 삽입"
+    },
+    {
+      "id": "switch",
+      "label": "스위치 확인"
+    },
+    {
+      "id": "final",
+      "label": "최종 외관 기록"
+    }
+  ],
+  "criteria": [
+    {
+      "id": "E-PREP",
+      "taskId": "preparation",
+      "label": "보드·연결 부품·모터·프로펠러·배터리·지시서 준비",
+      "target": "circuit-board",
+      "kind": "visual",
+      "unit": "",
+      "lower": "",
+      "upper": "",
+      "allowWorker": false
+    },
+    {
+      "id": "E-CONNECTION",
+      "taskId": "circuit",
+      "label": "작업지시서에 따른 회로 연결 완료",
+      "target": "circuit-board",
+      "kind": "visual",
+      "unit": "",
+      "lower": "",
+      "upper": "",
+      "allowWorker": false
+    },
+    {
+      "id": "E-PROPELLER",
+      "taskId": "propeller",
+      "label": "프로펠러가 모터 축에 장착됨",
+      "target": "circuit-board",
+      "kind": "visual",
+      "unit": "",
+      "lower": "",
+      "upper": "",
+      "allowWorker": false
+    },
+    {
+      "id": "E-BATTERY",
+      "taskId": "battery",
+      "label": "배터리 두 개의 방향이 홀더 표시와 일치",
+      "target": "circuit-board",
+      "kind": "visual",
+      "unit": "",
+      "lower": "",
+      "upper": "",
+      "allowWorker": true
+    },
+    {
+      "id": "E-SWITCH",
+      "taskId": "switch",
+      "label": "S1 확인 후 S2 확인 순서 준수",
+      "target": "circuit-board",
+      "kind": "visual",
+      "unit": "",
+      "lower": "",
+      "upper": "",
+      "allowWorker": false
+    },
+    {
+      "id": "E-FINAL",
+      "taskId": "final",
+      "label": "조립 완료 외관 사진과 확인 기록 확보",
+      "target": "circuit-board",
+      "kind": "visual",
+      "unit": "",
+      "lower": "",
+      "upper": "",
+      "allowWorker": false
+    }
+  ],
+  "media": {
+    "path": "data/source_pack/electronics/S1790005/S1790005.mp4",
+    "codec": "h264",
+    "browserPlayable": true
+  },
+  "sources": [
+    {
+      "label": "EgoOops 공개 영상 · Yuto Haneji et al.",
+      "url": "https://y-haneji.github.io/EgoOops-project-page/",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "variants": [
+    {
+      "id": "electronics",
+      "label": "강사용: 저장된 실제 응답 비교",
+      "config": "scenarios/electronics/scenario.json",
+      "instructorOnly": true
+    },
+    {
+      "id": "electronics_error",
+      "label": "강사용: 오류 사례 비교",
+      "config": "scenarios/electronics_error/scenario.json",
+      "instructorOnly": true
+    }
+  ],
+  "exercises": [
+    "정보 구축을 눌러 회사·공정·6개 검사 기준이 등록되는지 확인하세요.",
+    "배터리 질문에 방향을 확인했다고 답하고, 보류가 충족으로 바뀌는지 확인하세요.",
+    "배터리 기준을 '사진 증거만 인정'으로 바꾸어 같은 답변이 보류로 돌아가는지 비교하세요.",
+    "검수조서와 보고서를 저장하고 예시 관찰과 작업자 확인이 따로 기록되는지 확인하세요."
+  ],
+  "checkpoints": [
+    {
+      "id": "e1",
+      "time": 0.5,
+      "sourceTime": 0.5,
+      "taskId": "preparation",
+      "target": "circuit-board",
+      "label": "부품 준비 완료",
+      "note": "보드, 연결 부품, 프로펠러, 배터리와 지시서가 놓인 시작 장면입니다.",
+      "image": "data/source_pack/electronics/S1790005/frame_00_0000.500s.jpg",
+      "origin": "authored_demo",
+      "assessments": [
+        {
+          "criterionId": "E-PREP",
+          "verdict": "met",
+          "reason": "작업에 필요한 부품과 지시서 준비를 완료했습니다."
+        }
+      ]
+    },
+    {
+      "id": "e2",
+      "time": 76.731,
+      "sourceTime": 76.731,
+      "taskId": "circuit",
+      "target": "circuit-board",
+      "label": "회로 연결 완료",
+      "note": "회로 연결을 마치고 프로펠러 장착 단계로 넘어갑니다.",
+      "image": "data/source_pack/electronics/S1790005/frame_04_0076.731s.jpg",
+      "origin": "authored_demo",
+      "assessments": [
+        {
+          "criterionId": "E-CONNECTION",
+          "verdict": "met",
+          "reason": "작업지시서에 따라 회로 연결을 완료했습니다."
+        }
+      ]
+    },
+    {
+      "id": "e3",
+      "time": 89.659,
+      "sourceTime": 89.659,
+      "taskId": "propeller",
+      "target": "circuit-board",
+      "label": "프로펠러 장착 중",
+      "note": "손으로 프로펠러를 잡고 장착하는 단계입니다. 완료 판정은 다음 관찰에서 기록합니다.",
+      "image": "data/source_pack/electronics/S1790005/frame_05_0089.659s.jpg",
+      "origin": "authored_demo",
+      "assessments": []
+    },
+    {
+      "id": "e4",
+      "time": 99.726,
+      "sourceTime": 99.726,
+      "taskId": "battery",
+      "target": "circuit-board",
+      "label": "배터리 방향 확인 요청",
+      "note": "프로펠러 장착 후 배터리를 넣는 장면입니다. 손에 가린 방향은 작업자에게 확인합니다.",
+      "image": "data/source_pack/electronics/S1790005/frame_06_0099.726s.jpg",
+      "origin": "authored_demo",
+      "assessments": [
+        {
+          "criterionId": "E-PROPELLER",
+          "verdict": "met",
+          "reason": "모터 축에 프로펠러를 장착한 상태를 기록했습니다."
+        },
+        {
+          "criterionId": "E-BATTERY",
+          "verdict": "unknown",
+          "reason": "손과 홀더 각도 때문에 배터리 두 개의 방향이 명확하지 않습니다.",
+          "question": "배터리 두 개의 방향이 홀더의 + / − 표시와 맞나요? 삽입을 마친 뒤 방향을 확인해 주세요."
+        }
+      ]
+    },
+    {
+      "id": "e5",
+      "time": 113.87,
+      "sourceTime": 113.87,
+      "taskId": "switch",
+      "target": "circuit-board",
+      "label": "스위치 확인 완료",
+      "note": "S1과 S2의 확인 순서를 기록하고 최종 외관을 준비합니다.",
+      "image": "data/source_pack/electronics/S1790005/frame_08_0113.870s.jpg",
+      "origin": "authored_demo",
+      "assessments": [
+        {
+          "criterionId": "E-SWITCH",
+          "verdict": "met",
+          "reason": "S1 확인 후 S2 확인 순서가 기록되었습니다."
+        }
+      ]
+    },
+    {
+      "id": "e6",
+      "time": 120.021,
+      "sourceTime": 120.021,
+      "taskId": "final",
+      "target": "circuit-board",
+      "label": "최종 외관 기록",
+      "note": "손을 치운 최종 외관을 기록합니다. 배터리 답변이 없으면 최종 보고서에 보류가 남습니다.",
+      "image": "data/source_pack/electronics/S1790005/frame_09_0120.021s.jpg",
+      "origin": "authored_demo",
+      "assessments": [
+        {
+          "criterionId": "E-FINAL",
+          "verdict": "met",
+          "reason": "조립 완료 외관 사진을 기록에 첨부했습니다."
+        }
+      ]
+    }
+  ],
+  "documents": [
+    {
+      "id": "sop",
+      "title": "작업지시서 · 조립 절차 PDF",
+      "path": "scenarios/electronics_demo/SOP.pdf",
+      "type": "pdf"
+    },
+    {
+      "id": "criteria",
+      "title": "6개 검사 기준 CSV",
+      "path": "scenarios/electronics_demo/criteria.csv",
+      "type": "csv"
+    }
+  ]
+}

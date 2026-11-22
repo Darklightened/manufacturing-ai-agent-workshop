@@ -1,0 +1,105 @@
+{
+  "schema": "seminar.teaching-demo-e2e.v1",
+  "dateKst": "2026-11-22",
+  "status": "passed",
+  "defaultScenario": "electronics_demo",
+  "provenance": "authored_demo",
+  "modelCalls": 0,
+  "gpuCalls": 0,
+  "published": false,
+  "coreTests": {
+    "passed": 60,
+    "failed": 0,
+    "priorTests": 43,
+    "demoTests": 17
+  },
+  "browser": {
+    "status": "passed",
+    "scenario": "electronics_demo",
+    "mode": "demo",
+    "inputOrigin": "authored_demo",
+    "videoCheck": {
+      "status": "browser_codec_limitation",
+      "readyState": 0,
+      "error": {
+        "code": 4,
+        "message": "DEMUXER_ERROR_NO_SUPPORTED_STREAMS: FFmpegDemuxer: no supported streams"
+      },
+      "testMessage": "Page.wait_for_function: Timeout 20000ms exceeded.",
+      "frameFallbackVerified": true
+    },
+    "checks": [
+      "default classroom and advanced legacy separation",
+      "real PDF extraction and SQLite compilation",
+      "six checkpoints and six final met criteria",
+      "delivery required before quick answer",
+      "positive and negative explicit worker response",
+      "raw example observation retained",
+      "strict-policy hold and policy restoration",
+      "answer correction retains prior answers",
+      "embedded-image and font reports plus inspection export",
+      "standalone report and inspection render offline",
+      "SQLite row matches current result",
+      "exact reload and fresh-context import",
+      "mobile no horizontal overflow",
+      "no actual-recording fetch, model API, POST or external request"
+    ],
+    "localGetRequests": 130,
+    "externalOrNonGetRequests": 0,
+    "pageErrors": [],
+    "modelCalls": 0,
+    "limitations": [
+      "Authored classroom observation, not a model-quality or real product certification test.",
+      "Speech playback availability and classroom speaker quality are not verified.",
+      "This Chromium cannot decode the original H.264 MP4; video metadata/seek did not pass. Frame-based interaction and the explicit playback fallback passed."
+    ]
+  },
+  "legacyFixtureRegression": {
+    "status": "passed",
+    "packs": 5,
+    "checkpoints": 25,
+    "pageErrors": []
+  },
+  "legacyRecordedRegression": {
+    "status": "passed",
+    "checkpoints": 6,
+    "nonGetRequests": 0,
+    "externalRequests": 0,
+    "inferenceCalls": 0
+  },
+  "retainedFiles": {
+    "prior_model_and_scenario_files_checked": 30,
+    "changed_files": [],
+    "new_default": "electronics_demo",
+    "new_model_calls": 0
+  },
+  "exampleOutcomes": {
+    "positiveReply": {
+      "met": 6,
+      "unknown": 0,
+      "violated": 0
+    },
+    "negativeReply": {
+      "met": 5,
+      "unknown": 0,
+      "violated": 1
+    },
+    "visualOnlyPolicyAfterPositiveReply": {
+      "met": 5,
+      "unknown": 1,
+      "violated": 0
+    }
+  },
+  "sourcePins": {
+    "app.mjs": "45f44d78628f1c8f933ab35eb23195d88242976d9a5c064f043d9929e87236d7",
+    "index.html": "707507256d8e12cbb830f7a27ed8ef71bb3a0ff33ab021f418f6185ff769afd5",
+    "styles.css": "e1da3f4d33b3ca2b2453d5afc636e58a3cacfdecb3845bf3fc063bdb41205a12",
+    "packages/core/core.mjs": "434d542a5eda2e227ace9cfd6f181351f3b173a781df465c47a9adec9e87305e",
+    "scenarios/electronics_demo/scenario.json": "636546d64dc9ed838f63083848c8fce71737906796c9bfb31820f4f21996650a",
+    "scenarios/electronics_demo/SOP.pdf": "9894354d39d837675b6306709dcf2f9b0eee74c4d0f2bbe4bd950ee3c7e65692",
+    "scenarios/electronics_demo/criteria.csv": "8de956b983715d997bca713028c4fc8e92d7267b8498d463a6c1995fa16bc33b",
+    "tests/core-demo.test.mjs": "b2969b0123697ed289530d8c6bdbc13b1fc61379d13c9dd43a3130ff77c1d793",
+    "tests/browser_demo_e2e.py": "c6d7241cd91223dc14aa6368a43958360e0194048a28afd79c605c37fb8dd392"
+  },
+  "scope": "Deterministic classroom example and actual browser functionality; not model accuracy or independent physical compliance evaluation."
+}

@@ -1,0 +1,232 @@
+{
+  "id": "electronics",
+  "title": "전자 조립 작업 지원",
+  "description": "회로 연결부터 배터리·작동 확인까지. 보이는 것과 확인이 필요한 것을 구분합니다.",
+  "sourceNote": "EgoOops S1790005의 실제 영상·원본8단계를 참고한 교육용 제어 실습입니다. 아래 판정은 작성된 fixture이며 모델 출력이 아닙니다.",
+  "companyId": "edu-dynin",
+  "processId": "ELEC-001",
+  "mode": "fixture",
+  "tasks": [
+    {
+      "id": "circuit",
+      "label": "회로 연결"
+    },
+    {
+      "id": "propeller",
+      "label": "프로펠러 장착"
+    },
+    {
+      "id": "battery",
+      "label": "배터리 삽입"
+    },
+    {
+      "id": "switch",
+      "label": "스위치 확인"
+    },
+    {
+      "id": "final",
+      "label": "최종 외관"
+    }
+  ],
+  "criteria": [
+    {
+      "id": "E-CONNECTION",
+      "taskId": "circuit",
+      "label": "S2와 L1의 병렬 연결을 확인",
+      "target": "circuit-board",
+      "kind": "visual",
+      "unit": "",
+      "lower": "",
+      "upper": "",
+      "allowWorker": false
+    },
+    {
+      "id": "E-PROPELLER",
+      "taskId": "propeller",
+      "label": "모터의 프로펠러 장착 외관",
+      "target": "circuit-board",
+      "kind": "visual",
+      "unit": "",
+      "lower": "",
+      "upper": "",
+      "allowWorker": false
+    },
+    {
+      "id": "E-BATTERY",
+      "taskId": "battery",
+      "label": "배터리 2개와 삽입 방향 확인",
+      "target": "circuit-board",
+      "kind": "visual",
+      "unit": "",
+      "lower": "",
+      "upper": "",
+      "allowWorker": false
+    },
+    {
+      "id": "E-SWITCH",
+      "taskId": "switch",
+      "label": "S1·S2 조작 순서 확인",
+      "target": "circuit-board",
+      "kind": "visual",
+      "unit": "",
+      "lower": "",
+      "upper": "",
+      "allowWorker": false
+    },
+    {
+      "id": "E-FINAL",
+      "taskId": "final",
+      "label": "최종 프로펠러 장착 외관 기록",
+      "target": "circuit-board",
+      "kind": "visual",
+      "unit": "",
+      "lower": "",
+      "upper": "",
+      "allowWorker": false
+    }
+  ],
+  "media": {
+    "path": "data/source_pack/electronics/S1790005/S1790005.mp4",
+    "codec": "h264",
+    "browserPlayable": true
+  },
+  "sources": [
+    {
+      "label": "EgoOops 공개 원본 및 절차 주석",
+      "url": "https://y-haneji.github.io/EgoOops-project-page/",
+      "license": "CC BY-SA 4.0"
+    }
+  ],
+  "exercises": [
+    "정보 구축 후 원본 절차와 DB 기준을 대조하세요.",
+    "가려진 배터리에 “확인했습니다”라고 답해도 시각 검사가 완료되지 않는 이유를 확인하세요.",
+    "정상 주석은 모든 품질의 독립 합격 인증과 다르다는 점을 보고서에서 확인하세요."
+  ],
+  "variants": [
+    {
+      "id": "electronics_error",
+      "label": "원본 오류 주석 사례",
+      "config": "scenarios/electronics_error/scenario.json"
+    }
+  ],
+  "checkpoints": [
+    {
+      "id": "e1",
+      "time": 20.361,
+      "taskId": "circuit",
+      "target": "circuit-board",
+      "label": "회로 연결 작업",
+      "note": "교육용으로 작성한 관찰·판정 입력입니다. 실제 모델 예측이나 독립 품질 인증이 아닙니다.",
+      "origin": "authored_fixture",
+      "image": "data/source_pack/electronics/S1790005/frame_02_0020.361s.jpg",
+      "assessments": [
+        {
+          "criterionId": "E-CONNECTION",
+          "verdict": "unknown",
+          "reason": "연결 작업 중입니다. 완료된 병렬 관계를 확인할 근거가 충분하지 않습니다."
+        }
+      ]
+    },
+    {
+      "id": "e2",
+      "time": 76.731,
+      "taskId": "circuit",
+      "target": "circuit-board",
+      "label": "연결부 확인 요청",
+      "note": "교육용으로 작성한 관찰·판정 입력입니다. 실제 모델 예측이나 독립 품질 인증이 아닙니다.",
+      "origin": "authored_fixture",
+      "image": "data/source_pack/electronics/S1790005/frame_04_0076.731s.jpg",
+      "assessments": [
+        {
+          "criterionId": "E-CONNECTION",
+          "verdict": "unknown",
+          "reason": "손이 연결부를 가립니다. S2와 L1의 접점을 보여 주는 증거가 필요합니다."
+        }
+      ]
+    },
+    {
+      "id": "e3",
+      "time": 89.659,
+      "taskId": "propeller",
+      "target": "circuit-board",
+      "label": "프로펠러 장착",
+      "note": "교육용으로 작성한 관찰·판정 입력입니다. 실제 모델 예측이나 독립 품질 인증이 아닙니다.",
+      "origin": "authored_fixture",
+      "image": "data/source_pack/electronics/S1790005/frame_05_0089.659s.jpg",
+      "assessments": [
+        {
+          "criterionId": "E-PROPELLER",
+          "verdict": "unknown",
+          "reason": "장착 중인 한 장면으로 최종 안착 여부를 확정하지 않습니다."
+        }
+      ]
+    },
+    {
+      "id": "e4",
+      "time": 99.726,
+      "taskId": "battery",
+      "target": "circuit-board",
+      "label": "배터리 방향 확인",
+      "note": "교육용으로 작성한 관찰·판정 입력입니다. 실제 모델 예측이나 독립 품질 인증이 아닙니다.",
+      "origin": "authored_fixture",
+      "image": "data/source_pack/electronics/S1790005/frame_06_0099.726s.jpg",
+      "assessments": [
+        {
+          "criterionId": "E-BATTERY",
+          "verdict": "unknown",
+          "reason": "손과 홀더 각도로 두 배터리의 방향을 충분히 볼 수 없습니다."
+        }
+      ]
+    },
+    {
+      "id": "e5",
+      "time": 113.87,
+      "taskId": "switch",
+      "target": "circuit-board",
+      "label": "스위치 조작",
+      "note": "교육용으로 작성한 관찰·판정 입력입니다. 실제 모델 예측이나 독립 품질 인증이 아닙니다.",
+      "origin": "authored_fixture",
+      "image": "data/source_pack/electronics/S1790005/frame_08_0113.870s.jpg",
+      "assessments": [
+        {
+          "criterionId": "E-SWITCH",
+          "verdict": "unknown",
+          "reason": "이 스냅샷만으로 두 스위치의 시간 순서를 검증할 수 없습니다."
+        }
+      ]
+    },
+    {
+      "id": "e6",
+      "time": 120.021,
+      "taskId": "final",
+      "target": "circuit-board",
+      "label": "최종 외관과 미확인 항목",
+      "note": "교육용으로 작성한 관찰·판정 입력입니다. 실제 모델 예측이나 독립 품질 인증이 아닙니다.",
+      "origin": "authored_fixture",
+      "image": "data/source_pack/electronics/S1790005/frame_09_0120.021s.jpg",
+      "assessments": [
+        {
+          "criterionId": "E-FINAL",
+          "verdict": "met",
+          "reason": "교육용 외관 조건: 최종 프레임에서 프로펠러가 모터 위에 보입니다. 회전 성능은 검증하지 않습니다."
+        }
+      ]
+    }
+  ],
+  "documents": [
+    {
+      "id": "sop",
+      "title": "교육용 작업 절차 PDF",
+      "path": "scenarios/electronics/SOP.pdf",
+      "type": "pdf"
+    },
+    {
+      "id": "criteria",
+      "title": "교육용 검사 기준 CSV",
+      "path": "scenarios/electronics/criteria.csv",
+      "type": "csv"
+    }
+  ],
+  "fixtureNotice": "모든 체크포인트 판정은 사람이 작성한 교육용 입력입니다. 모델 실행은 0회입니다.",
+  "version": "education-v1"
+}

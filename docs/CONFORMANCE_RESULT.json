@@ -1,0 +1,82 @@
+{
+  "schema": "seminar.conformance.v1",
+  "date_kst": "2026-11-21",
+  "execution_path": "authored_fixture_cpu",
+  "model_calls": 0,
+  "browser_validation": "separate_pending_record",
+  "core_tests": {
+    "passed": 25,
+    "failed": 0
+  },
+  "scenario_checks": [
+    {
+      "scenario": "electronics",
+      "checkpoints": 6,
+      "criteria": 5,
+      "unknown": 4,
+      "violated": 0,
+      "source": "SOP.extracted.txt + criteria.csv",
+      "journal_rebuild_valid": true,
+      "report_generated": true,
+      "physical_pass": false
+    },
+    {
+      "scenario": "electronics_error",
+      "checkpoints": 5,
+      "criteria": 5,
+      "unknown": 3,
+      "violated": 1,
+      "source": "SOP.extracted.txt + criteria.csv",
+      "journal_rebuild_valid": true,
+      "report_generated": true,
+      "physical_pass": false
+    },
+    {
+      "scenario": "instruments",
+      "checkpoints": 3,
+      "criteria": 3,
+      "unknown": 2,
+      "violated": 0,
+      "source": "SOP.extracted.txt + criteria.csv",
+      "journal_rebuild_valid": true,
+      "report_generated": true,
+      "physical_pass": false
+    },
+    {
+      "scenario": "mechanical",
+      "checkpoints": 6,
+      "criteria": 4,
+      "unknown": 3,
+      "violated": 0,
+      "source": "SOP.extracted.txt + criteria.csv",
+      "journal_rebuild_valid": true,
+      "report_generated": true,
+      "physical_pass": false
+    },
+    {
+      "scenario": "maintenance",
+      "checkpoints": 5,
+      "criteria": 5,
+      "unknown": 5,
+      "violated": 0,
+      "source": "SOP.extracted.txt + criteria.csv",
+      "journal_rebuild_valid": true,
+      "report_generated": true,
+      "physical_pass": false
+    }
+  ],
+  "range_tests": {
+    "passed": 4,
+    "full_get_passed": true
+  },
+  "vendor_files_verified": 6,
+  "browser_e2e": {
+    "status": "passed",
+    "scenario_count": 5,
+    "checkpoints": 25,
+    "page_errors": 0,
+    "mobile_overflow": false,
+    "local_receipt": "validation/browser_e2e.json",
+    "inference_calls": 0
+  }
+}

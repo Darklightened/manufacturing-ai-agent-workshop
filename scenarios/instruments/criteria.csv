@@ -1,0 +1,4 @@
+id,taskId,label,target,kind,unit,lower,upper,allowWorker
+I-DIGITAL,digital,디지털 사례 교육 허용 범위,digital-case,range,mm,26.0,26.5,true
+I-MICRO,micrometer,마이크로미터 값과 단위 확인,micrometer-case,range,mm,5.7,5.8,true
+I-VERNIER,vernier,버니어 눈금의 안정적 판독 가능성,vernier-case,visual,,,,false

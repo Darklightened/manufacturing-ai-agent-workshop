@@ -1,0 +1,13 @@
+{
+  "status": "completed",
+  "at": "2026-11-21T15:24:15.028823+00:00",
+  "attempted": 6,
+  "accepted": 6,
+  "failedOrUnknown": 0,
+  "untouched": 0,
+  "wallSeconds": 50.01012503169477,
+  "httpServiceSeconds": 49.790509313344955,
+  "model": "seminar-qwen38-27b-fp8",
+  "condition": "electronics-sparse-causal-allcriteria-v1",
+  "qualityValidated": false
+}

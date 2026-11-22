@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta name="description" content="공개 영상과 강의용 예시로 배우는 제조 AI Agent 실습. 문서 구축부터 작업자 확인과 보고서까지 GPU 없이 실행합니다.">
+  <title>DYNIN · 제조 Agent 실습실</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip" href="#main">실습으로 이동</a>
+  <aside class="sidebar">
+    <a class="brand" href="./"><span class="brand-icon">D</span><span>DYNIN<small>MANUFACTURING LAB</small></span></a>
+    <div class="nav-label">실습 워크스페이스</div>
+    <nav id="nav" aria-label="실습 단계"></nav>
+    <div class="sidebar-bottom"><div class="label-pill">LOCAL FIRST</div><p>문서에서 시작해<br>근거가 있는 기록까지.</p><a href="downloads.html" target="_blank" rel="noopener">강의 자료 다운로드</a><a href="README.ko.md" target="_blank">시작 안내 ↗</a><a href="docs/DEPLOYMENT.ko.md" target="_blank">배포와 실행 안내 ↗</a></div>
+  </aside>
+  <div class="workspace">
+    <header class="topbar"><div><span class="eyebrow">WORKSHOP / 2026</span><span id="breadcrumb">실습 선택</span></div><div class="top-actions"><a class="button quiet" href="downloads.html" target="_blank" rel="noopener">강의 자료</a><span id="mode-banner" class="origin-pill">강의용 예시</span><span id="save-state" role="status">브라우저 저장</span><button id="backup" class="quiet">진행 내보내기</button><label class="button quiet">가져오기<input id="import-session" type="file" accept="application/json,.json" hidden></label></div></header>
+    <main id="main" tabindex="-1"><div class="loading">실습 자료를 불러오고 있습니다.<p>계속 표시된다면 START_HERE.ko.md의 로컬 서버 실행 방법을 확인해 주세요.</p></div></main>
+    <footer><span>공개 원본 영상 · 강의용 예시 · 직접 바꾸는 검사 기록</span><span id="runtime-notice">강의용으로 구성한 관찰 · 기준과 답변에 따라 결과 변경</span></footer>
+  </div>
+  <div id="toast" role="status" aria-live="polite"></div>
+  <dialog id="image-modal"><button id="close-image" class="secondary">닫기</button><img alt="원본 증거 확대"></dialog>
+  <script type="module" src="app.mjs"></script>
+</body>
+</html>

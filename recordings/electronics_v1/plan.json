@@ -1,0 +1,298 @@
+{
+  "schema": "seminar.capture-plan.v1",
+  "id": "electronics_v1",
+  "scenarioId": "electronics",
+  "condition": "electronics-sparse-causal-allcriteria-v1",
+  "model": "seminar-qwen38-27b-fp8",
+  "modelRevision": "017b9c7af6b5689d5dd426a76e0bc077eb5ca20a",
+  "createdAt": "2026-11-21T15:15:57.847807+00:00",
+  "sourcePins": {
+    "pdf": {
+      "path": "scenarios/electronics/SOP.pdf",
+      "sha256": "e0bb4c49c06c9dee399d548425c4e238a0524f9b390d0ea41f20936328f9801d"
+    },
+    "criteriaCsv": {
+      "path": "scenarios/electronics/criteria.csv",
+      "sha256": "944190d234014c587e9a3d14bab6cf599ee1b259bb32d6a78db7805e7ed791ef"
+    },
+    "scenario": {
+      "path": "scenarios/electronics/scenario.json",
+      "sha256": "8616f23420157deac5761b522e89d8a67548597207e0d051fd458f9ebda53f9f"
+    },
+    "video": {
+      "path": "data/source_pack/electronics/S1790005/S1790005.mp4",
+      "sha256": "91221f85368f091154c14e6b517998398ababfc413c88fff151fa60d905d4dbd"
+    }
+  },
+  "baseContract": {
+    "companyId": "edu-dynin",
+    "processId": "ELEC-001",
+    "tasks": [
+      {
+        "id": "circuit",
+        "label": "회로 연결"
+      },
+      {
+        "id": "propeller",
+        "label": "프로펠러 장착"
+      },
+      {
+        "id": "battery",
+        "label": "배터리 삽입"
+      },
+      {
+        "id": "switch",
+        "label": "스위치 확인"
+      },
+      {
+        "id": "final",
+        "label": "최종 외관"
+      }
+    ],
+    "criteria": [
+      {
+        "id": "E-CONNECTION",
+        "taskId": "circuit",
+        "label": "S2와 L1의 병렬 연결을 확인",
+        "target": "circuit-board",
+        "kind": "visual",
+        "unit": "",
+        "lower": "",
+        "upper": "",
+        "allowWorker": false
+      },
+      {
+        "id": "E-PROPELLER",
+        "taskId": "propeller",
+        "label": "모터의 프로펠러 장착 외관",
+        "target": "circuit-board",
+        "kind": "visual",
+        "unit": "",
+        "lower": "",
+        "upper": "",
+        "allowWorker": false
+      },
+      {
+        "id": "E-BATTERY",
+        "taskId": "battery",
+        "label": "배터리 2개와 삽입 방향 확인",
+        "target": "circuit-board",
+        "kind": "visual",
+        "unit": "",
+        "lower": "",
+        "upper": "",
+        "allowWorker": false
+      },
+      {
+        "id": "E-SWITCH",
+        "taskId": "switch",
+        "label": "S1·S2 조작 순서 확인",
+        "target": "circuit-board",
+        "kind": "visual",
+        "unit": "",
+        "lower": "",
+        "upper": "",
+        "allowWorker": false
+      },
+      {
+        "id": "E-FINAL",
+        "taskId": "final",
+        "label": "최종 프로펠러 장착 외관 기록",
+        "target": "circuit-board",
+        "kind": "visual",
+        "unit": "",
+        "lower": "",
+        "upper": "",
+        "allowWorker": false
+      }
+    ],
+    "checkpoints": [
+      {
+        "id": "e1",
+        "time": 20.361,
+        "taskId": "circuit",
+        "target": "circuit-board",
+        "image": "data/source_pack/electronics/S1790005/frame_02_0020.361s.jpg",
+        "sourceTime": 20.361
+      },
+      {
+        "id": "e2",
+        "time": 76.731,
+        "taskId": "circuit",
+        "target": "circuit-board",
+        "image": "data/source_pack/electronics/S1790005/frame_04_0076.731s.jpg",
+        "sourceTime": 76.731
+      },
+      {
+        "id": "e3",
+        "time": 89.659,
+        "taskId": "propeller",
+        "target": "circuit-board",
+        "image": "data/source_pack/electronics/S1790005/frame_05_0089.659s.jpg",
+        "sourceTime": 89.659
+      },
+      {
+        "id": "e4",
+        "time": 99.726,
+        "taskId": "battery",
+        "target": "circuit-board",
+        "image": "data/source_pack/electronics/S1790005/frame_06_0099.726s.jpg",
+        "sourceTime": 99.726
+      },
+      {
+        "id": "e5",
+        "time": 113.87,
+        "taskId": "switch",
+        "target": "circuit-board",
+        "image": "data/source_pack/electronics/S1790005/frame_08_0113.870s.jpg",
+        "sourceTime": 113.87
+      },
+      {
+        "id": "e6",
+        "time": 120.021,
+        "taskId": "final",
+        "target": "circuit-board",
+        "image": "data/source_pack/electronics/S1790005/frame_09_0120.021s.jpg",
+        "sourceTime": 120.021
+      }
+    ]
+  },
+  "images": [
+    {
+      "id": "S1790005-frame-00",
+      "path": "data/source_pack/electronics/S1790005/frame_00_0000.500s.jpg",
+      "time": 0.5,
+      "sha256": "249e3960e25736efd5c3052c76b857e7d3dfc4e0643610b522a6032e595fe4e5"
+    },
+    {
+      "id": "S1790005-frame-01",
+      "path": "data/source_pack/electronics/S1790005/frame_01_0009.220s.jpg",
+      "time": 9.22,
+      "sha256": "9dcfe40c2cadfe807b09ad23322674bb61b2ca4f86b768fc0f1cae7109f1af6e"
+    },
+    {
+      "id": "S1790005-frame-02",
+      "path": "data/source_pack/electronics/S1790005/frame_02_0020.361s.jpg",
+      "time": 20.361,
+      "sha256": "61671b8045565fb3073ab4bc9d6b35dc0640913b8fab90fb607e7c8785f7b318"
+    },
+    {
+      "id": "S1790005-frame-03",
+      "path": "data/source_pack/electronics/S1790005/frame_03_0047.073s.jpg",
+      "time": 47.073,
+      "sha256": "35372bc32f27c0207e3eb8d248c961144fc235216ed214f50bcce6d06f2fe9df"
+    },
+    {
+      "id": "S1790005-frame-04",
+      "path": "data/source_pack/electronics/S1790005/frame_04_0076.731s.jpg",
+      "time": 76.731,
+      "sha256": "6a258d17a6ace40c919e7f093d86cf825f685c2656630996eecd059f1b8153c7"
+    },
+    {
+      "id": "S1790005-frame-05",
+      "path": "data/source_pack/electronics/S1790005/frame_05_0089.659s.jpg",
+      "time": 89.659,
+      "sha256": "043fdadaa2e8875870c37dca456639f4a66e38620a712456f0861f2e56484297"
+    },
+    {
+      "id": "S1790005-frame-06",
+      "path": "data/source_pack/electronics/S1790005/frame_06_0099.726s.jpg",
+      "time": 99.726,
+      "sha256": "1dca3a47705f064265848fc33b5a9ae570755ff1c0246c610e0f947b0f07405b"
+    },
+    {
+      "id": "S1790005-frame-07",
+      "path": "data/source_pack/electronics/S1790005/frame_07_0106.996s.jpg",
+      "time": 106.996,
+      "sha256": "1a94e650852382fe8bfbd55e1e5d139658b62ed1dbc9c1cdbc2ff4810ddded10"
+    },
+    {
+      "id": "S1790005-frame-08",
+      "path": "data/source_pack/electronics/S1790005/frame_08_0113.870s.jpg",
+      "time": 113.87,
+      "sha256": "1691e87fe1c8439285402269a43b320795cd253339d68545311745811e2fc4a7"
+    },
+    {
+      "id": "S1790005-frame-09",
+      "path": "data/source_pack/electronics/S1790005/frame_09_0120.021s.jpg",
+      "time": 120.021,
+      "sha256": "a06ee6e9d739e7d3d7b9ab3bb081b002a3694b500d1a35e33401c80d0bc88b23"
+    }
+  ],
+  "requestCount": 6,
+  "assessmentCount": 30,
+  "maxTokens": 2560,
+  "enableThinking": false,
+  "retryPolicy": "No request replay/retry. Preserve failed/unknown attempts; stop after two consecutive failed requests.",
+  "independentQualityLabels": 0,
+  "qualityScope": "engineering replay and source-evidence audit, not accuracy benchmark",
+  "scopeLimits": [
+    "sparse keyframes, not continuous video",
+    "education SOP, not certified company requirements",
+    "no ASR/OCR/measured values",
+    "no independent human labels",
+    "no worker replies during model capture"
+  ],
+  "observationSchedule": [
+    {
+      "checkpointId": "e1",
+      "criterionIds": [
+        "E-CONNECTION",
+        "E-PROPELLER",
+        "E-BATTERY",
+        "E-SWITCH",
+        "E-FINAL"
+      ]
+    },
+    {
+      "checkpointId": "e2",
+      "criterionIds": [
+        "E-CONNECTION",
+        "E-PROPELLER",
+        "E-BATTERY",
+        "E-SWITCH",
+        "E-FINAL"
+      ]
+    },
+    {
+      "checkpointId": "e3",
+      "criterionIds": [
+        "E-CONNECTION",
+        "E-PROPELLER",
+        "E-BATTERY",
+        "E-SWITCH",
+        "E-FINAL"
+      ]
+    },
+    {
+      "checkpointId": "e4",
+      "criterionIds": [
+        "E-CONNECTION",
+        "E-PROPELLER",
+        "E-BATTERY",
+        "E-SWITCH",
+        "E-FINAL"
+      ]
+    },
+    {
+      "checkpointId": "e5",
+      "criterionIds": [
+        "E-CONNECTION",
+        "E-PROPELLER",
+        "E-BATTERY",
+        "E-SWITCH",
+        "E-FINAL"
+      ]
+    },
+    {
+      "checkpointId": "e6",
+      "criterionIds": [
+        "E-CONNECTION",
+        "E-PROPELLER",
+        "E-BATTERY",
+        "E-SWITCH",
+        "E-FINAL"
+      ]
+    }
+  ]
+}

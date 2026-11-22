@@ -1,0 +1,25 @@
+{
+  "schema": "seminar.document_import.v1",
+  "documents": [
+    {
+      "document": "MANUFACTURING_AGENT_HANDS_ON_PLAN.ko.md",
+      "original_sha256": "7c708bf3b6573f0985c47351fd6392a4b1abbdf9e707f22eb65b106d524697f0",
+      "copy_sha256": "1fec90f8fed07d0ce82eefc95e61a15177205f3be1ee0fbc295f219d24f8135f",
+      "changes": [
+        "relative_links",
+        "private_path_removal",
+        "current_status_banner"
+      ]
+    },
+    {
+      "document": "MANUFACTURING_WORKSHOP_E2E_BLUEPRINT.ko.md",
+      "original_sha256": "59d1760615099163110f32b55b268243820c89bc5ee50a531556fb98686d06df",
+      "copy_sha256": "c5c6fbd23986a7c5afe401858ec3ad55ac1f09607e4e4a5aa5304cd29ef246c1",
+      "changes": [
+        "relative_links",
+        "private_path_removal",
+        "current_status_banner"
+      ]
+    }
+  ]
+}

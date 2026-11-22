@@ -1,0 +1,206 @@
+{
+  "id": "maintenance",
+  "title": "부품 교체 후 재검수",
+  "description": "긴 차체 부품을 짧은 부품으로 교체하는 별도 정비 작업입니다.",
+  "sourceNote": "IndustReal 유지보수 원본입니다. 조립 영상과 같은 개체라는 연결은 검증되지 않았습니다. 판정은 교육용 fixture입니다. 분리 시 현재 구성 검사를 다시 여는 교육 정책을 적용하며, 과거 사진과 판정 이력은 보존합니다.",
+  "companyId": "edu-dynin",
+  "processId": "MNT-001",
+  "mode": "fixture",
+  "tasks": [
+    {
+      "id": "remove",
+      "label": "기존 부품 분리"
+    },
+    {
+      "id": "replace",
+      "label": "짧은 부품 교체"
+    },
+    {
+      "id": "reassemble",
+      "label": "축 재조립"
+    },
+    {
+      "id": "review",
+      "label": "재검수"
+    }
+  ],
+  "criteria": [
+    {
+      "id": "R-CURRENT",
+      "taskId": "remove",
+      "label": "현재 구성의 외관 확인 · 변경 시 재검사",
+      "target": "repair-01",
+      "kind": "visual",
+      "unit": "",
+      "lower": "",
+      "upper": "",
+      "allowWorker": false
+    },
+    {
+      "id": "R-REMOVE",
+      "taskId": "remove",
+      "label": "기존 부품 분리 확인",
+      "target": "repair-01",
+      "kind": "visual",
+      "unit": "",
+      "lower": "",
+      "upper": "",
+      "allowWorker": false
+    },
+    {
+      "id": "R-REPLACE",
+      "taskId": "replace",
+      "label": "짧은 부품으로 교체 확인",
+      "target": "repair-01",
+      "kind": "visual",
+      "unit": "",
+      "lower": "",
+      "upper": "",
+      "allowWorker": false
+    },
+    {
+      "id": "R-AXLE",
+      "taskId": "reassemble",
+      "label": "분리한 축의 재조립 검토",
+      "target": "repair-01",
+      "kind": "visual",
+      "unit": "",
+      "lower": "",
+      "upper": "",
+      "allowWorker": false
+    },
+    {
+      "id": "R-FINAL",
+      "taskId": "review",
+      "label": "새 시도의 최종 외관 확인",
+      "target": "repair-01",
+      "kind": "visual",
+      "unit": "",
+      "lower": "",
+      "upper": "",
+      "allowWorker": false
+    }
+  ],
+  "media": {
+    "path": "data/source_pack/assembly/01_main_0_1/01_main_0_1.mp4",
+    "codec": "mpeg4-part2",
+    "browserPlayable": false
+  },
+  "sources": [
+    {
+      "label": "IndustReal 공식 원본",
+      "url": "https://github.com/TimSchoonbeek/IndustReal",
+      "license": "Apache-2.0"
+    }
+  ],
+  "exercises": [
+    "교체 전 사진으로 교체 후 검사를 승인하지 않는 이유를 설명하세요.",
+    "긴 부품으로 원상 복구하는 작업이 아니라 짧은 부품 교체임을 문서와 대조하세요."
+  ],
+  "checkpoints": [
+    {
+      "id": "r0",
+      "time": 0,
+      "taskId": "remove",
+      "target": "repair-01",
+      "label": "변경 전 구성의 외관 기록",
+      "note": "교육용으로 작성한 관찰·판정 입력입니다. 실제 모델 예측이나 독립 품질 인증이 아닙니다.",
+      "origin": "authored_fixture",
+      "image": "data/source_pack/assembly/01_main_0_1/frames/t000.000.jpg",
+      "assessments": [
+        {
+          "criterionId": "R-CURRENT",
+          "verdict": "met",
+          "reason": "교육용 입력: 현재 구성의 외관을 기록했습니다. 전체 품질 합격이 아니며 부품 변경 후 새 검사를 요구합니다."
+        }
+      ]
+    },
+    {
+      "id": "r1",
+      "time": 34,
+      "taskId": "remove",
+      "target": "repair-01",
+      "label": "분리 후 현재 구성 검사 다시 열기",
+      "note": "교육용 재검사 정책: 기존 부품 분리 후 현재 구성의 검사를 새 시도로 엽니다. 이전 사진과 met 기록은 이력에 남고 현재 구성의 승인에 재사용하지 않습니다.",
+      "origin": "authored_fixture",
+      "image": "data/source_pack/assembly/01_main_0_1/frames/t034.000.jpg",
+      "assessments": [
+        {
+          "criterionId": "R-REMOVE",
+          "verdict": "unknown",
+          "reason": "분리 작업 장면이며 완료 조건을 추가 확인합니다."
+        }
+      ],
+      "invalidate": [
+        "R-CURRENT"
+      ]
+    },
+    {
+      "id": "r2",
+      "time": 65,
+      "taskId": "replace",
+      "target": "repair-01",
+      "label": "교체 체결부의 가림",
+      "note": "교육용으로 작성한 관찰·판정 입력입니다. 실제 모델 예측이나 독립 품질 인증이 아닙니다.",
+      "origin": "authored_fixture",
+      "image": "data/source_pack/assembly/01_main_0_1/frames/t065.000.jpg",
+      "assessments": [
+        {
+          "criterionId": "R-REPLACE",
+          "verdict": "unknown",
+          "reason": "짧은 부품의 연결 위치를 손이 가립니다. 새 시도 증거를 확인해 주세요."
+        }
+      ]
+    },
+    {
+      "id": "r3",
+      "time": 112,
+      "taskId": "reassemble",
+      "target": "repair-01",
+      "label": "바퀴와 풀리 재조립",
+      "note": "교육용으로 작성한 관찰·판정 입력입니다. 실제 모델 예측이나 독립 품질 인증이 아닙니다.",
+      "origin": "authored_fixture",
+      "image": "data/source_pack/assembly/01_main_0_1/frames/t112.000.jpg",
+      "assessments": [
+        {
+          "criterionId": "R-AXLE",
+          "verdict": "unknown",
+          "reason": "재조립 작업 중입니다. 변경 이전 사진을 현재 검사 증거로 쓰지 않습니다."
+        }
+      ]
+    },
+    {
+      "id": "r4",
+      "time": 131,
+      "taskId": "review",
+      "target": "repair-01",
+      "label": "재검수 기록",
+      "note": "교육용으로 작성한 관찰·판정 입력입니다. 실제 모델 예측이나 독립 품질 인증이 아닙니다.",
+      "origin": "authored_fixture",
+      "image": "data/source_pack/assembly/01_main_0_1/frames/t131.000.jpg",
+      "assessments": [
+        {
+          "criterionId": "R-FINAL",
+          "verdict": "unknown",
+          "reason": "최종으로 보이는 외관을 기록하되 연결부와 기능의 미확인 항목은 남깁니다."
+        }
+      ]
+    }
+  ],
+  "documents": [
+    {
+      "id": "sop",
+      "title": "교육용 작업 절차 PDF",
+      "path": "scenarios/maintenance/SOP.pdf",
+      "type": "pdf"
+    },
+    {
+      "id": "criteria",
+      "title": "교육용 검사 기준 CSV",
+      "path": "scenarios/maintenance/criteria.csv",
+      "type": "csv"
+    }
+  ],
+  "fixtureNotice": "모든 체크포인트 판정은 사람이 작성한 교육용 입력입니다. 모델 실행은 0회입니다.",
+  "version": "education-v1"
+}
