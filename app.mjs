@@ -9,6 +9,8 @@ const statusLabel = {met:'충족',violated:'불일치',unknown:'확인 필요',n
 const steps = [['home','실습 선택'],['documents','회사 자료 구축'],['setup','작업 설정'],['run','영상과 확인'],['review','검사 결과'],['report','보고서 저장']];
 let catalog=[], scenarioIndex=[], scenario=null, bundle=null, session=null, page='home', previewIndex=0, pdfText='', csvText='', database=null, SQL=null, storage=null, pdfFile=null;
 let baseScenario=null, recordingPack=null, recordingError='', selectedMode='demo', recordingAssets=new Map(), recordingVerification=null;
+let documentOperation=null, operationSequence=0, scenarioRevision=0;
+const loadingControls=new Map();
 const main=$('#main');
 const fmt = s => `${Math.floor(Number(s||0)/60)}:${String(Math.floor(Number(s||0)%60)).padStart(2,'0')}`;
 const badge = v => `<span class="badge ${esc(v)}">${esc(statusLabel[v]||v)}</span>`;
@@ -21,7 +23,7 @@ async function openStorage(){return new Promise((resolve,reject)=>{const r=index
 async function store(value){if(!storage)return;await new Promise((resolve,reject)=>{const t=storage.transaction('state','readwrite');t.objectStore('state').put(value,'current');t.oncomplete=resolve;t.onerror=()=>reject(t.error);});}
 async function restore(){if(!storage)return null;return new Promise((resolve,reject)=>{const r=storage.transaction('state').objectStore('state').get('current');r.onsuccess=()=>resolve(r.result);r.onerror=()=>reject(r.error);});}
 async function save(){try{await store({scenarioId:scenario?.id,bundle,session,page,pdfText,csvText,selectedMode});$('#save-state').textContent=storage?'저장됨 · 이 브라우저':'저장 불가 · 파일 백업 필요';}catch(e){$('#save-state').textContent='저장 실패';toast('브라우저 저장에 실패했습니다. 진행 내보내기로 백업해 주세요.');}}
-function navigate(next){if(next!=='home'&&!scenario)return toast('먼저 실습을 선택해 주세요.');if(['setup','run','review','report'].includes(next)&&!bundle)return toast('회사 자료에서 정보를 먼저 구축해 주세요.');if(['run','review','report'].includes(next)&&!session)return toast('작업 설정에서 작업을 시작해 주세요.');page=next;render();save();window.scrollTo(0,0);}
+function navigate(next){if(documentOperation)return toast('자료 준비가 끝난 뒤 이동해 주세요.');if(next!=='home'&&!scenario)return toast('먼저 실습을 선택해 주세요.');if(['setup','run','review','report'].includes(next)&&!bundle)return toast('회사 자료에서 정보를 먼저 구축해 주세요.');if(['run','review','report'].includes(next)&&!session)return toast('작업 설정에서 작업을 시작해 주세요.');page=next;render();save();window.scrollTo(0,0);}
 function nav(){ $('#nav').innerHTML=displaySteps().map(([id,label],i)=>`<button data-page="${id}" class="${page===id?'active':''}" ${page===id?'aria-current="step"':''}><span class="nav-number">${String(i+1).padStart(2,'0')}</span>${label}</button>`).join('');$('#breadcrumb').textContent=displaySteps().find(x=>x[0]===page)?.[1]||'';$('#nav').querySelectorAll('button').forEach(b=>b.onclick=()=>navigate(b.dataset.page));$('#backup').disabled=!session;$('#mode-banner').textContent=scenario?modeText():'강의용 예시';document.querySelector('footer>span').textContent=measurement()?'강의용 제품 도면 · 계측 예시 · 직접 바꾸는 검사 기록':'공개 원본 영상 · 강의용 예시 · 직접 바꾸는 검사 기록';$('#runtime-notice').textContent=recorded()?'실제 응답 재생 · 이 브라우저에서 새 모델 호출 없음':demo()||!scenario?'강의용으로 구성한 관찰 · 작업자 답변과 기준에 따라 결과 변경':'교육용 작성 관찰 · 작업자 답변은 별도 기록';}
 function recorded(){return (session?.mode||selectedMode)==='recorded';}
 function demo(){return (session?.mode||selectedMode)==='demo';}
@@ -81,13 +83,87 @@ async function prepareScenario(card,requestedMode=null){
   const mode=requestedMode||(base.mode==='demo'?'demo':pack?'recorded':'fixture');
   return {base,scenario:mode==='recorded'?candidate:base,pack,err,assets,verification,mode};
 }
-function adoptPrepared(p){baseScenario=p.base;scenario=p.scenario;recordingPack=p.pack;recordingError=p.err;recordingAssets=p.assets;recordingVerification=p.verification;selectedMode=p.mode;}
+function adoptPrepared(p){baseScenario=p.base;scenario=p.scenario;recordingPack=p.pack;recordingError=p.err;recordingAssets=p.assets;recordingVerification=p.verification;selectedMode=p.mode;pdfFile=null;scenarioRevision++;}
+function updateDocumentLoading(){
+  for(const [control,wasDisabled]of loadingControls)control.disabled=wasDisabled;
+  loadingControls.clear();
+  $('#backup').disabled=!session;
+  const prior=$('#document-load-status');
+  if(!documentOperation){main.removeAttribute('aria-busy');prior?.remove();return;}
+  main.setAttribute('aria-busy','true');
+  const notice=prior||document.createElement('div');notice.id='document-load-status';notice.className='notice';notice.setAttribute('role','status');notice.setAttribute('aria-live','polite');notice.textContent=documentOperation.message;
+  if(!prior)main.prepend(notice);
+  for(const control of document.querySelectorAll('#main button,#main input,#main select,#main textarea,#nav button,#backup,#import-session')){
+    // A newer product selection may supersede a pending load. Other actions wait.
+    if(documentOperation.kind==='selection'&&control.matches('[data-select],[data-product-scenario],[data-variant]'))continue;
+    loadingControls.set(control,control.disabled);control.disabled=true;
+  }
+}
+function beginDocumentOperation(kind,message){const operation={id:++operationSequence,kind,message};documentOperation=operation;updateDocumentLoading();return operation;}
+function finishDocumentOperation(operation){if(documentOperation===operation){documentOperation=null;updateDocumentLoading();}}
+function operationCurrent(operation,target=null,revision=null){return documentOperation===operation&&(!target||scenario===target&&scenarioRevision===revision);}
+async function fetchScenarioDocuments(target){
+  const csv=target.documents.find(d=>d.type==='csv'),pdf=target.documents.find(d=>d.type==='pdf');
+  if(!csv||!pdf)throw new Error('실습의 SOP PDF 또는 검사 기준 CSV가 없습니다.');
+  safeAsset(csv.path);safeAsset(pdf.path);
+  const [sourceCsv,sourcePdf]=await Promise.all([
+    getText(csv.path),
+    fetch(pdf.path).then(async response=>{if(!response.ok)throw new Error(`SOP PDF를 불러오지 못했습니다 (${response.status}). 같은 제품을 다시 선택해 주세요.`);return response.arrayBuffer();})
+  ]);
+  const rows=Core.parseCsv(sourceCsv);
+  if(rows.length!==target.criteria.length||rows.some(row=>!target.criteria.some(rule=>rule.id===row.id&&rule.taskId===row.taskId&&rule.target===row.target)))throw new Error('불러온 CSV의 작업·검사 대상이 선택한 실습과 다릅니다.');
+  if(new TextDecoder().decode(sourcePdf.slice(0,1024)).indexOf('%PDF-')<0)throw new Error('불러온 SOP가 PDF 파일이 아닙니다. 같은 제품을 다시 선택해 주세요.');
+  return {csvText:sourceCsv,pdfFile:sourcePdf};
+}
 async function selectScenario(id){
+  if(documentOperation&&documentOperation.kind!=='selection')return toast('현재 자료 처리가 끝난 뒤 실습을 바꿔 주세요.');
   if(session&&!confirm('현재 진행은 브라우저의 최근 세션에서 바뀝니다. 보관하려면 취소 후 진행을 내보내세요. 새 실습을 열까요?'))return;
   const item=scenarioIndex.find(s=>s.id===id);if(!item)throw new Error('알 수 없는 시나리오입니다.');
-  toast(id==='electronics'?'비교 실습 자료를 확인하고 있습니다.':'실습 자료를 준비하고 있습니다.');adoptPrepared(await prepareScenario(item));bundle=null;session=null;pdfText='';pdfFile=null;csvText='';database?.close();database=null;previewIndex=0;page='documents';render();await loadDocuments();await save();render();
+  const operation=beginDocumentOperation('selection',id==='electronics'?'비교 실습 자료를 확인하고 있습니다.':'선택한 실습의 문서와 검사 기준을 준비하고 있습니다.');
+  try{
+    const prepared=await prepareScenario(item);if(!operationCurrent(operation))return;
+    const documents=await fetchScenarioDocuments(prepared.scenario);if(!operationCurrent(operation))return;
+    // Commit the scenario and both documents together; failures retain the previous screen/session.
+    adoptPrepared(prepared);bundle=null;session=null;pdfText='';pdfFile=documents.pdfFile;csvText=documents.csvText;database?.close();database=null;previewIndex=0;page='documents';render();await save();
+  }catch(error){if(operationCurrent(operation))throw error;}
+  finally{finishDocumentOperation(operation);}
 }
-async function loadDocuments(){const csv=scenario.documents.find(d=>d.type==='csv');if(csv)csvText=await getText(csv.path);const pdf=scenario.documents.find(d=>d.type==='pdf');if(pdf){pdfFile=await(await fetch(pdf.path)).arrayBuffer();}}
+async function loadDocuments(target=scenario,{preserveCsv=false}={}){
+  const revision=scenarioRevision,documents=await fetchScenarioDocuments(target);
+  if(target!==scenario||revision!==scenarioRevision)throw new Error('실습이 변경되어 이전 문서 요청을 적용하지 않았습니다.');
+  if(!preserveCsv)csvText=documents.csvText;
+  pdfFile=documents.pdfFile;return documents;
+}
+async function compileDocuments(){
+  if(documentOperation)return toast('문서 준비가 끝난 뒤 정보를 구축해 주세요.');
+  if(session)throw new Error('진행 중인 작업의 원문 기준은 고정됩니다. 새 실습을 선택한 뒤 변경하세요.');
+  const target=scenario,revision=scenarioRevision,sourceCsv=$('#csv-editor').value;
+  const operation=beginDocumentOperation('compile','PDF 추출 · 검사 기준 검증 중');
+  try{
+    const pdfjs=await import('./vendor/pdfjs/pdf.mjs');pdfjs.GlobalWorkerOptions.workerSrc=new URL('./vendor/pdfjs/pdf.worker.mjs',import.meta.url).href;
+    if(!pdfFile)await loadDocuments(target,{preserveCsv:true});
+    if(!operationCurrent(operation,target,revision))return;
+    const sourcePdf=pdfFile;
+    if(recorded()&&recordingPack?.sourcePins?.pdf&&await sha256(sourcePdf)!==recordingPack.sourcePins.pdf.sha256)throw new Error('저장된 모델 응답은 수집 당시 SOP에만 연결됩니다. PDF가 달라 새 응답 수집이 필요합니다.');
+    const doc=await pdfjs.getDocument({data:new Uint8Array(sourcePdf.slice(0))}).promise,lines=[];
+    try{for(let i=1;i<=doc.numPages;i++){const content=await(await doc.getPage(i)).getTextContent();lines.push(content.items.map(x=>x.str).join('\n'));}}finally{await doc.destroy();}
+    const sourceText=lines.join('\n'),compiled=Core.compileCompany(sourceText,sourceCsv,target);
+    await loadSQL();if(!operationCurrent(operation,target,revision))return;
+    pdfText=sourceText;csvText=sourceCsv;bundle=compiled;await syncDb();await save();render();toast('실제 PDF와 CSV에서 회사 정보와 DB를 만들었습니다.');
+  }finally{finishDocumentOperation(operation);}
+}
+async function uploadPdf(file){
+  if(documentOperation)return toast('현재 자료 처리가 끝난 뒤 문서를 바꿔 주세요.');
+  if(session)return toast('진행 중인 작업의 문서는 고정됩니다. 새 실습에서 바꾸어 주세요.');
+  if(!file)return;
+  if(file.size>10*1024*1024)return toast('문서 크기는 10MB 이하로 준비해 주세요.');
+  const target=scenario,revision=scenarioRevision,sourceCsv=$('#csv-editor')?.value??csvText;
+  const operation=beginDocumentOperation('upload','선택한 SOP PDF를 준비하고 있습니다.');
+  try{
+    const sourcePdf=await file.arrayBuffer();if(!operationCurrent(operation,target,revision))return;
+    pdfFile=sourcePdf;pdfText='';csvText=sourceCsv;bundle=null;database?.close();database=null;render();toast(`${file.name}을 선택했습니다. 정보 구축을 눌러 검증하세요.`);
+  }finally{finishDocumentOperation(operation);}
+}
 function renderHome(){
   const legacy=scenarioIndex.filter(s=>['electronics','electronics_error','instruments'].includes(s.id));
   main.innerHTML=`<section class="hero"><div><div class="kicker">DYNIN · 제조 AI AGENT 실습</div><h1>작업을 보고, 질문하고,<br>하나의 보고서로.</h1><p>회사 문서를 등록하는 순간부터 조립 확인과 검사 기록까지.<br>직접 버튼을 누르고 답하면서 제조 Agent의 흐름을 익혀 보세요.</p><span class="demo-label">강의용 예시 · GPU 없이 실행</span></div><div class="hero-flow"><div><span>01</span> SOP + 검사 기준 → 회사 정보 구축</div><div><span>02</span> 장면 확인 → 질문 → 작업자 답변</div><div><span>03</span> 기준별 판정 → 사진 포함 보고서</div></div></section><div class="section-row"><h2>오늘의 실습</h2><span class="muted">전자 조립부터 차례로 시작해 보세요</span></div><div class="cards">${catalog.filter(s=>!s.instructorOnly).map((s,i)=>`<article class="card ${s.id==='electronics_demo'?'featured-card':''}"><img class="card-cover" src="${esc(s.cover)}" alt="${esc(s.title)} 실습 예시" loading="lazy"><div class="card-body"><span class="tag">LAB ${String(i+1).padStart(2,'0')} ${s.id==='electronics_demo'?'· 추천 시작':''}</span><h2>${esc(s.title)}</h2><p>${esc(s.description||s.subtitle)}</p><button class="primary" data-select="${esc(s.id)}">${s.id==='electronics_demo'?'전자 조립 실습 시작':'이 실습 시작'}</button></div></article>`).join('')}</div><div class="notice"><strong>같은 장면도 기준과 답변에 따라 결과가 달라집니다.</strong><br>영상과 도면에 강의용 관찰 예시를 연결했습니다. 실제 AI의 분석 결과는 아닙니다. 문서 읽기, DB 구축, 기준 비교와 보고서 생성은 화면에서 직접 실행됩니다.</div><div class="grid2"><div class="panel"><h2>오늘 직접 해 볼 일</h2><p class="muted">배터리 방향이 가려져 있으면 어떻게 확인할까요? 작업자 답변을 남기고, “작업자 확인도 인정”과 “사진만 인정”을 바꾸면서 판정의 차이를 살펴보세요.</p></div><div class="panel"><h2>완성해서 가져갈 결과물</h2><p class="muted">검사 결과와 증거 사진이 담긴 HTML 보고서, 검수조서, 검사표 CSV, 실습 진행 파일을 저장합니다.</p><a href="DATA_LICENSES.md" target="_blank">자료 출처와 라이선스 ↗</a></div></div><details class="instructor-tools" id="instructor-tools"><summary>강사용 · 이전 실험과 상세 도구</summary><p class="hint">이전 실제 모델 응답과 작성 이벤트를 비교하는 별도 실습입니다. 선택할 때만 원본 응답을 불러옵니다. 기존 진행 파일은 상단의 가져오기로 계속할 수 있습니다.</p><div class="actions">${legacy.map(s=>`<button class="secondary" data-select="${esc(s.id)}">${s.id==='electronics'?'전자 조립 · 이전 응답 비교':esc(s.title||'전자 조립 오류 사례')}</button>`).join('')}</div></details>`;
@@ -95,8 +171,8 @@ function renderHome(){
 }
 function docsView(){main.innerHTML=heading('STEP 01 · BUILD KNOWLEDGE','자료를 회사 정보로 바꾸기','준비한 교육용 문서에서 작업과 검사 기준을 읽어 옵니다. 원문과 추출값을 함께 확인해 주세요.')+recordingNotice()+(recordingPack?'<div class="notice">교육용 SOP의 작성 이벤트 안내는 초기 교재 설명입니다. 현재 관찰 출처는 선택한 실행 모드와 응답 기록을 따릅니다.</div>':'')+`<div class="gridwide"><section class="panel"><h2>${esc(scenario.title)} · 예제 자료</h2>${!demo()&&(scenario.variants||[]).length?`<div class="actions" style="margin:0 0 16px">${scenario.variants.map(v=>`<button class="secondary" data-variant="${esc(v.id)}">${esc(v.title||v.label||v.id)} 별도 실습</button>`).join('')}</div>`:''}<div class="doc-list">${scenario.documents.map(d=>`<div class="doc-row"><span class="fileicon">${esc(d.type.toUpperCase())}</span><div><strong>${esc(d.title)}</strong><span class="hint">교육용 문서 · 원본 출처 별도 표기</span></div><a href="${esc(d.path)}" target="_blank" rel="noopener">열기</a></div>`).join('')}</div><div class="actions"><button id="compile" class="primary">정보 구축</button><label class="button secondary">SOP PDF 바꾸기<input type="file" id="upload-pdf" accept="application/pdf,.pdf" hidden></label></div><p class="hint">이 예제의 템플릿을 지원합니다. 임의의 스캔 PDF나 다른 문서 양식은 자동으로 구조화하지 않습니다.</p><details><summary>검사 기준 CSV 보기 / 편집</summary><label class="field">기준표<textarea id="csv-editor" spellcheck="false">${esc(csvText)}</textarea></label><p class="hint">필드 이름·ID는 유지하세요. 잘못된 단위·범위·중복 ID는 검사합니다.</p></details><details ${pdfText&&!demo()?'open':''}><summary>PDF에서 실제로 추출한 텍스트</summary><pre id="pdf-text">${esc(pdfText||'정보 구축을 누르면 실제 PDF 텍스트가 표시됩니다.')}</pre></details></section><section class="panel"><h2>정보 구축 결과</h2>${bundle?`<div class="notice success">회사 정보와 SQLite 구성이 완료되었습니다.</div><p class="hint">회사 ${esc(bundle.companyId)}<br>공정 ${esc(bundle.processId)}<br>기준 버전 ${esc(bundle.version)}</p><div class="table-scroll"><table><thead><tr><th>작업</th><th>검사 기준</th></tr></thead><tbody>${bundle.criteria.map(c=>`<tr><td>${esc(scenario.tasks.find(t=>t.id===c.taskId)?.label||c.taskId)}</td><td>${esc(c.label)}</td></tr>`).join('')}</tbody></table></div><div class="actions"><button id="next-setup" class="primary">작업 설정으로</button><button id="export-db" class="secondary">SQLite 저장</button></div><details><summary>실제 SQLite 조회 결과</summary><pre>SELECT id, task_id, label FROM criteria;
 ${esc(JSON.stringify(database?.exec('SELECT id, task_id, label FROM criteria')||[],null,2))}</pre></details>`:`<div class="empty">아직 구축된 정보가 없습니다.<br>왼쪽의 <strong>정보 구축</strong>을 눌러 시작하세요.</div><div class="notice">PDF의 회사·공정 식별자를 읽고, CSV의 기준·단위·참조를 검사한 뒤 DB를 만듭니다.</div>`}</section></div>`;
-main.querySelectorAll('[data-variant]').forEach(b=>b.onclick=()=>safe(()=>selectScenario(b.dataset.variant)));$('#compile').onclick=()=>safe(async()=>{const button=$('#compile');button.disabled=true;button.textContent='PDF 추출 · 기준 검증 중';try{if(session)throw new Error('진행 중인 작업의 원문 기준은 고정됩니다. 새 실습을 선택한 뒤 변경하세요.');csvText=$('#csv-editor').value;const pdfjs=await import('./vendor/pdfjs/pdf.mjs');pdfjs.GlobalWorkerOptions.workerSrc=new URL('./vendor/pdfjs/pdf.worker.mjs',import.meta.url).href;if(!pdfFile)await loadDocuments();if(recorded()&&recordingPack?.sourcePins?.pdf&&await sha256(pdfFile)!==recordingPack.sourcePins.pdf.sha256)throw new Error('저장된 모델 응답은 수집 당시 SOP에만 연결됩니다. PDF가 달라 새 응답 수집이 필요합니다.');const doc=await pdfjs.getDocument({data:new Uint8Array(pdfFile.slice(0))}).promise;const lines=[];for(let i=1;i<=doc.numPages;i++){const content=await(await doc.getPage(i)).getTextContent();lines.push(content.items.map(x=>x.str).join('\n'));}pdfText=lines.join('\n');bundle=Core.compileCompany(pdfText,csvText,scenario);await syncDb();await save();render();toast('실제 PDF와 CSV에서 회사 정보와 DB를 만들었습니다.');}finally{if(document.contains(button)){button.disabled=false;button.textContent='정보 구축';}}});
-$('#upload-pdf').onchange=async e=>{const f=e.target.files[0];if(session){e.target.value='';return toast('진행 중인 작업의 문서는 고정됩니다. 새 실습에서 바꾸어 주세요.');}if(f){if(f.size>10*1024*1024)return toast('문서 크기는 10MB 이하로 준비해 주세요.');pdfFile=await f.arrayBuffer();pdfText='';bundle=null;toast(`${f.name}을 선택했습니다. 정보 구축을 눌러 검증하세요.`);}};
+main.querySelectorAll('[data-variant]').forEach(b=>b.onclick=()=>safe(()=>selectScenario(b.dataset.variant)));$('#compile').onclick=()=>safe(compileDocuments);
+$('#upload-pdf').onchange=e=>{const file=e.target.files[0];e.target.value='';if(file)safe(()=>uploadPdf(file));};
 if(bundle){$('#next-setup').onclick=()=>navigate('setup');$('#export-db').onclick=()=>safe(exportDb);}if(measurement())enhanceMeasurementDocuments();}
 function recordingNotice(){
   if(measurement())return '<div class="notice demo-notice"><strong>강의용 예시</strong> 도면과 계측 장면은 같은 가상 제품으로 구성했습니다. 측정값 확인과 검사 기준 변경에 따라 결과가 달라집니다.</div>';
@@ -228,10 +304,14 @@ async function syncDb(){if(!bundle)return;await loadSQL();database?.close();data
 async function exportDb(){await syncDb();download(`${scenario.id}.sqlite`,new Blob([database.export()],{type:'application/vnd.sqlite3'}));}
 function backup(){if(!session)return toast('저장할 작업이 없습니다.');download(`${scenario.id}-session.json`,JSON.stringify({format:'dynin-seminar-export-v1',scenarioId:scenario.id,session},null,2));}
 async function importSession(file){
-  if(file.size>10*1024*1024)throw new Error('세션 파일은 10MB 이하만 지원합니다.');const data=JSON.parse(await file.text());if(data.format!=='dynin-seminar-export-v1')throw new Error('지원하지 않는 진행 파일입니다.');
-  const card=scenarioIndex.find(c=>c.id===data.scenarioId);if(!card)throw new Error('이 배포본에 없는 시나리오입니다.');
-  const prepared=await prepareScenario(card,data.session?.mode||'fixture');Core.validateSession(data.session,prepared.scenario);adoptPrepared(prepared);
-  session=data.session;bundle=session.bundle;previewIndex=Math.max(0,session.position);pdfText=session.initialBundle?.sourceText||'가져온 세션의 컴파일 기록에 연결된 자료입니다.';csvText=session.initialBundle?.sourceCsv||'';await syncDb();page='review';await save();render();toast('저장된 기록을 확인하고 실습을 복구했습니다.');
+  if(documentOperation)return toast('현재 자료 처리가 끝난 뒤 진행 파일을 가져와 주세요.');
+  const operation=beginDocumentOperation('import','저장된 실습 기록과 자료를 확인하고 있습니다.');
+  try{
+    if(file.size>10*1024*1024)throw new Error('세션 파일은 10MB 이하만 지원합니다.');const data=JSON.parse(await file.text());if(data.format!=='dynin-seminar-export-v1')throw new Error('지원하지 않는 진행 파일입니다.');
+    const card=scenarioIndex.find(c=>c.id===data.scenarioId);if(!card)throw new Error('이 배포본에 없는 시나리오입니다.');
+    const prepared=await prepareScenario(card,data.session?.mode||'fixture');Core.validateSession(data.session,prepared.scenario);await loadSQL();if(!operationCurrent(operation))return;adoptPrepared(prepared);
+    session=data.session;bundle=session.bundle;previewIndex=Math.max(0,session.position);pdfText=session.initialBundle?.sourceText||'가져온 세션의 컴파일 기록에 연결된 자료입니다.';csvText=session.initialBundle?.sourceCsv||'';await syncDb();page='review';await save();render();toast('저장된 기록을 확인하고 실습을 복구했습니다.');
+  }finally{finishDocumentOperation(operation);}
 }
 function showVideoFallback(video){
   if(!video.isConnected||video.parentElement.querySelector('.video-fallback'))return;
@@ -239,7 +319,7 @@ function showVideoFallback(video){
   note.innerHTML='이 브라우저에서는 원본 영상을 재생할 수 없습니다. 위의 장면 사진과 확인 버튼으로 같은 실습을 계속할 수 있습니다. <a target="_blank" rel="noopener" href="'+esc(video.getAttribute('src'))+'">원본 영상 열기</a>';
   video.after(note);
 }
-function render(){nav();if(page==='home')renderHome();else if(page==='documents')docsView();else if(page==='setup')setupView();else if(page==='run')runView();else if(page==='review')reviewView();else reportView();main.querySelectorAll('video').forEach(v=>{v.addEventListener('error',()=>showVideoFallback(v),{once:true});if(v.error)showVideoFallback(v);});}
+function render(){nav();if(page==='home')renderHome();else if(page==='documents')docsView();else if(page==='setup')setupView();else if(page==='run')runView();else if(page==='review')reviewView();else reportView();main.querySelectorAll('video').forEach(v=>{v.addEventListener('error',()=>showVideoFallback(v),{once:true});if(v.error)showVideoFallback(v);});updateDocumentLoading();}
 async function safe(fn){try{await fn();}catch(e){console.error(e);toast(e.message||'처리 중 오류가 발생했습니다.');}}
 $('#backup').onclick=backup;$('#import-session').onchange=e=>{if(e.target.files[0])safe(()=>importSession(e.target.files[0]));e.target.value='';};$('#close-image').onclick=()=>$('#image-modal').close();
 async function boot(){

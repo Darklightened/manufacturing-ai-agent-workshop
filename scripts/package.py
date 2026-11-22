@@ -30,7 +30,7 @@ def main():
  records.append(write_zip(ROOT/'workshop-media.zip',media_entries))
  records.append(write_zip(ROOT/'workshop-offline.zip',offline_entries))
  # Small, student-facing pack: inputs and finished example forms, without video/code.
- handouts=[ROOT/'DATA_LICENSES.md',ROOT/'docs/TEACHING_DEMO.ko.md',ROOT/'docs/MEASUREMENT_DEMO.ko.md']
+ handouts=[ROOT/'DATA_LICENSES.md',ROOT/'assets/fonts/OFL.txt',ROOT/'docs/TEACHING_DEMO.ko.md',ROOT/'docs/MEASUREMENT_DEMO.ko.md']
  for name in ['electronics_demo','measurement_demo','measurement_precision_demo']:
   handouts += [p for p in (ROOT/'scenarios'/name).iterdir() if p.suffix in {'.pdf','.csv','.svg'}]
  handouts += list((ROOT/'docs/measurement_demo_v1/examples').glob('*.html'))

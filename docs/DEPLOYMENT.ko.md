@@ -5,7 +5,7 @@
 - [온라인 실습](https://darklightened.github.io/manufacturing-ai-agent-workshop/)
 - [강의 자료 다운로드](https://darklightened.github.io/manufacturing-ai-agent-workshop/downloads.html)
 - [공개 저장소](https://github.com/Darklightened/manufacturing-ai-agent-workshop)
-- [v0.5.2 자료 묶음](https://github.com/Darklightened/manufacturing-ai-agent-workshop/releases/tag/v0.5.2)
+- [v0.5.3 자료 묶음](https://github.com/Darklightened/manufacturing-ai-agent-workshop/releases/tag/v0.5.3)
 
 수강생은 온라인 실습 링크만 열면 됩니다. GitHub 로그인이나 설치가 필요 없으며, 진행 기록은 각자 브라우저에 저장됩니다. PDF·CSV·영상·슬라이드는 같은 사이트에서 제공하고, 큰 ZIP은 GitHub Release에서 받습니다. 아래 명령은 오프라인 사용 또는 운영자용입니다.
 
