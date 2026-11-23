@@ -14,3 +14,6 @@
 /* Each item remains visible after passing; focus follows the first unresolved item. */
 .worker-headup .worker-signal{padding:16px 14px}.worker-headup .worker-signal .inspection-checklist .inspection-check-label{font-size:13px;margin:0}.worker-shell[data-view=monitor] .inspection-checklist{--check-ink:#243b45;--check-muted:#697d88;--check-border:#c6d4da;--check-pass:#2e745c;--check-current:#203f4c;--check-active-bg:#edf4f6;--check-warning:#99671b;--check-error:#ac493d}.worker-shell[data-view=monitor] .worker-headup .worker-signal .inspection-check-status{font-size:10px}.worker-shell[data-view=operator] .worker-headup{width:330px}.worker-shell[data-view=operator] .worker-headup .worker-signal.held{background:#24302deb}
 @media(max-width:650px){.worker-shell[data-view=operator] .worker-headup{width:auto}}
+
+/* Keep the glasses HUD within the video at classroom laptop heights. */
+@media(min-width:651px){.worker-shell[data-view=operator] .worker-headup{max-height:calc(100% - 50px);overflow-y:auto;align-content:start;scrollbar-width:thin}}

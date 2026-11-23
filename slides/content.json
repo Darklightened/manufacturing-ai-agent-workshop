@@ -470,7 +470,7 @@
       "section": "intro",
       "visualSpec": {
         "kind": "linked_screen",
-        "path": "slides/assets/current_v2/lab1/28-battery-hold.jpg",
+        "path": "slides/assets/worker_checklist_v3/lab1/32-battery-question.jpg",
         "caption": "현재 전자 조립 실습 · 배터리 극성 확인",
         "url": "https://darklightened.github.io/manufacturing-ai-agent-workshop/",
         "linkLabel": "실습 페이지"
@@ -4357,20 +4357,20 @@
       "section": "lab3",
       "title": "실습 3 (기계 조립): 첫 항목 통과와 체크",
       "kicker": "실습 화면",
-      "lead": "통과 체크 확인 후 검사 기록 확인 선택",
+      "lead": "통과한 검사 항목과 체크 표시 확인",
       "bullets": [
         "통과한 검사 항목만 체크 표시",
-        "통과 체크 확인 후 검사 기록 확인 선택",
+        "차체 연결 항목의 통과 상태 표시",
         "차체 연결 항목의 체크와 통과 신호"
       ],
       "minutes": 0.18,
       "activityMinutes": 1.381,
-      "notes": "조작: 통과 체크 확인 후 검사 기록 확인 선택\n확인할 결과: 차체 연결 항목의 체크와 통과 신호\n\n통과한 검사 항목만 체크 표시 | 영상 종료와 검사 결과를 함께 확인\n빨간 네모는 실습 화면의 실제 버튼·입력란 위치입니다. 실습 탭에서 조작합니다.",
+      "notes": "작업자 화면에서 차체 연결 항목의 체크와 통과 신호 확인. 이 장에서는 모니터링으로 이동하지 않고 다음 작업 안내를 먼저 확인합니다. 항목을 직접 눌러 통과시키는 절차는 없습니다.\n다음 작업 질문은 선택 기능이며, 답변을 들은 뒤 검사 기록 확인으로 이동합니다.",
       "screen_type": "actual_ui",
-      "capture_key": "lab3-06-chassis-pass",
+      "capture_key": "chassis-pass-observe",
       "optional": false,
       "walkthrough": {
-        "image": "slides/assets/worker_checklist_v3/lab3_library/lab3/06-chassis-pass.jpg",
+        "image": "slides/assets/review_20261124/lab3/chassis-pass-observe.jpg",
         "phase": "영상·체크",
         "phases": [
           "자료·작업 선택",
@@ -4379,10 +4379,10 @@
           "검수 문서"
         ],
         "input": "통과한 검사 항목만 체크 표시",
-        "process": "통과 체크 확인 후 검사 기록 확인 선택",
+        "process": "차체 연결 항목의 통과 상태 표시",
         "output": "차체 연결 항목의 체크와 통과 신호",
         "mode": "실제 실습 화면 · 강의용 예시",
-        "tip": "빨간 네모: 조작 위치 · 그림 클릭 확대"
+        "tip": "확인 화면 · 그림 클릭 확대"
       },
       "id": "120"
     },
@@ -4483,20 +4483,20 @@
       "section": "lab3",
       "title": "실습 3 (기계 조립): Agent 작업 절차 안내",
       "kicker": "실습 화면",
-      "lead": "다음 작업과 준비 사항 확인",
+      "lead": "작업 안내 확인 후 검사 기록 확인 선택",
       "bullets": [
         "등록된 작업 절차",
-        "다음 작업과 준비 사항 확인",
+        "다음 작업 안내 확인 후 모니터링으로 전환",
         "브래킷 설치 순서와 연결 핀 확인 방법"
       ],
       "minutes": 0.18,
       "activityMinutes": 1.381,
-      "notes": "조작: 다음 작업과 준비 사항 확인\n확인할 결과: 브래킷 설치 순서와 연결 핀 확인 방법\n\n등록된 작업 절차 | 안내 자체는 작업 완료 근거와 별도\n빨간 네모는 실습 화면의 실제 버튼·입력란 위치입니다. 실습 탭에서 조작합니다.",
+      "notes": "다음 공정과 준비 사항을 확인한 뒤 오른쪽 아래 검사 기록 확인 버튼 선택. 이어지는 모니터링 화면에서 검사표·작업 기록을 확인하고 다음 작업을 시작합니다.\n작업 안내는 등록된 절차의 설명이며 검사 통과 근거로 추가하지 않습니다. 강의용 예시.",
       "screen_type": "actual_ui",
-      "capture_key": "lab3-08-guidance-answer",
+      "capture_key": "guidance-then-record",
       "optional": false,
       "walkthrough": {
-        "image": "slides/assets/worker_checklist_v3/lab3_library/lab3/08-guidance-answer.jpg",
+        "image": "slides/assets/review_20261124/lab3/guidance-then-record.jpg",
         "phase": "질문·안내",
         "phases": [
           "자료·작업 선택",
@@ -4505,10 +4505,10 @@
           "검수 문서"
         ],
         "input": "등록된 작업 절차",
-        "process": "다음 작업과 준비 사항 확인",
+        "process": "다음 작업 안내 확인 후 모니터링으로 전환",
         "output": "브래킷 설치 순서와 연결 핀 확인 방법",
         "mode": "실제 실습 화면 · 강의용 예시",
-        "tip": "확인 화면 · 그림 클릭 확대"
+        "tip": "빨간 네모: 조작 위치 · 그림 클릭 확대"
       },
       "id": "123"
     },
@@ -5369,7 +5369,7 @@
       "id": "148"
     }
   ],
-  "revision": "worker-monitor-checklist-20261124",
+  "revision": "whole-review-20261124",
   "technicalExampleCount": 16,
   "walkthroughSummary": {
     "screens": 117,

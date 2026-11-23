@@ -9,7 +9,7 @@
   "sources": {
     "data/source_pack/electronics/S1790005/frame_04_0076.731s.jpg": "6a258d17a6ace40c919e7f093d86cf825f685c2656630996eecd059f1b8153c7",
     "scenarios/measurement_demo/scene-a.svg": "08e14f1dddb7bee17852508e2f06c083274dc0d7a00c845748184509b0dac0c8",
-    "slides/assets/current_v2/lab1/28-battery-hold.jpg": "128c8f5cd9ed3dd656698d93eb075571a3c81b2d1bc883362ad43e8f2d6afab6",
+    "slides/assets/worker_checklist_v3/lab1/32-battery-question.jpg": "c114eb4956b2bb370906c4f6eafa277c116c4e4d437f9f52106df03be5135799",
     "slides/assets/worker_checklist_v3/prep/prep-01-home.jpg": "cd148bf1d2849dfe01c125c7ce4f1c9a29c85d1ca34d6e93d0bf8a8162aa8444",
     "slides/assets/worker_checklist_v3/prep/prep-02-slides.jpg": "e0fe7b732b43360f0ea322f4e86854975e50c06191f6dfa7c80effd9a2b36e3c",
     "slides/assets/worker_checklist_v3/prep/prep-03-company-zip.jpg": "54f3394a6de666fc46c780ff58e4b91c98033efff3a1b40dd7ce0ea4d4df16ec",
@@ -48,7 +48,6 @@
     "slides/assets/worker_checklist_v3/lab1/29-circuit-pass.jpg": "2d89286defa47782c824287bc25c998485039ba8f507ba9f249628b071e5e689",
     "slides/assets/worker_checklist_v3/lab1/30-circuit-monitor.jpg": "2fa219b7049904ce0ddc859b8cb94d1494beabe1ab6a5debb65bc5bb66fecb28",
     "slides/assets/worker_checklist_v3/lab1/31-propeller-pass.jpg": "6acab3be8d410f009b4dd1e9ab5856cfdd8d16f72e3b1cd86a6cee7b2cba690a",
-    "slides/assets/worker_checklist_v3/lab1/32-battery-question.jpg": "c114eb4956b2bb370906c4f6eafa277c116c4e4d437f9f52106df03be5135799",
     "slides/assets/worker_checklist_v3/lab1/33-battery-answer.jpg": "0e47589a7ca24818508f10cb4aee74ecf9b0f4394abee83914d366889be349fe",
     "slides/assets/worker_checklist_v3/lab1/34-battery-pass.jpg": "92b03b2bf91f24461215a8b94af284d46fbc55d199dfe3b5ce8f1539c186b650",
     "slides/assets/worker_checklist_v3/lab1/35-battery-monitor.jpg": "575e54aba6502379382b91c94850e3f0582edca0d9ca5758d30fdd6fd0420765",
@@ -105,9 +104,9 @@
     "slides/assets/worker_checklist_v3/lab3_library/lab3/03-compiled.jpg": "dca0340f9a7e465e462a387df33b0c7a0e2231dde4440d2d74cc918ff59df4d3",
     "slides/assets/worker_checklist_v3/lab3_library/lab3/04-setup.jpg": "67dd1678bae845e2453c783d2c1d48e4b1910f795696b4aa51a471653e3dafb8",
     "slides/assets/worker_checklist_v3/lab3_library/lab3/05-video.jpg": "7f3e075f848e2bcc044bcbe07671ac85030b171f0fdebaf92b5ecc093542cc45",
-    "slides/assets/worker_checklist_v3/lab3_library/lab3/06-chassis-pass.jpg": "4092b50df49255782debd757f450ada35349e62f2c6a3cc1d8b880add7093f5b",
+    "slides/assets/review_20261124/lab3/chassis-pass-observe.jpg": "d14bfc54a92f13db4aaeca815c179a2ea965ea30cd91e344d01bb8b0e68835f4",
     "slides/assets/worker_checklist_v3/lab3_library/lab3/07-guidance-request.jpg": "1f1bec8a949e16d1a603c72179b0458c32e83bfd4da0db30d7f8f154ffbfca3e",
-    "slides/assets/worker_checklist_v3/lab3_library/lab3/08-guidance-answer.jpg": "14fedbe17798daf8d94f05b9eff70b534c3591ac39ff8bfac9ff4352fe34d2dc",
+    "slides/assets/review_20261124/lab3/guidance-then-record.jpg": "38ac0015f9899959f8d7c82748584602d716ef716fc37faa841b58b9d62d0188",
     "slides/assets/worker_checklist_v3/lab3_library/lab3/08b-monitor.jpg": "d58d492937bdd0eeafe4735d9f6cd51e51c2acd2b78e25c4c21a974e10705a3a",
     "slides/assets/worker_checklist_v3/lab3_library/lab3/09-pin-question.jpg": "9f27092c3913a597f3d9ac85917aac6a1a015c1c309f13a48fb32769b06bb3d8",
     "slides/assets/worker_checklist_v3/lab3_library/lab3/10-answer.jpg": "a96f3709feab8f504a94d9e70ec378b59813ce77a6a84f852365c297ed65c924",
@@ -132,7 +131,7 @@
     "slides/assets/worker_checklist_v3/lab3_library/library/07-local-storage.jpg": "a888cbc32ca604b5f346cb02725befecc6b21f77ea9d962e6d1fdbfff2b09557",
     "assets/fonts/NotoSansKR.woff2": "595d02b6812da7493347da4381fdeda9397992730c3cf038ccc15818ea9ac14a"
   },
-  "content_sha256": "7b8c6e6a811830c86394ec14e296f7d31b99d4b3a39f243d3527d1d09a98880a",
-  "html_sha256": "55ec8a7276a49886af87188e921cfa7130bbf758c6d719594ac589647d583351",
+  "content_sha256": "f197a0a7e083aa52f2e2728253a68e2b61ee3c4fdf90196fc0417d0ae5c529d0",
+  "html_sha256": "1a7aa4fc33418bd4a7211615198d8a02e06087d0f9b8e5555bb7e5b123cc22b1",
   "published": false
 }

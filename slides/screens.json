@@ -3263,38 +3263,18 @@
       "slide_title": "실습 3 (기계 조립): 작업자 화면과 검사 항목"
     },
     {
-      "input": "통과한 검사 항목만 체크 표시",
-      "process": "통과 체크 확인 후 검사 기록 확인 선택",
-      "output": "차체 연결 항목의 체크와 통과 신호",
-      "key": "lab3-06-chassis-pass",
-      "title": "실습 3 (기계 조립): 첫 항목 통과와 체크",
-      "action": "통과 체크 확인 후 검사 기록 확인 선택",
-      "outcome": "차체 연결 항목의 체크와 통과 신호",
-      "notes": "통과한 검사 항목만 체크 표시 | 영상 종료와 검사 결과를 함께 확인",
+      "key": "chassis-pass-observe",
       "section": "lab3",
-      "image": "slides/assets/worker_checklist_v3/lab3_library/lab3/06-chassis-pass.jpg",
+      "image": "slides/assets/review_20261124/lab3/chassis-pass-observe.jpg",
+      "sha256": "d14bfc54a92f13db4aaeca815c179a2ea965ea30cd91e344d01bb8b0e68835f4",
+      "targets": [],
       "source_url": "http://127.0.0.1:8951/",
       "viewport": {
         "width": 1440,
         "height": 1000
       },
       "scroll_y": 0,
-      "targets": [
-        {
-          "selector": "#mechanical-next",
-          "label": "1",
-          "box": {
-            "x": 1240,
-            "y": 943.09375,
-            "width": 176,
-            "height": 40.796875
-          },
-          "text": "검사 기록 확인 →",
-          "click": true
-        }
-      ],
-      "raw_sha256": "6b0dbfe4e2c1af8d0b304748adc06522077479dc3263653a09b98d131d1ba4d4",
-      "sha256": "4092b50df49255782debd757f450ada35349e62f2c6a3cc1d8b880add7093f5b",
+      "natural_playback": true,
       "slide_id": "120",
       "slide_title": "실습 3 (기계 조립): 첫 항목 통과와 체크"
     },
@@ -3335,25 +3315,31 @@
       "slide_title": "실습 3 (기계 조립): 다음 작업 질문"
     },
     {
-      "input": "등록된 작업 절차",
-      "process": "다음 작업과 준비 사항 확인",
-      "output": "브래킷 설치 순서와 연결 핀 확인 방법",
-      "key": "lab3-08-guidance-answer",
-      "title": "실습 3 (기계 조립): Agent 작업 절차 안내",
-      "action": "다음 작업과 준비 사항 확인",
-      "outcome": "브래킷 설치 순서와 연결 핀 확인 방법",
-      "notes": "등록된 작업 절차 | 안내 자체는 작업 완료 근거와 별도",
+      "key": "guidance-then-record",
       "section": "lab3",
-      "image": "slides/assets/worker_checklist_v3/lab3_library/lab3/08-guidance-answer.jpg",
+      "image": "slides/assets/review_20261124/lab3/guidance-then-record.jpg",
+      "sha256": "38ac0015f9899959f8d7c82748584602d716ef716fc37faa841b58b9d62d0188",
+      "targets": [
+        {
+          "selector": "#mechanical-next",
+          "label": "1",
+          "box": {
+            "x": 1240,
+            "y": 943.09375,
+            "width": 176,
+            "height": 40.796875
+          },
+          "click": true,
+          "text": "검사 기록 확인 →"
+        }
+      ],
       "source_url": "http://127.0.0.1:8951/",
       "viewport": {
         "width": 1440,
         "height": 1000
       },
       "scroll_y": 0,
-      "targets": [],
-      "raw_sha256": "14fedbe17798daf8d94f05b9eff70b534c3591ac39ff8bfac9ff4352fe34d2dc",
-      "sha256": "14fedbe17798daf8d94f05b9eff70b534c3591ac39ff8bfac9ff4352fe34d2dc",
+      "natural_playback": true,
       "slide_id": "123",
       "slide_title": "실습 3 (기계 조립): Agent 작업 절차 안내"
     },
