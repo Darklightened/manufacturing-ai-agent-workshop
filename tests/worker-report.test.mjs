@@ -35,7 +35,7 @@ test('dense HTML has actual table structure, local evidence images, blank approv
 });
 test('real DOCX is an OOXML ZIP with typed relationships and six embedded evidence files',async()=>{
  const data=await makeInspectionDocx(args(complete())),files=zipEntries(data);assert(data instanceof Uint8Array);assert.equal(data[0],0x50);assert.equal(data[1],0x4b);for(const part of ['[Content_Types].xml','_rels/.rels','word/document.xml','word/styles.xml','word/header1.xml','word/footer1.xml','word/_rels/document.xml.rels','docProps/core.xml'])assert(files.has(part));assert.equal([...files.keys()].filter(k=>k.startsWith('word/media/')).length,6);
- const xml=decode(files,'word/document.xml');assert.match(xml,/<w:tbl>/);assert.match(xml,/<w:tblHeader\/>/);assert.match(xml,/w:w="11906"/);assert.match(xml,/W-BATTERY-03/);assert.match(xml,/교육 기준 충족 · 검토 대기/);assert.match(xml,/미서명/);assert.match(decode(files,'word/footer1.xml'),/w:instr="PAGE"/);
+ const xml=decode(files,'word/document.xml');assert.match(xml,/<w:tbl>/);assert.match(xml,/<w:tblHeader\/>/);assert.match(xml,/w:w="11906"/);assert.match(xml,/W-BATTERY-03/);assert.match(xml,/검사 항목 충족 · 승인 대기/);assert.match(xml,/미서명/);assert.match(decode(files,'word/footer1.xml'),/w:instr="PAGE"/);
  for(const [,id]of xml.matchAll(/r:embed="([^"]+)"/g))assert(decode(files,'word/_rels/document.xml.rels').includes(`Id="${id}"`));assert.equal([...xml.matchAll(/r:embed=/g)].length,6);
 });
 test('DOCX does not silently drop unavailable or incompatible evidence images',async()=>{

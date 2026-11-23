@@ -17,39 +17,46 @@
     "url": "https://github.com/TimSchoonbeek/IndustReal"
   },
   "fontLicense": "Noto Sans KR: SIL Open Font License 1.1, embedded in HTML",
-  "generatedBy": "Browser UI using real bundled PDF/CSV compilation and natural 4x video playback; report export from the resulting session",
+  "generatedBy": "Restored the existing natural-play completed session in the browser; exported formal report and printed A4 PDF. Original observations and the single positive worker answer are unchanged.",
   "modelCalls": 0,
   "gpuCalls": 0,
   "artifacts": [
     {
       "path": "report-mechanical.html",
-      "bytes": 5497446,
-      "sha256": "8088cf6c6907abbaa4f9c17db1d29aa8fa1fc2ed13c7a1bb5d8f9301f1a1761b"
+      "bytes": 5497638,
+      "sha256": "17ea674ab26f7864676fc8aff78b90257beb6e95e1e48b7494a89b50bb34924f"
     },
     {
       "path": "inspection-mechanical.html",
-      "bytes": 5497438,
-      "sha256": "6bd28a19833d0b4cfe29a57aff5133300e24efc3305f238fe81c73021a99e2e1"
+      "bytes": 5497630,
+      "sha256": "c429323db403e2d3581222396fa12f6f99b6f7c414c433c7cdbddae5c31d80b7"
     },
     {
       "path": "report-mechanical.pdf",
-      "bytes": 1137054,
-      "sha256": "bd73fa03461ac792a1a26d83027978175e3abc0bce9f128af5f07cc4dce144df",
+      "bytes": 883632,
+      "sha256": "8a6af6cd87d053b4b9392648964ec72fa25d4eb6c42da1b65b90528ec64599c0",
       "printSettings": {
-        "scale": 0.8,
-        "marginMm": 10,
-        "paper": "A4"
+        "scale": 1,
+        "marginVerticalMm": 16,
+        "marginHorizontalMm": 13,
+        "paper": "A4",
+        "pages": 3,
+        "preferCSSPageSize": true
       }
     },
     {
       "path": "inspection-mechanical.pdf",
-      "bytes": 1134911,
-      "sha256": "cc5a70da744c04713719e690860eac5711d60d3c814a550a5c9d114b3678b867",
+      "bytes": 883952,
+      "sha256": "d8d3f907b2b848d6b95c7ff5f123001e27e4148a55056c641b640f325366650e",
       "printSettings": {
-        "scale": 0.8,
-        "marginMm": 10,
-        "paper": "A4"
+        "scale": 1,
+        "marginVerticalMm": 16,
+        "marginHorizontalMm": 13,
+        "paper": "A4",
+        "pages": 3,
+        "preferCSSPageSize": true
       }
     }
-  ]
+  ],
+  "presentation": "formal-inspection-paper-v1"
 }

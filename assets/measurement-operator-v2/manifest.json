@@ -1,0 +1,64 @@
+{
+  "provenance": "authored_simulated_video",
+  "actual_capture": false,
+  "model_prediction": false,
+  "source": "measurement-photo-v1 PNGs unchanged; camera-only motion; no tool animation",
+  "outputs": [
+    {
+      "path": "assets/measurement-operator-v2/scene-a.mp4",
+      "sha256": "c4d356f6e7d0b8578976c9869bd4431fd8b80b80f706269f187a811c71de2496",
+      "bytes": 1373994,
+      "duration": 10,
+      "full_decode": "passed"
+    },
+    {
+      "path": "assets/measurement-operator-v2/scene-a.webm",
+      "sha256": "5a4c7e8e4133b6011cadf66beb982bf360e853517efc65e4b7c881c7ca524c4d",
+      "bytes": 646702,
+      "duration": 10,
+      "full_decode": "passed"
+    },
+    {
+      "path": "assets/measurement-operator-v2/scene-b.mp4",
+      "sha256": "4dae9889b13f9cef60ddb9c0bce82a2004e816f2ce7edabd9a9390024e36d25a",
+      "bytes": 1440699,
+      "duration": 10,
+      "full_decode": "passed"
+    },
+    {
+      "path": "assets/measurement-operator-v2/scene-b.webm",
+      "sha256": "65d4aaab586e59814c37f23fd0f5b3e907c628a2c2c9d8bed82553ae74aa1b6b",
+      "bytes": 662604,
+      "duration": 10,
+      "full_decode": "passed"
+    },
+    {
+      "path": "assets/measurement-operator-v2/scene-c.mp4",
+      "sha256": "51cbe18e1b810885bec1560ed8d225f4c889d68b66deb50760dfacf7d4a39f3c",
+      "bytes": 1339788,
+      "duration": 10,
+      "full_decode": "passed"
+    },
+    {
+      "path": "assets/measurement-operator-v2/scene-c.webm",
+      "sha256": "8c1ebb0922fd2e13a6fc4967b954919e2bcd422b836676e37824de17975f2586",
+      "bytes": 582837,
+      "duration": 10,
+      "full_decode": "passed"
+    }
+  ],
+  "sources": [
+    {
+      "path": "assets/measurement-photo-v1/scene-a.png",
+      "sha256": "390ea255ffcda7315558a07f38ef3626753c2d7bf20e7b367296e29bc0362cae"
+    },
+    {
+      "path": "assets/measurement-photo-v1/scene-b.png",
+      "sha256": "d1c9ad3df431f4968cf615257ee1a45ddb1ff92f71a8f3f46214a4c04907f207"
+    },
+    {
+      "path": "assets/measurement-photo-v1/scene-c.png",
+      "sha256": "76a9803665154c07a3595c862aecc1924c499819f1bf9347895bdae39222a1dd"
+    }
+  ]
+}
