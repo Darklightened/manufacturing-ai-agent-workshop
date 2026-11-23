@@ -1,6 +1,6 @@
 {
   "status": "passed",
-  "slides": 34,
+  "slides": 37,
   "page_errors": [],
   "external_requests": [],
   "layout_violations": [],
@@ -16,14 +16,17 @@
     "PDF export"
   ],
   "model_calls": 0,
-  "pdf_pages": 34,
+  "pdf_pages": 37,
   "pdf_text_chars": [
-    313,
-    306,
-    292,
-    314,
-    314,
-    314,
+    315,
+    307,
+    294,
+    332,
+    316,
+    264,
+    311,
+    298,
+    295,
     267,
     310,
     339,
@@ -31,7 +34,7 @@
     315,
     295,
     280,
-    296,
+    375,
     276,
     317,
     351,
@@ -53,21 +56,21 @@
     302,
     280
   ],
-  "pptx_slides": 34,
-  "pptx_notes": 34,
+  "pptx_slides": 37,
+  "pptx_notes": 37,
   "pptx_type": "presentation_image_with_speaker_notes",
   "outputs": {
     "실습_안내.html": {
-      "bytes": 8122529,
-      "sha256": "b86a36a46900a4bd4ca0e5fa96aeee676e1e0e07c731b9cc323513f7a1dd64d9"
+      "bytes": 8133417,
+      "sha256": "34a1fb0678f2d2e826bed214916b881116a3801f25c5bce0684ff5841f618abe"
     },
     "실습_안내.pdf": {
-      "bytes": 3040258,
-      "sha256": "2e617c43afed6fdb6c076248ea0e306f7288d0108049128d00a910dd5ce1392c"
+      "bytes": 2734430,
+      "sha256": "286874843241c251657d81e40e3ade944a9bf48abff732504a56d764743dc583"
     },
     "실습_안내.pptx": {
-      "bytes": 4397072,
-      "sha256": "a0d86b416514a6232fa3b94b0e79e16c677b8ad137219e2cbfda93b0aca509be"
+      "bytes": 4749206,
+      "sha256": "66cfd76eb83536f759203599f46cb2bbae0d19302c5ff5cf20da0a40968a0ed1"
     }
   }
 }

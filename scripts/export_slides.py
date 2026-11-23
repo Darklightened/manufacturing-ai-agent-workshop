@@ -36,7 +36,7 @@ with sync_playwright() as pw:
         page.evaluate('(n)=>goSlide(n)',i)
         violations=page.evaluate('''()=>{
           const s=document.querySelector('.slide.active'),b=s.getBoundingClientRect();
-          const violations=[...s.querySelectorAll('h1,.lead,.points li,.visual img,.visual figcaption,.visual .access-link,.visual table,.agenda,.pipeline,.tiles,.role-columns,.closing')].map(e=>({tag:e.tagName,cls:e.className,text:e.innerText?.slice(0,80),r:e.getBoundingClientRect()})).filter(x=>x.r.left<b.left+40||x.r.right>b.right-40||x.r.bottom>b.bottom-45||x.r.top<b.top+30).map(x=>({tag:x.tag,cls:x.cls,text:x.text,x:x.r.x,y:x.r.y,width:x.r.width,height:x.r.height}));
+          const violations=[...s.querySelectorAll('h1,.lead,.points li,.visual img,.visual figcaption,.visual .access-link,.visual table,.agenda,.pipeline,.tiles,.role-columns,.closing,.platform-diagram,.omni-diagram,.ontology-example,.visual h3,.visual p,.relation-row,.opening-note')].map(e=>({tag:e.tagName,cls:e.className,text:e.innerText?.slice(0,80),r:e.getBoundingClientRect()})).filter(x=>x.r.left<b.left+40||x.r.right>b.right-40||x.r.bottom>b.bottom-45||x.r.top<b.top+30).map(x=>({tag:x.tag,cls:x.cls,text:x.text,x:x.r.x,y:x.r.y,width:x.r.width,height:x.r.height}));
           const cap=s.querySelector('.opening-screen figcaption'),link=s.querySelector('.access-link');
           if(cap&&link&&cap.getBoundingClientRect().bottom>link.getBoundingClientRect().top)violations.push({tag:'figcaption',text:'Screen caption overlaps access link'});
           return violations;

@@ -1,7 +1,7 @@
 {
   "schema": "seminar.slides.v1",
   "title": "제조 AI Agent 실습",
-  "slide_count": 34,
+  "slide_count": 37,
   "mode": "authored_classroom_explanation",
   "inference_calls": 0,
   "self_contained": true,
@@ -28,7 +28,7 @@
     "slides/assets/measurement-inspection-table.png": "91bd23eb9ab37b972c3f57f7ae4c1f5fe9660b1cfacc83ab6d2d6f177a43d17d",
     "assets/fonts/NotoSansKR.woff2": "595d02b6812da7493347da4381fdeda9397992730c3cf038ccc15818ea9ac14a"
   },
-  "content_sha256": "57446036340144aa16f1b7d013edc2806ab7e2d447ba16a8db7bdbf328b19561",
-  "html_sha256": "b86a36a46900a4bd4ca0e5fa96aeee676e1e0e07c731b9cc323513f7a1dd64d9",
+  "content_sha256": "0fba85ef100029455436a4836cd8611376d6d6e0694f17753f597b9879a8b220",
+  "html_sha256": "34a1fb0678f2d2e826bed214916b881116a3801f25c5bce0684ff5841f618abe",
   "published": false
 }
