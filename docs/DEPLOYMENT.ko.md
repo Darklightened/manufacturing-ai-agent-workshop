@@ -5,7 +5,7 @@
 - [온라인 실습](https://darklightened.github.io/manufacturing-ai-agent-workshop/)
 - [강의 자료 다운로드](https://darklightened.github.io/manufacturing-ai-agent-workshop/downloads.html)
 - [공개 저장소](https://github.com/Darklightened/manufacturing-ai-agent-workshop)
-- [v0.5.8 자료 묶음](https://github.com/Darklightened/manufacturing-ai-agent-workshop/releases/tag/v0.5.8)
+- [v0.5.9 자료 묶음](https://github.com/Darklightened/manufacturing-ai-agent-workshop/releases/tag/v0.5.9)
 
 수강생은 온라인 실습 링크만 열면 됩니다. GitHub 로그인이나 설치가 필요 없으며, 진행 기록은 각자 브라우저에 저장됩니다. PDF·CSV·영상·슬라이드는 같은 사이트에서 제공하고, 큰 ZIP은 GitHub Release에서 받습니다. 아래 명령은 오프라인 사용 또는 운영자용입니다.
 
@@ -52,7 +52,7 @@ python scripts/package.py
 
 1. `scripts/package.py`의 허용 목록으로 만든 소스 ZIP을 독립 저장소로 사용합니다. 부모 연구 프로젝트나 로컬 검수 폴더를 추가하지 않습니다.
 2. 자체 코드에 임의의 라이선스를 새로 부여하지 않고 외부 자료의 개별 고지를 유지합니다. [자료 출처](../DATA_LICENSES.md)를 확인합니다.
-3. `data/source_pack`과 ZIP·결과물은 `.gitignore`에 따라 코드 커밋에서 제외합니다.
+3. `data/source_pack`과 대용량 ZIP·결과물은 `.gitignore`에 따라 코드 커밋에서 제외합니다. 약 0.69MB의 검토된 `assets/company-materials/company-practice-materials.zip`만 명시적 예외로 포함합니다.
 4. 빌드가 만든 공개 후보에서 미디어만 `source_pack/`을 최상위로 가진 ZIP으로 묶습니다. 원래 내부 자료팩 전체를 무검수 업로드하지 않습니다.
 5. 미디어 ZIP을 해당 버전 Release에 올리고 SHA256을 기록합니다.
 6. GitHub Pages의 Source를 GitHub Actions로 설정합니다.

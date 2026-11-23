@@ -8,10 +8,13 @@ https://darklightened.github.io/manufacturing-ai-agent-workshop/
 자료 다운로드
 https://darklightened.github.io/manufacturing-ai-agent-workshop/downloads.html
 
-미리 받을 파일은 두 가지입니다.
-1. 슬라이드 PDF (약 7 MB)
-2. 예제 자료 묶음 ZIP (약 13 MB, 압축 해제)
+실습 1 준비
+회사별 입력 자료 ZIP (약 0.69MB)을 다운로드하고 압축을 풀어 주세요.
+https://darklightened.github.io/manufacturing-ai-agent-workshop/assets/company-materials/company-practice-materials.zip
 
-온라인 실습은 설치 없이 링크에서 진행합니다. GitHub 로그인, Python, API 키, 모델·GPU, 마이크는 필요하지 않습니다. 전체 실습팩과 PPTX는 수강생 필수 자료가 아닙니다.
+실습 화면에서 '폴더 전체 업로드'를 누르고 '다온에듀테크' 폴더를 선택합니다.
+다운로드·폴더 선택이 어려우면 화면의 '준비된 회사 자료로 시작'으로 같은 실습을 할 수 있습니다.
+슬라이드 PDF(약 7MB)는 선택 자료이며, 회사 자료 구축 화면은 이전 버전입니다. 새 순서는 웹앱 안내를 따릅니다.
 
-개인 결과를 저장할 폴더를 준비하고 실습 첫 화면에서 대기해 주세요. 실습 앱은 한 탭만 열어 주세요. 수업 종료 전 검수조서·보고서와 진행 JSON을 저장하고 강사가 안내하는 곳에 제출합니다.
+GitHub 로그인, Python 설치, API 키, 모델·GPU, 마이크는 필요하지 않습니다.
+실습 앱은 한 탭만 열어 주세요. 수업 종료 전 검수조서·보고서와 진행 JSON을 저장하고 강사가 안내하는 곳에 제출합니다.

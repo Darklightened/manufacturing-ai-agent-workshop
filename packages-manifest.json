@@ -1,0 +1,50 @@
+{
+  "schema": "seminar.packages.v3",
+  "published": false,
+  "default_scenario": "electronics_demo",
+  "teaching_scenarios": [
+    "electronics_demo",
+    "measurement_demo",
+    "measurement_precision_demo"
+  ],
+  "modes": [
+    "authored_demo",
+    "authored_fixture",
+    "recorded_model"
+  ],
+  "playback_inference_calls": 0,
+  "recordings": [
+    {
+      "id": "electronics_v1",
+      "model": "seminar-qwen38-27b-fp8",
+      "entries": 6,
+      "sha256": "3a5664be601781028fe882420732fe79fcf60080a1fd7f4fd7f24231964006fc"
+    }
+  ],
+  "packages": [
+    {
+      "file": "workshop-source.zip",
+      "bytes": 93100596,
+      "sha256": "f365eb0264a3a67e4726861efa9be66cfdd51d99920f8951f899be17e97980cf",
+      "files": 300
+    },
+    {
+      "file": "workshop-media.zip",
+      "bytes": 224137637,
+      "sha256": "180377af0bb0cd3a1e3e911c7f5980861e5f4f957b783b39d4796100cd75ac67",
+      "files": 36
+    },
+    {
+      "file": "workshop-offline.zip",
+      "bytes": 317239579,
+      "sha256": "4c1a0c4af98128b1f43d07cf1a0ecad713405af602da3995ee9a9c16ccfe859f",
+      "files": 336
+    },
+    {
+      "file": "workshop-handouts.zip",
+      "bytes": 12889722,
+      "sha256": "abd87b95bca24ce8d7e98eb3b3b57699ae0f04467d647debf7aad56c9072f079",
+      "files": 25
+    }
+  ]
+}

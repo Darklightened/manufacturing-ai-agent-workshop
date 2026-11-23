@@ -16,3 +16,6 @@ data/import_manifest.json
 data/preparation_validation.json
 *.zip
 validation/
+
+# Reviewed, small fictional company input bundle used by the classroom UI.
+!assets/company-materials/company-practice-materials.zip

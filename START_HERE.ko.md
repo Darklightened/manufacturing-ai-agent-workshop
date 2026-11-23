@@ -6,6 +6,8 @@
 
 **[제조 AI Agent 실습실](https://darklightened.github.io/manufacturing-ai-agent-workshop/)**을 열고 실습을 선택합니다. 설치·로그인 없이 사용할 수 있습니다. **[강의 자료 다운로드](https://darklightened.github.io/manufacturing-ai-agent-workshop/downloads.html)**에서 슬라이드, SOP, 검사 기준, 도면과 검수조서 예제를 받습니다.
 
+실습 1의 [회사 자료 ZIP](assets/company-materials/company-practice-materials.zip)은 약 0.69MB입니다. 업로드가 어려우면 **다운로드 없이 화면을 확인하려면 → 준비된 회사 자료로 시작**으로 같은 실습을 진행합니다. [회사 자료 구축 순서](docs/company_build_v2/README.ko.md). 기존 슬라이드는 아직 이 개편을 반영하지 않았습니다.
+
 ## 인터넷 없이 시작
 
 강사 설명 자료: [슬라이드 HTML](slides/실습_안내.html) · [PDF](slides/실습_안내.pdf) · [PowerPoint](slides/실습_안내.pptx) · [진행 메모](slides/INSTRUCTOR_NOTES.ko.md). 슬라이드는 더블클릭으로 열고, 아래 실습 앱은 서버로 엽니다.
@@ -13,7 +15,7 @@
 1. `workshop-offline.zip`을 풀고 `11_21_seminar` 폴더를 엽니다.
 2. 이 폴더의 터미널에서 서버를 실행합니다. **Python 3**이 필요합니다. macOS·Linux는 `python3 scripts/serve.py`, Windows는 `py -3 scripts/serve.py`를 사용합니다. `python`이 Python 3으로 연결되어 있으면 `python scripts/serve.py`도 됩니다. 터미널은 실습 중 열어 둡니다.
 3. 브라우저에서 `http://127.0.0.1:8921/`을 엽니다. 강사가 서버를 제공하는 경우 안내받은 주소만 열면 됩니다.
-4. **전자 조립 실습 시작** → **정보 구축** → **작업 설정으로** → 작업 순서 확인 → **작업 시작하기**.
+4. **전자 조립 실습 시작** → 회사 자료 ZIP 압축 해제 → **폴더 전체 업로드**(다온에듀테크) → 파일 선택·미리보기 → **선택 자료로 정보 구축** → 배터리 기준의 연결 작업을 **배터리 삽입(battery)**으로 수정·저장 → **검토 완료 · 온톨로지 보기** → **자료 구축 완료 · 작업 설정으로** → 작업 순서 확인 → **작업 시작하기**.
 5. **준비 장면 확인하기**, 이후 **다음 장면 확인하기**로 진행합니다. 배터리 질문에서는 **질문 확인**을 먼저 누른 뒤 **방향을 확인했습니다**를 선택합니다.
 6. 마지막 장면에서 **결과 확인 · 보고서 만들기** → **보고서 만들기**를 누르고 **사진 포함 HTML 저장**과 **검수조서 저장**으로 결과를 저장합니다.
 

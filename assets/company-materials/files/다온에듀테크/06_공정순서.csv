@@ -1,0 +1,7 @@
+﻿sequence,task_id,task_name,criterion_id,review_note
+1,preparation,부품과 작업 준비,E-PREP,SOP와 검사 기준 참조
+2,circuit,회로 연결,E-CONNECTION,SOP와 검사 기준 참조
+3,propeller,프로펠러 장착,E-PROPELLER,SOP와 검사 기준 참조
+4,battery,배터리 삽입,E-BATTERY,배터리 두 개의 방향 확인
+5,switch,스위치 확인,E-SWITCH,S1 확인 후 S2 확인
+6,final,최종 외관 기록,E-FINAL,SOP와 검사 기준 참조

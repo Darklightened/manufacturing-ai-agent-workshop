@@ -1,0 +1,11 @@
+﻿part_id,part_name,quantity,unit,used_in_task,note
+BASE,베이스 보드,1,개,preparation,검사 대상 동일 보드 1개
+LINK,연결 부품,1,세트,circuit,교육용 작업지시서에 필요한 연결 부품 묶음
+S1,스위치 S1,1,개,circuit;switch,S1 확인 후 S2 확인
+S2,스위치 S2,1,개,circuit;switch,S1 다음에 확인
+MOTOR,모터,1,개,circuit;propeller,프로펠러 장착 대상
+L1,램프 L1,1,개,circuit,S2와 L1 병렬 연결은 SOP 참조
+PROPELLER,프로펠러,1,개,propeller,모터 축에 장착
+HOLDER,배터리 홀더,1,개,circuit;battery,홀더 + / − 표시 확인
+BATTERY,배터리,2,개,battery,두 개 모두 방향 확인
+SOP,작업지시서,1,부,preparation,SOP-ELEC-DEMO-001

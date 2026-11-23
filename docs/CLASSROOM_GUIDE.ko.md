@@ -2,19 +2,21 @@
 
 2026년 11월 23일 · 15–20명 수업 운영 · 전자 조립 / 계측 검사
 
-**수강생은 실습 링크와 PDF·예제 ZIP 두 가지면 충분합니다.** 온라인 실행 자체에 필수 다운로드는 없으며, 두 파일은 자료 열람과 수업 복습용입니다. 전체 실습팩은 강사가 미리 확보할 비상 자료입니다.
+**실습 1은 회사별 입력 자료 ZIP(약 0.69MB)을 받아 폴더 업로드를 연습합니다.** 다운로드가 어려우면 준비된 회사 자료로 시작할 수 있습니다. 슬라이드 PDF와 아래 참고 ZIP은 선택 자료입니다. 새 자료 구축 순서는 웹앱을 따르며 슬라이드는 이전 화면입니다. 전체 실습팩은 강사가 미리 확보할 비상 자료입니다.
 
 [실습 페이지](https://darklightened.github.io/manufacturing-ai-agent-workshop/) · [자료 다운로드](https://darklightened.github.io/manufacturing-ai-agent-workshop/downloads.html) · [슬라이드 보기](../slides/실습_안내.html) · [수강생 안내문 TXT](STUDENT_NOTICE.ko.txt)
+
+[회사별 입력 자료 ZIP](../assets/company-materials/company-practice-materials.zip) · [새 자료 구축 안내](company_build_v2/README.ko.md)
 
 ## 1. 강사가 미리 가지고 있을 자료
 
 | 자료 | 준비 방법 | 용도 |
 |---|---|---|
-| 전체 실습팩 · 약 0.3 GB | [workshop-offline.zip](https://github.com/Darklightened/manufacturing-ai-agent-workshop/releases/download/v0.5.8/workshop-offline.zip) 저장·압축 해제 | 슬라이드·예제·영상·프로그램을 함께 보관하는 비상본 |
+| 전체 실습팩 · 약 0.3 GB | [workshop-offline.zip](https://github.com/Darklightened/manufacturing-ai-agent-workshop/releases/download/v0.5.9/workshop-offline.zip) 저장·압축 해제 | 슬라이드·예제·영상·프로그램을 함께 보관하는 비상본 |
 | 발표본 · HTML 약 19.4 MB | 실습팩의 slides/실습_안내.html 또는 [HTML 저장](../slides/실습_안내.html) | 인터넷 없이 발표·이미지 확대·강사 메모 |
 | PDF 약 7 MB / PPTX 약 33.2 MB | [PDF](../slides/실습_안내.pdf)와 필요 시 [PPTX](../slides/실습_안내.pptx) 별도 복사 | 발표 대체본과 인쇄본. PPTX는 이미지 슬라이드+노트 형식 |
 | 강사 진행 메모·기술 해설 | [진행 메모](../slides/INSTRUCTOR_NOTES.ko.md) / [기술 배경](../slides/TECHNICAL_GUIDE.ko.md) | 시간표·버튼 순서·설명용 출력의 의미 확인 |
-| 입력 자료·완성 예제 · 약 12.9 MB | [workshop-handouts.zip](https://github.com/Darklightened/manufacturing-ai-agent-workshop/releases/download/v0.5.8/workshop-handouts.zip) 저장·압축 해제 | SOP·기준 CSV·도면·표준형/정밀형 검수조서 비교 |
+| 입력 자료·완성 예제 · 약 12.9 MB | [workshop-handouts.zip](https://github.com/Darklightened/manufacturing-ai-agent-workshop/releases/download/v0.5.9/workshop-handouts.zip) 저장·압축 해제 | SOP·기준 CSV·도면·표준형/정밀형 검수조서 비교 |
 | 리허설 진행 JSON | 본인 PC에서 실습 완료 후 진행 내보내기 | 중단 시 가져오기 테스트. HTML 보고서와 구분 |
 
 전체 실습팩 안에 대부분 포함되어 있으므로 같은 대용량 파일을 여러 번 받을 필요는 없습니다. 강사 PC와 USB 등 별도 위치에 한 번씩 보관하고, 다운로드 폴더보다 강의 전용 폴더로 정리하는 편이 좋습니다.
@@ -24,13 +26,13 @@
 | 항목 | 안내 |
 |---|---|
 | 기기 | 노트북 또는 PC, 충전기, Chrome 또는 Edge, 인터넷 연결 |
-| 다운로드 1 | 슬라이드 PDF · 약 7 MB |
-| 다운로드 2 | workshop-handouts.zip · 약 13 MB · 압축 해제 |
-| 온라인 실습 | 실습 링크 접속 후 첫 화면에서 대기. 예제 입력은 앱에 기본 연결되어 있어 전체 재업로드 불필요 |
+| 업로드 실습 자료 | 회사별 입력 자료 ZIP · 약 0.69 MB · 압축 해제 |
+| 선택 참고 자료 | 슬라이드 PDF 약 7 MB / 완성 예제 포함 workshop-handouts.zip 약 13 MB |
+| 온라인 실습 | 실습 링크 접속 → 회사 폴더 업로드. 다운로드가 어려우면 준비된 회사 자료로 시작 |
 | 별도 준비 불필요 | GitHub 로그인, Python·모델 설치, GPU·API 키, 스마트글래스·마이크·실물 계측기 |
 | 개인 작업 폴더 | 예: 제조AI_실습/입력자료, 제조AI_실습/결과. 결과 파일은 실습별로 구분 |
 
-합계 약 20 MB만 수업 전에 받도록 안내합니다. 수강생 전체에게 PPTX·전체 실습팩·소스 ZIP·영상 ZIP을 동시에 받게 할 필요는 없습니다. 음성은 강사만 재생하고 수강생은 질문 확인과 버튼·텍스트 답변으로 진행해도 됩니다.
+폴더 업로드 활동을 위해 회사 입력 ZIP 약 0.69 MB만 미리 받도록 안내합니다. PDF와 큰 참고 ZIP은 선택 사항입니다. 수강생 전체에게 PPTX·전체 실습팩·소스 ZIP·영상 ZIP을 동시에 받게 할 필요는 없습니다. 음성은 강사만 재생하고 수강생은 질문 확인과 버튼·텍스트 답변으로 진행해도 됩니다.
 
 ## 3. 강의 전날 리허설
 
@@ -69,7 +71,7 @@ Python 3은 이 오프라인 실행을 사용할 강사 PC에만 사전 설치·
 
 로컬 검수에서는 한 서버에서 20개의 독립 브라우저 세션을 동시에 열어 전자 긍정 5명·전자 반대 5명·계측 표준형 5명·정밀형 5명 모두 통과했습니다. PDF 처리→질문·답변→검수조서 저장→새로고침 복원과 브라우저별 저장 일치를 확인했습니다. 페이지·HTTP 오류는 0건입니다. 이는 앱의 동시 실행·저장 분리 검수이며, 실제 20대 PC나 GitHub Pages·강의장 Wi-Fi 부하 검증은 아닙니다.
 
-파일 용량 기준으로 PDF와 예제 ZIP은 한 사람 약 19.9 MB, 20명 약 398 MB입니다. 기본 앱의 비영상 자료는 원본 파일 크기 합산 약 9.6 MB이며 캐시·이동·보고서 생성 횟수에 따라 실제 전송량은 달라집니다. ZIP 다운로드는 GitHub Releases에서 제공하므로 이 합계를 Pages 월 전송량으로 그대로 계산하지 않습니다.
+새 회사 입력 ZIP은 한 사람 약 0.69 MB, 20명 약 13.8 MB입니다. 선택 자료인 PDF와 큰 참고 ZIP까지 받으면 한 사람 약 19.9 MB가 추가됩니다. 기본 앱의 비영상 자료는 원본 파일 크기 합산 약 9.6 MB이며 캐시·이동·보고서 생성 횟수에 따라 실제 전송량은 달라집니다. ZIP 다운로드는 GitHub Releases에서 제공하므로 이 합계를 Pages 월 전송량으로 그대로 계산하지 않습니다.
 
 ## 6. 개인 저장과 결과 제출
 
@@ -94,13 +96,16 @@ https://darklightened.github.io/manufacturing-ai-agent-workshop/
 자료 다운로드
 https://darklightened.github.io/manufacturing-ai-agent-workshop/downloads.html
 
-미리 받을 파일은 두 가지입니다.
-1. 슬라이드 PDF (약 7 MB)
-2. 예제 자료 묶음 ZIP (약 13 MB, 압축 해제)
+실습 1 준비
+회사별 입력 자료 ZIP (약 0.69MB)을 다운로드하고 압축을 풀어 주세요.
+https://darklightened.github.io/manufacturing-ai-agent-workshop/assets/company-materials/company-practice-materials.zip
 
-온라인 실습은 설치 없이 링크에서 진행합니다. GitHub 로그인, Python, API 키, 모델·GPU, 마이크는 필요하지 않습니다. 전체 실습팩과 PPTX는 수강생 필수 자료가 아닙니다.
+실습 화면에서 '폴더 전체 업로드'를 누르고 '다온에듀테크' 폴더를 선택합니다.
+다운로드·폴더 선택이 어려우면 화면의 '준비된 회사 자료로 시작'으로 같은 실습을 할 수 있습니다.
+슬라이드 PDF(약 7MB)는 선택 자료이며, 회사 자료 구축 화면은 이전 버전입니다. 새 순서는 웹앱 안내를 따릅니다.
 
-개인 결과를 저장할 폴더를 준비하고 실습 첫 화면에서 대기해 주세요. 실습 앱은 한 탭만 열어 주세요. 수업 종료 전 검수조서·보고서와 진행 JSON을 저장하고 강사가 안내하는 곳에 제출합니다.
+GitHub 로그인, Python 설치, API 키, 모델·GPU, 마이크는 필요하지 않습니다.
+실습 앱은 한 탭만 열어 주세요. 수업 종료 전 검수조서·보고서와 진행 JSON을 저장하고 강사가 안내하는 곳에 제출합니다.
 ```
 
 ## 8. 이번 수업에서 실행하는 범위

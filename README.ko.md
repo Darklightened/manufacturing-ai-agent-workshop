@@ -4,11 +4,13 @@
 
 **기본 전자 조립은 보여주기 쉽게 구성한 ‘강의용 예시’입니다.** 장면은 실제 공개 영상이고, AI 역할의 설명·질문·판정은 수업을 위해 작성했습니다. 작업자 답변과 검사 기준에 따라 결과가 바뀝니다. 수업 중 GPU, API 키, 모델 설치는 필요 없습니다.
 
-[빠른 시작](START_HERE.ko.md) · [전자 조립 실습 안내](docs/TEACHING_DEMO.ko.md) · [계측 실습 안내](docs/MEASUREMENT_DEMO.ko.md) · [현재 구현과 검수](docs/IMPLEMENTATION_STATUS.ko.md)
+[회사 자료 구축 개편 안내](docs/company_build_v2/README.ko.md) · [빠른 시작](START_HERE.ko.md) · [전자 조립 실습 안내](docs/TEACHING_DEMO.ko.md) · [계측 실습 안내](docs/MEASUREMENT_DEMO.ko.md) · [현재 구현과 검수](docs/IMPLEMENTATION_STATUS.ko.md)
 
 [강의 자료 다운로드](downloads.html)에서 설명 슬라이드 PDF·PowerPoint, 실습별 SOP·검사 기준·도면, 완성된 검수조서 예제를 받을 수 있습니다. 온라인 실습에서는 별도 설치 없이 첫 화면에서 실습을 선택합니다.
 
-**강사용 설명 슬라이드 121장:** [HTML 발표본](slides/실습_안내.html) · [PDF](slides/실습_안내.pdf) · [PowerPoint](slides/실습_안내.pptx) · [강사 메모](slides/INSTRUCTOR_NOTES.ko.md). HTML은 서버 없이 열립니다. [최종 검수와 강의 준비](docs/FINAL_CHECK.ko.md)도 함께 확인하세요.
+**v0.5.9:** [회사별 입력 자료 ZIP](assets/company-materials/company-practice-materials.zip)을 풀고 다온에듀테크 폴더를 업로드합니다. 파일 선택·미리보기 → 단계별 정보 구축 → 배터리 검사 기준의 작업 연결 수정 → 온톨로지 확인 후 기존 조립 실습을 이어갑니다. 업로드가 어려우면 ‘준비된 회사 자료로 시작’을 사용할 수 있습니다.
+
+**강사용 설명 슬라이드 121장 (회사 자료 구축 화면은 이전 버전):** [HTML 발표본](slides/실습_안내.html) · [PDF](slides/실습_안내.pdf) · [PowerPoint](slides/실습_안내.pptx) · [강사 메모](slides/INSTRUCTOR_NOTES.ko.md). HTML은 서버 없이 열립니다. [최종 검수와 강의 준비](docs/FINAL_CHECK.ko.md)도 함께 확인하세요.
 
 [강의 준비·수강생 안내](docs/classroom-guide.html): 강사 준비물, 수강생 PDF·예제 ZIP, 15–20명 운영과 비상 대안, 복사용 사전 공지문.
 
@@ -31,8 +33,8 @@ python3 scripts/serve.py
 브라우저에서 `http://127.0.0.1:8921/`을 엽니다. 수강생에게는 강사가 준비한 웹 주소만 알려 주어도 됩니다. 전체 앱은 PDF worker와 SQLite WASM을 사용하므로 HTML 더블클릭 대신 위 서버로 여세요. 저장한 개별 보고서는 더블클릭으로 열 수 있습니다.
 
 1. **전자 조립 실습 시작**을 누릅니다.
-2. 준비된 회사 SOP PDF·검사 기준 CSV를 불러오고 **정보 구축**을 누릅니다.
-3. **작업 설정으로**를 누르고 공정·작업 순서·검사 기준을 확인한 뒤 **작업 시작하기**를 누릅니다.
+2. 회사 자료 ZIP을 풀고 **폴더 전체 업로드**에서 다온에듀테크를 선택합니다. 파일을 선택·미리보기한 뒤 **선택 자료로 정보 구축**을 누릅니다.
+3. 배터리 검사 기준을 **배터리 삽입(battery)** 작업에 연결하고 **수정 내용 저장** → **검토 완료 · 온톨로지 보기** → **자료 구축 완료 · 작업 설정으로**를 누릅니다. 작업 순서를 확인한 뒤 **작업 시작하기**로 진행합니다.
 4. **준비 장면 확인하기**, 이후 **다음 장면 확인하기**로 준비·회로·프로펠러·배터리·스위치·최종 확인을 따라갑니다.
 5. 배터리 방향 질문에서 **질문 확인**을 먼저 누른 뒤 **방향을 확인했습니다**를 선택합니다.
 6. **결과 확인 · 보고서 만들기** → **보고서 만들기**를 누르고 **사진 포함 HTML 저장**과 **검수조서 저장**으로 결과를 저장합니다.
@@ -80,4 +82,4 @@ python scripts/build.py
 python scripts/package.py
 ```
 
-`workshop-offline.zip`은 코드·라이브러리·선별 미디어를 포함한 실행팩입니다. `workshop-handouts.zip`은 수강생용 입력 자료·도면·검수조서 예제 묶음입니다. 코드와 미디어를 나눠 전달할 때는 `workshop-source.zip`, `workshop-media.zip`을 사용합니다. [GitHub Release](https://github.com/Darklightened/manufacturing-ai-agent-workshop/releases/tag/v0.5.8)에서 받습니다. GitHub Pages는 수동 workflow로 배포하며, 기업 비공개 자료와 HTech 영상은 포함하지 않습니다.
+`workshop-offline.zip`은 코드·라이브러리·선별 미디어를 포함한 실행팩입니다. `workshop-handouts.zip`은 수강생용 입력 자료·도면·검수조서 예제 묶음입니다. 코드와 미디어를 나눠 전달할 때는 `workshop-source.zip`, `workshop-media.zip`을 사용합니다. [GitHub Release](https://github.com/Darklightened/manufacturing-ai-agent-workshop/releases/tag/v0.5.9)에서 받습니다. GitHub Pages는 수동 workflow로 배포하며, 기업 비공개 자료와 HTech 영상은 포함하지 않습니다.
