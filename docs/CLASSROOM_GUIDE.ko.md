@@ -12,11 +12,11 @@
 
 | 자료 | 준비 방법 | 용도 |
 |---|---|---|
-| 전체 실습팩 · 약 0.3 GB | [workshop-offline.zip](https://github.com/Darklightened/manufacturing-ai-agent-workshop/releases/download/v0.5.9/workshop-offline.zip) 저장·압축 해제 | 슬라이드·예제·영상·프로그램을 함께 보관하는 비상본 |
+| 전체 실습팩 · 약 0.36 GB | [workshop-offline.zip](https://github.com/Darklightened/manufacturing-ai-agent-workshop/releases/latest/download/workshop-offline.zip) 저장·압축 해제 | 슬라이드·예제·영상·프로그램을 함께 보관하는 비상본 |
 | 발표본 · HTML 약 19.4 MB | 실습팩의 slides/실습_안내.html 또는 [HTML 저장](../slides/실습_안내.html) | 인터넷 없이 발표·이미지 확대·강사 메모 |
 | PDF 약 7 MB / PPTX 약 33.2 MB | [PDF](../slides/실습_안내.pdf)와 필요 시 [PPTX](../slides/실습_안내.pptx) 별도 복사 | 발표 대체본과 인쇄본. PPTX는 이미지 슬라이드+노트 형식 |
 | 강사 진행 메모·기술 해설 | [진행 메모](../slides/INSTRUCTOR_NOTES.ko.md) / [기술 배경](../slides/TECHNICAL_GUIDE.ko.md) | 시간표·버튼 순서·설명용 출력의 의미 확인 |
-| 입력 자료·완성 예제 · 약 12.9 MB | [workshop-handouts.zip](https://github.com/Darklightened/manufacturing-ai-agent-workshop/releases/download/v0.5.9/workshop-handouts.zip) 저장·압축 해제 | SOP·기준 CSV·도면·표준형/정밀형 검수조서 비교 |
+| 입력 자료·완성 예제 · 약 41 MB | [workshop-handouts.zip](https://github.com/Darklightened/manufacturing-ai-agent-workshop/releases/latest/download/workshop-handouts.zip) 저장·압축 해제 | SOP·기준 CSV·도면·표준형/정밀형 검수조서 비교 |
 | 리허설 진행 JSON | 본인 PC에서 실습 완료 후 진행 내보내기 | 중단 시 가져오기 테스트. HTML 보고서와 구분 |
 
 전체 실습팩 안에 대부분 포함되어 있으므로 같은 대용량 파일을 여러 번 받을 필요는 없습니다. 강사 PC와 USB 등 별도 위치에 한 번씩 보관하고, 다운로드 폴더보다 강의 전용 폴더로 정리하는 편이 좋습니다.
