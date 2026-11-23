@@ -8,7 +8,7 @@
 
 [강의 자료 다운로드](downloads.html)에서 설명 슬라이드 PDF·PowerPoint, 실습별 SOP·검사 기준·도면, 완성된 검수조서 예제를 받을 수 있습니다. 온라인 실습에서는 별도 설치 없이 첫 화면에서 실습을 선택합니다.
 
-**강사용 설명 슬라이드 37장:** [HTML 발표본](slides/실습_안내.html) · [PDF](slides/실습_안내.pdf) · [PowerPoint](slides/실습_안내.pptx) · [강사 메모](slides/INSTRUCTOR_NOTES.ko.md). HTML은 서버 없이 열립니다. [최종 검수와 강의 준비](docs/FINAL_CHECK.ko.md)도 함께 확인하세요.
+**강사용 설명 슬라이드 121장:** [HTML 발표본](slides/실습_안내.html) · [PDF](slides/실습_안내.pdf) · [PowerPoint](slides/실습_안내.pptx) · [강사 메모](slides/INSTRUCTOR_NOTES.ko.md). HTML은 서버 없이 열립니다. [최종 검수와 강의 준비](docs/FINAL_CHECK.ko.md)도 함께 확인하세요.
 
 ## 온라인 실습
 
@@ -78,4 +78,4 @@ python scripts/build.py
 python scripts/package.py
 ```
 
-`workshop-offline.zip`은 코드·라이브러리·선별 미디어를 포함한 실행팩입니다. `workshop-handouts.zip`은 수강생용 입력 자료·도면·검수조서 예제 묶음입니다. 코드와 미디어를 나눠 전달할 때는 `workshop-source.zip`, `workshop-media.zip`을 사용합니다. [GitHub Release](https://github.com/Darklightened/manufacturing-ai-agent-workshop/releases/tag/v0.5.5)에서 받습니다. GitHub Pages는 수동 workflow로 배포하며, 기업 비공개 자료와 HTech 영상은 포함하지 않습니다.
+`workshop-offline.zip`은 코드·라이브러리·선별 미디어를 포함한 실행팩입니다. `workshop-handouts.zip`은 수강생용 입력 자료·도면·검수조서 예제 묶음입니다. 코드와 미디어를 나눠 전달할 때는 `workshop-source.zip`, `workshop-media.zip`을 사용합니다. [GitHub Release](https://github.com/Darklightened/manufacturing-ai-agent-workshop/releases/tag/v0.5.6)에서 받습니다. GitHub Pages는 수동 workflow로 배포하며, 기업 비공개 자료와 HTech 영상은 포함하지 않습니다.
