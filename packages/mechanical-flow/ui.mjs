@@ -1,4 +1,5 @@
 import * as Core from '../core/core.mjs';
+import {inspectionChecklist} from '../inspection-checklist/ui.mjs';
 
 const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const clock = seconds => `${Math.floor(seconds / 60)}:${String(Math.floor(seconds % 60)).padStart(2, '0')}`;
@@ -181,7 +182,14 @@ export class MechanicalExperience {
     main.querySelector('#mechanical-checks').innerHTML = rows.map(r => `<div class="mechanical-check ${esc(r.verdict)}"><span>${r.verdict === 'met' ? '✓' : r.verdict === 'violated' ? '!' : r.verdict === 'unknown' ? '?' : '·'}</span><div><strong>${esc(r.label)}</strong><small>${esc(labels[r.verdict])}${r.origin ? ` · ${r.origin === 'worker_confirmed' ? '작업자 확인' : '영상 확인'}` : ''}</small>${r.reason ? `<p>${esc(r.reason)}</p>` : ''}</div></div>`).join('');
     const signal = main.querySelector('#mechanical-signal');
     signal.className = 'mechanical-signal ' + (canNext ? 'passed' : s.position >= this.index ? 'held' : '');
-    signal.innerHTML = canNext ? '<span class="mechanical-notice-source">DYNIN · 검사 완료</span><strong>✓ 이번 작업을 통과했습니다</strong><span>검사 기록을 확인한 뒤 다음 작업으로 이동하세요.</span>' : s.position >= this.index ? '<span class="mechanical-notice-source">DYNIN · 확인 요청</span><strong>작업을 잠시 멈춰 주세요</strong><span>확인이 필요한 항목이 남아 있습니다.</span>' : '<span class="mechanical-notice-source">DYNIN · 작업 진행</span><strong>작업 장면을 확인하고 있습니다</strong><span>확인이 필요한 항목은 이곳에서 안내합니다.</span>';
+    // Read the same current-stage verdicts as the monitoring ledger. A reopened
+    // question cannot display a successful check just because its old answer passed.
+    const checklist = rows.map(r => ({
+      id:r.criterionId,label:r.label,
+      status:s.questions.some(q => q.criterionId === r.criterionId && !finished(q)) ? 'unknown' : r.verdict
+    }));
+    signal.innerHTML = inspectionChecklist(checklist,{title:'검사 항목'});
+
     main.querySelector('#mechanical-next').disabled = !canNext;
     main.querySelector('#mechanical-next').textContent = this.view === 'operator' ? '검사 기록 확인 →' : this.index === scenario.checkpoints.length - 1 ? '검수 완료 · 결과 보기' : '다음 작업 시작 →';
     main.querySelectorAll('[data-stage]').forEach(button => {

@@ -1,4 +1,5 @@
 import * as W from './state.mjs';
+import {inspectionChecklist} from '../inspection-checklist/ui.mjs';
 import {planForState} from './plans.mjs';
 import {PLAN_VERSION} from './plan.mjs';
 import {renderInspectionHTML,makeInspectionDocx,buildInspectionRecord} from './report.mjs';
@@ -72,7 +73,10 @@ export class WorkerExperience {
   main.querySelector('#worker-check-count').textContent=`${rows.filter(r=>this.status(r)==='met').length} / ${rows.length} 확인`;
   main.querySelector('#worker-checks').innerHTML=rows.map(r=>`<div class="worker-check ${esc(this.status(r))}"><span class="worker-check-icon">${this.status(r)==='met'?'✓':this.status(r)==='unknown'?'?':this.status(r)==='violated'?'!':'·'}</span><div><strong>${esc(r.label)}</strong><small>${esc(labels[this.status(r)]||this.status(r))}${r.rawVerdict!==null&&r.origin?' · '+esc(r.origin==='worker_confirmed'?'작업자 확인':'영상 기록'):''}</small>${r.rawVerdict!==null&&r.reason?`<p>${esc(r.reason)}</p>`:''}</div></div>`).join('');
   const can=!!sum.canNext||!!sum.completed;main.querySelector('#worker-next').disabled=!can;main.querySelector('#worker-next').textContent=this.viewMode==='operator'?(can?'기록 확인 · 모니터링으로':'통과 신호 대기'):(s.stageIndex===this.plan.length-1?'검수 완료 · 결과 보기':'다음 작업 시작');main.querySelector('#worker-record-status').textContent=`${rows.filter(r=>this.status(r)==='met').length} / ${rows.length} 항목 확인 · ${can?'단계 기록 완료':stage.progress>=1?'작업자 확인 대기':'현재 단계 기록 중'}`;
-  const signal=main.querySelector('#worker-signal');signal.className='worker-signal '+(can?'passed':stage.status==='held'?'held':'');signal.innerHTML=can?`<small>DYNIN · 작업 알림</small><strong>✓ ${esc(this.current().label)} 확인 완료</strong><span>Agent 통과 신호 · 검사 결과가 기록되었습니다.</span>`:stage.progress>=1?'<small>DYNIN · 확인 요청</small><strong>작업자 확인이 필요합니다</strong><span>확인되지 않은 항목을 아래에서 답해 주세요.</span>':`<small>DYNIN · 작업 지원</small><strong>${esc(this.current().label)} 진행 중</strong><span>확인 ${rows.filter(r=>this.status(r)==='met').length} / ${rows.length} · 작업을 계속해 주세요.</span>`;
+  const signal=main.querySelector('#worker-signal');signal.className='worker-signal '+(can?'passed':stage.status==='held'?'held':'');
+  const items=rows.map(r=>({id:r.id||r.criterionId,label:r.label,status:this.status(r)})),signature=JSON.stringify(items);
+  if(signal.dataset.inspectionSignature!==signature){signal.dataset.inspectionSignature=signature;signal.innerHTML=inspectionChecklist(items);}
+
   this.questions();this.events();this.speakCurrent();
  }
  questions(){const box=this.host.main.querySelector('#worker-questions');if(!box)return;const questions=this.state.questions.filter(q=>(q.taskId||q.stageId)===(this.current().id||this.current().taskId));
