@@ -99,3 +99,59 @@ test('Restore and repeated completed boundary preserve the same Core ledger; sta
   assert.throws(() => Core.validateSession(session,changed),/시나리오|버전|계약/);
   assert.equal(restoredStage(fresh(),scenario),0);
 });
+
+test('Optional next-task guidance records a known procedure without changing inspection or progress',() => {
+  const before = Core.advance(fresh(),scenario,0);
+  const after = Core.requestTaskGuidance(before,scenario);
+  assert.deepEqual(after.assessments,before.assessments);
+  assert.deepEqual(after.questions,before.questions);
+  assert.deepEqual(after.attempts,before.attempts);
+  assert.equal(after.position,before.position);assert.equal(after.time,before.time);assert.equal(after.completed,before.completed);
+  assert.deepEqual(Core.summarize(after,scenario),Core.summarize(before,scenario));
+  const guide = after.events.at(-1);
+  assert.equal(guide.type,'task_guidance');assert.equal(guide.sourceKind,'registered_procedure');
+  assert.equal(guide.origin,'authored_demo_guidance');assert.equal(guide.scenarioFingerprint,after.scenarioFingerprint);
+  assert.equal(guide.afterCheckpointId,'md1');assert.equal(guide.nextCheckpointId,'md2');assert.equal(guide.nextTaskId,'bracket');
+  assert.match(guide.question,/다음 작업/);assert.ok(guide.answer.includes(scenario.checkpoints[1].sceneSummary));
+  assert.equal(guide.scopeNote,scenario.checkpoints[1].scopeNote);
+  assert.equal(guide.image,undefined);assert.equal(after.assessments['MD-BRACKET'],undefined);
+  assert.equal(Core.validateSession(after,scenario),true);
+  assert.deepEqual(Core.requestTaskGuidance(after,scenario),after);
+});
+
+test('Guidance follows the observed next stage, stays optional, and never resolves a held inspection',() => {
+  let held = Core.advance(fresh(),scenario,1);
+  const guided = Core.requestTaskGuidance(held,scenario);
+  assert.equal(guided.events.at(-1).nextTaskId,'axle');
+  assert.equal(guided.assessments['MD-PIN'].verdict,'unknown');
+  assert.deepEqual(guided.questions,held.questions);assert.equal(stageGate(guided,scenario,1),false);
+  let complete = answer(held);complete = Core.advance(complete,scenario,3);
+  assert.equal(Core.summarize(complete,scenario).pass,true);
+  assert.equal(complete.events.some(e => e.type === 'task_guidance'),false);
+});
+
+test('Guidance rejects unobserved, final and nonmechanical sessions and changed procedure binding',() => {
+  assert.throws(() => Core.requestTaskGuidance(fresh(),scenario),/관찰 기록/);
+  const fabricated = fresh();fabricated.position=0;
+  assert.throws(() => Core.requestTaskGuidance(fabricated,scenario),/관찰 기록/);
+  assert.throws(() => Core.requestTaskGuidance(Core.advance(fresh(),scenario,3),scenario),/마지막 단계/);
+  const before = Core.advance(fresh(),scenario,0), wrong = structuredClone(scenario);
+  wrong.demoKind='other';assert.throws(() => Core.requestTaskGuidance(before,wrong),/기계 조립/);
+  const changed = structuredClone(scenario);changed.checkpoints[1].sceneSummary='변경된 작업 절차';
+  assert.throws(() => Core.requestTaskGuidance(before,changed),/버전/);
+});
+
+test('Guidance survives exact replay and appears separately in both report forms',() => {
+  let state = Core.requestTaskGuidance(Core.advance(fresh(),scenario,0),scenario);
+  state = answer(Core.advance(state,scenario,1));state = Core.advance(state,scenario,3);
+  assert.equal(Core.validateSession(JSON.parse(JSON.stringify(state)),scenario),true);
+  for(const inspection of [false,true]) {
+    const html = Core.makeReport(state,scenario,{inspection});
+    assert.match(html,/작업 순서 안내/);assert.match(html,/다음 작업은 어떻게 하나요/);assert.match(html,/Agent 안내 · 등록 절차/);
+    assert.match(html,/검사 확인 질문·답변이나 다음 단계의 완료 판정과 구분/);
+  }
+  const changed = structuredClone(state);changed.events.find(e => e.type === 'task_guidance').answer='다음 작업 완료';
+  assert.throws(() => Core.validateSession(changed,scenario),/원장/);
+  const changedCommand = structuredClone(state);changedCommand.commands.find(c => c.type === 'task_guidance').nextCheckpointId='md4';
+  assert.throws(() => Core.validateSession(changedCommand,scenario),/원장/);
+});

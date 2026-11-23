@@ -27,9 +27,9 @@
   "packages": [
     {
       "file": "workshop-source.zip",
-      "bytes": 133121025,
-      "sha256": "e5cbced75e2db42217ed45949e45ed4698d42b5ab5650ab352bf671d62b5f12c",
-      "files": 402
+      "bytes": 133144804,
+      "sha256": "7ec2ca7fe67930d54663b16b97e9ace67d2b5fbf16d3bbce5b28366aa62fb927",
+      "files": 409
     },
     {
       "file": "workshop-media.zip",
@@ -39,14 +39,14 @@
     },
     {
       "file": "workshop-offline.zip",
-      "bytes": 357260008,
-      "sha256": "d58b71a8bf20af3420d9afa09aed0eb7f2ada503d0abc12bbd52dd7ef1193279",
-      "files": 438
+      "bytes": 357283787,
+      "sha256": "cec0d5f383419be067bdbdaba3d9fc03ab6f0fc81a8c0fa4cb09171247dc0e16",
+      "files": 445
     },
     {
       "file": "workshop-handouts.zip",
-      "bytes": 41077945,
-      "sha256": "4a0479b43ca76493d0b580a28956e791158d2bc7f62291e74b2f64fdb2f0ec99",
+      "bytes": 41078368,
+      "sha256": "0a846c80dce8589629dad2dd4a804b2ac6d29a1d3f56be5b5582501d785d80a7",
       "files": 55
     }
   ]

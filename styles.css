@@ -41,3 +41,5 @@
 .measurement-identity:has(>div:nth-child(4)){grid-template-columns:1.2fr 1.1fr 1fr 1fr}
 @media(max-width:1000px){.measurement-identity:has(>div:nth-child(4)){grid-template-columns:1fr 1fr}}
 @media(max-width:760px){.measurement-identity:has(>div:nth-child(4)){grid-template-columns:1fr}#measurement-entry{padding:13px}}
+
+.library-access{margin-top:22px;display:flex;justify-content:space-between;align-items:center;gap:22px}.library-access h2{margin-bottom:4px}.library-access p{margin:0}.library-access button{white-space:nowrap}@media(max-width:760px){.library-access{align-items:stretch;flex-direction:column}}

@@ -554,6 +554,26 @@ export function setWorkerPolicy(session,criterionId,policy) {
   s.commands.push({type:'worker_policy',criterionId,policy});return s;
 }
 
+/** Optional procedure guidance, distinct from an observation or an inspection question. */
+export function requestTaskGuidance(session,scenario) {
+  assertScenario(session,scenario);
+  expect(session.mode==='demo' && scenario.mode==='demo' && scenario.id==='mechanical_demo' && scenario.demoKind==='mechanical','다음 작업 안내는 기계 조립 강의용 예시에서 지원합니다.');
+  expect(Number.isInteger(session.position) && session.position>=0,'현재 단계의 관찰 기록이 있어야 작업 안내를 요청할 수 있습니다.');
+  const current=scenario.checkpoints[session.position],next=scenario.checkpoints[session.position+1];
+  expect(current && next,'마지막 단계에는 다음 작업 안내가 없습니다.');
+  expect(session.events.some(e=>e.type==='checkpoint' && e.checkpointId===current.id),'현재 단계의 관찰 기록이 있어야 작업 안내를 요청할 수 있습니다.');
+  const task=scenario.tasks.find(t=>t.id===next.taskId);
+  expect(task && typeof (next.sceneSummary??next.note)==='string' && (next.sceneSummary??next.note).trim(),'등록된 다음 작업 절차가 없습니다.');
+  const s=clone(session);
+  if(s.events.some(e=>e.type==='task_guidance' && e.afterCheckpointId===current.id && e.nextCheckpointId===next.id)) return s;
+  const instruction=(next.sceneSummary??next.note).trim(),scopeNote=String(next.scopeNote??'');
+  event(s,'task_guidance',{afterCheckpointId:current.id,nextCheckpointId:next.id,nextTaskId:task.id,nextTaskLabel:task.label,
+    question:'다음 작업은 어떻게 하나요?',answer:`다음은 ${task.label} 단계입니다. ${instruction}`,scopeNote,
+    sourceKind:'registered_procedure',origin:'authored_demo_guidance',scenarioFingerprint:s.scenarioFingerprint});
+  s.commands.push({type:'task_guidance',afterCheckpointId:current.id,nextCheckpointId:next.id});
+  return s;
+}
+
 export function summarize(session,scenario) {
   assertScenario(session,scenario);
   const counts={met:0,violated:0,unknown:0,not_due:0,unassessed:0};
@@ -589,6 +609,7 @@ export function validateSession(session,scenario) {
     else if(cmd.type==='reopen') rebuilt=reopenQuestion(rebuilt,cmd.criterionId);
     else if(cmd.type==='measurement_confirmation') rebuilt=requestMeasurementConfirmation(rebuilt,cmd.criterionId);
     else if(cmd.type==='inspection_details') rebuilt=setInspectionDetails(rebuilt,cmd.details);
+    else if(cmd.type==='task_guidance') rebuilt=requestTaskGuidance(rebuilt,scenario);
     else fail('지원하지 않는 기록 명령입니다.');
   }
   expect(JSON.stringify(rebuilt)===JSON.stringify(session),'실행 원장과 현재 상태가 다릅니다. 변조·버전 불일치 또는 손상된 기록입니다.');
@@ -612,9 +633,11 @@ function makeDemoReport(session,scenario,options) {
     const currentAnswers=latest.answers??[],waiting=pending(r.criterionId);
     return `<article class="confirmation"><div class="section-line"><h3>${escape(r.label)}</h3>${chip(r.verdict)}</div><p class="question">${escape(r.proposedQuestion??latest.text)}</p><div class="answer"><span>${waiting&&!currentAnswers.length&&answer?'이전 작업자 답변 · 재확인 요청 중':'작업자 답변'}</span><blockquote>${answer?escape(answer.text):'아직 작업자 답변이 없습니다.'}</blockquote></div><p class="policy"><strong>현재 확인 기준</strong> ${escape(policy(r))}${!r.allowWorker&&answer?'<br>답변은 기록했으며, 시각 증거만 인정하는 현재 기준에 따라 확인 필요가 유지됩니다.':''}${waiting?'<br>진행 중인 확인 요청이 남아 있습니다.':''}</p></article>`;
   }).join('');
+  const guidance=session.events.filter(e=>e.type==='task_guidance');
+  const guidanceSection=guidance.length?`<section class="report-section task-guidance"><h2>작업 순서 안내</h2><p class="explain">작업자가 요청한 등록 절차 안내입니다. 검사 확인 질문·답변이나 다음 단계의 완료 판정과 구분합니다.</p>${guidance.map(g=>`<article class="confirmation"><h3>${escape(g.nextTaskLabel)} · 작업 절차 안내</h3><p class="question"><strong>작업자 질문</strong> ${escape(g.question)}</p><div class="answer"><span>Agent 안내 · 등록 절차</span><blockquote>${escape(g.answer)}</blockquote></div>${g.scopeNote?`<p class="policy">${escape(g.scopeNote)}</p>`:''}<p class="policy">요청 시각: 실습 ${escape(g.time)}초 · 강의용 안내 예시</p></article>`).join('')}</section>`:'';
   const photographs=scenario.checkpoints.slice(0,session.position+1).filter(cp=>safeImage(cp.image)).map(cp=>`<figure><img src="${escape(cp.image)}" alt="${escape(cp.label??scenario.tasks.find(t=>t.id===cp.taskId)?.label??'실습 장면')}"><figcaption><strong>${escape(cp.label??scenario.tasks.find(t=>t.id===cp.taskId)?.label??cp.id)}</strong><span>원본 ${escape(cp.sourceTime??cp.time)}초 · 강의용 예시 장면</span></figcaption></figure>`).join('');
-  const eventNames={checkpoint:'장면 확인',invalidated:'재작업 후 재검사',question_delivered:'질문 전달',question_reopened:'작업자 답변 재확인',answer:'작업자 답변',worker_policy_changed:'증거 인정 기준 변경'};
-  const journal=session.events.map(e=>`<li><strong>${escape(eventNames[e.type]??e.type)}</strong><span>실습 ${escape(e.time)}초 · ${escape(e.checkpointId??e.criterionId??e.questionId??'')}</span>${e.type==='answer'?`<p>${escape(e.answer.text)}</p>`:''}${e.type==='worker_policy_changed'?`<p>${escape(e.before.policy)} → ${escape(e.after.policy)}</p>`:''}</li>`).join('');
+  const eventNames={checkpoint:'장면 확인',invalidated:'재작업 후 재검사',question_delivered:'질문 전달',question_reopened:'작업자 답변 재확인',answer:'작업자 답변',worker_policy_changed:'증거 인정 기준 변경',task_guidance:'다음 작업 절차 안내'};
+  const journal=session.events.map(e=>`<li><strong>${escape(eventNames[e.type]??e.type)}</strong><span>실습 ${escape(e.time)}초 · ${escape(e.checkpointId??e.criterionId??e.questionId??'')}</span>${e.type==='answer'?`<p>${escape(e.answer.text)}</p>`:''}${e.type==='task_guidance'?`<p>${escape(e.question)}<br>${escape(e.answer)}</p>`:''}${e.type==='worker_policy_changed'?`<p>${escape(e.before.policy)} → ${escape(e.after.policy)}</p>`:''}</li>`).join('');
   const historicalAnswers=session.questions.flatMap(q=>q.answers.map(a=>({questionId:q.id,question:q.text,criterionId:q.criterionId,...a})));
   const metadata={sessionId:session.id,scenarioId:session.scenarioId,scenarioFingerprint:session.scenarioFingerprint,
     initialRuleVersion:session.initialBundle.version,currentRuleVersion:session.bundle.version,revision:session.revision};
@@ -626,6 +649,7 @@ function makeDemoReport(session,scenario,options) {
   <section class="outcome ${tone}"><h2>${escape(headline)}</h2><p>${escape(disposition)}</p></section><div class="counts"><div class="count"><small>충족한 검사</small><strong>${summary.met} <em>/ ${summary.total}</em></strong></div><div class="count"><small>불일치</small><strong>${summary.violated}</strong></div><div class="count"><small>확인 필요 · 확인 전</small><strong>${summary.unknown+summary.unassessed+summary.not_due}</strong></div><div class="count"><small>남은 확인 요청</small><strong>${summary.openQuestions}</strong></div></div>
   <section class="report-section"><h2>검사 결과</h2><div class="table-wrap"><table><thead><tr><th>검사 항목</th><th>결과</th><th>판정 출처</th><th>확인 내용</th></tr></thead><tbody>${table}</tbody></table></div></section>
   <section class="report-section"><h2>작업자와 확인한 내용</h2>${confirmations||'<p class="explain">아직 작업자 확인 요청이 없습니다.</p>'}</section>
+  ${guidanceSection}
   <section class="report-section"><h2>작업 사진</h2><p class="explain">실습에서 확인한 원본 영상 장면입니다. 판정의 출처는 예시 관찰과 작업자 확인으로 구분합니다.</p><div class="photo-grid">${photographs||'<p>아직 기록한 장면이 없습니다.</p>'}</div></section>
   <div class="notes"><strong>강의용 예시 안내</strong><p>영상 장면에 맞춰 작성한 관찰을 사용하며 실제 모델 추론 결과가 아닙니다. 답변과 확인 정책을 바꾸면 판정과 보고서가 바뀝니다. 이 결과는 실제 제품의 품질 승인이 아닙니다.</p></div>
   <details class="history-details"><summary>이전 답변과 기준 변경 이력 보기</summary><ol>${journal}</ol><h3>기록된 모든 작업자 답변</h3><pre>${escape(JSON.stringify(historicalAnswers,null,2))}</pre></details>

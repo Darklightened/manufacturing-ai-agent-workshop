@@ -20,9 +20,10 @@ export function restoredStage(session, scenario) {
 export class MechanicalExperience {
   constructor(host) {
     this.host = host; this.index = 0; this.speed = 2; this.key = null;
-    this.video = null; this.generation = 0; this.busy = false;
+    this.video = null; this.generation = 0; this.busy = false; this.pendingCriterion = null;
   }
-  reset() { this.leave(); this.key = null; this.index = 0; }
+  reset() { this.leave(); this.key = null; this.index = 0; this.pendingCriterion = null; }
+  focusCriterion(criterionId) { this.pendingCriterion = criterionId; }
   leave() {
     this.generation++;
     const video = this.video;
@@ -48,11 +49,17 @@ export class MechanicalExperience {
     if (!s) { this.host.navigate('setup'); return; }
     const key = `${scenario.id}:${s.id}`;
     if (this.key !== key) { this.key = key; this.index = restoredStage(s,scenario); }
+    if (this.pendingCriterion) {
+      const taskId = scenario.criteria.find(c => c.id === this.pendingCriterion)?.taskId;
+      const index = scenario.checkpoints.findIndex(cp => cp.taskId === taskId);
+      if (index >= 0 && index <= s.position) this.index = index;
+      this.pendingCriterion = null;
+    }
     this.index = Math.max(0,Math.min(this.index,Math.min(s.position + 1,scenario.checkpoints.length - 1)));
     const cp = scenario.checkpoints[this.index], done = s.position >= this.index;
     main.innerHTML = `<div class="mechanical-flow"><section class="panel mechanical-heading"><div><span class="eyebrow">실습 3 · 기계 조립</span><h1>${esc(scenario.productName)}</h1><p>영상의 각 단계가 끝나면 확인 결과를 기록합니다. 보이지 않는 연결 핀은 작업자에게 한 번 질문합니다.</p></div><span class="tag">강의용 예시</span></section>
     <nav class="mechanical-stage-strip" aria-label="조립 작업 단계">${scenario.checkpoints.map((p,i) => `<button type="button" data-stage="${i}" class="${i === this.index ? 'current' : ''} ${stageGate(s,scenario,i) ? 'done' : ''}" ${i > s.position ? 'disabled' : ''}><span>${stageGate(s,scenario,i) ? '✓' : i + 1}</span><strong>${esc(scenario.tasks.find(t => t.id === p.taskId)?.label)}</strong><small>${clock(p.sourceStart)}–${clock(p.sourceEnd)}</small></button>`).join('')}</nav>
-    <div class="mechanical-layout"><section class="panel mechanical-video-panel"><div class="section-row"><h2>${this.index + 1}. ${esc(scenario.tasks.find(t => t.id === cp.taskId)?.label)}</h2><span id="mechanical-video-clock" class="tag">${clock(done ? cp.sourceEnd : cp.sourceStart)} / ${clock(cp.sourceEnd)}</span></div><video id="mechanical-video" playsinline preload="metadata" poster="${esc(cp.image)}" src="${esc(cp.videoPath)}" aria-label="현재 작업 단계의 공개 조립 영상"></video><div class="mechanical-progress" role="progressbar" aria-label="현재 단계 영상 진행" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${done ? 100 : 0}"><span id="mechanical-video-progress" style="width:${done ? 100 : 0}%"></span></div><div class="mechanical-video-controls"><button id="mechanical-play" class="secondary">${done ? '단계 다시 보기' : '영상 재생'}</button><label>재생 속도 <select id="mechanical-speed" aria-label="기계 조립 영상 재생 속도">${[1,2,4].map(rate => `<option value="${rate}" ${rate === this.speed ? 'selected' : ''}>${rate}배</option>`).join('')}</select></label><span class="hint">원본 시각 기준</span></div><div id="mechanical-video-error" role="status"></div><p class="mechanical-scene">${esc(cp.sceneSummary)}</p><div id="mechanical-signal" class="mechanical-signal" role="status"></div><div class="mechanical-actions"><button id="mechanical-next" class="primary" disabled>${this.index === scenario.checkpoints.length - 1 ? '검수 완료 · 결과 보기' : '다음 작업 시작'}</button><button id="mechanical-review" class="secondary" ${s.position < 0 ? 'disabled' : ''}>현재 검수 기록</button></div></section>
+    <div class="mechanical-layout"><section class="panel mechanical-video-panel"><div class="section-row"><h2>${this.index + 1}. ${esc(scenario.tasks.find(t => t.id === cp.taskId)?.label)}</h2><span id="mechanical-video-clock" class="tag">${clock(done ? cp.sourceEnd : cp.sourceStart)} / ${clock(cp.sourceEnd)}</span></div><video id="mechanical-video" playsinline preload="metadata" poster="${esc(cp.image)}" src="${esc(cp.videoPath)}" aria-label="현재 작업 단계의 공개 조립 영상"></video><div class="mechanical-progress" role="progressbar" aria-label="현재 단계 영상 진행" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${done ? 100 : 0}"><span id="mechanical-video-progress" style="width:${done ? 100 : 0}%"></span></div><div class="mechanical-video-controls"><button id="mechanical-play" class="secondary">${done ? '단계 다시 보기' : '영상 재생'}</button><label>재생 속도 <select id="mechanical-speed" aria-label="기계 조립 영상 재생 속도">${[1,2,4].map(rate => `<option value="${rate}" ${rate === this.speed ? 'selected' : ''}>${rate}배</option>`).join('')}</select></label><span class="hint">원본 시각 기준</span></div><div id="mechanical-video-error" role="status"></div><p class="mechanical-scene">${esc(cp.sceneSummary)}</p><div id="mechanical-signal" class="mechanical-signal" role="status"></div><div class="mechanical-actions"><button id="mechanical-next" class="primary" disabled>${this.index === scenario.checkpoints.length - 1 ? '검수 완료 · 결과 보기' : '다음 작업 시작'}</button><button id="mechanical-review" class="secondary" ${s.position < 0 ? 'disabled' : ''}>현재 검수 기록</button></div><section id="mechanical-guidance" class="mechanical-guidance" aria-live="polite" hidden></section></section>
     <aside class="mechanical-inspection"><section class="panel"><div class="section-row"><h2>현재 단계 확인</h2><span id="mechanical-check-count" class="tag"></span></div><div id="mechanical-checks"></div><p class="hint mechanical-scope">${esc(cp.scopeNote)}</p></section><section id="mechanical-questions" class="panel"></section></aside></div><section class="panel mechanical-journal"><h2>작업 기록</h2><div id="mechanical-events"></div></section></div>`;
     this.mountVideo(cp,done);
     main.querySelectorAll('[data-stage]').forEach(button => button.onclick = () => { this.index = Number(button.dataset.stage); this.render(); });
@@ -151,7 +158,7 @@ export class MechanicalExperience {
       button.disabled = index > s.position;button.classList.toggle('done',pass);
       button.querySelector('span').textContent = pass ? '✓' : String(index + 1);
     });
-    this.questions();this.events();
+    this.questions();this.guidance();this.events();
   }
   questions() {
     const {main} = this.host, s = this.host.session(), cp = this.host.scenario().checkpoints[this.index];
@@ -164,9 +171,21 @@ export class MechanicalExperience {
     }));
     box.querySelectorAll('[data-reopen]').forEach(button => button.onclick = this.action(async () => { await this.commit(Core.reopenQuestion(this.host.session(),button.dataset.reopen));this.update(); }));
   }
+  guidance() {
+    const box = this.host.main.querySelector('#mechanical-guidance');
+    const s = this.host.session(), scenario = this.host.scenario(), cp = scenario.checkpoints[this.index];
+    const guidance = s.events.find(e => e.type === 'task_guidance' && e.afterCheckpointId === cp.id);
+    const canAsk = this.index === s.position && this.index < scenario.checkpoints.length - 1 && stageGate(s,scenario,this.index);
+    box.hidden = !guidance && !canAsk;
+    box.innerHTML = guidance ? `<div class="mechanical-guidance-dialog"><div class="mechanical-guidance-question"><small>작업자</small><p>${esc(guidance.question)}</p></div><div class="mechanical-guidance-answer"><small>Agent · 작업 절차 안내</small><p>${esc(guidance.answer)}</p>${guidance.scopeNote ? `<p class="hint">${esc(guidance.scopeNote)}</p>` : ''}</div><p class="hint">등록된 작업 순서에 따른 안내입니다. 다음 단계의 검사 결과는 영상을 본 후 기록합니다.</p></div>` : canAsk ? '<button id="mechanical-ask-guidance" class="quiet">다음 작업은 어떻게 하나요?</button><p class="hint">필요할 때 작업 순서와 방법을 물어볼 수 있습니다.</p>' : '';
+    const button = box.querySelector('#mechanical-ask-guidance');
+    if (button) button.onclick = this.action(async () => {
+      await this.commit(Core.requestTaskGuidance(this.host.session(),this.host.scenario()));this.update();
+    });
+  }
   events() {
     const s = this.host.session(), scenario = this.host.scenario();
-    const names = {checkpoint:'단계 관찰 기록',question_delivered:'질문 확인',answer:'작업자 답변 기록',question_reopened:'핀 상태 재확인',worker_policy_changed:'확인 근거 변경'};
-    this.host.main.querySelector('#mechanical-events').innerHTML = s.events.length ? `<ol>${s.events.map(event => `<li><time>${clock(event.time ?? 0)}</time><span>${esc(names[event.type] ?? event.type)}${event.type === 'checkpoint' ? ` · ${esc(scenario.tasks.find(t => t.id === event.taskId)?.label ?? '')}` : ''}${event.answer ? ` · ${esc(event.answer.text)}` : ''}</span></li>`).join('')}</ol>` : '<p class="hint">영상이 단계 끝까지 재생되면 관찰과 증거 사진을 저장합니다.</p>';
+    const names = {checkpoint:'단계 관찰 기록',question_delivered:'질문 확인',answer:'작업자 답변 기록',question_reopened:'핀 상태 재확인',worker_policy_changed:'확인 근거 변경',task_guidance:'다음 작업 절차 안내'};
+    this.host.main.querySelector('#mechanical-events').innerHTML = s.events.length ? `<ol>${s.events.map(event => `<li><time>${clock(event.time ?? 0)}</time><span>${esc(names[event.type] ?? event.type)}${event.type === 'checkpoint' ? ` · ${esc(scenario.tasks.find(t => t.id === event.taskId)?.label ?? '')}` : ''}${event.type === 'task_guidance' ? ` · ${esc(event.nextTaskLabel)}` : event.answer ? ` · ${esc(event.answer.text)}` : ''}</span></li>`).join('')}</ol>` : '<p class="hint">영상이 단계 끝까지 재생되면 관찰과 증거 사진을 저장합니다.</p>';
   }
 }
