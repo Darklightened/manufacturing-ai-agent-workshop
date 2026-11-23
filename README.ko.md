@@ -2,7 +2,7 @@
 
 **작업자 화면과 모니터링 화면을 분리했습니다.** 작업 설정 후에는 큰 작업 영상과 오른쪽 위 검사 항목을 표시합니다. 통과한 항목은 ✓로 남고 다음 미완료 항목이 자동으로 강조됩니다. 검사 기록을 확인하면 모니터링 화면으로 바뀌고, 다음 작업을 시작하면 작업자 화면으로 돌아옵니다. 계측값은 도면의 해당 치수 옆에 기록되며, 결과는 A4 검수조서로 저장합니다. [새 화면 안내](docs/worker_monitor_v3/README.ko.md).
 
-슬라이드는 후속 일괄 개편 대상이며 이번 화면 수정에서는 기존 128장 파일을 유지했습니다.
+슬라이드도 현재 작업자·모니터링 화면과 검사 항목 자동 체크에 맞춰 148장으로 갱신했습니다.
 
 공개 조립 영상을 보면서 **회사 자료 → 공정 정보 → 작업 진행 → 확인 질문 → 판정 → 보고서**를 직접 따라가는 강의용 웹앱입니다.
 
@@ -14,13 +14,13 @@
 
 **전자 조립:** 영상 구간·검사 문구·증거 사진을 실제 조립 장면에 맞췄습니다. 추가 입력이나 퀴즈 없이 기존 흐름을 유지합니다. 이전 저장 기록은 당시 기준으로 복원합니다. 작업자 등록 → 화면 인증 → 공정 선택을 각각의 태블릿 화면으로 구성했습니다. 공개 영상 재생에 맞춰 여섯 단계·18개 세부 항목을 확인하고, Agent 통과 신호가 있어야 다음 단계로 진행합니다. 질문·답변과 증거 사진을 담은 실제 DOCX 검수 보고서를 저장합니다.
 
-**v0.8.1:** 마지막 **문서 보관함**에서 실습별 저장 문서와 완성 예제를 다시 열 수 있습니다. 기계 조립의 **다음 작업은 어떻게 하나요?** 버튼으로 다음 공정 안내를 받아 기록합니다.
+**v0.8.2:** 마지막 **문서 보관함**에서 실습별 저장 문서와 완성 예제를 다시 열 수 있습니다. 기계 조립의 **다음 작업은 어떻게 하나요?** 버튼으로 다음 공정 안내를 받아 기록합니다.
 
 **실습 2·3 개편:** 실습 2에 검사자·LOT와 A/B 측정값 직접 입력을 추가했습니다. 실습 3은 실제 조립 영상의 네 단계·여섯 항목과 가려진 연결 핀 확인으로 구성했습니다. [계측 실습](docs/MEASUREMENT_DEMO.ko.md) · [기계 조립 실습](docs/MECHANICAL_DEMO.ko.md)
 
 **회사 자료 구축:** [회사별 입력 자료 ZIP](assets/company-materials/company-practice-materials.zip)을 풀고 다온에듀테크 폴더를 업로드합니다. 파일 선택·미리보기 → 단계별 정보 구축 → 배터리 검사 기준의 작업 연결 수정 → 온톨로지 확인 후 기존 조립 실습을 이어갑니다. 업로드가 어려우면 ‘준비된 회사 자료로 시작’을 사용할 수 있습니다.
 
-**최신 강의 슬라이드 128장 · 계측 모의 영상 포함:** [HTML 발표본](slides/실습_안내.html) · [PDF](slides/실습_안내.pdf) · [PowerPoint](slides/실습_안내.pptx) · [강사 메모](slides/INSTRUCTOR_NOTES.ko.md). HTML은 서버 없이 열립니다. [최종 검수와 강의 준비](docs/FINAL_CHECK.ko.md)도 함께 확인하세요.
+**최신 강의 슬라이드 148장 · 작업자·모니터링 화면 반영:** [HTML 발표본](slides/실습_안내.html) · [PDF](slides/실습_안내.pdf) · [PowerPoint](slides/실습_안내.pptx) · [강사 메모](slides/INSTRUCTOR_NOTES.ko.md). HTML은 서버 없이 열립니다. [최종 검수와 강의 준비](docs/FINAL_CHECK.ko.md)도 함께 확인하세요.
 
 [강의 준비·수강생 안내](docs/classroom-guide.html): 강사 준비물, 수강생 PDF·예제 ZIP, 15–20명 운영과 비상 대안, 복사용 사전 공지문.
 
@@ -97,4 +97,4 @@ python scripts/build.py
 python scripts/package.py
 ```
 
-`workshop-offline.zip`은 코드·라이브러리·선별 미디어를 포함한 실행팩입니다. `workshop-handouts.zip`은 수강생용 입력 자료·도면·검수조서 예제 묶음입니다. 코드와 미디어를 나눠 전달할 때는 `workshop-source.zip`, `workshop-media.zip`을 사용합니다. 전체 파일은 [GitHub Release v0.6.3](https://github.com/Darklightened/manufacturing-ai-agent-workshop/releases/tag/v0.6.3)에서 받습니다. GitHub Pages는 수동 workflow로 배포하며, 기업 비공개 자료와 HTech 영상은 포함하지 않습니다.
+`workshop-offline.zip`은 코드·라이브러리·선별 미디어를 포함한 실행팩입니다. `workshop-handouts.zip`은 수강생용 입력 자료·도면·검수조서 예제 묶음입니다. 코드와 미디어를 나눠 전달할 때는 `workshop-source.zip`, `workshop-media.zip`을 사용합니다. 전체 파일은 [GitHub Release v0.8.2](https://github.com/Darklightened/manufacturing-ai-agent-workshop/releases/tag/v0.8.2)에서 받습니다. GitHub Pages는 수동 workflow로 배포하며, 기업 비공개 자료와 HTech 영상은 포함하지 않습니다.

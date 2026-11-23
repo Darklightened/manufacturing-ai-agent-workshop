@@ -197,7 +197,7 @@ def main():
             phases='<div class="phase-strip">'+''.join(f'<span class="{"current" if p==w["phase"] else ""}">{esc(p)}</span>' for p in w['phases'])+'</div>'
             panel='<aside class="step-panel">'+''.join(f'<article><h3>{esc(a)}</h3><p>{esc(b)}</p></article>' for a,b in [('들어오는 정보',w['input']),('시스템 처리',w['process']),('확인할 결과',w['output'])])+f'<div class="execution-mode">{esc(w["mode"])}</div><p class="capture-tip">{esc(w.get("tip","빨간 네모: 누르거나 입력할 위치"))}</p></aside>'
             notes=s.get('notes','')
-            attribution = {'lab1':'전자 조립: EgoOops · CC BY-SA 4.0','lab3':'기계 조립: IndustReal · Apache-2.0'}.get(s.get('section'),'실제 브라우저 화면') + ' / 강의용 예시 · 빨간 네모: 조작 위치'
+            attribution = {'lab1':'전자 조립: EgoOops · CC BY-SA 4.0','lab3':'기계 조립: IndustReal · Apache-2.0'}.get(s.get('section'),'실제 브라우저 화면') + ' / 강의용 예시 · '+w.get('tip','빨간 네모: 조작 위치').split(' · ')[0]
             sections.append(f'<section class="slide walkthrough" id="slide-{i+1}" data-slide-id="{esc(s["id"])}"><div class="brand">DYNIN · WORKSHOP</div><div class="kicker">{esc(s["kicker"])}</div><h1>{esc(s["title"])}</h1><p class="lead">{esc(s["lead"])}</p>{phases}<div class="slide-body"><div class="visual">'+picture(w['image'],'실제 실습 화면 · 강의용 예시 · 그림 클릭으로 확대')+'</div>'+panel+f'</div><footer class="slide-foot"><span>{esc(attribution)}</span><b>{i+1:02} / {len(DATA["slides"]):02}</b></footer><div class="notes-source">{esc(notes)}</div></section>')
             toc.append(f'<button data-index="{i}">{i+1:02} · {esc(s["title"])}</button>')
             continue
@@ -208,7 +208,7 @@ def main():
         if isinstance(notes,list):notes='\n\n'.join(notes)
         attribution = '전자 장면 발췌: <a href="https://y-haneji.github.io/EgoOops-project-page/">EgoOops · Yuto Haneji 외</a> · CC BY-SA 4.0 / 계측: 자체 제작 도해'
         if s.get('visualSpec',{}).get('kind')=='clip':
-            attribution='계측 사진: AI 생성 이미지 / 모의 영상: 시선 이동 효과 / 실제 촬영 아님'
+            attribution='작업자 시점 계측 장면 / 강의용 예시 / 재생 후 측정값 기록'
         if 1 <= i <= 8 and s.get('references'):
             attribution = '참고: 제공된 DyninAI·Dynin-Omni 소개 및 활용 안내 / 도해: 강의용 재구성'
         sections.append(f'<section class="{classes}" id="slide-{i+1}" data-slide-id="{esc(s["id"])}"><div class="brand">DYNIN · WORKSHOP</div><div class="kicker">{esc(s.get("kicker","제조 AI AGENT 실습"))}</div><h1>{esc(s["title"])}</h1><p class="lead">{esc(s.get("lead",""))}</p><div class="slide-body"><div class="text-column"><ul class="points">'+''.join(f'<li>{esc(b)}</li>' for b in s.get('bullets',[]))+f'</ul><div class="aside-label">강의용 예시</div></div><div class="visual">{rendered_visual}</div></div><footer class="slide-foot"><span>{attribution}</span><b>{i+1:02} / {len(DATA["slides"]):02}</b></footer><div class="notes-source">{esc(notes)}</div></section>')

@@ -32,12 +32,14 @@ with sync_playwright() as pw:
     page.keyboard.press('n');assert page.locator('#notes').is_visible();page.keyboard.press('Escape');assert not page.locator('#notes').is_visible()
     page.keyboard.press('o');assert page.locator('#toc').is_visible();page.locator('#toc button').nth(4).click();assert page.locator('#counter').inner_text()==f'5 / {n}'
     page.evaluate('goSlide(0)');page.locator('.slide.active img').first.click();assert page.locator('#zoom').is_visible();page.keyboard.press('Escape');assert not page.locator('#zoom').is_visible()
-    poster_js='''v=>{const f=v.closest('figure');f.style.position='relative';const i=document.createElement('img');i.className='export-video-poster';i.src=v.poster;i.alt='AI 생성 이미지 기반 계측 모의 영상의 정지 화면';Object.assign(i.style,{position:'absolute',left:v.offsetLeft+'px',top:v.offsetTop+'px',width:v.clientWidth+'px',height:v.clientHeight+'px',objectFit:'contain',background:'#122039',borderRadius:'12px',zIndex:'2'});f.append(i);return i.decode();}'''
+    poster_js='''v=>{const f=v.closest('figure');f.style.position='relative';const i=document.createElement('img');i.className='export-video-poster';i.src=v.poster;i.alt='작업자 시점 계측 장면';Object.assign(i.style,{position:'absolute',left:v.offsetLeft+'px',top:v.offsetTop+'px',width:v.clientWidth+'px',height:v.clientHeight+'px',objectFit:'contain',background:'#122039',borderRadius:'12px',zIndex:'2'});f.append(i);return i.decode();}'''
     for i in range(n):
-        page.evaluate('(n)=>{goSlide(n);scrollTo(0,0);}',i)
+        page.evaluate('(n)=>{goSlide(n);scrollTo(0,0);document.querySelector(".slide.active").scrollTop=0;}',i)
+        page.evaluate('new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)))')
         violations=page.evaluate('''()=>{
           const s=document.querySelector('.slide.active'),b=s.getBoundingClientRect();
           const violations=[...s.querySelectorAll('h1,.lead,.points li,.visual img,.visual figcaption,.visual .access-link,.visual table,.agenda,.pipeline,.tiles,.role-columns,.closing,.platform-diagram,.omni-diagram,.ontology-example,.visual h3,.visual p,.relation-row,.opening-note,.step-panel,.step-panel p,.phase-strip,.lab-pipeline,.stage-io,.tech-flow,.tech-flow h3,.tech-flow p,.tech-panels,.tech-panels h2,.tech-panels h3,.tech-panels p,.tech-panels pre,.tech-panels small,.tech-background li,.tech-note')].map(e=>({tag:e.tagName,cls:e.className,text:e.innerText?.slice(0,80),r:e.getBoundingClientRect()})).filter(x=>x.r.left<b.left+40||x.r.right>b.right-40||x.r.bottom>b.bottom-45||x.r.top<b.top+30).map(x=>({tag:x.tag,cls:x.cls,text:x.text,x:x.r.x,y:x.r.y,width:x.r.width,height:x.r.height}));
+          for(const header of s.querySelectorAll('.kicker,.brand')){const r=header.getBoundingClientRect();if(r.top<b.top+18||r.bottom>b.bottom-18)violations.push({tag:'header',text:'Slide header outside safe margins'});}
           const cap=s.querySelector('.opening-screen figcaption,.pov-slide figcaption'),link=s.querySelector('.access-link');
           if(cap&&link&&cap.getBoundingClientRect().bottom>link.getBoundingClientRect().top)violations.push({tag:'figcaption',text:'Screen caption overlaps access link'});
           const panel=s.querySelector('.tech-panels'),technicalNote=s.querySelector('.tech-note');
