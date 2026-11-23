@@ -36,9 +36,20 @@ with sync_playwright() as pw:
         page.evaluate('(n)=>goSlide(n)',i)
         violations=page.evaluate('''()=>{
           const s=document.querySelector('.slide.active'),b=s.getBoundingClientRect();
-          const violations=[...s.querySelectorAll('h1,.lead,.points li,.visual img,.visual figcaption,.visual .access-link,.visual table,.agenda,.pipeline,.tiles,.role-columns,.closing,.platform-diagram,.omni-diagram,.ontology-example,.visual h3,.visual p,.relation-row,.opening-note,.step-panel,.step-panel p,.phase-strip,.lab-pipeline,.stage-io')].map(e=>({tag:e.tagName,cls:e.className,text:e.innerText?.slice(0,80),r:e.getBoundingClientRect()})).filter(x=>x.r.left<b.left+40||x.r.right>b.right-40||x.r.bottom>b.bottom-45||x.r.top<b.top+30).map(x=>({tag:x.tag,cls:x.cls,text:x.text,x:x.r.x,y:x.r.y,width:x.r.width,height:x.r.height}));
+          const violations=[...s.querySelectorAll('h1,.lead,.points li,.visual img,.visual figcaption,.visual .access-link,.visual table,.agenda,.pipeline,.tiles,.role-columns,.closing,.platform-diagram,.omni-diagram,.ontology-example,.visual h3,.visual p,.relation-row,.opening-note,.step-panel,.step-panel p,.phase-strip,.lab-pipeline,.stage-io,.tech-flow,.tech-flow h3,.tech-flow p,.tech-panels,.tech-panels h2,.tech-panels h3,.tech-panels p,.tech-panels pre,.tech-panels small,.tech-background li,.tech-note')].map(e=>({tag:e.tagName,cls:e.className,text:e.innerText?.slice(0,80),r:e.getBoundingClientRect()})).filter(x=>x.r.left<b.left+40||x.r.right>b.right-40||x.r.bottom>b.bottom-45||x.r.top<b.top+30).map(x=>({tag:x.tag,cls:x.cls,text:x.text,x:x.r.x,y:x.r.y,width:x.r.width,height:x.r.height}));
           const cap=s.querySelector('.opening-screen figcaption'),link=s.querySelector('.access-link');
           if(cap&&link&&cap.getBoundingClientRect().bottom>link.getBoundingClientRect().top)violations.push({tag:'figcaption',text:'Screen caption overlaps access link'});
+          const panel=s.querySelector('.tech-panels'),technicalNote=s.querySelector('.tech-note');
+          if(panel&&technicalNote){
+            for(const article of panel.children){
+              const ar=article.getBoundingClientRect();
+              if(ar.bottom>technicalNote.getBoundingClientRect().top-8)violations.push({tag:'article',text:'Technical panel overlaps lower note'});
+              for(const child of article.children){
+                const cr=child.getBoundingClientRect();
+                if(cr.bottom>ar.bottom-9)violations.push({tag:child.tagName,text:'Technical content exceeds its panel'});
+              }
+            }
+          }
           return violations;
         }''')
         if violations:layout.append({'slide':i+1,'violations':violations})
