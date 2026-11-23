@@ -1,0 +1,11 @@
+기계 조립 영상: IndustReal, 01_assy_0_1
+원본 프로젝트: https://github.com/TimSchoonbeek/IndustReal
+라이선스: Apache License 2.0. 원본 고지는 data/source_pack/assembly 아래 함께 보존합니다.
+
+assembly.webm: 공개 원본 영상을 640 × 360, 10fps VP9/WebM으로 변환한 브라우저용 파생본입니다.
+영상의 순서·재생 속도·시작 시각을 바꾸지 않았습니다. 원본에는 음성이 없습니다.
+frame_*.jpg: 같은 원본의 표시된 초에서 추출한 JPEG 장면입니다. 합성이나 부품 추가가 없습니다.
+원본/파생본/프레임의 시각·해시는 media.json에 기록합니다.
+
+작업 구간·검사 문구·질문·판정은 강의용 작성 예시입니다.
+실제 모델 출력 또는 물리적 품질 인증이 아닙니다. 토크·강도·주행 성능은 확인 범위가 아닙니다.

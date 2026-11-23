@@ -1,0 +1,4 @@
+id,taskId,label,target,kind,unit,lower,upper,allowWorker
+M-OD,diameter,A · 플랜지 외경,EDU-BSH-001,range,mm,26.10,26.50,true
+M-LENGTH,length,B · 전체 길이,EDU-BSH-001,range,mm,39.90,40.10,true
+M-FLANGE,flange,C · 플랜지 두께,EDU-BSH-001,range,mm,5.70,5.90,true

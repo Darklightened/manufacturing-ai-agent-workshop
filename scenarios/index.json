@@ -8,12 +8,21 @@
     "config": "scenarios/electronics_demo/scenario.json"
   },
   {
+    "id": "measurement_input_demo",
+    "title": "계측 판독 · 도면과 검수조서",
+    "subtitle": "제품 선택 → 측정값 입력 → 확인 질문 → 검수조서",
+    "description": "도면의 A·B 측정값을 직접 기록하고 가려진 C값은 질문으로 확인합니다. 입력값과 검사 기준에 따라 결과가 달라집니다.",
+    "cover": "scenarios/measurement_input_demo/product.svg",
+    "config": "scenarios/measurement_input_demo/scenario.json"
+  },
+  {
     "id": "measurement_demo",
     "title": "계측 판독 · 도면과 검수조서",
     "subtitle": "제품 선택 → 측정값 기록 → 확인 질문 → 검수조서",
     "description": "표준형과 정밀형 제품의 도면을 불러오고 A/B/C 측정값을 기록합니다. 불확실한 숫자 하나를 직접 확인하세요.",
     "cover": "scenarios/measurement_demo/product.svg",
-    "config": "scenarios/measurement_demo/scenario.json"
+    "config": "scenarios/measurement_demo/scenario.json",
+    "instructorOnly": true
   },
   {
     "id": "electronics",
@@ -34,11 +43,20 @@
     "instructorOnly": true
   },
   {
+    "id": "mechanical_demo",
+    "title": "기계 조립 · 영상으로 단계 확인",
+    "subtitle": "차체 → 브래킷 → 바퀴·축 → 최종 확인",
+    "description": "조립 영상의 진행에 맞춰 여섯 항목을 확인합니다. 손에 가린 연결 핀만 답변하고 사진이 포함된 검수조서를 만듭니다.",
+    "cover": "assets/mechanical-flow/frame_183.jpg",
+    "config": "scenarios/mechanical_demo/scenario.json"
+  },
+  {
     "id": "mechanical",
     "title": "기계 조립과 최종 검수",
     "subtitle": "작업군 · 가림 · 최종 외관",
     "description": "차체·브래킷·바퀴 축의 작업군을 따라가며 가림과 최종 외관 증거를 기록합니다.",
     "cover": "data/source_pack/assembly/01_assy_0_1/frames/t181.000.jpg",
-    "config": "scenarios/mechanical/scenario.json"
+    "config": "scenarios/mechanical/scenario.json",
+    "instructorOnly": true
   }
 ]

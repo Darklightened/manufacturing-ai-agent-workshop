@@ -1,0 +1,7 @@
+id,taskId,label,target,kind,unit,lower,upper,allowWorker
+MD-CHASSIS,chassis,두 긴 차체 부재와 연결 부재가 조립된 외관,training-chassis-01,visual,,,,false
+MD-BRACKET,bracket,전방 브래킷이 차체 앞쪽에 놓인 상태,training-chassis-01,visual,,,,false
+MD-PIN,bracket,가려진 브래킷 안쪽 연결 핀의 삽입 상태 확인,training-chassis-01,visual,,,,true
+MD-AXLE-1,axle,한쪽 축의 양쪽 바퀴가 배치된 외관,training-chassis-01,visual,,,,false
+MD-AXLE-2,axle,다른 축의 양쪽 바퀴가 배치된 외관,training-chassis-01,visual,,,,false
+MD-FINAL,final,차체·브래킷·네 바퀴를 포함한 최종 외관 사진 기록,training-chassis-01,visual,,,,false

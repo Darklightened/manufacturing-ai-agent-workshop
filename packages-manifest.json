@@ -5,7 +5,10 @@
   "teaching_scenarios": [
     "electronics_demo",
     "measurement_demo",
-    "measurement_precision_demo"
+    "measurement_input_demo",
+    "measurement_input_precision_demo",
+    "measurement_precision_demo",
+    "mechanical_demo"
   ],
   "modes": [
     "authored_demo",
@@ -24,9 +27,9 @@
   "packages": [
     {
       "file": "workshop-source.zip",
-      "bytes": 104152632,
-      "sha256": "fcc5bb83e8e5b1c6f1bec8ac879f0f11ff963cdc66ecbad857bd0361722e265d",
-      "files": 339
+      "bytes": 133121025,
+      "sha256": "e5cbced75e2db42217ed45949e45ed4698d42b5ab5650ab352bf671d62b5f12c",
+      "files": 402
     },
     {
       "file": "workshop-media.zip",
@@ -36,15 +39,15 @@
     },
     {
       "file": "workshop-offline.zip",
-      "bytes": 328291615,
-      "sha256": "fed33e1d5d389d776741477ce23c73a836f0cd6b22b1a220ddb669d0cd02032f",
-      "files": 375
+      "bytes": 357260008,
+      "sha256": "d58b71a8bf20af3420d9afa09aed0eb7f2ada503d0abc12bbd52dd7ef1193279",
+      "files": 438
     },
     {
       "file": "workshop-handouts.zip",
-      "bytes": 18620663,
-      "sha256": "e2ba17e4f70573c5e27d8b5c27e36208cb3035bd45cdf30b318a2229bdf9bb81",
-      "files": 29
+      "bytes": 41077945,
+      "sha256": "4a0479b43ca76493d0b580a28956e791158d2bc7f62291e74b2f64fdb2f0ec99",
+      "files": 55
     }
   ]
 }

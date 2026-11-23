@@ -1,6 +1,6 @@
 {
   "name": "manufacturing-agent-workshop",
-  "version": "0.6.1",
+  "version": "0.6.2",
   "private": true,
   "type": "module",
   "description": "Interactive Korean manufacturing workshop with an authored classroom demo",

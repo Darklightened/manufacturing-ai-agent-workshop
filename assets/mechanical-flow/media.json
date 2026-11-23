@@ -1,0 +1,95 @@
+{
+  "schema": "seminar.mechanical-media.v1",
+  "origin": "public_source_video_with_authored_teaching_stage_plan",
+  "source": {
+    "path": "data/source_pack/assembly/01_assy_0_1/01_assy_0_1.mp4",
+    "videoId": "01_assy_0_1",
+    "dataset": "IndustReal",
+    "durationSeconds": 184.5,
+    "fps": 10,
+    "width": 1280,
+    "height": 720,
+    "sha256": "78a84e1ede9427c987dac189f6801a2a404f2a6432069b806b165feb174d5d28",
+    "bytes": 52559562
+  },
+  "media": {
+    "path": "assets/mechanical-flow/assembly.webm",
+    "codec": "vp9",
+    "container": "webm",
+    "width": 640,
+    "height": 360,
+    "fps": 10,
+    "durationSeconds": 184.5,
+    "bytes": 5926636,
+    "sha256": "0d7527b6f3d9ff6e3300992629166626f70b0cb64c91acc41e86f0e7dfbe7ac8",
+    "audio": false
+  },
+  "transformation": "CPU VP9 encoding and scaling only; same order, speed and source timestamps, no cuts",
+  "fullDecodeVerified": true,
+  "sourceUnchanged": true,
+  "sourceUrl": "https://github.com/TimSchoonbeek/IndustReal",
+  "license": "Apache-2.0",
+  "frames": [
+    {
+      "path": "assets/mechanical-flow/frame_000.jpg",
+      "sourceTime": 0,
+      "sha256": "488ada5b9f26908838326d06bd7816f750f8437722fe965e547b6a1283108526"
+    },
+    {
+      "path": "assets/mechanical-flow/frame_020.jpg",
+      "sourceTime": 20,
+      "sha256": "871658090cad811f8119ea2005cf41689c5df041696c72a0fa14e58e4f89e5b1"
+    },
+    {
+      "path": "assets/mechanical-flow/frame_069.jpg",
+      "sourceTime": 69,
+      "sha256": "d5d978b50b83195a78005fa02808f100507314aadb89f6a9ce074f072aab83a1"
+    },
+    {
+      "path": "assets/mechanical-flow/frame_076.jpg",
+      "sourceTime": 76,
+      "sha256": "ee46893b65a799c3c3d2cde4c55429f1ff926058a52264213458dc37c02b24e3"
+    },
+    {
+      "path": "assets/mechanical-flow/frame_086.jpg",
+      "sourceTime": 86,
+      "sha256": "129f2fd54f45365f81f87dfee0fcca8d61696435a69edc1a86dd1bd5eeb30a61"
+    },
+    {
+      "path": "assets/mechanical-flow/frame_089.jpg",
+      "sourceTime": 89,
+      "sha256": "d8967d95386b332deeaba3102e881e81438979ef7d3011a71f49b1629e9cae55"
+    },
+    {
+      "path": "assets/mechanical-flow/frame_123.jpg",
+      "sourceTime": 123,
+      "sha256": "ae1709b9d59b2a7bede0e5eb1b5e25df42c56fec3f59d1fad0747776a4298906"
+    },
+    {
+      "path": "assets/mechanical-flow/frame_132.jpg",
+      "sourceTime": 132,
+      "sha256": "8d4e1c39264e20fac40ea973e46ae1d36f2c121702be19dfa585451a9cbd758b"
+    },
+    {
+      "path": "assets/mechanical-flow/frame_167.jpg",
+      "sourceTime": 167,
+      "sha256": "373161572e0fcfc6a7ccf74aacfe6ee9140e32e93f6be58f818aeeb32e301d0a"
+    },
+    {
+      "path": "assets/mechanical-flow/frame_177.jpg",
+      "sourceTime": 177,
+      "sha256": "846fddefebce6e049a4b58d4757312cd07fe8c2e72c84a3572fe823f45969061"
+    },
+    {
+      "path": "assets/mechanical-flow/frame_181.jpg",
+      "sourceTime": 181,
+      "sha256": "551582910405f93cd5f9ff7c7befab2234db0d86c63da613cb05c5ed04aa6a11"
+    },
+    {
+      "path": "assets/mechanical-flow/frame_183.jpg",
+      "sourceTime": 183,
+      "sha256": "8c65d835d67aa14bd3bd91b7111f9d50d6a34e77ca365c09bdd5cfacf321635d"
+    }
+  ],
+  "timingAuthority": "Native labels use frameNumber/10; possible0.1s indexing ambiguity. Stages are assistant-reviewed classroom grouping, not independent quality ground truth."
+}

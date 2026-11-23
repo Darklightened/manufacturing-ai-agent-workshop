@@ -30,3 +30,14 @@
 @media(max-width:760px){.company-route{grid-template-columns:repeat(2,minmax(0,1fr))}.company-route li{font-size:.76rem}.company-download .button{width:100%}.company-file-row{padding:9px 7px;gap:7px}.company-file-row .tag{display:none}.ontology-task-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.ontology-detail{grid-template-columns:1fr}.ontology-detail>span{transform:rotate(90deg);text-align:center}.ontology-root>div{min-width:0;width:100%}.company-sql-table{max-width:100%}.company-workspace .panel{padding:16px}.company-route{gap:4px}#company-selection-count{font-size:.76rem}.company-progress-number{font-size:3rem}}
 
 #company-ontology code,#company-review code{font-family:ui-monospace,SFMono-Regular,Consolas,SeminarSans,monospace}
+
+/* Additional direct entries in the current measurement lesson. */
+#measurement-entry{margin:20px 0 15px;padding:18px;border:1px solid #ccd7ed;background:#f8faff;border-radius:11px}
+#measurement-entry .field-row{display:grid;grid-template-columns:minmax(0,1fr) 90px;gap:12px}
+#measurement-entry input{width:100%;min-width:0}
+#measurement-entry .hint{margin-bottom:0}
+#measurement-next-scene{margin-top:14px}
+.lab-scene-explanation{font-size:.88rem;color:var(--muted);line-height:1.8;margin-bottom:16px}
+.measurement-identity:has(>div:nth-child(4)){grid-template-columns:1.2fr 1.1fr 1fr 1fr}
+@media(max-width:1000px){.measurement-identity:has(>div:nth-child(4)){grid-template-columns:1fr 1fr}}
+@media(max-width:760px){.measurement-identity:has(>div:nth-child(4)){grid-template-columns:1fr}#measurement-entry{padding:13px}}

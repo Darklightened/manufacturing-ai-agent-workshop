@@ -1,0 +1,55 @@
+{
+  "schema": "seminar.authored-example-artifacts.v1",
+  "scenarioId": "mechanical_demo",
+  "mode": "authored_demo",
+  "descriptionKo": "강의용 예시: 실제 공개 조립 영상과 작성한 관찰, 연결 핀을 직접 확인했다고 가정한 답변 한 건으로 생성한 보고서입니다. 실제 AI 추론이나 생산 품질 승인이 아닙니다.",
+  "company": "다온기계교육 (가상 교육 회사)",
+  "workerAnswer": "핀을 제자리에 끼운 것을 확인했습니다",
+  "rawHiddenPinVerdict": "unknown",
+  "finalHiddenPinVerdict": "met",
+  "finalHiddenPinOrigin": "worker_confirmed",
+  "stageCount": 4,
+  "criterionCount": 6,
+  "sourceVideo": {
+    "dataset": "IndustReal",
+    "clip": "01_assy_0_1",
+    "license": "Apache-2.0",
+    "url": "https://github.com/TimSchoonbeek/IndustReal"
+  },
+  "fontLicense": "Noto Sans KR: SIL Open Font License 1.1, embedded in HTML",
+  "generatedBy": "Browser UI using real bundled PDF/CSV compilation and natural 4x video playback; report export from the resulting session",
+  "modelCalls": 0,
+  "gpuCalls": 0,
+  "artifacts": [
+    {
+      "path": "report-mechanical.html",
+      "bytes": 5497446,
+      "sha256": "8088cf6c6907abbaa4f9c17db1d29aa8fa1fc2ed13c7a1bb5d8f9301f1a1761b"
+    },
+    {
+      "path": "inspection-mechanical.html",
+      "bytes": 5497438,
+      "sha256": "6bd28a19833d0b4cfe29a57aff5133300e24efc3305f238fe81c73021a99e2e1"
+    },
+    {
+      "path": "report-mechanical.pdf",
+      "bytes": 1137054,
+      "sha256": "bd73fa03461ac792a1a26d83027978175e3abc0bce9f128af5f07cc4dce144df",
+      "printSettings": {
+        "scale": 0.8,
+        "marginMm": 10,
+        "paper": "A4"
+      }
+    },
+    {
+      "path": "inspection-mechanical.pdf",
+      "bytes": 1134911,
+      "sha256": "cc5a70da744c04713719e690860eac5711d60d3c814a550a5c9d114b3678b867",
+      "printSettings": {
+        "scale": 0.8,
+        "marginMm": 10,
+        "paper": "A4"
+      }
+    }
+  ]
+}

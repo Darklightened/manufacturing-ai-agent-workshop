@@ -1,0 +1,48 @@
+# 실습 3: 기계 조립 진행
+
+공개 IndustReal 영상의 차체·브래킷·바퀴 조립을 네 단계로 재생합니다. 영상·사진은 원본에서 가져왔으며 판정과 질문은 **강의용 예시**입니다. 모델·GPU·음성 인식은 호출하지 않습니다.
+
+| 단계 | 영상 구간 | 기록하는 내용 | 증거 사진 |
+|---|---|---|---|
+| 차체 연결 | 0–70초 | 긴 차체 부재와 연결 부재의 조립 외관 | 69초 |
+| 브래킷 배치 | 70–90초 | 앞쪽 브래킷 배치, 가려진 연결 핀의 작업자 확인 | 89초 |
+| 바퀴 축 조립 | 90–178초 | 두 축의 바퀴 네 개가 배치된 외관 | 177초 |
+| 최종 외관 기록 | 178–184.4초 | 손을 뗀 조립 외관 사진 | 183초 |
+
+체결 토크·고정 강도·주행 성능은 확인하지 않습니다. 브래킷 배치는 보이지만 안쪽 연결 핀이 손에 가려져, 해당 항목만 작업자 확인을 허용합니다. 답변 없음·확인 불가·불일치는 다음 단계 진행을 보류합니다. 제자리에 끼웠다는 답변은 **작업자 확인**으로 기록하며 최초 영상 관찰의 `unknown`은 그대로 보존합니다.
+
+기본 재생 속도는 2배이며 1·2·4배를 선택할 수 있습니다. 앞선 구간을 건너뛰어 완료시키지 않고 실제 영상이 단계 끝에 도달했을 때 기록합니다. 지난 단계는 다시 볼 수 있으나 이미 저장한 관찰을 재적용하지 않습니다.
+
+## 실행 경로
+
+`scenarios/mechanical_demo/SOP.pdf`의 실제 추출문과 `criteria.csv`를 `Core.compileCompany`로 검증합니다. 네 단계와 여섯 기준의 의미가 맞아야 세션을 시작합니다. 새 `mechanical_demo` 시나리오를 사용하며 기존 `mechanical` 예시와 저장 기록은 변경하지 않습니다.
+
+`MechanicalExperience`는 화면과 영상 재생만 관리합니다. 판정·질문·답변·정책·보고서는 기존 `packages/core/core.mjs`의 같은 함수를 사용합니다. 별도 검사 원장이나 임의의 완료 상태를 만들지 않습니다.
+
+```js
+new MechanicalExperience({
+  main,
+  scenario: () => scenario,
+  bundle: () => bundle,
+  session: () => session,
+  commit: async next => { /* session/bundle 저장과 DB 동기화 */ },
+  navigate,
+  toast
+});
+```
+
+- `render()`: 현재 작업 화면 표시
+- `leave()`: 영상 정지, 영상 이벤트·프레임 콜백 해제
+- `reset()`: 다음 실습을 위한 화면 상태 초기화
+- `stageGate(session, scenario, index)`: 현재와 앞 단계의 모든 기준 및 질문을 고려한 진행 가능 여부
+- `restoredStage(session, scenario)`: 마지막 기록 단계로 복원
+
+다음 단계 버튼은 화면만 이동합니다. 영상의 자연스러운 구간 종료에서만 `Core.advance`가 호출됩니다. 질문은 `markDelivered` 이후 `answerQuestion`으로 처리합니다. 답변을 바꾸려면 `reopenQuestion`으로 새 질문을 남깁니다. 부분 재생 상태는 새로고침 때 구간 처음부터 다시 볼 수 있지만, 완료한 관찰·답변은 Core 세션으로 복원합니다. 보고서와 검토 화면은 앱의 공통 경로를 사용합니다.
+
+단계 경계 `sourceStart/sourceEnd`, 영상 경로, 사진 시각·경로와 설명은 checkpoint 안에 포함됩니다. Core의 시나리오 지문이 이 계약을 고정하여 다른 구간으로 저장 결과를 조용히 옮기지 않습니다.
+
+## 검증과 범위
+
+`node --test tests/mechanical-demo.test.mjs`의 7개 시험은 문서 구축, 인과적 사진과 구간, 명시적 질문 전달, 미확인·불일치 보류, 긍정 확인, 보고서, 정책 변경·재확인·복원을 검증합니다. 실제 브라우저 운용 검수는 `validation/labs23_v2`의 실행 영수증을 따릅니다. 이 결과는 교육용 제어 흐름의 검증이며 실제 모델 인식 정확도나 물리적 품질 검증이 아닙니다.
+
+미디어 출처·파생물 명세: `assets/mechanical-flow/media.json`, `CREDITS.txt`. 공개 원본: [IndustReal](https://github.com/TimSchoonbeek/IndustReal), Apache-2.0.

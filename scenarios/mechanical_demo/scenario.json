@@ -1,0 +1,265 @@
+{
+  "id": "mechanical_demo",
+  "version": "mechanical-teaching-v1",
+  "mode": "demo",
+  "demoKind": "mechanical",
+  "title": "기계 조립 · 차체와 바퀴 키트",
+  "description": "차체와 바퀴의 조립 영상을 따라가며 단계별 확인과 질문, 결과 기록을 체험합니다.",
+  "companyId": "edu-daon-mechanical",
+  "companyName": "다온기계교육",
+  "processId": "MECH-DEMO-001",
+  "productName": "차체와 바퀴 조립 키트",
+  "orderId": "MECH-001",
+  "sourceNote": "IndustReal 01_assy_0_1 공개 영상에 맞춘 강의용 예시입니다. 회사·작업지시서·관찰·질문은 교육용 작성이며 실제 모델 출력이나 생산 품질 승인이 아닙니다.",
+  "fixtureNotice": "강의용 예시 · 공개 영상과 작성한 관찰 · GPU/API 없이 실행",
+  "demoNotice": "영상에서 보이는 배치만 확인하고, 가려진 연결 핀은 작업자 확인을 별도로 기록합니다.",
+  "setupDescription": "차체 연결 → 브래킷 배치 → 바퀴 축 조립 → 최종 외관 기록. 브래킷 안쪽 핀이 가려진 장면에서 한 번 확인을 요청합니다.",
+  "setupExpected": "네 단계와 여섯 검사 항목을 불러옵니다. 브래킷 핀 확인을 포함해 모든 기준이 충족되면 결과를 검토합니다.",
+  "questionQuickReplies": [
+    {
+      "confirmation": "met",
+      "text": "핀을 제자리에 끼운 것을 확인했습니다"
+    },
+    {
+      "confirmation": "violated",
+      "text": "핀이 제대로 끼워지지 않았습니다"
+    },
+    {
+      "confirmation": "unknown",
+      "text": "아직 확인할 수 없습니다"
+    }
+  ],
+  "timelineKind": "source_video_timestamps_with_authored_teaching_events",
+  "tasks": [
+    {
+      "id": "chassis",
+      "label": "차체 연결"
+    },
+    {
+      "id": "bracket",
+      "label": "브래킷 배치"
+    },
+    {
+      "id": "axle",
+      "label": "바퀴 축 조립"
+    },
+    {
+      "id": "final",
+      "label": "최종 외관 기록"
+    }
+  ],
+  "criteria": [
+    {
+      "id": "MD-CHASSIS",
+      "taskId": "chassis",
+      "label": "두 긴 차체 부재와 연결 부재가 조립된 외관",
+      "target": "training-chassis-01",
+      "kind": "visual",
+      "unit": "",
+      "lower": "",
+      "upper": "",
+      "allowWorker": false
+    },
+    {
+      "id": "MD-BRACKET",
+      "taskId": "bracket",
+      "label": "전방 브래킷이 차체 앞쪽에 놓인 상태",
+      "target": "training-chassis-01",
+      "kind": "visual",
+      "unit": "",
+      "lower": "",
+      "upper": "",
+      "allowWorker": false
+    },
+    {
+      "id": "MD-PIN",
+      "taskId": "bracket",
+      "label": "가려진 브래킷 안쪽 연결 핀의 삽입 상태 확인",
+      "target": "training-chassis-01",
+      "kind": "visual",
+      "unit": "",
+      "lower": "",
+      "upper": "",
+      "allowWorker": true
+    },
+    {
+      "id": "MD-AXLE-1",
+      "taskId": "axle",
+      "label": "한쪽 축의 양쪽 바퀴가 배치된 외관",
+      "target": "training-chassis-01",
+      "kind": "visual",
+      "unit": "",
+      "lower": "",
+      "upper": "",
+      "allowWorker": false
+    },
+    {
+      "id": "MD-AXLE-2",
+      "taskId": "axle",
+      "label": "다른 축의 양쪽 바퀴가 배치된 외관",
+      "target": "training-chassis-01",
+      "kind": "visual",
+      "unit": "",
+      "lower": "",
+      "upper": "",
+      "allowWorker": false
+    },
+    {
+      "id": "MD-FINAL",
+      "taskId": "final",
+      "label": "차체·브래킷·네 바퀴를 포함한 최종 외관 사진 기록",
+      "target": "training-chassis-01",
+      "kind": "visual",
+      "unit": "",
+      "lower": "",
+      "upper": "",
+      "allowWorker": false
+    }
+  ],
+  "media": {
+    "path": "assets/mechanical-flow/assembly.webm",
+    "codec": "vp9",
+    "browserPlayable": true,
+    "duration": 184.5
+  },
+  "sources": [
+    {
+      "label": "IndustReal 공개 조립 영상 · 01_assy_0_1",
+      "url": "https://github.com/TimSchoonbeek/IndustReal",
+      "license": "Apache-2.0"
+    }
+  ],
+  "variants": [
+    {
+      "id": "mechanical",
+      "label": "강사용: 이전 기계 조립 기록",
+      "config": "scenarios/mechanical/scenario.json",
+      "instructorOnly": true
+    }
+  ],
+  "exercises": [
+    "영상을 재생하고 단계 끝에서 검사 결과와 Agent 통과 신호를 확인하세요.",
+    "브래킷 안쪽 연결 핀 질문에 실제 확인한 내용을 선택하세요.",
+    "미확인·불일치 답변이면 다음 단계가 보류되는지 확인하세요.",
+    "완료 후 질문·답변·네 장의 사진을 포함한 검수조서를 저장하세요."
+  ],
+  "checkpoints": [
+    {
+      "id": "md1",
+      "time": 70,
+      "sourceTime": 69,
+      "sourceStart": 0,
+      "sourceEnd": 70,
+      "taskId": "chassis",
+      "target": "training-chassis-01",
+      "label": "차체 연결 외관 확인",
+      "note": "두 긴 차체 부재를 연결합니다. 단계 마지막에는 손을 뗀 차체 연결 상태를 확인합니다.",
+      "sceneSummary": "두 긴 차체 부재를 연결합니다. 단계 마지막에는 손을 뗀 차체 연결 상태를 확인합니다.",
+      "scopeNote": "외관과 배치 확인 예시입니다. 체결 토크·고정 강도·주행 성능은 이 영상으로 판정하지 않습니다.",
+      "image": "assets/mechanical-flow/frame_069.jpg",
+      "videoPath": "assets/mechanical-flow/assembly.webm",
+      "origin": "authored_demo",
+      "assessments": [
+        {
+          "criterionId": "MD-CHASSIS",
+          "verdict": "met",
+          "reason": "69초 장면에서 두 긴 차체 부재와 연결 부재가 조립된 외관을 기록했습니다. 고정 강도는 별도 검사 대상입니다."
+        }
+      ]
+    },
+    {
+      "id": "md2",
+      "time": 90,
+      "sourceTime": 89,
+      "sourceStart": 70,
+      "sourceEnd": 90,
+      "taskId": "bracket",
+      "target": "training-chassis-01",
+      "label": "브래킷 배치와 연결 핀 확인",
+      "note": "앞쪽 브래킷을 놓고 연결합니다. 브래킷의 배치는 보이지만 안쪽 연결 핀은 손에 가려져 직접 확인이 필요합니다.",
+      "sceneSummary": "앞쪽 브래킷을 놓고 연결합니다. 브래킷의 배치는 보이지만 안쪽 연결 핀은 손에 가려져 직접 확인이 필요합니다.",
+      "scopeNote": "외관과 배치 확인 예시입니다. 체결 토크·고정 강도·주행 성능은 이 영상으로 판정하지 않습니다.",
+      "image": "assets/mechanical-flow/frame_089.jpg",
+      "videoPath": "assets/mechanical-flow/assembly.webm",
+      "origin": "authored_demo",
+      "assessments": [
+        {
+          "criterionId": "MD-BRACKET",
+          "verdict": "met",
+          "reason": "89초 장면에서 브래킷이 차체 앞쪽에 놓인 상태를 기록했습니다."
+        },
+        {
+          "criterionId": "MD-PIN",
+          "verdict": "unknown",
+          "reason": "안쪽 연결 핀이 손에 가려 삽입 상태를 확인할 수 없습니다.",
+          "question": "손에 가린 브래킷 안쪽 연결 핀이 제자리에 끼워졌나요? 직접 확인한 결과를 알려 주세요."
+        }
+      ]
+    },
+    {
+      "id": "md3",
+      "time": 178,
+      "sourceTime": 177,
+      "sourceStart": 90,
+      "sourceEnd": 178,
+      "taskId": "axle",
+      "target": "training-chassis-01",
+      "label": "두 축의 바퀴 배치 확인",
+      "note": "두 축에 바퀴를 차례로 배치합니다. 마지막 장면에서 양쪽 축의 네 바퀴가 보이는지만 확인합니다.",
+      "sceneSummary": "두 축에 바퀴를 차례로 배치합니다. 마지막 장면에서 양쪽 축의 네 바퀴가 보이는지만 확인합니다.",
+      "scopeNote": "외관과 배치 확인 예시입니다. 체결 토크·고정 강도·주행 성능은 이 영상으로 판정하지 않습니다.",
+      "image": "assets/mechanical-flow/frame_177.jpg",
+      "videoPath": "assets/mechanical-flow/assembly.webm",
+      "origin": "authored_demo",
+      "assessments": [
+        {
+          "criterionId": "MD-AXLE-1",
+          "verdict": "met",
+          "reason": "177초 장면에서 한쪽 축 양쪽에 바퀴가 배치된 외관을 기록했습니다."
+        },
+        {
+          "criterionId": "MD-AXLE-2",
+          "verdict": "met",
+          "reason": "177초 장면에서 다른 축 양쪽에도 바퀴가 배치되어 네 바퀴가 보입니다. 너트 체결 토크는 확인하지 않았습니다."
+        }
+      ]
+    },
+    {
+      "id": "md4",
+      "time": 184.4,
+      "sourceTime": 183,
+      "sourceStart": 178,
+      "sourceEnd": 184.4,
+      "taskId": "final",
+      "target": "training-chassis-01",
+      "label": "최종 외관 사진 기록",
+      "note": "손을 뗀 완성 외관을 기록합니다. 앞 단계의 작업자 확인과 검사 이력을 함께 검토합니다.",
+      "sceneSummary": "손을 뗀 완성 외관을 기록합니다. 앞 단계의 작업자 확인과 검사 이력을 함께 검토합니다.",
+      "scopeNote": "외관과 배치 확인 예시입니다. 체결 토크·고정 강도·주행 성능은 이 영상으로 판정하지 않습니다.",
+      "image": "assets/mechanical-flow/frame_183.jpg",
+      "videoPath": "assets/mechanical-flow/assembly.webm",
+      "origin": "authored_demo",
+      "assessments": [
+        {
+          "criterionId": "MD-FINAL",
+          "verdict": "met",
+          "reason": "183초의 차체·브래킷·네 바퀴가 보이는 최종 외관 사진을 기록했습니다. 기능 시험이나 안전 인증은 포함하지 않습니다."
+        }
+      ]
+    }
+  ],
+  "documents": [
+    {
+      "id": "sop",
+      "title": "기계 조립 작업지시서 PDF",
+      "path": "scenarios/mechanical_demo/SOP.pdf",
+      "type": "pdf"
+    },
+    {
+      "id": "criteria",
+      "title": "6개 외관·확인 기준 CSV",
+      "path": "scenarios/mechanical_demo/criteria.csv",
+      "type": "csv"
+    }
+  ]
+}

@@ -1,0 +1,246 @@
+{
+  "id": "measurement_input_demo",
+  "version": "measurement-input-teaching-v2",
+  "mode": "demo",
+  "demoKind": "measurement",
+  "title": "계측 판독 · 플랜지 부시 · 표준형",
+  "description": "제품을 고르고 검사자·로트를 입력합니다. A/B 표시값을 직접 기록하고, 가려진 C 두께를 확인한 뒤 검수조서를 저장하세요.",
+  "companyId": "edu-daon-precision",
+  "companyName": "다온정밀",
+  "processId": "INSPECT-BSH",
+  "productName": "플랜지 부시 · 표준형",
+  "orderId": "QC-001",
+  "sourceNote": "제품·도면·장비 화면·측정값은 이 강의를 위해 구성한 예시입니다. 서로 다른 실제 계측 사진을 같은 제품의 측정으로 합치지 않았으며, 실제 모델 판독이나 공인 검사 결과가 아닙니다.",
+  "fixtureNotice": "강의용 예시 · 제품 도면과 측정 장면을 직접 구성",
+  "demoNotice": "장비 화면은 강의용 예시입니다. 직접 입력한 측정값과 확인 답변을 현재 검사 기준에 비교합니다.",
+  "timelineKind": "authored_measurement_sequence",
+  "inspection": {
+    "productId": "BSH-2630",
+    "productName": "플랜지 부시 · 표준형",
+    "drawingId": "DR-BSH-2630",
+    "drawingRevision": "A",
+    "specimenId": "EDU-BSH-001",
+    "drawing": "scenarios/measurement_input_demo/drawing.svg",
+    "features": [
+      {
+        "criterionId": "M-OD",
+        "code": "A",
+        "label": "A · 플랜지 외경",
+        "nominal": "26.30",
+        "instrument": "디지털 캘리퍼스",
+        "lower": "26.10",
+        "upper": "26.50",
+        "unit": "mm",
+        "anchor": {
+          "x": 8.5,
+          "y": 47.5
+        }
+      },
+      {
+        "criterionId": "M-LENGTH",
+        "code": "B",
+        "label": "B · 전체 길이",
+        "nominal": "40.00",
+        "instrument": "디지털 하이트 게이지",
+        "lower": "39.90",
+        "upper": "40.10",
+        "unit": "mm",
+        "anchor": {
+          "x": 31,
+          "y": 67
+        }
+      },
+      {
+        "criterionId": "M-FLANGE",
+        "code": "C",
+        "label": "C · 플랜지 두께",
+        "nominal": "5.80",
+        "instrument": "디지털 마이크로미터",
+        "lower": "5.70",
+        "upper": "5.90",
+        "unit": "mm",
+        "anchor": {
+          "x": 18,
+          "y": 20.5
+        }
+      }
+    ]
+  },
+  "tasks": [
+    {
+      "id": "diameter",
+      "label": "A · 플랜지 외경"
+    },
+    {
+      "id": "length",
+      "label": "B · 전체 길이"
+    },
+    {
+      "id": "flange",
+      "label": "C · 플랜지 두께"
+    }
+  ],
+  "criteria": [
+    {
+      "id": "M-OD",
+      "taskId": "diameter",
+      "label": "A · 플랜지 외경",
+      "target": "EDU-BSH-001",
+      "kind": "range",
+      "unit": "mm",
+      "lower": "26.10",
+      "upper": "26.50",
+      "allowWorker": true
+    },
+    {
+      "id": "M-LENGTH",
+      "taskId": "length",
+      "label": "B · 전체 길이",
+      "target": "EDU-BSH-001",
+      "kind": "range",
+      "unit": "mm",
+      "lower": "39.90",
+      "upper": "40.10",
+      "allowWorker": true
+    },
+    {
+      "id": "M-FLANGE",
+      "taskId": "flange",
+      "label": "C · 플랜지 두께",
+      "target": "EDU-BSH-001",
+      "kind": "range",
+      "unit": "mm",
+      "lower": "5.70",
+      "upper": "5.90",
+      "allowWorker": true
+    }
+  ],
+  "media": {
+    "path": "",
+    "codec": "authored_svg",
+    "browserPlayable": false
+  },
+  "sources": [
+    {
+      "label": "Manufacturing Agent Workshop · 강의용 자체 제작 도면·장비 장면",
+      "license": "교육용 작성 자료",
+      "url": "docs/MEASUREMENT_DEMO.ko.md"
+    }
+  ],
+  "variants": [
+    {
+      "id": "measurement_input_precision_demo",
+      "title": "정밀형 제품",
+      "label": "정밀형 제품",
+      "config": "scenarios/measurement_input_precision_demo/scenario.json",
+      "productId": "BSH-2630-P"
+    }
+  ],
+  "exercises": [
+    "제품과 도면 A/B/C의 검사 위치를 확인하고 검사자·검사 로트를 입력하세요.",
+    "A 외경과 B 전체 길이의 장비 표시값을 직접 입력하세요. 표시값과 입력값은 별도로 남습니다.",
+    "C의 가려진 숫자는 작업자 확인 요청을 통해 답변하세요. 확인값을 추정한 판독값으로 바꾸지 않습니다.",
+    "정밀형은 별도 시편이며 같은 표시값 40.02 mm가 길이 기준을 벗어납니다. 다시 입력한 값과 기준 변경 전후를 검수조서에서 비교하세요."
+  ],
+  "checkpoints": [
+    {
+      "id": "m1",
+      "time": 10,
+      "sourceTime": 10,
+      "taskId": "diameter",
+      "target": "EDU-BSH-001",
+      "featureCode": "A",
+      "label": "A 외경 측정값 기록",
+      "note": "캘리퍼스 표시 26.30 mm를 도면 A 외경에 기록합니다.",
+      "origin": "authored_demo",
+      "image": "scenarios/measurement_input_demo/scene-a.svg",
+      "assessments": [
+        {
+          "criterionId": "M-OD",
+          "verdict": "met",
+          "raw": "26.30 mm",
+          "unit": "mm",
+          "reason": "캘리퍼스 표시 26.30 mm를 도면 A 외경에 기록합니다.",
+          "value": "26.30"
+        }
+      ]
+    },
+    {
+      "id": "m2",
+      "time": 20,
+      "sourceTime": 20,
+      "taskId": "length",
+      "target": "EDU-BSH-001",
+      "featureCode": "B",
+      "label": "B 전체 길이 측정값 기록",
+      "note": "기준면에서 윗면까지의 높이 40.02 mm를 도면 B 전체 길이에 기록합니다.",
+      "origin": "authored_demo",
+      "image": "scenarios/measurement_input_demo/scene-b.svg",
+      "assessments": [
+        {
+          "criterionId": "M-LENGTH",
+          "verdict": "met",
+          "raw": "40.02 mm",
+          "unit": "mm",
+          "reason": "기준면에서 윗면까지의 높이 40.02 mm를 도면 B 전체 길이에 기록합니다.",
+          "value": "40.02"
+        }
+      ]
+    },
+    {
+      "id": "m3",
+      "time": 30,
+      "sourceTime": 30,
+      "taskId": "flange",
+      "target": "EDU-BSH-001",
+      "featureCode": "C",
+      "label": "C 두께 표시 확인 요청",
+      "note": "두께 표시의 한 자리가 가려져 있습니다. 도면 C 위치와 실제 표시값을 작업자에게 확인합니다.",
+      "origin": "authored_demo",
+      "image": "scenarios/measurement_input_demo/scene-c.svg",
+      "assessments": [
+        {
+          "criterionId": "M-FLANGE",
+          "verdict": "unknown",
+          "raw": "5.?8 mm",
+          "unit": "mm",
+          "reason": "두께 표시의 한 자리가 가려져 있습니다. 도면 C 위치와 실제 표시값을 작업자에게 확인합니다.",
+          "question": "C 위치의 플랜지 두께를 다시 확인해 주세요. 마이크로미터에 표시된 값과 단위가 무엇인가요?"
+        }
+      ]
+    }
+  ],
+  "documents": [
+    {
+      "id": "sop",
+      "title": "검사 작업지시서 PDF",
+      "path": "scenarios/measurement_input_demo/SOP.pdf",
+      "type": "pdf"
+    },
+    {
+      "id": "criteria",
+      "title": "A/B/C 검사 기준 CSV",
+      "path": "scenarios/measurement_input_demo/criteria.csv",
+      "type": "csv"
+    },
+    {
+      "id": "drawing",
+      "title": "제품 도면 PDF · 개정 A",
+      "path": "scenarios/measurement_input_demo/drawing.pdf",
+      "type": "pdf"
+    }
+  ],
+  "workerAnswerExamples": [
+    {
+      "value": "5.78",
+      "unit": "mm",
+      "label": "5.78 mm로 확인"
+    },
+    {
+      "value": "6.08",
+      "unit": "mm",
+      "label": "6.08 mm로 확인"
+    }
+  ],
+  "measurementEntry": "worker_input"
+}

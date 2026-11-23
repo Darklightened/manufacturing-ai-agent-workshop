@@ -1,0 +1,172 @@
+import * as Core from '../core/core.mjs';
+
+const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const clock = seconds => `${Math.floor(seconds / 60)}:${String(Math.floor(seconds % 60)).padStart(2, '0')}`;
+const labels = {met:'충족',violated:'불일치',unknown:'확인 필요',not_due:'예정',unassessed:'확인 전'};
+const finished = q => ['resolved','superseded'].includes(q.state);
+
+/** The UI stage is not a second inspection ledger; all saved decisions use Core. */
+export function stageGate(session, scenario, index) {
+  const cp = scenario.checkpoints[index];
+  if (!session || !cp || session.position < index) return false;
+  const tasks = new Set(scenario.checkpoints.slice(0,index + 1).map(c => c.taskId));
+  return session.bundle.criteria.filter(c => tasks.has(c.taskId)).every(c => session.assessments[c.id]?.verdict === 'met')
+    && !session.questions.some(q => tasks.has(q.taskId) && !finished(q));
+}
+export function restoredStage(session, scenario) {
+  return Math.max(0, Math.min(session?.position ?? -1, scenario.checkpoints.length - 1));
+}
+
+export class MechanicalExperience {
+  constructor(host) {
+    this.host = host; this.index = 0; this.speed = 2; this.key = null;
+    this.video = null; this.generation = 0; this.busy = false;
+  }
+  reset() { this.leave(); this.key = null; this.index = 0; }
+  leave() {
+    this.generation++;
+    const video = this.video;
+    if (video) {
+      video.pause();
+      for (const name of ['onloadedmetadata','ontimeupdate','onseeking','onseeked','onended','onplay','onpause','onerror']) video[name] = null;
+      if (this.frameCallback && video.cancelVideoFrameCallback) video.cancelVideoFrameCallback(this.frameCallback);
+    }
+    this.frameCallback = null; this.video = null;
+  }
+  action(fn) {
+    return async event => {
+      if (this.busy) return;
+      this.busy = true;
+      try { await fn(event); } catch (error) { this.host.toast(error.message); }
+      finally { this.busy = false; }
+    };
+  }
+  async commit(next) { await this.host.commit(next); }
+  render() {
+    this.leave();
+    const {main} = this.host, s = this.host.session(), scenario = this.host.scenario();
+    if (!s) { this.host.navigate('setup'); return; }
+    const key = `${scenario.id}:${s.id}`;
+    if (this.key !== key) { this.key = key; this.index = restoredStage(s,scenario); }
+    this.index = Math.max(0,Math.min(this.index,Math.min(s.position + 1,scenario.checkpoints.length - 1)));
+    const cp = scenario.checkpoints[this.index], done = s.position >= this.index;
+    main.innerHTML = `<div class="mechanical-flow"><section class="panel mechanical-heading"><div><span class="eyebrow">실습 3 · 기계 조립</span><h1>${esc(scenario.productName)}</h1><p>영상의 각 단계가 끝나면 확인 결과를 기록합니다. 보이지 않는 연결 핀은 작업자에게 한 번 질문합니다.</p></div><span class="tag">강의용 예시</span></section>
+    <nav class="mechanical-stage-strip" aria-label="조립 작업 단계">${scenario.checkpoints.map((p,i) => `<button type="button" data-stage="${i}" class="${i === this.index ? 'current' : ''} ${stageGate(s,scenario,i) ? 'done' : ''}" ${i > s.position ? 'disabled' : ''}><span>${stageGate(s,scenario,i) ? '✓' : i + 1}</span><strong>${esc(scenario.tasks.find(t => t.id === p.taskId)?.label)}</strong><small>${clock(p.sourceStart)}–${clock(p.sourceEnd)}</small></button>`).join('')}</nav>
+    <div class="mechanical-layout"><section class="panel mechanical-video-panel"><div class="section-row"><h2>${this.index + 1}. ${esc(scenario.tasks.find(t => t.id === cp.taskId)?.label)}</h2><span id="mechanical-video-clock" class="tag">${clock(done ? cp.sourceEnd : cp.sourceStart)} / ${clock(cp.sourceEnd)}</span></div><video id="mechanical-video" playsinline preload="metadata" poster="${esc(cp.image)}" src="${esc(cp.videoPath)}" aria-label="현재 작업 단계의 공개 조립 영상"></video><div class="mechanical-progress" role="progressbar" aria-label="현재 단계 영상 진행" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${done ? 100 : 0}"><span id="mechanical-video-progress" style="width:${done ? 100 : 0}%"></span></div><div class="mechanical-video-controls"><button id="mechanical-play" class="secondary">${done ? '단계 다시 보기' : '영상 재생'}</button><label>재생 속도 <select id="mechanical-speed" aria-label="기계 조립 영상 재생 속도">${[1,2,4].map(rate => `<option value="${rate}" ${rate === this.speed ? 'selected' : ''}>${rate}배</option>`).join('')}</select></label><span class="hint">원본 시각 기준</span></div><div id="mechanical-video-error" role="status"></div><p class="mechanical-scene">${esc(cp.sceneSummary)}</p><div id="mechanical-signal" class="mechanical-signal" role="status"></div><div class="mechanical-actions"><button id="mechanical-next" class="primary" disabled>${this.index === scenario.checkpoints.length - 1 ? '검수 완료 · 결과 보기' : '다음 작업 시작'}</button><button id="mechanical-review" class="secondary" ${s.position < 0 ? 'disabled' : ''}>현재 검수 기록</button></div></section>
+    <aside class="mechanical-inspection"><section class="panel"><div class="section-row"><h2>현재 단계 확인</h2><span id="mechanical-check-count" class="tag"></span></div><div id="mechanical-checks"></div><p class="hint mechanical-scope">${esc(cp.scopeNote)}</p></section><section id="mechanical-questions" class="panel"></section></aside></div><section class="panel mechanical-journal"><h2>작업 기록</h2><div id="mechanical-events"></div></section></div>`;
+    this.mountVideo(cp,done);
+    main.querySelectorAll('[data-stage]').forEach(button => button.onclick = () => { this.index = Number(button.dataset.stage); this.render(); });
+    main.querySelector('#mechanical-next').onclick = this.action(async () => {
+      const state = this.host.session();
+      if (!stageGate(state,scenario,this.index)) throw new Error('이 단계와 앞 단계의 확인이 모두 끝나야 진행할 수 있습니다.');
+      if (this.index === scenario.checkpoints.length - 1) { this.host.navigate('review'); return; }
+      this.index++; this.render();
+      try { await this.video?.play(); } catch { /* The user can press play when autoplay is unavailable. */ }
+    });
+    main.querySelector('#mechanical-review').onclick = () => this.host.navigate('review');
+    this.update();
+  }
+  mountVideo(cp,done) {
+    const {main} = this.host, video = main.querySelector('#mechanical-video');
+    this.video = video; const generation = this.generation;
+    let ready = false, initializing = true, correcting = false;
+    let allowed = done ? cp.sourceEnd : cp.sourceStart;
+    let lastTime = allowed, lastWall = performance.now(), completing = false;
+    video.playbackRate = this.speed;
+    const live = () => this.video === video && this.generation === generation && video.isConnected;
+    const init = () => {
+      if (!live()) return;
+      initializing = true;
+      video.currentTime = done ? Math.min(cp.sourceEnd,video.duration) : cp.sourceStart;
+      ready = true; lastTime = video.currentTime; lastWall = performance.now();
+      // Metadata seek is a known setup operation. No observation is saved here.
+      if (!video.seeking) initializing = false;
+    };
+    video.onloadedmetadata = init;
+    video.onseeked = () => { initializing = false; correcting = false; lastTime = video.currentTime; lastWall = performance.now(); };
+    if (video.readyState >= 1) init();
+    video.onseeking = () => {
+      if (!ready || !live() || initializing || correcting) return;
+      if (video.currentTime > allowed + .12 || video.currentTime < cp.sourceStart) {
+        correcting = true; video.currentTime = Math.max(cp.sourceStart,allowed);
+        this.host.toast('아직 보지 않은 구간은 영상 재생 후 확인합니다.');
+      }
+    };
+    const observe = async () => {
+      if (!ready || !live() || initializing || correcting || video.seeking || completing) return;
+      const time = video.currentTime, now = performance.now();
+      // Ignore abrupt forward jumps, including programmatic seeks. Only video
+      // playback reaching the stage end can commit a new checkpoint.
+      const plausible = time <= lastTime + Math.max(.7,(now - lastWall) / 1000 * video.playbackRate + .35);
+      if (!plausible && time > allowed + .12) return;
+      lastTime = time; lastWall = now;
+      allowed = Math.max(allowed,Math.min(time,cp.sourceEnd));
+      const percent = Math.min(100,Math.max(0,(time - cp.sourceStart) / (cp.sourceEnd - cp.sourceStart) * 100));
+      const bar = main.querySelector('#mechanical-video-progress');
+      bar.style.width = `${percent}%`;bar.parentElement.setAttribute('aria-valuenow',String(Math.round(percent)));
+      main.querySelector('#mechanical-video-clock').textContent = `${clock(Math.min(time,cp.sourceEnd))} / ${clock(cp.sourceEnd)}`;
+      if (time >= cp.sourceEnd) {
+        video.pause();
+        const state = this.host.session();
+        if (state.position >= this.index) { main.querySelector('#mechanical-play').textContent = '단계 다시 보기'; return; }
+        if (state.position !== this.index - 1) return;
+        completing = true;
+        try {
+          await this.commit(Core.advance(state,this.host.scenario(),this.index));
+          if (live()) { this.update(); main.querySelector('#mechanical-review').disabled = false; main.querySelector('#mechanical-play').textContent = '단계 다시 보기'; }
+        } catch (error) { this.host.toast(error.message); }
+        finally { completing = false; }
+      }
+    };
+    video.ontimeupdate = () => { void observe(); };
+    video.onended = () => { void observe(); };
+    if (video.requestVideoFrameCallback) {
+      const frame = () => { if (!live()) return; void observe(); this.frameCallback = video.requestVideoFrameCallback(frame); };
+      this.frameCallback = video.requestVideoFrameCallback(frame);
+    }
+    video.onplay = () => { lastTime = video.currentTime;lastWall = performance.now();if(live()) main.querySelector('#mechanical-play').textContent = '일시정지'; };
+    video.onpause = () => { if(live()) main.querySelector('#mechanical-play').textContent = this.host.session().position >= this.index ? '단계 다시 보기' : '영상 재생'; };
+    video.onerror = () => { if(live()) main.querySelector('#mechanical-video-error').innerHTML = '<div class="notice warning">영상을 불러오지 못했습니다. 네트워크를 확인하고 다시 재생해 주세요. 영상 없이 검사를 완료하지 않습니다.</div>'; };
+    main.querySelector('#mechanical-play').onclick = this.action(async () => {
+      if (!ready) throw new Error('영상이 준비되는 중입니다. 잠시 후 다시 눌러 주세요.');
+      if (video.paused) {
+        if (video.currentTime >= cp.sourceEnd - .1) { initializing = true;video.currentTime = cp.sourceStart;allowed = this.host.session().position >= this.index ? cp.sourceEnd : cp.sourceStart;lastTime = cp.sourceStart; }
+        await video.play();
+      } else video.pause();
+    });
+    main.querySelector('#mechanical-speed').onchange = event => { this.speed = Number(event.target.value);video.playbackRate = this.speed;lastTime = video.currentTime;lastWall = performance.now(); };
+  }
+  update() {
+    const {main} = this.host, s = this.host.session(), scenario = this.host.scenario(), cp = scenario.checkpoints[this.index];
+    if (!main.querySelector('#mechanical-checks')) return;
+    const summary = Core.summarize(s,scenario), rows = summary.rows.filter(c => c.taskId === cp.taskId), canNext = stageGate(s,scenario,this.index);
+    main.querySelector('#mechanical-check-count').textContent = `${rows.filter(r => r.verdict === 'met').length} / ${rows.length} 확인`;
+    main.querySelector('#mechanical-checks').innerHTML = rows.map(r => `<div class="mechanical-check ${esc(r.verdict)}"><span>${r.verdict === 'met' ? '✓' : r.verdict === 'violated' ? '!' : r.verdict === 'unknown' ? '?' : '·'}</span><div><strong>${esc(r.label)}</strong><small>${esc(labels[r.verdict])}${r.origin ? ` · ${r.origin === 'worker_confirmed' ? '작업자 확인' : '예시 관찰'}` : ''}</small>${r.reason ? `<p>${esc(r.reason)}</p>` : ''}</div></div>`).join('');
+    const signal = main.querySelector('#mechanical-signal');
+    signal.className = 'mechanical-signal ' + (canNext ? 'passed' : s.position >= this.index ? 'held' : '');
+    signal.innerHTML = canNext ? '<strong>✓ Agent 통과 신호</strong><span>이번 단계까지의 확인이 끝났습니다.</span>' : s.position >= this.index ? '<strong>Agent 확인 대기</strong><span>남아 있는 확인 요청 또는 불일치를 해결해 주세요. 작업자 답변은 별도 근거로 남습니다.</span>' : '<strong>Agent 검사 중</strong><span>영상의 단계가 끝나면 관찰과 사진을 기록합니다.</span>';
+    main.querySelector('#mechanical-next').disabled = !canNext;
+    main.querySelectorAll('[data-stage]').forEach(button => {
+      const index = Number(button.dataset.stage), pass = stageGate(s,scenario,index);
+      button.disabled = index > s.position;button.classList.toggle('done',pass);
+      button.querySelector('span').textContent = pass ? '✓' : String(index + 1);
+    });
+    this.questions();this.events();
+  }
+  questions() {
+    const {main} = this.host, s = this.host.session(), cp = this.host.scenario().checkpoints[this.index];
+    const box = main.querySelector('#mechanical-questions'), questions = s.questions.filter(q => q.taskId === cp.taskId);
+    box.innerHTML = '<h2>작업자 확인 요청</h2>' + (questions.length ? questions.map(q => `<article class="mechanical-question"><p><strong>${esc(s.assessments[q.criterionId]?.proposedQuestion ?? q.text)}</strong></p>${finished(q) ? '<span class="tag">답변 기록됨</span>' : !q.deliveredChannels.length ? `<button class="primary" data-deliver="${esc(q.id)}">질문 확인</button>` : `<p class="hint">직접 확인한 결과를 선택해 주세요.</p><div class="mechanical-replies">${[['met','핀을 제자리에 끼운 것을 확인했습니다'],['violated','핀이 제대로 끼워지지 않았습니다'],['unknown','아직 확인할 수 없습니다']].map(([value,text]) => `<button class="secondary" data-answer="${esc(q.id)}" data-confirmation="${value}">${text}</button>`).join('')}</div>`}${q.answers.length ? `<details open><summary>답변 이력</summary>${q.answers.map(a => `<p class="hint">${esc(a.text)} · ${esc(labels[a.confirmation])}</p>`).join('')}</details>` : ''}${q === questions.at(-1) && finished(q) ? `<button class="quiet" data-reopen="${esc(q.criterionId)}">핀 상태 다시 확인</button>` : ''}</article>`).join('') : '<p class="hint">이 단계에서 가려진 항목이 발견되면 확인 요청을 표시합니다.</p>');
+    box.querySelectorAll('[data-deliver]').forEach(button => button.onclick = this.action(async () => { await this.commit(Core.markDelivered(this.host.session(),button.dataset.deliver,'screen'));this.update(); }));
+    box.querySelectorAll('[data-answer]').forEach(button => button.onclick = this.action(async () => {
+      const q = this.host.session().questions.find(q => q.id === button.dataset.answer);
+      await this.commit(Core.answerQuestion(this.host.session(),q.id,{target:q.target,confirmation:button.dataset.confirmation,text:button.textContent}));this.update();
+    }));
+    box.querySelectorAll('[data-reopen]').forEach(button => button.onclick = this.action(async () => { await this.commit(Core.reopenQuestion(this.host.session(),button.dataset.reopen));this.update(); }));
+  }
+  events() {
+    const s = this.host.session(), scenario = this.host.scenario();
+    const names = {checkpoint:'단계 관찰 기록',question_delivered:'질문 확인',answer:'작업자 답변 기록',question_reopened:'핀 상태 재확인',worker_policy_changed:'확인 근거 변경'};
+    this.host.main.querySelector('#mechanical-events').innerHTML = s.events.length ? `<ol>${s.events.map(event => `<li><time>${clock(event.time ?? 0)}</time><span>${esc(names[event.type] ?? event.type)}${event.type === 'checkpoint' ? ` · ${esc(scenario.tasks.find(t => t.id === event.taskId)?.label ?? '')}` : ''}${event.answer ? ` · ${esc(event.answer.text)}` : ''}</span></li>`).join('')}</ol>` : '<p class="hint">영상이 단계 끝까지 재생되면 관찰과 증거 사진을 저장합니다.</p>';
+  }
+}
