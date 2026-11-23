@@ -1,5 +1,7 @@
 # 실습 시작
 
+강사는 [강의 준비 안내](docs/classroom-guide.html), 수강생에게는 [복사용 공지문](docs/STUDENT_NOTICE.ko.txt)을 먼저 확인합니다.
+
 ## 링크로 시작
 
 **[제조 AI Agent 실습실](https://darklightened.github.io/manufacturing-ai-agent-workshop/)**을 열고 실습을 선택합니다. 설치·로그인 없이 사용할 수 있습니다. **[강의 자료 다운로드](https://darklightened.github.io/manufacturing-ai-agent-workshop/downloads.html)**에서 슬라이드, SOP, 검사 기준, 도면과 검수조서 예제를 받습니다.

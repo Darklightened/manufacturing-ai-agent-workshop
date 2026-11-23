@@ -1,0 +1,30 @@
+{
+  "scope": "Local app concurrency and storage isolation; not public hosting or classroom network capacity",
+  "date_kst": "2026-11-23",
+  "participants_simulated": 20,
+  "independent_browser_contexts": 20,
+  "conditions": {
+    "electronics_positive": 5,
+    "electronics_negative": 5,
+    "measurement_standard": 5,
+    "measurement_precision": 5
+  },
+  "passed": 20,
+  "failed": 0,
+  "unique_sessions": 20,
+  "page_errors": 0,
+  "http_errors": 0,
+  "external_requests": 0,
+  "operations": [
+    "PDF extraction",
+    "criteria compilation",
+    "observations",
+    "worker answers",
+    "inspection HTML download",
+    "reload restoration",
+    "per-context IndexedDB match"
+  ],
+  "model_calls": 0,
+  "gpu_calls": 0,
+  "public_site_load_test": false
+}
