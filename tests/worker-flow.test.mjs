@@ -15,7 +15,7 @@ function complete(){let s=toBattery(),q=s.questions[0];s=W.deliverQuestion(s,q.i
 test('authored plan binds 18 checks to canonical six targets and causal source images',()=>{
  assert.equal(CHECKS.length,18);assert.equal(new Set(CHECKS.map(c=>c.id)).size,18);assert.equal(PLAN.length,6);
  assert(PLAN.at(-1).sourceEnd<=SOURCE_DURATION);
- for(const p of PLAN){assert.equal(p.checks.length,3);for(const c of p.checks){assert.equal(c.criterionId,p.criterionId);assert.equal(c.taskId,p.id);assert(c.imageTime<=p.sourceStart+(p.sourceEnd-p.sourceStart)*c.threshold+.001);assert.equal(c.origin,'authored_demo');}}
+ for(const p of PLAN){assert.equal(p.checks.length,3);assert.equal(p.sourceStart,p.index?PLAN[p.index-1].sourceEnd:0);for(const c of p.checks){assert(c.imageTime>=p.sourceStart&&c.imageTime<=p.sourceEnd,'evidence must depict the stage being checked');assert.equal(c.criterionId,p.criterionId);assert.equal(c.taskId,p.id);assert(c.imageTime<=p.sourceStart+(p.sourceEnd-p.sourceStart)*c.threshold+.001);assert.equal(c.origin,'authored_demo');}}
 });
 test('registration, explicit demo authentication and process selection are independent required gates',()=>{
  let s=create();assert.equal(s.setupStep,'register');assert.throws(()=>W.startWork(s,at));assert.throws(()=>W.selectProcess(s,PROCESS.id,at));
@@ -33,9 +33,9 @@ test('photos are typed image bytes, not remote URLs or executable SVGs',()=>{
  const s=W.registerWorker(create(),{name:'a',employeeId:'b',photo:'data:image/png;base64,AAAA'},at);assert.equal(s.worker.photo,'data:image/png;base64,AAAA');
 });
 test('video progress reveals checks in order and cannot advance future stages',()=>{
- const initial=ready();let s=W.observeProgress(initial,.1,{at});assert.equal(W.summarizeWorker(s).met,1);assert.equal(W.summarizeWorker(initial).met,0);assert.throws(()=>W.nextStage(s,at));
+ const initial=ready();let s=W.observeProgress(initial,PLAN[0].checks[0].threshold,{at});assert.equal(W.summarizeWorker(s).met,1);assert.equal(W.summarizeWorker(initial).met,0);assert.throws(()=>W.nextStage(s,at));
  assert.throws(()=>W.observeProgress(s,.5,{stageId:'battery',at}));assert.throws(()=>W.observeProgress(s,1.01,{at}));assert.throws(()=>W.observeProgress(s,NaN,{at}));assert.throws(()=>W.observeProgress(s,.05,{at}));
- s=W.observeProgress(s,.8,{at});assert.equal(W.summarizeWorker(s).met,2);s=W.observeProgress(s,1,{at});assert(s.stages[0].passed);assert.equal(W.summarizeWorker(s).canNext,true);assert(s.checks.filter(c=>c.taskId!=='preparation').every(c=>c.verdict==='not_due'));
+ s=W.observeProgress(s,PLAN[0].checks[1].threshold,{at});assert.equal(W.summarizeWorker(s).met,2);s=W.observeProgress(s,1,{at});assert(s.stages[0].passed);assert.equal(W.summarizeWorker(s).canNext,true);assert(s.checks.filter(c=>c.taskId!=='preparation').every(c=>c.verdict==='not_due'));
 });
 test('repeated progress is idempotent and pass signal precedes worker next signal',()=>{
  let s=W.observeProgress(ready(),1,{at});assert.equal(s.events.filter(e=>e.type==='agent_pass').length,1);assert.strictEqual(W.observeProgress(s,1,{at}),s);s=W.nextStage(s,at);const pass=s.events.find(e=>e.type==='agent_pass'),next=s.events.find(e=>e.type==='worker_next');assert(pass.sequence<next.sequence);assert.equal(s.stageIndex,1);

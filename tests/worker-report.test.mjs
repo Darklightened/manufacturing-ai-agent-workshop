@@ -1,3 +1,4 @@
+import {PLAN} from '../packages/worker-flow/plan.mjs';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
@@ -22,7 +23,7 @@ test('inspection projection keeps 18 checks, six source criteria, raw unknown an
  const battery=r.rows.find(c=>c.id==='W-BATTERY-03');assert.equal(battery.raw,'확인 필요');assert.equal(battery.verdict,'충족');assert.equal(battery.origin,'작업자 확인');assert.equal(r.questions[0].answers[0].text,'극성을 직접 확인했습니다.');assert.equal(r.events.filter(e=>e.type==='agent_pass').length,6);assert.equal(r.identifiers.operator,'김민수');assert.match(r.identifiers.authentication,/교육용 화면 인증/);
 });
 test('evidence captions use original still time instead of authored observation threshold',()=>{
- const s=W.observeProgress(ready(),.1,{at}),r=buildInspectionRecord(args(s));assert.equal(r.evidence.length,1);assert.notEqual(r.evidence[0].sourceTime,r.evidence[0].imageTime);assert.match(r.evidence[0].caption,/0:00\.500/);assert.equal(r.rows[0].time,'0:01.200');
+ const s=W.observeProgress(ready(),PLAN[0].checks[0].threshold,{at}),r=buildInspectionRecord(args(s));assert.equal(r.evidence.length,1);assert.notEqual(r.evidence[0].sourceTime,r.evidence[0].imageTime);assert.match(r.evidence[0].caption,/0:00\.500/);assert.equal(r.rows[0].sourceTime,Number((PLAN[0].sourceStart+(PLAN[0].sourceEnd-PLAN[0].sourceStart)*PLAN[0].checks[0].threshold).toFixed(3)));
 });
 test('unanswered, negative and strict-policy-revoked outcomes remain held in both document projections',async()=>{
  const states=[battery(),battery('violated'),W.setEvidencePolicy(complete(),'visual_only',at)];

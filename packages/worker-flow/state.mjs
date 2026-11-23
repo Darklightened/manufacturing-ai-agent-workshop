@@ -1,18 +1,21 @@
 /** Pure deterministic worker exercise controller shared by UI, reports and tests. */
-import {PLAN,CHECKS,PLAN_VERSION,PROCESS} from './plan.mjs';
+import {PLAN_VERSION} from './plan.mjs';
+import {planForVersion,planForState} from './plans.mjs';
 const copy=x=>JSON.parse(JSON.stringify(x));
 const same=(a,b)=>JSON.stringify(a)===JSON.stringify(b);
 const ensure=(yes,message)=>{if(!yes)throw new Error(message);};
 const iso=at=>{const value=at||new Date().toISOString();ensure(typeof value==='string'&&Number.isFinite(Date.parse(value)),'기록 시각이 올바르지 않습니다.');return value;};
 const text=(value,max,label)=>{ensure(typeof value==='string'&&value.trim()&&value.trim().length<=max,`${label}을(를) 입력해 주세요.`);return value.trim();};
-function checkBundle(bundle){
+function checkBundle(bundle,planVersion=PLAN_VERSION){
+ const {PLAN,PROCESS}=planForVersion(planVersion);
  ensure(bundle?.companyId===PROCESS.companyId&&bundle.processId===PROCESS.id&&typeof bundle.version==='string','검토된 전자 조립 회사 기준이 필요합니다.');
  ensure(Array.isArray(bundle.tasks)&&same(bundle.tasks.map(x=>x.id),PLAN.map(x=>x.id)),'작업 순서가 전자 조립 실습과 다릅니다.');
  ensure(Array.isArray(bundle.criteria)&&bundle.criteria.length===6&&PLAN.every(p=>bundle.criteria.some(c=>c.id===p.criterionId&&c.taskId===p.id&&c.target==='circuit-board'&&c.kind==='visual')),'검사 기준의 작업·대상 연결을 확인해 주세요.');
  ensure(bundle.criteria.find(c=>c.id==='E-BATTERY')?.allowWorker===true,'배터리 작업자 확인 기준이 필요합니다.');
 }
-function initial(bundle,{id,at}){
- checkBundle(bundle);return {schema:'seminar.worker-flow.v1',id,createdAt:at,planVersion:PLAN_VERSION,origin:'authored_demo',bundle:copy(bundle),setupStep:'register',worker:null,authentication:null,process:null,started:false,startedAt:null,stageIndex:0,stages:PLAN.map(p=>({id:p.id,taskId:p.id,label:p.label,index:p.index,sourceStart:p.sourceStart,sourceEnd:p.sourceEnd,progress:0,status:'waiting',passed:false,passedAt:null})),checks:CHECKS.map(c=>({...copy(c),authoredVerdict:c.rawVerdict,rawVerdict:null,verdict:'not_due',observedAt:null,sourceTime:null,imagePath:null,origin:'authored_demo',workerAnswer:null})),questions:[],events:[],commands:[],completed:false,completedAt:null,policy:'worker_evidence'};
+function initial(bundle,{id,at,planVersion=PLAN_VERSION}){
+ const {PLAN,CHECKS}=planForVersion(planVersion);
+ checkBundle(bundle,planVersion);return {schema:'seminar.worker-flow.v1',id,createdAt:at,planVersion,origin:'authored_demo',bundle:copy(bundle),setupStep:'register',worker:null,authentication:null,process:null,started:false,startedAt:null,stageIndex:0,stages:PLAN.map(p=>({id:p.id,taskId:p.id,label:p.label,index:p.index,sourceStart:p.sourceStart,sourceEnd:p.sourceEnd,progress:0,status:'waiting',passed:false,passedAt:null})),checks:CHECKS.map(c=>({...copy(c),authoredVerdict:c.rawVerdict,rawVerdict:null,verdict:'not_due',observedAt:null,sourceTime:null,imagePath:null,origin:'authored_demo',workerAnswer:null})),questions:[],events:[],commands:[],completed:false,completedAt:null,policy:'worker_evidence'};
 }
 export function createWorkerState(bundle,options={}){const at=iso(options.at),id=options.id||globalThis.crypto?.randomUUID?.()||`worker-${Date.now()}-${Math.random().toString(16).slice(2)}`;ensure(typeof id==='string'&&id.length<=128,'작업 기록 ID가 올바르지 않습니다.');return initial(bundle,{id,at});}
 function emit(s,type,at,fields={}){s.events.push({sequence:s.events.length+1,type,actor:type.startsWith('agent_')?'agent':'worker',at,...fields});}
@@ -41,6 +44,7 @@ function reevaluate(s,at){
  if(!s.completed&&was){s.completedAt=null;emit(s,'agent_completion_revoked',at,{message:'검사 기준 또는 답변 변경으로 전체 완료 상태를 보류했습니다.'});}
 }
 function reduce(s,command){
+ const {PLAN,PROCESS}=planForState(s);
  const {type,payload,at}=command;const stage=()=>s.stages[s.stageIndex];
  switch(type){
  case 'register':{
@@ -88,8 +92,8 @@ export const answerQuestion=(s,questionId,answer,at)=>dispatch(s,'answer',{quest
 export const nextStage=(s,at)=>dispatch(s,'next',{},at);
 export function setEvidencePolicy(s,policy,at){if(s.policy===policy)return s;return dispatch(s,'policy',{policy},at);}
 export function summarizeWorker(s){
- const rows=s.checks.map(copy),stages=s.stages.map(copy),current=stages[s.stageIndex];return {rows,stages,current,total:rows.length,met:rows.filter(c=>c.verdict==='met').length,unknown:rows.filter(c=>c.verdict==='unknown').length,violated:rows.filter(c=>c.verdict==='violated').length,notDue:rows.filter(c=>c.verdict==='not_due').length,passedStages:stages.filter(st=>st.passed).length,canNext:!!current?.passed&&s.stageIndex<PLAN.length-1,completed:s.completed,pass:s.completed,openQuestions:s.questions.filter(q=>q.state!=='resolved').map(copy)};
+ const rows=s.checks.map(copy),stages=s.stages.map(copy),current=stages[s.stageIndex];return {rows,stages,current,total:rows.length,met:rows.filter(c=>c.verdict==='met').length,unknown:rows.filter(c=>c.verdict==='unknown').length,violated:rows.filter(c=>c.verdict==='violated').length,notDue:rows.filter(c=>c.verdict==='not_due').length,passedStages:stages.filter(st=>st.passed).length,canNext:!!current?.passed&&s.stageIndex<stages.length-1,completed:s.completed,pass:s.completed,openQuestions:s.questions.filter(q=>q.state!=='resolved').map(copy)};
 }
 export function validateWorkerState(saved,bundle){
- ensure(saved?.schema==='seminar.worker-flow.v1'&&saved.planVersion===PLAN_VERSION,'지원하지 않는 작업자 실습 기록입니다.');ensure(Array.isArray(saved.commands)&&saved.commands.length<=20000,'작업 기록 명령이 올바르지 않습니다.');checkBundle(saved.bundle);if(bundle)ensure(same(saved.bundle,bundle),'작업 시작 시 회사 기준과 현재 구축 기준이 다릅니다.');let replay=initial(saved.bundle,{id:saved.id,at:iso(saved.createdAt)});for(const cmd of saved.commands){ensure(cmd&&typeof cmd.type==='string'&&cmd.payload&&typeof cmd.payload==='object','작업 기록 명령이 손상되었습니다.');replay=reduce(replay,{type:cmd.type,payload:copy(cmd.payload),at:iso(cmd.at)});}ensure(same(replay,saved),'작업 기록과 검사 결과가 일치하지 않습니다.');return copy(replay);
+ ensure(saved?.schema==='seminar.worker-flow.v1','지원하지 않는 작업자 실습 기록입니다.');planForVersion(saved.planVersion);ensure(Array.isArray(saved.commands)&&saved.commands.length<=20000,'작업 기록 명령이 올바르지 않습니다.');checkBundle(saved.bundle,saved.planVersion);if(bundle)ensure(same(saved.bundle,bundle),'작업 시작 시 회사 기준과 현재 구축 기준이 다릅니다.');let replay=initial(saved.bundle,{id:saved.id,at:iso(saved.createdAt),planVersion:saved.planVersion});for(const cmd of saved.commands){ensure(cmd&&typeof cmd.type==='string'&&cmd.payload&&typeof cmd.payload==='object','작업 기록 명령이 손상되었습니다.');replay=reduce(replay,{type:cmd.type,payload:copy(cmd.payload),at:iso(cmd.at)});}ensure(same(replay,saved),'작업 기록과 검사 결과가 일치하지 않습니다.');return copy(replay);
 }

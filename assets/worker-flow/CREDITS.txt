@@ -12,3 +12,5 @@ assembly.webm은 기존 공개 원본을 브라우저 호환 VP9/WebM으로 변�
 
 avatar.svg: 강의용 기본 인물 실루엣. 원본 코드 도해, CC0-1.0.
 실제 인물의 사진·신원·생체 인증 결과를 나타내지 않습니다.
+
+alignment-v2/frame_*.jpg: 같은 EgoOops S1790005 원본에서 지정 초의 장면을 JPEG로 추출했습니다. 자르기·합성 없이 원본 프레임을 사용하며 동일한 CC BY-SA 4.0 라이선스를 따릅니다. 원본 시각·해시는 alignment-v2/manifest.json에 있습니다.

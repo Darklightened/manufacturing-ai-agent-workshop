@@ -1,0 +1,2245 @@
+{
+  "schema": "seminar.worker-flow.v1",
+  "id": "784c7903-4b5d-4941-921f-566a17a24ee8",
+  "createdAt": "2026-11-23T10:39:27.013Z",
+  "planVersion": "electronics-worker-tablet-v1",
+  "origin": "authored_demo",
+  "bundle": {
+    "companyId": "edu-daon",
+    "processId": "ELEC-DEMO-001",
+    "tasks": [
+      {
+        "id": "preparation",
+        "label": "부품과 작업 준비"
+      },
+      {
+        "id": "circuit",
+        "label": "회로 연결"
+      },
+      {
+        "id": "propeller",
+        "label": "프로펠러 장착"
+      },
+      {
+        "id": "battery",
+        "label": "배터리 삽입"
+      },
+      {
+        "id": "switch",
+        "label": "스위치 확인"
+      },
+      {
+        "id": "final",
+        "label": "최종 외관 기록"
+      }
+    ],
+    "criteria": [
+      {
+        "id": "E-PREP",
+        "taskId": "preparation",
+        "label": "보드·연결 부품·모터·프로펠러·배터리·지시서 준비",
+        "target": "circuit-board",
+        "kind": "visual",
+        "unit": "",
+        "lower": "",
+        "upper": "",
+        "allowWorker": false
+      },
+      {
+        "id": "E-CONNECTION",
+        "taskId": "circuit",
+        "label": "작업지시서에 따른 회로 연결 완료",
+        "target": "circuit-board",
+        "kind": "visual",
+        "unit": "",
+        "lower": "",
+        "upper": "",
+        "allowWorker": false
+      },
+      {
+        "id": "E-PROPELLER",
+        "taskId": "propeller",
+        "label": "프로펠러가 모터 축에 장착됨",
+        "target": "circuit-board",
+        "kind": "visual",
+        "unit": "",
+        "lower": "",
+        "upper": "",
+        "allowWorker": false
+      },
+      {
+        "id": "E-BATTERY",
+        "taskId": "battery",
+        "label": "배터리 두 개의 방향이 홀더 표시와 일치",
+        "target": "circuit-board",
+        "kind": "visual",
+        "unit": "",
+        "lower": "",
+        "upper": "",
+        "allowWorker": true
+      },
+      {
+        "id": "E-SWITCH",
+        "taskId": "switch",
+        "label": "S1 확인 후 S2 확인 순서 준수",
+        "target": "circuit-board",
+        "kind": "visual",
+        "unit": "",
+        "lower": "",
+        "upper": "",
+        "allowWorker": false
+      },
+      {
+        "id": "E-FINAL",
+        "taskId": "final",
+        "label": "조립 완료 외관 사진과 확인 기록 확보",
+        "target": "circuit-board",
+        "kind": "visual",
+        "unit": "",
+        "lower": "",
+        "upper": "",
+        "allowWorker": false
+      }
+    ],
+    "version": "source-1a217aec",
+    "source": "parsed_pdf_csv",
+    "sourceText": "다온에듀테크 | 교육용 작업지시서\n\n바람빛 회로 키트 조립\n\n문서번호: SOP‑ELEC‑DEMO‑001 · 개정: 1 · 작업번호: DEMO‑001\n\n작업 수량: 1세트 · 검사 대상: 동일 보드 1개 · 담당자: 실습 참가자\n\n강의용 가상 회사 문서 · 공개 영상에 맞춰 구성한 예시\n\ncompany_id: edu-daon\n\nprocess_id: ELEC-DEMO-001\n\nschema_version: workshop-company-v1\n\n1. 준비할 자료와 부품\n\n베이스 보드, 연결 부품, 스위치 S1·S2, 모터, 램프 L1, 프로펠러, 배터리 홀더, 배터리 2개, 작업지시서.\n\n이 키트의 조립은 부품을 손으로 결합합니다. 영상에 없는 공구나 측정값은 추가하지 않습니다.\n\n2. 작업 순서\n\ntask_id: preparation\n\n1. 부품과 작업 준비\n\n필요 부품과 지시서를 펼치고 작업할 보드 1개를 지정합니다.\n\ntask_id: circuit\n\n2. 회로 연결\n\n배터리 홀더–S1–모터를 연결하고, S2와 L1의 병렬 연결을 포함해 지시서 순서로 회로를 구성합니다.\n\ntask_id: propeller\n\n3. 프로펠러 장착\n\n프로펠러를 모터 축에 장착합니다. 장착 중 상태와 장착 완료 기록은 구분합니다.\n\ntask_id: battery\n\n4. 배터리 삽입\n\n배터리 두 개를 넣고 홀더의 + / − 표시와 방향이 맞는지 확인합니다.\n\ntask_id: switch\n\n5. 스위치 확인\n\nS1을 확인한 후 S2를 확인합니다. 이 수업의 순서 완료 사건은 미리 작성한 예시입니다.\n\ntask_id: final\n\n6. 최종 외관 기록\n\n전체 보드의 최종 외관 사진을 남기고 모든 검사 항목과 작업자 답변을 함께 검토합니다.\n\nDAON | Teaching demo | 1 / 2\n검사 기준과 확인 처리\n\n작업번호 DEMO‑001 · 바람빛 회로 키트 · 강의용 예시\n\n3. 여섯 가지 검사 기준\n\nE‑PREP | 보드·연결 부품·모터·프로펠러·배터리·지시서 준비\n\n확인 방법: 해당 단계의 예시 관찰과 사진을 기록합니다.\n\nE‑CONNECTION | 작업지시서에 따른 회로 연결 완료\n\n확인 방법: 해당 단계의 예시 관찰과 사진을 기록합니다.\n\nE‑PROPELLER | 프로펠러가 모터 축에 장착됨\n\n확인 방법: 해당 단계의 예시 관찰과 사진을 기록합니다.\n\nE‑BATTERY | 배터리 두 개의 방향이 홀더 표시와 일치\n\n확인 방법: 방향이 보이지 않으면 작업자에게 질문합니다. 긍정 확인을 별도 근거로 기록합니다.\n\nE‑SWITCH | S1 확인 후 S2 확인 순서 준수\n\n확인 방법: 해당 단계의 예시 관찰과 사진을 기록합니다.\n\nE‑FINAL | 조립 완료 외관 사진과 확인 기록 확보\n\n확인 방법: 해당 단계의 예시 관찰과 사진을 기록합니다.\n\n4. 배터리 확인 질문\n\n질문: 배터리 두 개의 방향이 홀더의 + / − 표시와 맞나요?\n\n답변 예: 방향을 확인했습니다. → 작업자 확인 근거로 충족\n\n답변 예: 반대로 들어가 있습니다. → 불일치 기록\n\n답변 없음 / 확인할 수 없음 → 보류 유지\n\n기본 정책은 작업자 확인을 인정합니다. 실습 중 사진 증거만 인정하도록 바꾸면 같은 답변이 있어도 보류가 됩니다.\n\n5. 산출물과 완료 조건\n\n검수조서: 여섯 기준의 판정, 근거 유형, 질문·답변, 사진, 변경한 확인 정책.\n\n작업 보고서: 작업 순서, 주요 장면, 미확인 항목, 최종 판정 및 이력.\n\n기본 예시는 배터리 확인 전 충족 5 / 보류 1, 긍정 확인 후 충족 6입니다. 작업 진행이 끝나도 미확인 항목을 자동으로 통\n\n과시키지 않습니다.\n\n출처와 예시 범위\n\n영상·사진: EgoOops S1790005, Yuto Haneji et al., CC BY‑SA 4.0\n\nhttps://y-haneji.github.io/EgoOops-project-page/\n\n문서와 관찰 사건은 교육용 편집입니다. 실제 모델 출력이나 원본 작업의 품질 인증이 아닙니다. 원본 영상 시각을 유지하며, 순서·연결 완료\n\n등 예시의 설정과 사진에서 보이는 내용을 구분합니다.\n\nDAON | Teaching demo | 2 / 2",
+    "sourceCsv": "id,taskId,label,target,kind,unit,lower,upper,allowWorker\r\nE-PREP,preparation,보드·연결 부품·모터·프로펠러·배터리·지시서 준비,circuit-board,visual,,,,false\r\nE-CONNECTION,circuit,작업지시서에 따른 회로 연결 완료,circuit-board,visual,,,,false\r\nE-PROPELLER,propeller,프로펠러가 모터 축에 장착됨,circuit-board,visual,,,,false\r\nE-BATTERY,battery,배터리 두 개의 방향이 홀더 표시와 일치,circuit-board,visual,,,,true\r\nE-SWITCH,switch,S1 확인 후 S2 확인 순서 준수,circuit-board,visual,,,,false\r\nE-FINAL,final,조립 완료 외관 사진과 확인 기록 확보,circuit-board,visual,,,,false\r\n",
+    "documentFingerprint": "1a217aec",
+    "educational": true
+  },
+  "setupStep": "ready",
+  "worker": {
+    "name": "김민수",
+    "employeeId": "DA-024",
+    "photo": null,
+    "registeredAt": "2026-11-23T10:39:27.266Z"
+  },
+  "authentication": {
+    "method": "training_code",
+    "verifiedAt": "2026-11-23T10:39:27.397Z",
+    "device": "작업 태블릿",
+    "simulation": true,
+    "employeeId": "DA-024"
+  },
+  "process": {
+    "id": "ELEC-DEMO-001",
+    "companyId": "edu-daon",
+    "label": "바람빛 회로 키트 조립",
+    "orderId": "DEMO-001",
+    "productName": "바람빛 회로 키트",
+    "quantity": 1,
+    "selectedAt": "2026-11-23T10:39:27.433Z",
+    "ruleVersion": "source-1a217aec"
+  },
+  "started": true,
+  "startedAt": "2026-11-23T10:39:27.479Z",
+  "stageIndex": 5,
+  "stages": [
+    {
+      "id": "preparation",
+      "taskId": "preparation",
+      "label": "부품과 작업 준비",
+      "index": 0,
+      "sourceStart": 0,
+      "sourceEnd": 12,
+      "progress": 1,
+      "status": "passed",
+      "passed": true,
+      "passedAt": "2026-11-23T10:39:30.603Z"
+    },
+    {
+      "id": "circuit",
+      "taskId": "circuit",
+      "label": "회로 연결",
+      "index": 1,
+      "sourceStart": 12,
+      "sourceEnd": 76.731,
+      "progress": 1,
+      "status": "passed",
+      "passed": true,
+      "passedAt": "2026-11-23T10:39:47.052Z"
+    },
+    {
+      "id": "propeller",
+      "taskId": "propeller",
+      "label": "프로펠러 장착",
+      "index": 2,
+      "sourceStart": 76.731,
+      "sourceEnd": 99.726,
+      "progress": 1,
+      "status": "passed",
+      "passed": true,
+      "passedAt": "2026-11-23T10:39:53.136Z"
+    },
+    {
+      "id": "battery",
+      "taskId": "battery",
+      "label": "배터리 삽입",
+      "index": 3,
+      "sourceStart": 99.726,
+      "sourceEnd": 108,
+      "progress": 1,
+      "status": "passed",
+      "passed": true,
+      "passedAt": "2026-11-23T10:39:55.879Z"
+    },
+    {
+      "id": "switch",
+      "taskId": "switch",
+      "label": "스위치 확인",
+      "index": 4,
+      "sourceStart": 108,
+      "sourceEnd": 116,
+      "progress": 1,
+      "status": "passed",
+      "passed": true,
+      "passedAt": "2026-11-23T10:39:58.069Z"
+    },
+    {
+      "id": "final",
+      "taskId": "final",
+      "label": "최종 외관 기록",
+      "index": 5,
+      "sourceStart": 116,
+      "sourceEnd": 121,
+      "progress": 1,
+      "status": "passed",
+      "passed": true,
+      "passedAt": "2026-11-23T10:39:59.703Z"
+    }
+  ],
+  "checks": [
+    {
+      "id": "W-PREP-01",
+      "label": "작업 보드와 지시서 준비",
+      "threshold": 0.1,
+      "imagePath": "data/source_pack/electronics/S1790005/frame_00_0000.500s.jpg",
+      "imageTime": 0.5,
+      "reason": "작업 보드와 지시서가 준비된 것으로 설정한 예시입니다.",
+      "criterionId": "E-PREP",
+      "taskId": "preparation",
+      "target": "circuit-board",
+      "origin": "authored_demo",
+      "rawVerdict": "met",
+      "allowWorker": false,
+      "authoredVerdict": "met",
+      "verdict": "met",
+      "observedAt": "2026-11-23T10:39:28.110Z",
+      "sourceTime": 1.2,
+      "workerAnswer": null,
+      "inputMode": "video"
+    },
+    {
+      "id": "W-PREP-02",
+      "label": "연결 부품·모터·프로펠러 준비",
+      "threshold": 0.8,
+      "imagePath": "data/source_pack/electronics/S1790005/frame_01_0009.220s.jpg",
+      "imageTime": 9.22,
+      "reason": "조립에 필요한 부품 목록을 확인하는 예시입니다.",
+      "criterionId": "E-PREP",
+      "taskId": "preparation",
+      "target": "circuit-board",
+      "origin": "authored_demo",
+      "rawVerdict": "met",
+      "allowWorker": false,
+      "authoredVerdict": "met",
+      "verdict": "met",
+      "observedAt": "2026-11-23T10:39:29.991Z",
+      "sourceTime": 9.6,
+      "workerAnswer": null,
+      "inputMode": "video"
+    },
+    {
+      "id": "W-PREP-03",
+      "label": "배터리와 작업 공간 준비",
+      "threshold": 1,
+      "imagePath": "data/source_pack/electronics/S1790005/frame_01_0009.220s.jpg",
+      "imageTime": 9.22,
+      "reason": "배터리와 작업 공간의 준비 확인을 기록했습니다.",
+      "criterionId": "E-PREP",
+      "taskId": "preparation",
+      "target": "circuit-board",
+      "origin": "authored_demo",
+      "rawVerdict": "met",
+      "allowWorker": false,
+      "authoredVerdict": "met",
+      "verdict": "met",
+      "observedAt": "2026-11-23T10:39:30.603Z",
+      "sourceTime": 12,
+      "workerAnswer": null,
+      "inputMode": "video"
+    },
+    {
+      "id": "W-CIRCUIT-01",
+      "label": "지시서의 보드 위치와 부품 배치 대조",
+      "threshold": 0.2,
+      "imagePath": "data/source_pack/electronics/S1790005/frame_02_0020.361s.jpg",
+      "imageTime": 20.361,
+      "reason": "부품 배치를 지시서와 대조하는 강의용 확인입니다.",
+      "criterionId": "E-CONNECTION",
+      "taskId": "circuit",
+      "target": "circuit-board",
+      "origin": "authored_demo",
+      "rawVerdict": "met",
+      "allowWorker": false,
+      "authoredVerdict": "met",
+      "verdict": "met",
+      "observedAt": "2026-11-23T10:39:34.313Z",
+      "sourceTime": 24.946,
+      "workerAnswer": null,
+      "inputMode": "video"
+    },
+    {
+      "id": "W-CIRCUIT-02",
+      "label": "연결 부품 체결 위치 확인",
+      "threshold": 0.6,
+      "imagePath": "data/source_pack/electronics/S1790005/frame_03_0047.073s.jpg",
+      "imageTime": 47.073,
+      "reason": "연결 부품이 지정 위치에 체결된 것으로 설정했습니다.",
+      "criterionId": "E-CONNECTION",
+      "taskId": "circuit",
+      "target": "circuit-board",
+      "origin": "authored_demo",
+      "rawVerdict": "met",
+      "allowWorker": false,
+      "authoredVerdict": "met",
+      "verdict": "met",
+      "observedAt": "2026-11-23T10:39:40.687Z",
+      "sourceTime": 50.839,
+      "workerAnswer": null,
+      "inputMode": "video"
+    },
+    {
+      "id": "W-CIRCUIT-03",
+      "label": "회로 연결 완료와 누락 부품 확인",
+      "threshold": 1,
+      "imagePath": "data/source_pack/electronics/S1790005/frame_04_0076.731s.jpg",
+      "imageTime": 76.731,
+      "reason": "회로 연결 완료와 빠진 연결 부품이 없는지 확인하는 예시입니다.",
+      "criterionId": "E-CONNECTION",
+      "taskId": "circuit",
+      "target": "circuit-board",
+      "origin": "authored_demo",
+      "rawVerdict": "met",
+      "allowWorker": false,
+      "authoredVerdict": "met",
+      "verdict": "met",
+      "observedAt": "2026-11-23T10:39:47.052Z",
+      "sourceTime": 76.731,
+      "workerAnswer": null,
+      "inputMode": "video"
+    },
+    {
+      "id": "W-PROPELLER-01",
+      "label": "프로펠러와 모터 축 위치 확인",
+      "threshold": 0.6,
+      "imagePath": "data/source_pack/electronics/S1790005/frame_05_0089.659s.jpg",
+      "imageTime": 89.659,
+      "reason": "프로펠러의 장착 대상 모터 축을 확인했습니다.",
+      "criterionId": "E-PROPELLER",
+      "taskId": "propeller",
+      "target": "circuit-board",
+      "origin": "authored_demo",
+      "rawVerdict": "met",
+      "allowWorker": false,
+      "authoredVerdict": "met",
+      "verdict": "met",
+      "observedAt": "2026-11-23T10:39:51.078Z",
+      "sourceTime": 90.528,
+      "workerAnswer": null,
+      "inputMode": "video"
+    },
+    {
+      "id": "W-PROPELLER-02",
+      "label": "프로펠러 삽입 상태 확인",
+      "threshold": 0.8,
+      "imagePath": "data/source_pack/electronics/S1790005/frame_05_0089.659s.jpg",
+      "imageTime": 89.659,
+      "reason": "프로펠러 삽입 상태 확인을 위한 강의용 판정입니다.",
+      "criterionId": "E-PROPELLER",
+      "taskId": "propeller",
+      "target": "circuit-board",
+      "origin": "authored_demo",
+      "rawVerdict": "met",
+      "allowWorker": false,
+      "authoredVerdict": "met",
+      "verdict": "met",
+      "observedAt": "2026-11-23T10:39:52.140Z",
+      "sourceTime": 95.127,
+      "workerAnswer": null,
+      "inputMode": "video"
+    },
+    {
+      "id": "W-PROPELLER-03",
+      "label": "장착 완료 상태 기록",
+      "threshold": 1,
+      "imagePath": "data/source_pack/electronics/S1790005/frame_06_0099.726s.jpg",
+      "imageTime": 99.726,
+      "reason": "장착 완료 후 다음 작업으로 이동하는 예시입니다.",
+      "criterionId": "E-PROPELLER",
+      "taskId": "propeller",
+      "target": "circuit-board",
+      "origin": "authored_demo",
+      "rawVerdict": "met",
+      "allowWorker": false,
+      "authoredVerdict": "met",
+      "verdict": "met",
+      "observedAt": "2026-11-23T10:39:53.136Z",
+      "sourceTime": 99.726,
+      "workerAnswer": null,
+      "inputMode": "video"
+    },
+    {
+      "id": "W-BATTERY-01",
+      "label": "배터리 홀더와 삽입 대상 확인",
+      "threshold": 0.15,
+      "imagePath": "data/source_pack/electronics/S1790005/frame_06_0099.726s.jpg",
+      "imageTime": 99.726,
+      "reason": "같은 회로 보드의 배터리 홀더에 연결했습니다.",
+      "criterionId": "E-BATTERY",
+      "taskId": "battery",
+      "target": "circuit-board",
+      "origin": "authored_demo",
+      "rawVerdict": "met",
+      "allowWorker": false,
+      "authoredVerdict": "met",
+      "verdict": "met",
+      "observedAt": "2026-11-23T10:39:54.016Z",
+      "sourceTime": 100.967,
+      "workerAnswer": null,
+      "inputMode": "video"
+    },
+    {
+      "id": "W-BATTERY-02",
+      "label": "배터리 두 개 삽입 상태 확인",
+      "threshold": 0.9,
+      "imagePath": "data/source_pack/electronics/S1790005/frame_07_0106.996s.jpg",
+      "imageTime": 106.996,
+      "reason": "두 개의 배터리를 삽입한 것으로 설정한 강의용 예시입니다.",
+      "criterionId": "E-BATTERY",
+      "taskId": "battery",
+      "target": "circuit-board",
+      "origin": "authored_demo",
+      "rawVerdict": "met",
+      "allowWorker": false,
+      "authoredVerdict": "met",
+      "verdict": "met",
+      "observedAt": "2026-11-23T10:39:55.568Z",
+      "sourceTime": 107.173,
+      "workerAnswer": null,
+      "inputMode": "video"
+    },
+    {
+      "id": "W-BATTERY-03",
+      "label": "배터리 + / − 방향과 홀더 표시 일치",
+      "threshold": 1,
+      "imagePath": "data/source_pack/electronics/S1790005/frame_07_0106.996s.jpg",
+      "imageTime": 106.996,
+      "reason": "방향 표시가 손과 홀더에 가려져 영상만으로 확인하지 못했습니다.",
+      "rawVerdict": "unknown",
+      "allowWorker": true,
+      "question": "배터리 두 개의 + / − 방향이 홀더 표시와 맞나요? 직접 확인한 뒤 답해 주세요.",
+      "criterionId": "E-BATTERY",
+      "taskId": "battery",
+      "target": "circuit-board",
+      "origin": "worker_confirmed",
+      "authoredVerdict": "unknown",
+      "verdict": "met",
+      "observedAt": "2026-11-23T10:39:55.568Z",
+      "sourceTime": 108,
+      "workerAnswer": {
+        "verdict": "met",
+        "text": "방향을 확인했습니다",
+        "at": "2026-11-23T10:39:55.879Z",
+        "employeeId": "DA-024"
+      },
+      "inputMode": "video"
+    },
+    {
+      "id": "W-SWITCH-01",
+      "label": "S1 스위치 위치 확인",
+      "threshold": 0.8,
+      "imagePath": "data/source_pack/electronics/S1790005/frame_08_0113.870s.jpg",
+      "imageTime": 113.87,
+      "reason": "S1 위치 확인을 기록하는 강의용 예시입니다.",
+      "criterionId": "E-SWITCH",
+      "taskId": "switch",
+      "target": "circuit-board",
+      "origin": "authored_demo",
+      "rawVerdict": "met",
+      "allowWorker": false,
+      "authoredVerdict": "met",
+      "verdict": "met",
+      "observedAt": "2026-11-23T10:39:57.922Z",
+      "sourceTime": 114.4,
+      "workerAnswer": null,
+      "inputMode": "video"
+    },
+    {
+      "id": "W-SWITCH-02",
+      "label": "S1 이후 S2 확인 순서 기록",
+      "threshold": 0.9,
+      "imagePath": "data/source_pack/electronics/S1790005/frame_08_0113.870s.jpg",
+      "imageTime": 113.87,
+      "reason": "S1 이후 S2 순서로 확인한 것으로 설정했습니다.",
+      "criterionId": "E-SWITCH",
+      "taskId": "switch",
+      "target": "circuit-board",
+      "origin": "authored_demo",
+      "rawVerdict": "met",
+      "allowWorker": false,
+      "authoredVerdict": "met",
+      "verdict": "met",
+      "observedAt": "2026-11-23T10:39:57.922Z",
+      "sourceTime": 115.2,
+      "workerAnswer": null,
+      "inputMode": "video"
+    },
+    {
+      "id": "W-SWITCH-03",
+      "label": "스위치 점검 완료 기록",
+      "threshold": 1,
+      "imagePath": "data/source_pack/electronics/S1790005/frame_08_0113.870s.jpg",
+      "imageTime": 113.87,
+      "reason": "스위치 점검 완료 신호를 기록했습니다.",
+      "criterionId": "E-SWITCH",
+      "taskId": "switch",
+      "target": "circuit-board",
+      "origin": "authored_demo",
+      "rawVerdict": "met",
+      "allowWorker": false,
+      "authoredVerdict": "met",
+      "verdict": "met",
+      "observedAt": "2026-11-23T10:39:58.069Z",
+      "sourceTime": 116,
+      "workerAnswer": null,
+      "inputMode": "video"
+    },
+    {
+      "id": "W-FINAL-01",
+      "label": "조립 완료 외관 확인",
+      "threshold": 0.82,
+      "imagePath": "data/source_pack/electronics/S1790005/frame_09_0120.021s.jpg",
+      "imageTime": 120.021,
+      "reason": "조립 완료 외관을 기록하는 강의용 확인입니다.",
+      "criterionId": "E-FINAL",
+      "taskId": "final",
+      "target": "circuit-board",
+      "origin": "authored_demo",
+      "rawVerdict": "met",
+      "allowWorker": false,
+      "authoredVerdict": "met",
+      "verdict": "met",
+      "observedAt": "2026-11-23T10:39:59.515Z",
+      "sourceTime": 120.1,
+      "workerAnswer": null,
+      "inputMode": "video"
+    },
+    {
+      "id": "W-FINAL-02",
+      "label": "최종 장면과 작업 대상 연결",
+      "threshold": 0.92,
+      "imagePath": "data/source_pack/electronics/S1790005/frame_09_0120.021s.jpg",
+      "imageTime": 120.021,
+      "reason": "최종 장면을 현재 작업 지시와 연결했습니다.",
+      "criterionId": "E-FINAL",
+      "taskId": "final",
+      "target": "circuit-board",
+      "origin": "authored_demo",
+      "rawVerdict": "met",
+      "allowWorker": false,
+      "authoredVerdict": "met",
+      "verdict": "met",
+      "observedAt": "2026-11-23T10:39:59.703Z",
+      "sourceTime": 120.6,
+      "workerAnswer": null,
+      "inputMode": "video"
+    },
+    {
+      "id": "W-FINAL-03",
+      "label": "검사 결과·답변·증거 기록 확보",
+      "threshold": 1,
+      "imagePath": "data/source_pack/electronics/S1790005/frame_09_0120.021s.jpg",
+      "imageTime": 120.021,
+      "reason": "검사 결과와 확인 답변을 검수조서에 연결할 준비가 되었습니다.",
+      "criterionId": "E-FINAL",
+      "taskId": "final",
+      "target": "circuit-board",
+      "origin": "authored_demo",
+      "rawVerdict": "met",
+      "allowWorker": false,
+      "authoredVerdict": "met",
+      "verdict": "met",
+      "observedAt": "2026-11-23T10:39:59.703Z",
+      "sourceTime": 121,
+      "workerAnswer": null,
+      "inputMode": "video"
+    }
+  ],
+  "questions": [
+    {
+      "id": "question-W-BATTERY-03",
+      "checkId": "W-BATTERY-03",
+      "criterionId": "E-BATTERY",
+      "taskId": "battery",
+      "target": "circuit-board",
+      "text": "배터리 두 개의 + / − 방향이 홀더 표시와 맞나요? 직접 확인한 뒤 답해 주세요.",
+      "state": "resolved",
+      "createdAt": "2026-11-23T10:39:55.568Z",
+      "sourceTime": 108,
+      "deliveries": [
+        {
+          "at": "2026-11-23T10:39:55.813Z",
+          "channel": "screen"
+        }
+      ],
+      "answers": [
+        {
+          "verdict": "met",
+          "text": "방향을 확인했습니다",
+          "at": "2026-11-23T10:39:55.879Z",
+          "employeeId": "DA-024"
+        }
+      ]
+    }
+  ],
+  "events": [
+    {
+      "sequence": 1,
+      "type": "worker_registered",
+      "actor": "worker",
+      "at": "2026-11-23T10:39:27.266Z",
+      "message": "작업자 김민수 (DA-024) 등록",
+      "employeeId": "DA-024",
+      "photoAttached": false
+    },
+    {
+      "sequence": 2,
+      "type": "worker_authenticated",
+      "actor": "worker",
+      "at": "2026-11-23T10:39:27.397Z",
+      "message": "등록 정보 대조와 화면 인증 완료 (강의용 인증 예시)",
+      "method": "training_code"
+    },
+    {
+      "sequence": 3,
+      "type": "process_selected",
+      "actor": "worker",
+      "at": "2026-11-23T10:39:27.433Z",
+      "message": "바람빛 회로 키트 조립 · 기준 source-1a217aec 불러옴",
+      "processId": "ELEC-DEMO-001"
+    },
+    {
+      "sequence": 4,
+      "type": "worker_started",
+      "actor": "worker",
+      "at": "2026-11-23T10:39:27.479Z",
+      "stageId": "preparation",
+      "message": "영상 입력을 연결하고 첫 작업을 시작했습니다."
+    },
+    {
+      "sequence": 5,
+      "type": "agent_check",
+      "actor": "agent",
+      "at": "2026-11-23T10:39:28.110Z",
+      "stageId": "preparation",
+      "checkId": "W-PREP-01",
+      "criterionId": "E-PREP",
+      "message": "작업 보드와 지시서 준비",
+      "verdict": "met",
+      "sourceTime": 1.2,
+      "imagePath": "data/source_pack/electronics/S1790005/frame_00_0000.500s.jpg",
+      "origin": "authored_demo",
+      "inputMode": "video"
+    },
+    {
+      "sequence": 6,
+      "type": "agent_check",
+      "actor": "agent",
+      "at": "2026-11-23T10:39:29.991Z",
+      "stageId": "preparation",
+      "checkId": "W-PREP-02",
+      "criterionId": "E-PREP",
+      "message": "연결 부품·모터·프로펠러 준비",
+      "verdict": "met",
+      "sourceTime": 9.6,
+      "imagePath": "data/source_pack/electronics/S1790005/frame_01_0009.220s.jpg",
+      "origin": "authored_demo",
+      "inputMode": "video"
+    },
+    {
+      "sequence": 7,
+      "type": "agent_check",
+      "actor": "agent",
+      "at": "2026-11-23T10:39:30.603Z",
+      "stageId": "preparation",
+      "checkId": "W-PREP-03",
+      "criterionId": "E-PREP",
+      "message": "배터리와 작업 공간 준비",
+      "verdict": "met",
+      "sourceTime": 12,
+      "imagePath": "data/source_pack/electronics/S1790005/frame_01_0009.220s.jpg",
+      "origin": "authored_demo",
+      "inputMode": "video"
+    },
+    {
+      "sequence": 8,
+      "type": "agent_pass",
+      "actor": "agent",
+      "at": "2026-11-23T10:39:30.603Z",
+      "stageId": "preparation",
+      "message": "부품과 작업 준비 검사 통과. 다음 단계로 진행할 수 있습니다.",
+      "checkIds": [
+        "W-PREP-01",
+        "W-PREP-02",
+        "W-PREP-03"
+      ],
+      "policy": "worker_evidence"
+    },
+    {
+      "sequence": 9,
+      "type": "worker_next",
+      "actor": "worker",
+      "at": "2026-11-23T10:39:30.798Z",
+      "stageId": "preparation",
+      "message": "작업자가 다음 단계 진행을 선택했습니다."
+    },
+    {
+      "sequence": 10,
+      "type": "agent_stage_ready",
+      "actor": "agent",
+      "at": "2026-11-23T10:39:30.798Z",
+      "stageId": "circuit",
+      "message": "회로 연결의 작업 정보와 검사 기준을 불러왔습니다."
+    },
+    {
+      "sequence": 11,
+      "type": "agent_check",
+      "actor": "agent",
+      "at": "2026-11-23T10:39:34.313Z",
+      "stageId": "circuit",
+      "checkId": "W-CIRCUIT-01",
+      "criterionId": "E-CONNECTION",
+      "message": "지시서의 보드 위치와 부품 배치 대조",
+      "verdict": "met",
+      "sourceTime": 24.946,
+      "imagePath": "data/source_pack/electronics/S1790005/frame_02_0020.361s.jpg",
+      "origin": "authored_demo",
+      "inputMode": "video"
+    },
+    {
+      "sequence": 12,
+      "type": "agent_check",
+      "actor": "agent",
+      "at": "2026-11-23T10:39:40.687Z",
+      "stageId": "circuit",
+      "checkId": "W-CIRCUIT-02",
+      "criterionId": "E-CONNECTION",
+      "message": "연결 부품 체결 위치 확인",
+      "verdict": "met",
+      "sourceTime": 50.839,
+      "imagePath": "data/source_pack/electronics/S1790005/frame_03_0047.073s.jpg",
+      "origin": "authored_demo",
+      "inputMode": "video"
+    },
+    {
+      "sequence": 13,
+      "type": "agent_check",
+      "actor": "agent",
+      "at": "2026-11-23T10:39:47.052Z",
+      "stageId": "circuit",
+      "checkId": "W-CIRCUIT-03",
+      "criterionId": "E-CONNECTION",
+      "message": "회로 연결 완료와 누락 부품 확인",
+      "verdict": "met",
+      "sourceTime": 76.731,
+      "imagePath": "data/source_pack/electronics/S1790005/frame_04_0076.731s.jpg",
+      "origin": "authored_demo",
+      "inputMode": "video"
+    },
+    {
+      "sequence": 14,
+      "type": "agent_pass",
+      "actor": "agent",
+      "at": "2026-11-23T10:39:47.052Z",
+      "stageId": "circuit",
+      "message": "회로 연결 검사 통과. 다음 단계로 진행할 수 있습니다.",
+      "checkIds": [
+        "W-CIRCUIT-01",
+        "W-CIRCUIT-02",
+        "W-CIRCUIT-03"
+      ],
+      "policy": "worker_evidence"
+    },
+    {
+      "sequence": 15,
+      "type": "worker_next",
+      "actor": "worker",
+      "at": "2026-11-23T10:39:47.295Z",
+      "stageId": "circuit",
+      "message": "작업자가 다음 단계 진행을 선택했습니다."
+    },
+    {
+      "sequence": 16,
+      "type": "agent_stage_ready",
+      "actor": "agent",
+      "at": "2026-11-23T10:39:47.295Z",
+      "stageId": "propeller",
+      "message": "프로펠러 장착의 작업 정보와 검사 기준을 불러왔습니다."
+    },
+    {
+      "sequence": 17,
+      "type": "agent_check",
+      "actor": "agent",
+      "at": "2026-11-23T10:39:51.078Z",
+      "stageId": "propeller",
+      "checkId": "W-PROPELLER-01",
+      "criterionId": "E-PROPELLER",
+      "message": "프로펠러와 모터 축 위치 확인",
+      "verdict": "met",
+      "sourceTime": 90.528,
+      "imagePath": "data/source_pack/electronics/S1790005/frame_05_0089.659s.jpg",
+      "origin": "authored_demo",
+      "inputMode": "video"
+    },
+    {
+      "sequence": 18,
+      "type": "agent_check",
+      "actor": "agent",
+      "at": "2026-11-23T10:39:52.140Z",
+      "stageId": "propeller",
+      "checkId": "W-PROPELLER-02",
+      "criterionId": "E-PROPELLER",
+      "message": "프로펠러 삽입 상태 확인",
+      "verdict": "met",
+      "sourceTime": 95.127,
+      "imagePath": "data/source_pack/electronics/S1790005/frame_05_0089.659s.jpg",
+      "origin": "authored_demo",
+      "inputMode": "video"
+    },
+    {
+      "sequence": 19,
+      "type": "agent_check",
+      "actor": "agent",
+      "at": "2026-11-23T10:39:53.136Z",
+      "stageId": "propeller",
+      "checkId": "W-PROPELLER-03",
+      "criterionId": "E-PROPELLER",
+      "message": "장착 완료 상태 기록",
+      "verdict": "met",
+      "sourceTime": 99.726,
+      "imagePath": "data/source_pack/electronics/S1790005/frame_06_0099.726s.jpg",
+      "origin": "authored_demo",
+      "inputMode": "video"
+    },
+    {
+      "sequence": 20,
+      "type": "agent_pass",
+      "actor": "agent",
+      "at": "2026-11-23T10:39:53.136Z",
+      "stageId": "propeller",
+      "message": "프로펠러 장착 검사 통과. 다음 단계로 진행할 수 있습니다.",
+      "checkIds": [
+        "W-PROPELLER-01",
+        "W-PROPELLER-02",
+        "W-PROPELLER-03"
+      ],
+      "policy": "worker_evidence"
+    },
+    {
+      "sequence": 21,
+      "type": "worker_next",
+      "actor": "worker",
+      "at": "2026-11-23T10:39:53.362Z",
+      "stageId": "propeller",
+      "message": "작업자가 다음 단계 진행을 선택했습니다."
+    },
+    {
+      "sequence": 22,
+      "type": "agent_stage_ready",
+      "actor": "agent",
+      "at": "2026-11-23T10:39:53.362Z",
+      "stageId": "battery",
+      "message": "배터리 삽입의 작업 정보와 검사 기준을 불러왔습니다."
+    },
+    {
+      "sequence": 23,
+      "type": "agent_check",
+      "actor": "agent",
+      "at": "2026-11-23T10:39:54.016Z",
+      "stageId": "battery",
+      "checkId": "W-BATTERY-01",
+      "criterionId": "E-BATTERY",
+      "message": "배터리 홀더와 삽입 대상 확인",
+      "verdict": "met",
+      "sourceTime": 100.967,
+      "imagePath": "data/source_pack/electronics/S1790005/frame_06_0099.726s.jpg",
+      "origin": "authored_demo",
+      "inputMode": "video"
+    },
+    {
+      "sequence": 24,
+      "type": "agent_check",
+      "actor": "agent",
+      "at": "2026-11-23T10:39:55.568Z",
+      "stageId": "battery",
+      "checkId": "W-BATTERY-02",
+      "criterionId": "E-BATTERY",
+      "message": "배터리 두 개 삽입 상태 확인",
+      "verdict": "met",
+      "sourceTime": 107.173,
+      "imagePath": "data/source_pack/electronics/S1790005/frame_07_0106.996s.jpg",
+      "origin": "authored_demo",
+      "inputMode": "video"
+    },
+    {
+      "sequence": 25,
+      "type": "agent_check",
+      "actor": "agent",
+      "at": "2026-11-23T10:39:55.568Z",
+      "stageId": "battery",
+      "checkId": "W-BATTERY-03",
+      "criterionId": "E-BATTERY",
+      "message": "배터리 + / − 방향과 홀더 표시 일치",
+      "verdict": "unknown",
+      "sourceTime": 108,
+      "imagePath": "data/source_pack/electronics/S1790005/frame_07_0106.996s.jpg",
+      "origin": "authored_demo",
+      "inputMode": "video"
+    },
+    {
+      "sequence": 26,
+      "type": "agent_question",
+      "actor": "agent",
+      "at": "2026-11-23T10:39:55.568Z",
+      "stageId": "battery",
+      "checkId": "W-BATTERY-03",
+      "questionId": "question-W-BATTERY-03",
+      "message": "배터리 두 개의 + / − 방향이 홀더 표시와 맞나요? 직접 확인한 뒤 답해 주세요."
+    },
+    {
+      "sequence": 27,
+      "type": "agent_hold",
+      "actor": "agent",
+      "at": "2026-11-23T10:39:55.568Z",
+      "stageId": "battery",
+      "message": "미확인 또는 불일치 항목이 있어 다음 단계 진행을 보류합니다.",
+      "policy": "worker_evidence",
+      "progress": 1
+    },
+    {
+      "sequence": 28,
+      "type": "question_delivered",
+      "actor": "worker",
+      "at": "2026-11-23T10:39:55.813Z",
+      "questionId": "question-W-BATTERY-03",
+      "stageId": "battery",
+      "message": "화면에서 확인 질문 확인",
+      "channel": "screen"
+    },
+    {
+      "sequence": 29,
+      "type": "worker_answer",
+      "actor": "worker",
+      "at": "2026-11-23T10:39:55.879Z",
+      "questionId": "question-W-BATTERY-03",
+      "checkId": "W-BATTERY-03",
+      "stageId": "battery",
+      "message": "방향을 확인했습니다",
+      "verdict": "met",
+      "origin": "worker_confirmed"
+    },
+    {
+      "sequence": 30,
+      "type": "agent_pass",
+      "actor": "agent",
+      "at": "2026-11-23T10:39:55.879Z",
+      "stageId": "battery",
+      "message": "배터리 삽입 검사 통과. 다음 단계로 진행할 수 있습니다.",
+      "checkIds": [
+        "W-BATTERY-01",
+        "W-BATTERY-02",
+        "W-BATTERY-03"
+      ],
+      "policy": "worker_evidence"
+    },
+    {
+      "sequence": 31,
+      "type": "worker_next",
+      "actor": "worker",
+      "at": "2026-11-23T10:39:55.979Z",
+      "stageId": "battery",
+      "message": "작업자가 다음 단계 진행을 선택했습니다."
+    },
+    {
+      "sequence": 32,
+      "type": "agent_stage_ready",
+      "actor": "agent",
+      "at": "2026-11-23T10:39:55.979Z",
+      "stageId": "switch",
+      "message": "스위치 확인의 작업 정보와 검사 기준을 불러왔습니다."
+    },
+    {
+      "sequence": 33,
+      "type": "agent_check",
+      "actor": "agent",
+      "at": "2026-11-23T10:39:57.922Z",
+      "stageId": "switch",
+      "checkId": "W-SWITCH-01",
+      "criterionId": "E-SWITCH",
+      "message": "S1 스위치 위치 확인",
+      "verdict": "met",
+      "sourceTime": 114.4,
+      "imagePath": "data/source_pack/electronics/S1790005/frame_08_0113.870s.jpg",
+      "origin": "authored_demo",
+      "inputMode": "video"
+    },
+    {
+      "sequence": 34,
+      "type": "agent_check",
+      "actor": "agent",
+      "at": "2026-11-23T10:39:57.922Z",
+      "stageId": "switch",
+      "checkId": "W-SWITCH-02",
+      "criterionId": "E-SWITCH",
+      "message": "S1 이후 S2 확인 순서 기록",
+      "verdict": "met",
+      "sourceTime": 115.2,
+      "imagePath": "data/source_pack/electronics/S1790005/frame_08_0113.870s.jpg",
+      "origin": "authored_demo",
+      "inputMode": "video"
+    },
+    {
+      "sequence": 35,
+      "type": "agent_check",
+      "actor": "agent",
+      "at": "2026-11-23T10:39:58.069Z",
+      "stageId": "switch",
+      "checkId": "W-SWITCH-03",
+      "criterionId": "E-SWITCH",
+      "message": "스위치 점검 완료 기록",
+      "verdict": "met",
+      "sourceTime": 116,
+      "imagePath": "data/source_pack/electronics/S1790005/frame_08_0113.870s.jpg",
+      "origin": "authored_demo",
+      "inputMode": "video"
+    },
+    {
+      "sequence": 36,
+      "type": "agent_pass",
+      "actor": "agent",
+      "at": "2026-11-23T10:39:58.069Z",
+      "stageId": "switch",
+      "message": "스위치 확인 검사 통과. 다음 단계로 진행할 수 있습니다.",
+      "checkIds": [
+        "W-SWITCH-01",
+        "W-SWITCH-02",
+        "W-SWITCH-03"
+      ],
+      "policy": "worker_evidence"
+    },
+    {
+      "sequence": 37,
+      "type": "worker_next",
+      "actor": "worker",
+      "at": "2026-11-23T10:39:58.327Z",
+      "stageId": "switch",
+      "message": "작업자가 다음 단계 진행을 선택했습니다."
+    },
+    {
+      "sequence": 38,
+      "type": "agent_stage_ready",
+      "actor": "agent",
+      "at": "2026-11-23T10:39:58.327Z",
+      "stageId": "final",
+      "message": "최종 외관 기록의 작업 정보와 검사 기준을 불러왔습니다."
+    },
+    {
+      "sequence": 39,
+      "type": "agent_check",
+      "actor": "agent",
+      "at": "2026-11-23T10:39:59.515Z",
+      "stageId": "final",
+      "checkId": "W-FINAL-01",
+      "criterionId": "E-FINAL",
+      "message": "조립 완료 외관 확인",
+      "verdict": "met",
+      "sourceTime": 120.1,
+      "imagePath": "data/source_pack/electronics/S1790005/frame_09_0120.021s.jpg",
+      "origin": "authored_demo",
+      "inputMode": "video"
+    },
+    {
+      "sequence": 40,
+      "type": "agent_check",
+      "actor": "agent",
+      "at": "2026-11-23T10:39:59.703Z",
+      "stageId": "final",
+      "checkId": "W-FINAL-02",
+      "criterionId": "E-FINAL",
+      "message": "최종 장면과 작업 대상 연결",
+      "verdict": "met",
+      "sourceTime": 120.6,
+      "imagePath": "data/source_pack/electronics/S1790005/frame_09_0120.021s.jpg",
+      "origin": "authored_demo",
+      "inputMode": "video"
+    },
+    {
+      "sequence": 41,
+      "type": "agent_check",
+      "actor": "agent",
+      "at": "2026-11-23T10:39:59.703Z",
+      "stageId": "final",
+      "checkId": "W-FINAL-03",
+      "criterionId": "E-FINAL",
+      "message": "검사 결과·답변·증거 기록 확보",
+      "verdict": "met",
+      "sourceTime": 121,
+      "imagePath": "data/source_pack/electronics/S1790005/frame_09_0120.021s.jpg",
+      "origin": "authored_demo",
+      "inputMode": "video"
+    },
+    {
+      "sequence": 42,
+      "type": "agent_pass",
+      "actor": "agent",
+      "at": "2026-11-23T10:39:59.703Z",
+      "stageId": "final",
+      "message": "최종 외관 기록 검사 통과. 다음 단계로 진행할 수 있습니다.",
+      "checkIds": [
+        "W-FINAL-01",
+        "W-FINAL-02",
+        "W-FINAL-03"
+      ],
+      "policy": "worker_evidence"
+    },
+    {
+      "sequence": 43,
+      "type": "agent_complete",
+      "actor": "agent",
+      "at": "2026-11-23T10:39:59.703Z",
+      "message": "전체 6개 단계와 18개 확인 항목의 기록이 완료되었습니다."
+    }
+  ],
+  "commands": [
+    {
+      "type": "register",
+      "payload": {
+        "name": "김민수",
+        "employeeId": "DA-024",
+        "photo": null
+      },
+      "at": "2026-11-23T10:39:27.266Z"
+    },
+    {
+      "type": "authenticate",
+      "payload": {
+        "code": "6421",
+        "confirmed": true
+      },
+      "at": "2026-11-23T10:39:27.397Z"
+    },
+    {
+      "type": "process",
+      "payload": {
+        "processId": "ELEC-DEMO-001"
+      },
+      "at": "2026-11-23T10:39:27.433Z"
+    },
+    {
+      "type": "start",
+      "payload": {},
+      "at": "2026-11-23T10:39:27.479Z"
+    },
+    {
+      "type": "progress",
+      "payload": {
+        "stageId": "preparation",
+        "progress": 0.08699433333333334,
+        "source": "video"
+      },
+      "at": "2026-11-23T10:39:27.845Z"
+    },
+    {
+      "type": "progress",
+      "payload": {
+        "stageId": "preparation",
+        "progress": 0.1755,
+        "source": "video"
+      },
+      "at": "2026-11-23T10:39:28.110Z"
+    },
+    {
+      "type": "progress",
+      "payload": {
+        "stageId": "preparation",
+        "progress": 0.27402133333333334,
+        "source": "video"
+      },
+      "at": "2026-11-23T10:39:28.405Z"
+    },
+    {
+      "type": "progress",
+      "payload": {
+        "stageId": "preparation",
+        "progress": 0.3577983333333334,
+        "source": "video"
+      },
+      "at": "2026-11-23T10:39:28.656Z"
+    },
+    {
+      "type": "progress",
+      "payload": {
+        "stageId": "preparation",
+        "progress": 0.4463346666666667,
+        "source": "video"
+      },
+      "at": "2026-11-23T10:39:28.922Z"
+    },
+    {
+      "type": "progress",
+      "payload": {
+        "stageId": "preparation",
+        "progress": 0.5348583333333333,
+        "source": "video"
+      },
+      "at": "2026-11-23T10:39:29.187Z"
+    },
+    {
+      "type": "progress",
+      "payload": {
+        "stageId": "preparation",
+        "progress": 0.623448,
+        "source": "video"
+      },
+      "at": "2026-11-23T10:39:29.453Z"
+    },
+    {
+      "type": "progress",
+      "payload": {
+        "stageId": "preparation",
+        "progress": 0.713871,
+        "source": "video"
+      },
+      "at": "2026-11-23T10:39:29.725Z"
+    },
+    {
+      "type": "progress",
+      "payload": {
+        "stageId": "preparation",
+        "progress": 0.8028853333333333,
+        "source": "video"
+      },
+      "at": "2026-11-23T10:39:29.991Z"
+    },
+    {
+      "type": "progress",
+      "payload": {
+        "stageId": "preparation",
+        "progress": 0.889042,
+        "source": "video"
+      },
+      "at": "2026-11-23T10:39:30.250Z"
+    },
+    {
+      "type": "progress",
+      "payload": {
+        "stageId": "preparation",
+        "progress": 0.977607,
+        "source": "video"
+      },
+      "at": "2026-11-23T10:39:30.516Z"
+    },
+    {
+      "type": "progress",
+      "payload": {
+        "stageId": "preparation",
+        "progress": 1,
+        "source": "video"
+      },
+      "at": "2026-11-23T10:39:30.603Z"
+    },
+    {
+      "type": "next",
+      "payload": {},
+      "at": "2026-11-23T10:39:30.798Z"
+    },
+    {
+      "type": "progress",
+      "payload": {
+        "stageId": "circuit",
+        "progress": 0.015787798736308725,
+        "source": "video"
+      },
+      "at": "2026-11-23T10:39:31.125Z"
+    },
+    {
+      "type": "progress",
+      "payload": {
+        "stageId": "circuit",
+        "progress": 0.03220781387588637,
+        "source": "video"
+      },
+      "at": "2026-11-23T10:39:31.391Z"
+    },
+    {
+      "type": "progress",
+      "payload": {
+        "stageId": "circuit",
+        "progress": 0.04861738579660442,
+        "source": "video"
+      },
+      "at": "2026-11-23T10:39:31.656Z"
+    },
+    {
+      "type": "progress",
+      "payload": {
+        "stageId": "circuit",
+        "progress": 0.06505130462993003,
+        "source": "video"
+      },
+      "at": "2026-11-23T10:39:31.922Z"
+    },
+    {
+      "type": "progress",
+      "payload": {
+        "stageId": "circuit",
+        "progress": 0.08144314161684513,
+        "source": "video"
+      },
+      "at": "2026-11-23T10:39:32.188Z"
+    },
+    {
+      "type": "progress",
+      "payload": {
+        "stageId": "circuit",
+        "progress": 0.0978606231944509,
+        "source": "video"
+      },
+      "at": "2026-11-23T10:39:32.453Z"
+    },
+    {
+      "type": "progress",
+      "payload": {
+        "stageId": "circuit",
+        "progress": 0.11427767221269561,
+        "source": "video"
+      },
+      "at": "2026-11-23T10:39:32.719Z"
+    },
+    {
+      "type": "progress",
+      "payload": {
+        "stageId": "circuit",
+        "progress": 0.13069200228638522,
+        "source": "video"
+      },
+      "at": "2026-11-23T10:39:32.985Z"
+    },
+    {
+      "type": "progress",
+      "payload": {
+        "stageId": "circuit",
+        "progress": 0.1471065795368525,
+        "source": "video"
+      },
+      "at": "2026-11-23T10:39:33.250Z"
+    },
+    {
+      "type": "progress",
+      "payload": {
+        "stageId": "circuit",
+        "progress": 0.1635161514575706,
+        "source": "video"
+      },
+      "at": "2026-11-23T10:39:33.516Z"
+    },
+    {
+      "type": "progress",
+      "payload": {
+        "stageId": "circuit",
+        "progress": 0.17993530147842612,
+        "source": "video"
+      },
+      "at": "2026-11-23T10:39:33.782Z"
+    },
+    {
+      "type": "progress",
+      "payload": {
+        "stageId": "circuit",
+        "progress": 0.19634271060233893,
+        "source": "video"
+      },
+      "at": "2026-11-23T10:39:34.047Z"
+    },
+    {
+      "type": "progress",
+      "payload": {
+        "stageId": "circuit",
+        "progress": 0.2127624167709444,
+        "source": "video"
+      },
+      "at": "2026-11-23T10:39:34.313Z"
+    },
+    {
+      "type": "progress",
+      "payload": {
+        "stageId": "circuit",
+        "progress": 0.22917427507685653,
+        "source": "video"
+      },
+      "at": "2026-11-23T10:39:34.579Z"
+    },
+    {
+      "type": "progress",
+      "payload": {
+        "stageId": "circuit",
+        "progress": 0.2455912005067124,
+        "source": "video"
+      },
+      "at": "2026-11-23T10:39:34.844Z"
+    },
+    {
+      "type": "progress",
+      "payload": {
+        "stageId": "circuit",
+        "progress": 0.2620065810817074,
+        "source": "video"
+      },
+      "at": "2026-11-23T10:39:35.110Z"
+    },
+    {
+      "type": "progress",
+      "payload": {
+        "stageId": "circuit",
+        "progress": 0.27841559685467554,
+        "source": "video"
+      },
+      "at": "2026-11-23T10:39:35.375Z"
+    },
+    {
+      "type": "progress",
+      "payload": {
+        "stageId": "circuit",
+        "progress": 0.2948333874032535,
+        "source": "video"
+      },
+      "at": "2026-11-23T10:39:35.641Z"
+    },
+    {
+      "type": "progress",
+      "payload": {
+        "stageId": "circuit",
+        "progress": 0.3112441952078603,
+        "source": "video"
+      },
+      "at": "2026-11-23T10:39:35.906Z"
+    },
+    {
+      "type": "progress",
+      "payload": {
+        "stageId": "circuit",
+        "progress": 0.32765988475382746,
+        "source": "video"
+      },
+      "at": "2026-11-23T10:39:36.172Z"
+    },
+    {
+      "type": "progress",
+      "payload": {
+        "stageId": "circuit",
+        "progress": 0.3440684061732401,
+        "source": "video"
+      },
+      "at": "2026-11-23T10:39:36.437Z"
+    },
+    {
+      "type": "progress",
+      "payload": {
+        "stageId": "circuit",
+        "progress": 0.3604870000463457,
+        "source": "video"
+      },
+      "at": "2026-11-23T10:39:36.703Z"
+    },
+    {
+      "type": "progress",
+      "payload": {
+        "stageId": "circuit",
+        "progress": 0.3769000324419521,
+        "source": "video"
+      },
+      "at": "2026-11-23T10:39:36.969Z"
+    },
+    {
+      "type": "progress",
+      "payload": {
+        "stageId": "circuit",
+        "progress": 0.39331158177689207,
+        "source": "video"
+      },
+      "at": "2026-11-23T10:39:37.234Z"
+    },
+    {
+      "type": "progress",
+      "payload": {
+        "stageId": "circuit",
+        "progress": 0.4097278274706092,
+        "source": "video"
+      },
+      "at": "2026-11-23T10:39:37.500Z"
+    },
+    {
+      "type": "progress",
+      "payload": {
+        "stageId": "circuit",
+        "progress": 0.42613777015649384,
+        "source": "video"
+      },
+      "at": "2026-11-23T10:39:37.765Z"
+    },
+    {
+      "type": "progress",
+      "payload": {
+        "stageId": "circuit",
+        "progress": 0.4425560550586272,
+        "source": "video"
+      },
+      "at": "2026-11-23T10:39:38.031Z"
+    },
+    {
+      "type": "progress",
+      "payload": {
+        "stageId": "circuit",
+        "progress": 0.45897162101620553,
+        "source": "video"
+      },
+      "at": "2026-11-23T10:39:38.297Z"
+    },
+    {
+      "type": "progress",
+      "payload": {
+        "stageId": "circuit",
+        "progress": 0.4753884228576726,
+        "source": "video"
+      },
+      "at": "2026-11-23T10:39:38.563Z"
+    },
+    {
+      "type": "progress",
+      "payload": {
+        "stageId": "circuit",
+        "progress": 0.4917989216913072,
+        "source": "video"
+      },
+      "at": "2026-11-23T10:39:38.828Z"
+    },
+    {
+      "type": "progress",
+      "payload": {
+        "stageId": "circuit",
+        "progress": 0.5082162178863295,
+        "source": "video"
+      },
+      "at": "2026-11-23T10:39:39.094Z"
+    },
+    {
+      "type": "progress",
+      "payload": {
+        "stageId": "circuit",
+        "progress": 0.524631227696158,
+        "source": "video"
+      },
+      "at": "2026-11-23T10:39:39.360Z"
+    },
+    {
+      "type": "progress",
+      "payload": {
+        "stageId": "circuit",
+        "progress": 0.5410349909625991,
+        "source": "video"
+      },
+      "at": "2026-11-23T10:39:39.625Z"
+    },
+    {
+      "type": "progress",
+      "payload": {
+        "stageId": "circuit",
+        "progress": 0.5579264958057191,
+        "source": "video"
+      },
+      "at": "2026-11-23T10:39:39.898Z"
+    },
+    {
+      "type": "progress",
+      "payload": {
+        "stageId": "circuit",
+        "progress": 0.5738711900016994,
+        "source": "video"
+      },
+      "at": "2026-11-23T10:39:40.157Z"
+    },
+    {
+      "type": "progress",
+      "payload": {
+        "stageId": "circuit",
+        "progress": 0.5902853346928058,
+        "source": "video"
+      },
+      "at": "2026-11-23T10:39:40.422Z"
+    },
+    {
+      "type": "progress",
+      "payload": {
+        "stageId": "circuit",
+        "progress": 0.6066919404921909,
+        "source": "video"
+      },
+      "at": "2026-11-23T10:39:40.687Z"
+    },
+    {
+      "type": "progress",
+      "payload": {
+        "stageId": "circuit",
+        "progress": 0.6231091130988244,
+        "source": "video"
+      },
+      "at": "2026-11-23T10:39:40.954Z"
+    },
+    {
+      "type": "progress",
+      "payload": {
+        "stageId": "circuit",
+        "progress": 0.6395294990035687,
+        "source": "video"
+      },
+      "at": "2026-11-23T10:39:41.219Z"
+    },
+    {
+      "type": "progress",
+      "payload": {
+        "stageId": "circuit",
+        "progress": 0.6559404303965642,
+        "source": "video"
+      },
+      "at": "2026-11-23T10:39:41.485Z"
+    },
+    {
+      "type": "progress",
+      "payload": {
+        "stageId": "circuit",
+        "progress": 0.6723545132934761,
+        "source": "video"
+      },
+      "at": "2026-11-23T10:39:41.750Z"
+    },
+    {
+      "type": "progress",
+      "payload": {
+        "stageId": "circuit",
+        "progress": 0.688764208802583,
+        "source": "video"
+      },
+      "at": "2026-11-23T10:39:42.015Z"
+    },
+    {
+      "type": "progress",
+      "payload": {
+        "stageId": "circuit",
+        "progress": 0.7051821229395498,
+        "source": "video"
+      },
+      "at": "2026-11-23T10:39:42.282Z"
+    },
+    {
+      "type": "progress",
+      "payload": {
+        "stageId": "circuit",
+        "progress": 0.7215980596622947,
+        "source": "video"
+      },
+      "at": "2026-11-23T10:39:42.547Z"
+    },
+    {
+      "type": "progress",
+      "payload": {
+        "stageId": "circuit",
+        "progress": 0.7380151086805395,
+        "source": "video"
+      },
+      "at": "2026-11-23T10:39:42.813Z"
+    },
+    {
+      "type": "progress",
+      "payload": {
+        "stageId": "circuit",
+        "progress": 0.7544235683057577,
+        "source": "video"
+      },
+      "at": "2026-11-23T10:39:43.078Z"
+    },
+    {
+      "type": "progress",
+      "payload": {
+        "stageId": "circuit",
+        "progress": 0.7708411734717524,
+        "source": "video"
+      },
+      "at": "2026-11-23T10:39:43.344Z"
+    },
+    {
+      "type": "progress",
+      "payload": {
+        "stageId": "circuit",
+        "progress": 0.7872532171602479,
+        "source": "video"
+      },
+      "at": "2026-11-23T10:39:43.610Z"
+    },
+    {
+      "type": "progress",
+      "payload": {
+        "stageId": "circuit",
+        "progress": 0.8036658169964933,
+        "source": "video"
+      },
+      "at": "2026-11-23T10:39:43.875Z"
+    },
+    {
+      "type": "progress",
+      "payload": {
+        "stageId": "circuit",
+        "progress": 0.8200822480727936,
+        "source": "video"
+      },
+      "at": "2026-11-23T10:39:44.141Z"
+    },
+    {
+      "type": "progress",
+      "payload": {
+        "stageId": "circuit",
+        "progress": 0.8364945389380668,
+        "source": "video"
+      },
+      "at": "2026-11-23T10:39:44.406Z"
+    },
+    {
+      "type": "progress",
+      "payload": {
+        "stageId": "circuit",
+        "progress": 0.8529074477452845,
+        "source": "video"
+      },
+      "at": "2026-11-23T10:39:44.672Z"
+    },
+    {
+      "type": "progress",
+      "payload": {
+        "stageId": "circuit",
+        "progress": 0.8693189970802244,
+        "source": "video"
+      },
+      "at": "2026-11-23T10:39:44.937Z"
+    },
+    {
+      "type": "progress",
+      "payload": {
+        "stageId": "circuit",
+        "progress": 0.8857306700035532,
+        "source": "video"
+      },
+      "at": "2026-11-23T10:39:45.203Z"
+    },
+    {
+      "type": "progress",
+      "payload": {
+        "stageId": "circuit",
+        "progress": 0.9021461123727428,
+        "source": "video"
+      },
+      "at": "2026-11-23T10:39:45.469Z"
+    },
+    {
+      "type": "progress",
+      "payload": {
+        "stageId": "circuit",
+        "progress": 0.918565385981987,
+        "source": "video"
+      },
+      "at": "2026-11-23T10:39:45.735Z"
+    },
+    {
+      "type": "progress",
+      "payload": {
+        "stageId": "circuit",
+        "progress": 0.9349816316757041,
+        "source": "video"
+      },
+      "at": "2026-11-23T10:39:46.001Z"
+    },
+    {
+      "type": "progress",
+      "payload": {
+        "stageId": "circuit",
+        "progress": 0.9513947258655051,
+        "source": "video"
+      },
+      "at": "2026-11-23T10:39:46.266Z"
+    },
+    {
+      "type": "progress",
+      "payload": {
+        "stageId": "circuit",
+        "progress": 0.967814926387666,
+        "source": "video"
+      },
+      "at": "2026-11-23T10:39:46.532Z"
+    },
+    {
+      "type": "progress",
+      "payload": {
+        "stageId": "circuit",
+        "progress": 0.9842204198915512,
+        "source": "video"
+      },
+      "at": "2026-11-23T10:39:46.797Z"
+    },
+    {
+      "type": "progress",
+      "payload": {
+        "stageId": "circuit",
+        "progress": 1,
+        "source": "video"
+      },
+      "at": "2026-11-23T10:39:47.052Z"
+    },
+    {
+      "type": "next",
+      "payload": {},
+      "at": "2026-11-23T10:39:47.295Z"
+    },
+    {
+      "type": "progress",
+      "payload": {
+        "stageId": "propeller",
+        "progress": 0.04379178082191828,
+        "source": "video"
+      },
+      "at": "2026-11-23T10:39:47.625Z"
+    },
+    {
+      "type": "progress",
+      "payload": {
+        "stageId": "propeller",
+        "progress": 0.08998999782561445,
+        "source": "video"
+      },
+      "at": "2026-11-23T10:39:47.891Z"
+    },
+    {
+      "type": "progress",
+      "payload": {
+        "stageId": "propeller",
+        "progress": 0.13620787127636477,
+        "source": "video"
+      },
+      "at": "2026-11-23T10:39:48.156Z"
+    },
+    {
+      "type": "progress",
+      "payload": {
+        "stageId": "propeller",
+        "progress": 0.18241983039791254,
+        "source": "video"
+      },
+      "at": "2026-11-23T10:39:48.423Z"
+    },
+    {
+      "type": "progress",
+      "payload": {
+        "stageId": "propeller",
+        "progress": 0.228612654924984,
+        "source": "video"
+      },
+      "at": "2026-11-23T10:39:48.687Z"
+    },
+    {
+      "type": "progress",
+      "payload": {
+        "stageId": "propeller",
+        "progress": 0.2748152207001524,
+        "source": "video"
+      },
+      "at": "2026-11-23T10:39:48.954Z"
+    },
+    {
+      "type": "progress",
+      "payload": {
+        "stageId": "propeller",
+        "progress": 0.3210278756251358,
+        "source": "video"
+      },
+      "at": "2026-11-23T10:39:49.219Z"
+    },
+    {
+      "type": "progress",
+      "payload": {
+        "stageId": "propeller",
+        "progress": 0.36724487932159205,
+        "source": "video"
+      },
+      "at": "2026-11-23T10:39:49.485Z"
+    },
+    {
+      "type": "progress",
+      "payload": {
+        "stageId": "propeller",
+        "progress": 0.4134401391606873,
+        "source": "video"
+      },
+      "at": "2026-11-23T10:39:49.750Z"
+    },
+    {
+      "type": "progress",
+      "payload": {
+        "stageId": "propeller",
+        "progress": 0.4596392259186781,
+        "source": "video"
+      },
+      "at": "2026-11-23T10:39:50.015Z"
+    },
+    {
+      "type": "progress",
+      "payload": {
+        "stageId": "propeller",
+        "progress": 0.5061660360948035,
+        "source": "video"
+      },
+      "at": "2026-11-23T10:39:50.283Z"
+    },
+    {
+      "type": "progress",
+      "payload": {
+        "stageId": "propeller",
+        "progress": 0.5520527071102418,
+        "source": "video"
+      },
+      "at": "2026-11-23T10:39:50.547Z"
+    },
+    {
+      "type": "progress",
+      "payload": {
+        "stageId": "propeller",
+        "progress": 0.5982643183300721,
+        "source": "video"
+      },
+      "at": "2026-11-23T10:39:50.813Z"
+    },
+    {
+      "type": "progress",
+      "payload": {
+        "stageId": "propeller",
+        "progress": 0.6444627092846273,
+        "source": "video"
+      },
+      "at": "2026-11-23T10:39:51.078Z"
+    },
+    {
+      "type": "progress",
+      "payload": {
+        "stageId": "propeller",
+        "progress": 0.690673624701022,
+        "source": "video"
+      },
+      "at": "2026-11-23T10:39:51.344Z"
+    },
+    {
+      "type": "progress",
+      "payload": {
+        "stageId": "propeller",
+        "progress": 0.7368854098717114,
+        "source": "video"
+      },
+      "at": "2026-11-23T10:39:51.610Z"
+    },
+    {
+      "type": "progress",
+      "payload": {
+        "stageId": "propeller",
+        "progress": 0.7830824092193953,
+        "source": "video"
+      },
+      "at": "2026-11-23T10:39:51.875Z"
+    },
+    {
+      "type": "progress",
+      "payload": {
+        "stageId": "propeller",
+        "progress": 0.8292801043705156,
+        "source": "video"
+      },
+      "at": "2026-11-23T10:39:52.140Z"
+    },
+    {
+      "type": "progress",
+      "payload": {
+        "stageId": "propeller",
+        "progress": 0.875496064361818,
+        "source": "video"
+      },
+      "at": "2026-11-23T10:39:52.406Z"
+    },
+    {
+      "type": "progress",
+      "payload": {
+        "stageId": "propeller",
+        "progress": 0.9217035007610351,
+        "source": "video"
+      },
+      "at": "2026-11-23T10:39:52.672Z"
+    },
+    {
+      "type": "progress",
+      "payload": {
+        "stageId": "propeller",
+        "progress": 0.9679015438138729,
+        "source": "video"
+      },
+      "at": "2026-11-23T10:39:52.937Z"
+    },
+    {
+      "type": "progress",
+      "payload": {
+        "stageId": "propeller",
+        "progress": 1,
+        "source": "video"
+      },
+      "at": "2026-11-23T10:39:53.136Z"
+    },
+    {
+      "type": "next",
+      "payload": {},
+      "at": "2026-11-23T10:39:53.362Z"
+    },
+    {
+      "type": "progress",
+      "payload": {
+        "stageId": "battery",
+        "progress": 0.1234372733865123,
+        "source": "video"
+      },
+      "at": "2026-11-23T10:39:53.751Z"
+    },
+    {
+      "type": "progress",
+      "payload": {
+        "stageId": "battery",
+        "progress": 0.2518216098622194,
+        "source": "video"
+      },
+      "at": "2026-11-23T10:39:54.016Z"
+    },
+    {
+      "type": "progress",
+      "payload": {
+        "stageId": "battery",
+        "progress": 0.3802397872854718,
+        "source": "video"
+      },
+      "at": "2026-11-23T10:39:54.281Z"
+    },
+    {
+      "type": "progress",
+      "payload": {
+        "stageId": "battery",
+        "progress": 0.5086478124244618,
+        "source": "video"
+      },
+      "at": "2026-11-23T10:39:54.547Z"
+    },
+    {
+      "type": "progress",
+      "payload": {
+        "stageId": "battery",
+        "progress": 0.63702102973169,
+        "source": "video"
+      },
+      "at": "2026-11-23T10:39:54.812Z"
+    },
+    {
+      "type": "progress",
+      "payload": {
+        "stageId": "battery",
+        "progress": 0.7655194585448384,
+        "source": "video"
+      },
+      "at": "2026-11-23T10:39:55.079Z"
+    },
+    {
+      "type": "progress",
+      "payload": {
+        "stageId": "battery",
+        "progress": 0.8939265167996135,
+        "source": "video"
+      },
+      "at": "2026-11-23T10:39:55.344Z"
+    },
+    {
+      "type": "progress",
+      "payload": {
+        "stageId": "battery",
+        "progress": 1,
+        "source": "video"
+      },
+      "at": "2026-11-23T10:39:55.568Z"
+    },
+    {
+      "type": "deliver",
+      "payload": {
+        "questionId": "question-W-BATTERY-03",
+        "channel": "screen"
+      },
+      "at": "2026-11-23T10:39:55.813Z"
+    },
+    {
+      "type": "answer",
+      "payload": {
+        "questionId": "question-W-BATTERY-03",
+        "verdict": "met",
+        "text": "방향을 확인했습니다"
+      },
+      "at": "2026-11-23T10:39:55.879Z"
+    },
+    {
+      "type": "next",
+      "payload": {},
+      "at": "2026-11-23T10:39:55.979Z"
+    },
+    {
+      "type": "progress",
+      "payload": {
+        "stageId": "switch",
+        "progress": 0.13105249999999913,
+        "source": "video"
+      },
+      "at": "2026-11-23T10:39:56.328Z"
+    },
+    {
+      "type": "progress",
+      "payload": {
+        "stageId": "switch",
+        "progress": 0.2653490000000005,
+        "source": "video"
+      },
+      "at": "2026-11-23T10:39:56.597Z"
+    },
+    {
+      "type": "progress",
+      "payload": {
+        "stageId": "switch",
+        "progress": 0.3967010000000002,
+        "source": "video"
+      },
+      "at": "2026-11-23T10:39:56.860Z"
+    },
+    {
+      "type": "progress",
+      "payload": {
+        "stageId": "switch",
+        "progress": 0.5295094999999996,
+        "source": "video"
+      },
+      "at": "2026-11-23T10:39:57.125Z"
+    },
+    {
+      "type": "progress",
+      "payload": {
+        "stageId": "switch",
+        "progress": 0.6623190000000001,
+        "source": "video"
+      },
+      "at": "2026-11-23T10:39:57.391Z"
+    },
+    {
+      "type": "progress",
+      "payload": {
+        "stageId": "switch",
+        "progress": 0.79514,
+        "source": "video"
+      },
+      "at": "2026-11-23T10:39:57.656Z"
+    },
+    {
+      "type": "progress",
+      "payload": {
+        "stageId": "switch",
+        "progress": 0.9279165000000003,
+        "source": "video"
+      },
+      "at": "2026-11-23T10:39:57.922Z"
+    },
+    {
+      "type": "progress",
+      "payload": {
+        "stageId": "switch",
+        "progress": 1,
+        "source": "video"
+      },
+      "at": "2026-11-23T10:39:58.069Z"
+    },
+    {
+      "type": "next",
+      "payload": {},
+      "at": "2026-11-23T10:39:58.327Z"
+    },
+    {
+      "type": "progress",
+      "payload": {
+        "stageId": "final",
+        "progress": 0.20307520000000068,
+        "source": "video"
+      },
+      "at": "2026-11-23T10:39:58.720Z"
+    },
+    {
+      "type": "progress",
+      "payload": {
+        "stageId": "final",
+        "progress": 0.41541760000000066,
+        "source": "video"
+      },
+      "at": "2026-11-23T10:39:58.984Z"
+    },
+    {
+      "type": "progress",
+      "payload": {
+        "stageId": "final",
+        "progress": 0.627884800000001,
+        "source": "video"
+      },
+      "at": "2026-11-23T10:39:59.250Z"
+    },
+    {
+      "type": "progress",
+      "payload": {
+        "stageId": "final",
+        "progress": 0.8403855999999991,
+        "source": "video"
+      },
+      "at": "2026-11-23T10:39:59.515Z"
+    },
+    {
+      "type": "progress",
+      "payload": {
+        "stageId": "final",
+        "progress": 1,
+        "source": "video"
+      },
+      "at": "2026-11-23T10:39:59.703Z"
+    }
+  ],
+  "completed": true,
+  "completedAt": "2026-11-23T10:39:59.703Z",
+  "policy": "worker_evidence"
+}

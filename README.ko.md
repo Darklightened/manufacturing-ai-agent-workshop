@@ -4,11 +4,11 @@
 
 **기본 전자 조립은 보여주기 쉽게 구성한 ‘강의용 예시’입니다.** 장면은 실제 공개 영상이고, AI 역할의 설명·질문·판정은 수업을 위해 작성했습니다. 작업자 답변과 검사 기준에 따라 결과가 바뀝니다. 수업 중 GPU, API 키, 모델 설치는 필요 없습니다.
 
-[작업자 실습 개편 안내](docs/worker_flow_v1/README.ko.md) · [회사 자료 구축 개편 안내](docs/company_build_v2/README.ko.md) · [빠른 시작](START_HERE.ko.md) · [전자 조립 실습 안내](docs/TEACHING_DEMO.ko.md) · [계측 실습 안내](docs/MEASUREMENT_DEMO.ko.md) · [현재 구현과 검수](docs/IMPLEMENTATION_STATUS.ko.md)
+[작업자 실습 개편 안내](docs/worker_flow_v2/README.ko.md) · [회사 자료 구축 개편 안내](docs/company_build_v2/README.ko.md) · [빠른 시작](START_HERE.ko.md) · [전자 조립 실습 안내](docs/TEACHING_DEMO.ko.md) · [계측 실습 안내](docs/MEASUREMENT_DEMO.ko.md) · [현재 구현과 검수](docs/IMPLEMENTATION_STATUS.ko.md)
 
 [강의 자료 다운로드](downloads.html)에서 설명 슬라이드 PDF·PowerPoint, 실습별 SOP·검사 기준·도면, 완성된 검수조서 예제를 받을 수 있습니다. 온라인 실습에서는 별도 설치 없이 첫 화면에서 실습을 선택합니다.
 
-**v0.6.0:** 작업자 등록 → 화면 인증 → 공정 선택을 각각의 태블릿 화면으로 구성했습니다. 공개 영상 재생에 맞춰 여섯 단계·18개 세부 항목을 확인하고, Agent 통과 신호가 있어야 다음 단계로 진행합니다. 질문·답변과 증거 사진을 담은 실제 DOCX 검수 보고서를 저장합니다.
+**v0.6.1:** 영상 구간·검사 문구·증거 사진을 실제 조립 장면에 맞췄습니다. 추가 입력이나 퀴즈 없이 기존 흐름을 유지합니다. 이전 저장 기록은 당시 기준으로 복원합니다. 작업자 등록 → 화면 인증 → 공정 선택을 각각의 태블릿 화면으로 구성했습니다. 공개 영상 재생에 맞춰 여섯 단계·18개 세부 항목을 확인하고, Agent 통과 신호가 있어야 다음 단계로 진행합니다. 질문·답변과 증거 사진을 담은 실제 DOCX 검수 보고서를 저장합니다.
 
 **회사 자료 구축:** [회사별 입력 자료 ZIP](assets/company-materials/company-practice-materials.zip)을 풀고 다온에듀테크 폴더를 업로드합니다. 파일 선택·미리보기 → 단계별 정보 구축 → 배터리 검사 기준의 작업 연결 수정 → 온톨로지 확인 후 기존 조립 실습을 이어갑니다. 업로드가 어려우면 ‘준비된 회사 자료로 시작’을 사용할 수 있습니다.
 
@@ -41,9 +41,9 @@ python3 scripts/serve.py
 5. 등록 정보 확인에 체크하고 인증 번호 **6421**을 입력한 뒤 **인증 확인**을 누릅니다. 실제 얼굴 인식이 아닌 강의용 화면 인증입니다.
 6. **바람빛 회로 키트 · 전자 조립**을 선택하고 **작업 시작 · 영상 연결** → **영상 재생**을 누릅니다. 1배·2배·4배 중 속도를 선택할 수 있습니다.
 7. 각 단계의 영상과 검사 조건이 모두 충족되어 **Agent 통과 신호**가 나오면 **다음 작업 시작**을 누릅니다. 배터리 방향 질문은 **질문 확인** 후 직접 답합니다. 불일치·미확인 답변이면 다음 단계가 보류됩니다.
-8. 마지막 단계에서 **작업 완료 · 결과 보기** → **검수 보고서 보기**를 누르고 **검수 보고서 DOCX 저장**, **사진 포함 HTML 저장**, **인쇄 · PDF 저장**으로 결과를 남깁니다.
+8. 마지막 단계에서 **검수 완료 · 결과 보기** → **검수 보고서 보기**를 누르고 **검수 보고서 DOCX 저장**, **사진 포함 HTML 저장**, **인쇄 · PDF 저장**으로 결과를 남깁니다.
 
-비교 실습에서는 **현재 검수 기록**의 확인 근거를 **영상 근거만 인정**으로 바꾸고 **기준 적용 · 재검토**를 누릅니다. 완료 후에도 배터리의 미확인 상태와 통과 취소가 기록됩니다. 이전 답변과 통과 신호는 그대로 보존됩니다. [화면별 조작 순서](docs/worker_flow_v1/README.ko.md)에서 보류·수정·재진행을 확인하세요.
+비교 실습에서는 **현재 검수 기록**의 확인 근거를 **영상 근거만 인정**으로 바꾸고 **기준 적용 · 재검토**를 누릅니다. 완료 후에도 배터리의 미확인 상태와 통과 취소가 기록됩니다. 이전 답변과 통과 신호는 그대로 보존됩니다. [화면별 조작 순서](docs/worker_flow_v2/README.ko.md)에서 보류·수정·재진행을 확인하세요.
 
 ## 무엇이 실제로 동작하나요?
 
@@ -89,4 +89,4 @@ python scripts/build.py
 python scripts/package.py
 ```
 
-`workshop-offline.zip`은 코드·라이브러리·선별 미디어를 포함한 실행팩입니다. `workshop-handouts.zip`은 수강생용 입력 자료·도면·검수조서 예제 묶음입니다. 코드와 미디어를 나눠 전달할 때는 `workshop-source.zip`, `workshop-media.zip`을 사용합니다. 전체 파일은 [GitHub Release v0.6.0](https://github.com/Darklightened/manufacturing-ai-agent-workshop/releases/tag/v0.6.0)에서 받습니다. GitHub Pages는 수동 workflow로 배포하며, 기업 비공개 자료와 HTech 영상은 포함하지 않습니다.
+`workshop-offline.zip`은 코드·라이브러리·선별 미디어를 포함한 실행팩입니다. `workshop-handouts.zip`은 수강생용 입력 자료·도면·검수조서 예제 묶음입니다. 코드와 미디어를 나눠 전달할 때는 `workshop-source.zip`, `workshop-media.zip`을 사용합니다. 전체 파일은 [GitHub Release v0.6.1](https://github.com/Darklightened/manufacturing-ai-agent-workshop/releases/tag/v0.6.1)에서 받습니다. GitHub Pages는 수동 workflow로 배포하며, 기업 비공개 자료와 HTech 영상은 포함하지 않습니다.

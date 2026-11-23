@@ -1,0 +1,8 @@
+{
+  "origin": "authored_demo",
+  "source": "validation/worker_flow_v1/clean_sample/COMPLETE_STATE.json",
+  "sourceType": "actual browser saved classroom state; not a model output",
+  "sha256": "fe04e681401b587fb1544fbb6890aa9127c32ab0c335a8b0ff42d01521151c5a",
+  "preservedPlan": "packages/worker-flow/plan-v1.mjs",
+  "preservedPlanSha256": "de2ba6b360f62143218f779c9aa184f4e8986a4e8bf949b5430abf935f594b72"
+}

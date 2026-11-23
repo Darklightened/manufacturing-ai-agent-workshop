@@ -1,0 +1,65 @@
+{
+  "schema": "seminar.worker-frame-alignment.v2",
+  "source": "data/source_pack/electronics/S1790005/S1790005.mp4",
+  "sourceSha256": "91221f85368f091154c14e6b517998398ababfc413c88fff151fa60d905d4dbd",
+  "license": "CC BY-SA 4.0 (EgoOops); same source attribution as ../CREDITS.txt",
+  "transformation": "CPU ffmpeg source frame extraction to JPEG; no synthetic image editing",
+  "authoredChecks": "Assistant-reviewed teaching examples, not model predictions or certified quality labels",
+  "frames": [
+    {
+      "path": "assets/worker-flow/alignment-v2/frame_016.jpg",
+      "sourceTime": 16,
+      "sha256": "d85bb338018c76b3935e2827f5274e4336f68a23028c82427f0bcc831346d5ee"
+    },
+    {
+      "path": "assets/worker-flow/alignment-v2/frame_066.jpg",
+      "sourceTime": 66,
+      "sha256": "a87eebe55d01abcd0a7cd422788900a50dd514975d510530e7de58d8cfdd1832"
+    },
+    {
+      "path": "assets/worker-flow/alignment-v2/frame_085.jpg",
+      "sourceTime": 85,
+      "sha256": "10ec5f9e4552bf23ba38fd512975819fe84086677210268639ee83b53ad7a022"
+    },
+    {
+      "path": "assets/worker-flow/alignment-v2/frame_087.jpg",
+      "sourceTime": 87,
+      "sha256": "ed9823998c1c8d71a403c1da1979fd47f136c12d477f34650d0c0a28dff4ecc2"
+    },
+    {
+      "path": "assets/worker-flow/alignment-v2/frame_091.jpg",
+      "sourceTime": 91,
+      "sha256": "f4acd3d683727c54d06e834938892526edf9904745e18407ebb482c65df36228"
+    },
+    {
+      "path": "assets/worker-flow/alignment-v2/frame_093.jpg",
+      "sourceTime": 93,
+      "sha256": "098bf3f1f574c14b1294831405c49495a40ec7a87066ee5185d713d288b03570"
+    },
+    {
+      "path": "assets/worker-flow/alignment-v2/frame_095.jpg",
+      "sourceTime": 95,
+      "sha256": "96d59e6450a089170e6a8882d827f6ea09e71cd9a87e3411a18498c04fbbb98f"
+    },
+    {
+      "path": "assets/worker-flow/alignment-v2/frame_105.jpg",
+      "sourceTime": 105,
+      "sha256": "9f2a6c4737dd133d511dcddb863b88656eac752d6985a499851c97f13a20bf8a"
+    },
+    {
+      "path": "assets/worker-flow/alignment-v2/frame_107.jpg",
+      "sourceTime": 107,
+      "sha256": "912032a8575909a353c5a0d7be608d8363f571bbbf9867ce3396af0c1854357b"
+    },
+    {
+      "path": "assets/worker-flow/alignment-v2/frame_114.jpg",
+      "sourceTime": 114,
+      "sha256": "a4102737d358aab2ba34d655beb95731fcbf049e3f250ba0b158c8041a7d2c71"
+    },
+    {
+      "path": "assets/worker-flow/alignment-v2/frame_119.jpg",
+      "sourceTime": 119,
+      "sha256": "4e5a7aa50c00f492ff84dc6231e9d18bb3c9ee00d4e345b1a690d3fd2d7c8ffc"
+    }
+  ]
+}

@@ -18,11 +18,12 @@ ROOT=Path(__file__).resolve().parents[1]
 a=argparse.ArgumentParser()
 a.add_argument('--url',default='http://127.0.0.1:8939/')
 a.add_argument('--browser',default=None)
+a.add_argument('--legacy-backup',type=Path,default=None,help='Optional immutable v1 backup for compatibility validation')
 a.add_argument('--output',type=Path,default=ROOT/'validation/worker_flow_v1'/('browser_'+datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%S')))
 args=a.parse_args();OUT=args.output;OUT.mkdir(parents=True,exist_ok=False)
 origin=urlparse(args.url).netloc
 requests=[];errors=[];http_errors=[];blocked=[];checks=[];video_samples=[];active_page=None
-receipt={'status':'running','scope':'Actual local browser worker UI with naturally decoded VP9 playback; authored teaching outcomes, no model/GPU inference','checks':checks,'modelCalls':0,'gpuCalls':0,'seekInjection':False,'timeupdateInjection':False}
+receipt={'status':'running','scope':'Actual local browser worker UI with naturally decoded VP9 playback; authored teaching outcomes, no model/GPU inference','checks':checks,'modelCalls':0,'gpuCalls':0,'seekInjection':False,'timeupdateInjection':False,'legacyBackup':str(args.legacy_backup) if args.legacy_backup else None}
 
 def save():
  receipt.update(requestCount=len(requests),pageErrors=errors,httpErrors=http_errors,blockedRequests=blocked,videoSamples=video_samples)
@@ -115,12 +116,13 @@ try:
   passed('Separate registration/photo, simulated screen authentication (wrong code rejected), process selection and premature run gate')
   p.locator('#start-session').click();p.locator('#worker-video').wait_for();disabled(p,'#worker-next')
   assert '<b>교육</b>' in p.locator('.page-heading p').inner_text()
-  p.locator('#worker-speed').select_option('4');p.locator('#worker-play').click()
-  p.wait_for_function('()=>document.querySelector("#worker-video").currentTime>2')
+  p.locator('#worker-speed').select_option('1');p.locator('#worker-play').click()
+  p.wait_for_function('()=>document.querySelector("#worker-video").currentTime>0.6')
   initial=video_sample(p,0)
   assert 0<float(initial['progress'])<100 and not initial['paused'] and initial['decodedFrames']>1
   assert p.locator('#worker-checks .worker-check').count()==3
   shot(p,'04-continuous-video.png')
+  p.locator('#worker-speed').select_option('4')
   passed('Actual VP9 video decodes continuously; real playback drives progress and staged checklist without injected events')
   states=[]
   for index in range(6):
@@ -148,7 +150,18 @@ try:
    states.append(state)
    shot(p,f'06-stage-{index+1}-passed.png')
   complete=wait_state(p,lambda s:s['completed'])
+  assert complete['planVersion']=='electronics-worker-tablet-v2'
   assert len(complete['checks'])==18 and all(c['verdict']=='met' for c in complete['checks'])
+  by_stage={s['id']:s for s in complete['stages']}
+  for row in complete['checks']:
+   stage=by_stage[row['taskId']]
+   assert stage['sourceStart']<=row['imageTime']<=row['sourceTime']+.001<=stage['sourceEnd']+.001
+  # Native-action intervals independently constrain the new segmentation.
+  for stage_id,start,end in [('circuit',2.188305,84.993874),('propeller',86.196809,93.121725),('battery',94.210695,105.240346),('switch',106.428527,118.974306)]:
+   stage=by_stage[stage_id]
+   assert stage['sourceStart']<=start+.02 and stage['sourceEnd']>=end-.02
+  assert by_stage['preparation']['sourceEnd']<3 and by_stage['final']['sourceStart']>=119
+  passed('Revised native-action spans include assembly, propeller, battery and switch intervals; all18 evidence photos are inside their own stage and causal')
   assert all(s['passed'] for s in complete['stages'])
   assert len([e for e in complete['events'] if e['type']=='agent_pass'])==6
   (OUT/'COMPLETE_STATE.json').write_text(json.dumps(complete,ensure_ascii=False,indent=2)+'\n')
@@ -219,6 +232,19 @@ try:
   p2.locator('[data-page="run"]').click();p2.locator('#worker-video').wait_for()
   assert current_state(p2)==complete
   passed('Worker transfer without optional company-build history survives reload and shows read-only source summary; literal name markup remains escaped')
+  if args.legacy_backup:
+   legacy=json.loads(args.legacy_backup.read_text())['workerFlow']['state']
+   assert legacy['planVersion']=='electronics-worker-tablet-v1'
+   p2.locator('#import-session').set_input_files(str(args.legacy_backup))
+   p2.locator('#worker-open-report').wait_for(timeout=30000)
+   assert current_state(p2)==legacy
+   p2.locator('#worker-open-report').click();p2.locator('#worker-html').wait_for()
+   legacy_html=download(p2,'#worker-html','legacy-v1-inspection.html').read_text()
+   assert all(c['label'] in legacy_html for c in legacy['checks'])
+   p2.reload(wait_until='networkidle');p2.locator('#worker-report-preview').wait_for()
+   assert current_state(p2)==legacy
+   shot(p2,'11-legacy-v1-preserved.png')
+   passed('Immutable v1 backup imports and reloads with identical commands, old timings and findings; legacy report retains its original check labels')
   ctx2.close();ctx.close();browser.close();active_page=None
  assert not errors and not http_errors and not blocked
  receipt['status']='passed';receipt['limitations']=['Authored classroom conditions, not visual model accuracy.','No physical identity authentication or real microphone recognition.','Silent source video; audible TTS not tested.','One local browser host, not classroom network or public concurrency test.']

@@ -34,7 +34,7 @@ def main():
  for name in ['electronics_demo','measurement_demo','measurement_precision_demo']:
   handouts += [p for p in (ROOT/'scenarios'/name).iterdir() if p.suffix in {'.pdf','.csv','.svg'}]
  handouts += list((ROOT/'docs/measurement_demo_v1/examples').glob('*.html'))
- handouts += [ROOT/'docs/worker_flow_v1/README.ko.md']
+ handouts += [ROOT/'docs/worker_flow_v2/README.ko.md']
  handouts += [p for p in (ROOT/'assets/worker-flow/examples').glob('*') if p.suffix in {'.docx','.html','.pdf'}]
  records.append(write_zip(ROOT/'workshop-handouts.zip',[(p,'workshop-handouts/'+str(p.relative_to(ROOT))) for p in sorted(set(handouts))]))
  build=json.loads((ROOT/'dist/build-manifest.json').read_text())
