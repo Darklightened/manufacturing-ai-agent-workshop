@@ -1,4 +1,6 @@
 import * as Core from './packages/core/core.mjs';
+import {WorkerExperience} from './packages/worker-flow/ui.mjs';
+import {validateWorkerState} from './packages/worker-flow/state.mjs';
 import {CompanyBuilder} from './packages/company-build/ui.mjs';
 import {restoreBuildState,reviewedBundle} from './packages/company-build/state.mjs';
 
@@ -14,11 +16,13 @@ let baseScenario=null, recordingPack=null, recordingError='', selectedMode='demo
 let documentOperation=null, operationSequence=0, scenarioRevision=0;
 const loadingControls=new Map();
 const main=$('#main');
-const companyBuilder=new CompanyBuilder({main,scenario:()=>scenario,activeBundle:()=>session?.initialBundle||bundle,hasSession:()=>!!session,isVisible:()=>page==='documents'&&scenario?.id==='electronics_demo',toast,download,save,loadSQL,navigate,begin:beginDocumentOperation,finish:finishDocumentOperation,afterRender:updateDocumentLoading,
+const companyBuilder=new CompanyBuilder({main,scenario:()=>scenario,activeBundle:()=>session?.initialBundle||bundle,hasSession:()=>!!session||workerFlow.started,isVisible:()=>page==='documents'&&scenario?.id==='electronics_demo',toast,download,save,loadSQL,navigate,begin:beginDocumentOperation,finish:finishDocumentOperation,afterRender:updateDocumentLoading,
  canonicalDocuments:()=>fetchScenarioDocuments(scenario),
- invalidate:()=>{bundle=null;database?.close();database=null;},
+ invalidate:()=>{bundle=null;database?.close();database=null;if(!workerFlow.started)workerFlow.reset();},
  accept:async compiled=>{try{bundle=compiled;await syncDb();pdfText=compiled.sourceText;csvText=compiled.sourceCsv;}catch(error){bundle=null;database?.close();database=null;throw error;}}
 });
+const workerFlow=new WorkerExperience({main,bundle:()=>bundle,scenario:()=>scenario,page:()=>page,save,navigate,toast,download,embeddedImage});
+function workerEnabled(){return scenario?.id==='electronics_demo'&&!session;}
 const fmt = s => `${Math.floor(Number(s||0)/60)}:${String(Math.floor(Number(s||0)%60)).padStart(2,'0')}`;
 const badge = v => `<span class="badge ${esc(v)}">${esc(statusLabel[v]||v)}</span>`;
 const heading=(tag,title,desc,action='')=>`<div class="page-heading"><div><div class="kicker">${tag}</div><h1>${title}</h1><p>${desc}</p></div>${action}</div>`;
@@ -29,9 +33,9 @@ function download(name,content,type='application/json'){const blob=content insta
 async function openStorage(){return new Promise((resolve,reject)=>{const r=indexedDB.open('dynin-seminar-classroom-v1',1);r.onupgradeneeded=()=>r.result.createObjectStore('state');r.onsuccess=()=>resolve(r.result);r.onerror=()=>reject(r.error);});}
 async function store(value){if(!storage)return;await new Promise((resolve,reject)=>{const t=storage.transaction('state','readwrite');t.objectStore('state').put(value,'current');t.oncomplete=resolve;t.onerror=()=>reject(t.error);});}
 async function restore(){if(!storage)return null;return new Promise((resolve,reject)=>{const r=storage.transaction('state').objectStore('state').get('current');r.onsuccess=()=>resolve(r.result);r.onerror=()=>reject(r.error);});}
-async function save(){try{await store({scenarioId:scenario?.id,bundle,session,page,pdfText,csvText,selectedMode,companyBuild:scenario?.id==='electronics_demo'?companyBuilder.snapshot():null});$('#save-state').textContent=storage?'저장됨 · 이 브라우저':'저장 불가 · 파일 백업 필요';}catch(e){$('#save-state').textContent='저장 실패';toast('브라우저 저장에 실패했습니다. 진행 내보내기로 백업해 주세요.');}}
-function navigate(next){if(documentOperation)return toast('자료 준비가 끝난 뒤 이동해 주세요.');if(next!=='home'&&!scenario)return toast('먼저 실습을 선택해 주세요.');if(['setup','run','review','report'].includes(next)&&!bundle)return toast('회사 자료에서 정보를 먼저 구축해 주세요.');if(['run','review','report'].includes(next)&&!session)return toast('작업 설정에서 작업을 시작해 주세요.');page=next;render();save();window.scrollTo(0,0);}
-function nav(){ $('#nav').innerHTML=displaySteps().map(([id,label],i)=>`<button data-page="${id}" class="${page===id?'active':''}" ${page===id?'aria-current="step"':''}><span class="nav-number">${String(i+1).padStart(2,'0')}</span>${label}</button>`).join('');$('#breadcrumb').textContent=displaySteps().find(x=>x[0]===page)?.[1]||'';$('#nav').querySelectorAll('button').forEach(b=>b.onclick=()=>navigate(b.dataset.page));$('#backup').disabled=!session;$('#mode-banner').textContent=scenario?modeText():'강의용 예시';document.querySelector('footer>span').textContent=measurement()?'강의용 제품 도면 · 계측 예시 · 직접 바꾸는 검사 기록':'공개 원본 영상 · 강의용 예시 · 직접 바꾸는 검사 기록';$('#runtime-notice').textContent=recorded()?'실제 응답 재생 · 이 브라우저에서 새 모델 호출 없음':demo()||!scenario?'강의용으로 구성한 관찰 · 작업자 답변과 기준에 따라 결과 변경':'교육용 작성 관찰 · 작업자 답변은 별도 기록';}
+async function save(){try{await store({scenarioId:scenario?.id,bundle,session,page,pdfText,csvText,selectedMode,workerFlow:scenario?.id==='electronics_demo'?workerFlow.snapshot():null,companyBuild:scenario?.id==='electronics_demo'?companyBuilder.snapshot():null});$('#save-state').textContent=storage?'저장됨 · 이 브라우저':'저장 불가 · 파일 백업 필요';}catch(e){$('#save-state').textContent='저장 실패';toast('브라우저 저장에 실패했습니다. 진행 내보내기로 백업해 주세요.');}}
+function navigate(next){if(documentOperation)return toast('자료 준비가 끝난 뒤 이동해 주세요.');if(next!=='home'&&!scenario)return toast('먼저 실습을 선택해 주세요.');if(['setup','run','review','report'].includes(next)&&!bundle)return toast('회사 자료에서 정보를 먼저 구축해 주세요.');if(['run','review','report'].includes(next)&&!session&&!workerFlow.started)return toast('작업 설정에서 작업을 시작해 주세요.');page=next;render();save();window.scrollTo(0,0);}
+function nav(){ $('#nav').innerHTML=displaySteps().map(([id,label],i)=>`<button data-page="${id}" class="${page===id?'active':''}" ${page===id?'aria-current="step"':''}><span class="nav-number">${String(i+1).padStart(2,'0')}</span>${label}</button>`).join('');$('#breadcrumb').textContent=displaySteps().find(x=>x[0]===page)?.[1]||'';$('#nav').querySelectorAll('button').forEach(b=>b.onclick=()=>navigate(b.dataset.page));$('#backup').disabled=!session&&!workerFlow.started;$('#mode-banner').textContent=scenario?modeText():'강의용 예시';document.querySelector('footer>span').textContent=measurement()?'강의용 제품 도면 · 계측 예시 · 직접 바꾸는 검사 기록':'공개 원본 영상 · 강의용 예시 · 직접 바꾸는 검사 기록';$('#runtime-notice').textContent=recorded()?'실제 응답 재생 · 이 브라우저에서 새 모델 호출 없음':demo()||!scenario?'강의용으로 구성한 관찰 · 작업자 답변과 기준에 따라 결과 변경':'교육용 작성 관찰 · 작업자 답변은 별도 기록';}
 function recorded(){return (session?.mode||selectedMode)==='recorded';}
 function demo(){return (session?.mode||selectedMode)==='demo';}
 function measurement(){return demo()&&scenario?.demoKind==='measurement';}
@@ -90,11 +94,11 @@ async function prepareScenario(card,requestedMode=null){
   const mode=requestedMode||(base.mode==='demo'?'demo':pack?'recorded':'fixture');
   return {base,scenario:mode==='recorded'?candidate:base,pack,err,assets,verification,mode};
 }
-function adoptPrepared(p){baseScenario=p.base;scenario=p.scenario;recordingPack=p.pack;recordingError=p.err;recordingAssets=p.assets;recordingVerification=p.verification;selectedMode=p.mode;pdfFile=null;scenarioRevision++;companyBuilder.reset();}
+function adoptPrepared(p){baseScenario=p.base;scenario=p.scenario;recordingPack=p.pack;recordingError=p.err;recordingAssets=p.assets;recordingVerification=p.verification;selectedMode=p.mode;pdfFile=null;scenarioRevision++;companyBuilder.reset();workerFlow.reset();}
 function updateDocumentLoading(){
   for(const [control,wasDisabled]of loadingControls)control.disabled=wasDisabled;
   loadingControls.clear();
-  $('#backup').disabled=!session;
+  $('#backup').disabled=!session&&!workerFlow.started;
   const prior=$('#document-load-status');
   if(!documentOperation){main.removeAttribute('aria-busy');prior?.remove();return;}
   main.setAttribute('aria-busy','true');
@@ -124,7 +128,7 @@ async function fetchScenarioDocuments(target){
 }
 async function selectScenario(id){
   if(documentOperation&&documentOperation.kind!=='selection')return toast('현재 자료 처리가 끝난 뒤 실습을 바꿔 주세요.');
-  if(session&&!confirm('현재 진행은 브라우저의 최근 세션에서 바뀝니다. 보관하려면 취소 후 진행을 내보내세요. 새 실습을 열까요?'))return;
+  if((session||workerFlow.started)&&!confirm('현재 진행은 브라우저의 최근 세션에서 바뀝니다. 보관하려면 취소 후 진행을 내보내세요. 새 실습을 열까요?'))return;
   const item=scenarioIndex.find(s=>s.id===id);if(!item)throw new Error('알 수 없는 시나리오입니다.');
   const operation=beginDocumentOperation('selection',id==='electronics'?'비교 실습 자료를 확인하고 있습니다.':'선택한 실습의 문서와 검사 기준을 준비하고 있습니다.');
   try{
@@ -309,12 +313,20 @@ function exportMeasurementCsv(){const i=inspectionInfo(),summary=getSummary(),q=
 async function loadSQL(){if(SQL)return SQL;await new Promise((resolve,reject)=>{if(window.initSqlJs)return resolve();const s=document.createElement('script');s.src='vendor/sqljs/sql-wasm.js';s.onload=resolve;s.onerror=()=>reject(new Error('SQLite 라이브러리를 불러오지 못했습니다.'));document.head.appendChild(s);});SQL=await window.initSqlJs({locateFile:f=>new URL(`vendor/sqljs/${f}`,document.baseURI).href});return SQL;}
 async function syncDb(){if(!bundle)return;await loadSQL();database?.close();database=new SQL.Database();database.run('CREATE TABLE company(company_id TEXT,process_id TEXT,version TEXT); CREATE TABLE tasks(id TEXT PRIMARY KEY,label TEXT); CREATE TABLE criteria(id TEXT PRIMARY KEY,task_id TEXT,label TEXT,target TEXT,kind TEXT,unit TEXT,lower_bound TEXT,upper_bound TEXT,allow_worker INTEGER); CREATE TABLE events(sequence INTEGER PRIMARY KEY,payload TEXT); CREATE TABLE assessments(criterion_id TEXT PRIMARY KEY,payload TEXT);');const b=session?.bundle||bundle;database.run('INSERT INTO company VALUES (?,?,?)',[b.companyId,b.processId,b.version]);for(const t of b.tasks)database.run('INSERT INTO tasks VALUES (?,?)',[t.id,t.label]);for(const c of b.criteria)database.run('INSERT INTO criteria VALUES (?,?,?,?,?,?,?,?,?)',[c.id,c.taskId,c.label,c.target,c.kind,c.unit||'',String(c.lower??''),String(c.upper??''),c.allowWorker?1:0]);if(measurement()){database.run('CREATE TABLE inspection(product_id TEXT,drawing_id TEXT,drawing_revision TEXT,specimen_id TEXT,payload TEXT); CREATE TABLE features(criterion_id TEXT PRIMARY KEY,code TEXT,label TEXT,instrument TEXT,payload TEXT);');const i=b.inspection||scenario.inspection;database.run('INSERT INTO inspection VALUES (?,?,?,?,?)',[i.productId,i.drawingId,i.drawingRevision,i.specimenId,JSON.stringify(i)]);for(const f of i.features)database.run('INSERT INTO features VALUES (?,?,?,?,?)',[f.criterionId,f.code,f.label,f.instrument,JSON.stringify(f)]);}if(session){session.events.forEach((e,i)=>database.run('INSERT INTO events VALUES (?,?)',[i,JSON.stringify(e)]));for(const [id,a]of Object.entries(session.assessments))database.run('INSERT INTO assessments VALUES (?,?)',[id,JSON.stringify(a)]);}}
 async function exportDb(){await syncDb();download(`${scenario.id}.sqlite`,new Blob([database.export()],{type:'application/vnd.sqlite3'}));}
-function backup(){if(!session)return toast('저장할 작업이 없습니다.');download(`${scenario.id}-session.json`,JSON.stringify({format:'dynin-seminar-export-v1',scenarioId:scenario.id,session,...(scenario.id==='electronics_demo'&&companyBuilder.approved?{companyBuild:{state:companyBuilder.state,files:[],note:'구축·검토 이력만 포함하며 로컬 원본 파일은 제외합니다.'}}:{})},null,2));}
+function backup(){if(workerEnabled()&&workerFlow.started){download('electronics-worker-session.json',JSON.stringify({format:'dynin-seminar-worker-export-v1',scenarioId:scenario.id,workerFlow:workerFlow.snapshot(),companyBuild:companyBuilder.approved?{state:companyBuilder.state,files:[]}:null},null,2));return;}if(!session)return toast('저장할 작업이 없습니다.');download(`${scenario.id}-session.json`,JSON.stringify({format:'dynin-seminar-export-v1',scenarioId:scenario.id,session,...(scenario.id==='electronics_demo'&&companyBuilder.approved?{companyBuild:{state:companyBuilder.state,files:[],note:'구축·검토 이력만 포함하며 로컬 원본 파일은 제외합니다.'}}:{})},null,2));}
 async function importSession(file){
   if(documentOperation)return toast('현재 자료 처리가 끝난 뒤 진행 파일을 가져와 주세요.');
   const operation=beginDocumentOperation('import','저장된 실습 기록과 자료를 확인하고 있습니다.');
   try{
-    if(file.size>10*1024*1024)throw new Error('세션 파일은 10MB 이하만 지원합니다.');const data=JSON.parse(await file.text());if(data.format!=='dynin-seminar-export-v1')throw new Error('지원하지 않는 진행 파일입니다.');
+    if(file.size>10*1024*1024)throw new Error('세션 파일은 10MB 이하만 지원합니다.');const data=JSON.parse(await file.text());if(data.format==='dynin-seminar-worker-export-v1'){
+      if(data.scenarioId!=='electronics_demo')throw new Error('작업자 실습의 공정이 다릅니다.');
+      const prepared=await prepareScenario(scenarioIndex.find(c=>c.id===data.scenarioId),'demo');
+      const imported=validateWorkerState(data.workerFlow?.state);
+      const checkedBundle=Core.compileCompany(imported.bundle.sourceText,imported.bundle.sourceCsv,prepared.scenario);
+      validateWorkerState(imported,checkedBundle);
+      let company=null;if(data.companyBuild){company=restoreBuildState(data.companyBuild.state,prepared.scenario);if(JSON.stringify(reviewedBundle(company))!==JSON.stringify(checkedBundle))throw new Error('자료 구축 기록과 작업자 기준이 다릅니다.');}
+      if(!operationCurrent(operation))return;adoptPrepared(prepared);bundle=checkedBundle;session=null;pdfText=bundle.sourceText;csvText=bundle.sourceCsv;if(company)companyBuilder.restore({state:company,files:[]},scenario);workerFlow.restore({state:imported},bundle);page=imported.started?'review':'setup';await save();render();toast('작업자 기록과 단계별 검수 결과를 복구했습니다.');return;
+    }if(data.format!=='dynin-seminar-export-v1')throw new Error('지원하지 않는 진행 파일입니다.');
     const card=scenarioIndex.find(c=>c.id===data.scenarioId);if(!card)throw new Error('이 배포본에 없는 시나리오입니다.');
     const prepared=await prepareScenario(card,data.session?.mode||'fixture');Core.validateSession(data.session,prepared.scenario);
     let restoredCompany=null;if(data.companyBuild){const state=restoreBuildState(data.companyBuild.state,prepared.scenario);if(JSON.stringify(reviewedBundle(state))!==JSON.stringify(data.session.initialBundle))throw new Error('자료 구축 이력과 작업 시작 기준이 다릅니다.');restoredCompany={state,files:[]};}
@@ -328,7 +340,7 @@ function showVideoFallback(video){
   note.innerHTML='이 브라우저에서는 원본 영상을 재생할 수 없습니다. 위의 장면 사진과 확인 버튼으로 같은 실습을 계속할 수 있습니다. <a target="_blank" rel="noopener" href="'+esc(video.getAttribute('src'))+'">원본 영상 열기</a>';
   video.after(note);
 }
-function render(){nav();if(page==='home')renderHome();else if(page==='documents')docsView();else if(page==='setup')setupView();else if(page==='run')runView();else if(page==='review')reviewView();else reportView();main.querySelectorAll('video').forEach(v=>{v.addEventListener('error',()=>showVideoFallback(v),{once:true});if(v.error)showVideoFallback(v);});updateDocumentLoading();}
+function render(){workerFlow.leave();nav();if(workerEnabled()&&bundle&&['setup','run','review','report'].includes(page)){workerFlow.render(page);updateDocumentLoading();return;}if(page==='home')renderHome();else if(page==='documents')docsView();else if(page==='setup')setupView();else if(page==='run')runView();else if(page==='review')reviewView();else reportView();main.querySelectorAll('video').forEach(v=>{v.addEventListener('error',()=>showVideoFallback(v),{once:true});if(v.error)showVideoFallback(v);});updateDocumentLoading();}
 async function safe(fn){try{await fn();}catch(e){console.error(e);toast(e.message||'처리 중 오류가 발생했습니다.');}}
 $('#backup').onclick=backup;$('#import-session').onchange=e=>{if(e.target.files[0])safe(()=>importSession(e.target.files[0]));e.target.value='';};$('#close-image').onclick=()=>$('#image-modal').close();
 async function boot(){
@@ -336,8 +348,9 @@ async function boot(){
   try{storage=await openStorage();const saved=await restore();if(saved?.scenarioId){const card=scenarioIndex.find(c=>c.id===saved.scenarioId);if(card){
     const prepared=await prepareScenario(card,saved.session?.mode||saved.selectedMode||'fixture');if(saved.session)Core.validateSession(saved.session,prepared.scenario);adoptPrepared(prepared);
     session=saved.session;bundle=session?.bundle||(saved.bundle?Core.compileCompany(saved.pdfText,saved.csvText,scenario):null);pdfText=saved.pdfText||'';csvText=saved.csvText||'';previewIndex=Math.max(0,session?.position||0);page=saved.page||'documents';
-    if(scenario.id==='electronics_demo'&&saved.companyBuild){companyBuilder.restore(saved.companyBuild,scenario);if(!session&&!companyBuilder.approved){bundle=null;if(page!=='home')page='documents';}await save();}
+    if(scenario.id==='electronics_demo'&&saved.workerFlow){workerFlow.restore(saved.workerFlow,bundle);}
+    if(scenario.id==='electronics_demo'&&saved.companyBuild){companyBuilder.restore(saved.companyBuild,scenario);if(!session&&!workerFlow.started&&!companyBuilder.approved){bundle=null;if(page!=='home')page='documents';}await save();}
 
-  }}}catch(e){console.warn('진행 복구 실패',e);session=null;bundle=null;page='home';toast('저장 상태를 복구하지 못했습니다. '+e.message);}render();
+  }}}catch(e){console.warn('진행 복구 실패',e);session=null;bundle=null;workerFlow.reset();companyBuilder.reset();page='home';toast('저장 상태를 복구하지 못했습니다. '+e.message);}render();
 }
 boot().catch(e=>{main.innerHTML=`<div class="panel"><h1>실습을 시작하지 못했습니다.</h1><p class="error-text">${esc(e.message)}</p><p>로컬 서버로 접속했는지, 자료 준비와 vendor 다운로드를 완료했는지 확인해 주세요.</p><a href="README.ko.md">시작 안내</a></div>`;console.error(e);});

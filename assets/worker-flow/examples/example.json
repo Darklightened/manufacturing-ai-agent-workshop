@@ -1,0 +1,23 @@
+{
+  "schema": "seminar.worker-report-example.v1",
+  "origin": "authored_demo",
+  "worker": "김민수",
+  "employeeId": "DA-024",
+  "workerIdentity": "fictional classroom example, default avatar, no personal photograph",
+  "production": "Actual browser UI flow; source video naturally played at4x; one positive battery answer; same report buttons used by learners",
+  "checks": 18,
+  "stages": 6,
+  "currentVerdict": "educational criteria satisfied, unsigned review pending",
+  "documents": [
+    "inspection.html",
+    "inspection.docx",
+    "inspection.pdf",
+    "inspection-first-page.png"
+  ],
+  "pdfPages": 5,
+  "photos": 6,
+  "modelCalls": 0,
+  "gpuCalls": 0,
+  "html_delivery_note": "The verified browser example includes the bundled Noto Sans KR OFL license in the downloadable HTML.",
+  "html_sha256": "07aeb970a1e2845797d9e6a6e9db0ce407429cdaf97915da2c426456c30e55d6"
+}

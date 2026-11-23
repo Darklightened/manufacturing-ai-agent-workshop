@@ -1,0 +1,14 @@
+연속 조립 영상: EgoOops, S1790005
+저자: Yuto Haneji et al.
+프로젝트: https://y-haneji.github.io/EgoOops-project-page/
+라이선스: Creative Commons Attribution-ShareAlike 4.0 International
+라이선스 전문: https://creativecommons.org/licenses/by-sa/4.0/
+
+assembly.webm은 기존 공개 원본을 브라우저 호환 VP9/WebM으로 변환한 파생본입니다.
+640 × 360, 초당 24프레임. 영상의 순서·재생 속도·시작 시각을 변경하지 않았습니다.
+원본은 오디오가 없습니다. 초당 프레임 수 변환으로 마지막 재생 길이는 한 프레임 이내에서 달라질 수 있습니다.
+작업 단계·체크 항목·질문·판정은 강의용 작성 예시이며 실제 모델 출력 또는 원본 정답 주석이 아닙니다.
+원본 및 파생본의 SHA-256, 길이, CPU 디코딩 검증은 media.json에 기록되어 있습니다.
+
+avatar.svg: 강의용 기본 인물 실루엣. 원본 코드 도해, CC0-1.0.
+실제 인물의 사진·신원·생체 인증 결과를 나타내지 않습니다.

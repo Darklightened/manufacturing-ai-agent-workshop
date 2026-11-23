@@ -1,0 +1,54 @@
+{
+  "schema": "seminar.worker-media.v1",
+  "media": {
+    "path": "assets/worker-flow/assembly.webm",
+    "codec": "vp9",
+    "container": "webm",
+    "width": 640,
+    "height": 360,
+    "fps": 24,
+    "durationSeconds": 121.041667,
+    "bytes": 4468868,
+    "sha256": "4a87bc399df9112870a88801ed88262b9324808086f76ff9e2dc03b387666eb6",
+    "audio": false
+  },
+  "source": {
+    "path": "data/source_pack/electronics/S1790005/S1790005.mp4",
+    "dataset": "EgoOops",
+    "videoId": "S1790005",
+    "codec": "h264",
+    "width": 1280,
+    "height": 720,
+    "fpsNumerator": 30000,
+    "fpsDenominator": 1001,
+    "durationSeconds": 121.021,
+    "videoDurationSeconds": 121.0209,
+    "bytes": 22817256,
+    "sha256": "91221f85368f091154c14e6b517998398ababfc413c88fff151fa60d905d4dbd",
+    "url": "https://y-haneji.github.io/EgoOops-project-page/",
+    "attribution": "EgoOops · Yuto Haneji et al.",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+  },
+  "transformation": {
+    "cuts": false,
+    "speedFactor": 1,
+    "sourceTimeOffsetSeconds": 0,
+    "method": "CPU ffmpeg libvpx-vp9; scale=640:360,fps=24; no audio in source; no generated frames or overlays",
+    "durationToleranceSeconds": 0.041666666666666664,
+    "note": "End duration may differ by up to one encoded frame because of 24 fps rounding."
+  },
+  "authoredTeachingNotice": "작업 경계·검사 항목·질문은 강의용으로 작성한 예시이며 원본 데이터셋의 정답 주석이나 실제 모델 출력이 아닙니다.",
+  "checks": {
+    "originalHashPreserved": true,
+    "fullCpuDecodePassed": true,
+    "decodeErrors": [],
+    "gpuUsed": false,
+    "modelCalls": 0
+  },
+  "avatar": {
+    "path": "assets/worker-flow/avatar.svg",
+    "provenance": "original code-drawn neutral silhouette for classroom use; no real person or face recognition",
+    "license": "CC0-1.0"
+  }
+}
