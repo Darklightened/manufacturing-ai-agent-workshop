@@ -1,0 +1,147 @@
+{
+  "version": 1,
+  "provenance": "authored_simulated_video",
+  "source_kind": "AI-generated static illustrations",
+  "actual_smart_glasses_capture": false,
+  "model_prediction": false,
+  "motion": "camera-only 1.000–1.030 zoom, slight bounded pan; no independently animated tools, hands, contact or display",
+  "frame_size": [
+    1280,
+    720
+  ],
+  "fps": 24,
+  "scene_seconds": 10,
+  "audio": false,
+  "sources": {
+    "a": {
+      "path": "assets/measurement-photo-v1/scene-a.png",
+      "sha256": "390ea255ffcda7315558a07f38ef3626753c2d7bf20e7b367296e29bc0362cae",
+      "label": "A · 외경 측정"
+    },
+    "b": {
+      "path": "assets/measurement-photo-v1/scene-b.png",
+      "sha256": "d1c9ad3df431f4968cf615257ee1a45ddb1ff92f71a8f3f46214a4c04907f207",
+      "label": "B · 전체 길이 측정"
+    },
+    "c": {
+      "path": "assets/measurement-photo-v1/scene-c.png",
+      "sha256": "76a9803665154c07a3595c862aecc1924c499819f1bf9347895bdae39222a1dd",
+      "label": "C · 플랜지 두께 확인"
+    }
+  },
+  "outputs": {
+    "scene-a.mp4": {
+      "path": "assets/measurement-photo-v1/scene-a.mp4",
+      "bytes": 1331702,
+      "sha256": "2cae5abc9838f492b8aa6db17ad595e56bc7553b6a23fec80a83c5655b20f001",
+      "duration_seconds": 10.0,
+      "codec": "h264",
+      "decoded_frames": 240,
+      "width": 1280,
+      "height": 720,
+      "fps": 24.0,
+      "audio": false,
+      "full_decode_exit": 0
+    },
+    "scene-a.webm": {
+      "path": "assets/measurement-photo-v1/scene-a.webm",
+      "bytes": 619205,
+      "sha256": "c6dd2f592b242ec938265938f93bdead34559db5cb2641b9166b233cf11de583",
+      "duration_seconds": 10.0,
+      "codec": "vp9",
+      "decoded_frames": 240,
+      "width": 1280,
+      "height": 720,
+      "fps": 24.0,
+      "audio": false,
+      "full_decode_exit": 0
+    },
+    "scene-b.mp4": {
+      "path": "assets/measurement-photo-v1/scene-b.mp4",
+      "bytes": 1550681,
+      "sha256": "4ac1780d379dbb024a31acb31426ba6fd6777ed076c547f1ca2dc14a1bdfa902",
+      "duration_seconds": 10.0,
+      "codec": "h264",
+      "decoded_frames": 240,
+      "width": 1280,
+      "height": 720,
+      "fps": 24.0,
+      "audio": false,
+      "full_decode_exit": 0
+    },
+    "scene-b.webm": {
+      "path": "assets/measurement-photo-v1/scene-b.webm",
+      "bytes": 704090,
+      "sha256": "6df872149640e7b067cf8581b613ee31362ebd3a26be23443f4a7693c29613ca",
+      "duration_seconds": 10.0,
+      "codec": "vp9",
+      "decoded_frames": 240,
+      "width": 1280,
+      "height": 720,
+      "fps": 24.0,
+      "audio": false,
+      "full_decode_exit": 0
+    },
+    "scene-c.mp4": {
+      "path": "assets/measurement-photo-v1/scene-c.mp4",
+      "bytes": 1227141,
+      "sha256": "b49cadd19772c62fdd735ddb944b0cfc61d32294a1f5778f5a81cd058330dc32",
+      "duration_seconds": 10.0,
+      "codec": "h264",
+      "decoded_frames": 240,
+      "width": 1280,
+      "height": 720,
+      "fps": 24.0,
+      "audio": false,
+      "full_decode_exit": 0
+    },
+    "scene-c.webm": {
+      "path": "assets/measurement-photo-v1/scene-c.webm",
+      "bytes": 527083,
+      "sha256": "4ea37ec5b46feae2387fa28c2b340e0f0a4dbdb70b8b67a49a0232fc0711cbad",
+      "duration_seconds": 10.0,
+      "codec": "vp9",
+      "decoded_frames": 240,
+      "width": 1280,
+      "height": 720,
+      "fps": 24.0,
+      "audio": false,
+      "full_decode_exit": 0
+    },
+    "overview.mp4": {
+      "path": "assets/measurement-photo-v1/overview.mp4",
+      "bytes": 4107902,
+      "sha256": "9a1300560f9f9a82df3f3169c00cfea8a0838476a97e6c36fd4ccc2bbd35d486",
+      "duration_seconds": 30.0,
+      "codec": "h264",
+      "decoded_frames": 720,
+      "width": 1280,
+      "height": 720,
+      "fps": 24.0,
+      "audio": false,
+      "full_decode_exit": 0
+    },
+    "overview.webm": {
+      "path": "assets/measurement-photo-v1/overview.webm",
+      "bytes": 1849032,
+      "sha256": "f7c63d2c5eef49de57dc01d4e5fc5d281ecd35681063f41d15239a6a2c4f7ccd",
+      "duration_seconds": 30.0,
+      "codec": "vp9",
+      "decoded_frames": 720,
+      "width": 1280,
+      "height": 720,
+      "fps": 24.0,
+      "audio": false,
+      "full_decode_exit": 0
+    }
+  },
+  "updated_at": "2026-11-23T12:56:36.504613+00:00",
+  "browser_validation": {
+    "webm": "4/4 decoded and played in bundled Chromium",
+    "mp4": "8bitH264 full FFmpegdecode passed; bundled Chromium canPlayType returns empty, browser playback not claimed",
+    "receipt": "validation/slides_current_workshop_20261123_v1/measurement_pov/browser_v2/BROWSER_RECEIPT.json"
+  },
+  "subtitle_font": "Temporary static weight500 instance from bundled OFL NotoSansKR.ttf; source font unchanged",
+  "generator_script": "scripts/build_measurement_pov.py",
+  "generator_sha256": "0e41b901428be102b94d90af5e0e2646469933e83e94e6fcff80c9ba8346768d"
+}

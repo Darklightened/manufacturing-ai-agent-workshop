@@ -1,0 +1,3512 @@
+{
+  "count": 99,
+  "captures": [
+    {
+      "key": "prep-01-home",
+      "title": "실습 준비: 실습 페이지 접속",
+      "action": "실습 주소 접속 후 상단 ‘강의 자료’ 선택",
+      "outcome": "실습 탭과 자료실 탭 준비",
+      "notes": "",
+      "section": "prep",
+      "image": "slides/assets/current_v2/prep/prep-01-home.jpg",
+      "viewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "scroll_y": 0,
+      "targets": [
+        {
+          "selector": "header a[href=\"downloads.html\"]",
+          "label": "1",
+          "box": {
+            "x": 744,
+            "y": 21.640625,
+            "width": 91.75,
+            "height": 43.703125
+          },
+          "text": "강의 자료",
+          "click": true
+        }
+      ],
+      "raw_sha256": "2dff375c85d7d0817ad2768028988720a80d1396a9e88735c19779a65efac511",
+      "sha256": "cd148bf1d2849dfe01c125c7ce4f1c9a29c85d1ca34d6e93d0bf8a8162aa8444"
+    },
+    {
+      "key": "prep-02-slides",
+      "title": "실습 준비: 강의 슬라이드 저장",
+      "action": "필요한 발표본 선택 · 수강생은 PDF 다운로드",
+      "outcome": "PDF 저장 · 강사는 HTML 또는 PPTX 준비",
+      "notes": "HTML 발표본은 자체 포함 파일이므로 더블클릭으로 열립니다. 전체 실습 앱은 웹 주소 또는 로컬 서버가 필요합니다.",
+      "section": "prep",
+      "image": "slides/assets/current_v2/prep/prep-02-slides.jpg",
+      "viewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "scroll_y": 455,
+      "targets": [
+        {
+          "selector": "a[download][href$=\"실습_안내.pdf\"]",
+          "label": "1",
+          "box": {
+            "x": 482.65625,
+            "y": 339.75,
+            "width": 108.796875,
+            "height": 39.59375
+          },
+          "text": "PDF 다운로드",
+          "click": true
+        }
+      ],
+      "raw_sha256": "a0bea13c7cb90465bf0d02bdd53689a1cd26e01e057cbaaad4bfdd5cd474a575",
+      "sha256": "eb7cb64063b4c8e6a578776788cf522f0d064b0dd2f3fb4ae2155a788f673a6d"
+    },
+    {
+      "key": "prep-03-company-zip",
+      "title": "실습 준비: 회사 자료 묶음",
+      "action": "‘회사별 입력 자료 ZIP’ 선택 후 압축 해제",
+      "outcome": "회사 이름별 폴더와 입력 자료 확보",
+      "notes": "필수 업로드 실습용은 이 회사 자료 ZIP입니다. 완성 예제 참고 ZIP은 선택 자료입니다. 압축 해제는 운영체제의 기본 기능으로 진행합니다.",
+      "section": "prep",
+      "image": "slides/assets/current_v2/prep/prep-03-company-zip.jpg",
+      "viewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "scroll_y": 580,
+      "targets": [
+        {
+          "selector": "a[href=\"assets/company-materials/company-practice-materials.zip\"]",
+          "label": "1",
+          "box": {
+            "x": 644.359375,
+            "y": 349.34375,
+            "width": 212.359375,
+            "height": 21
+          },
+          "text": "회사별 입력 자료 ZIP (약 0.69MB)",
+          "click": true
+        }
+      ],
+      "raw_sha256": "a6af3a4e32bdd734ec687674a32b0ed1e022d2c88576dbb16ae41df80fc3ee85",
+      "sha256": "0a8b5b992ffa40d93e5b765e1e551b9640a58edea38ebc9c4223b1cd9b15dc67"
+    },
+    {
+      "key": "prep-04-inputs",
+      "title": "실습 준비: 도면과 검사 기준",
+      "action": "검사 도면·검사 기준 파일의 위치 확인",
+      "outcome": "A 외경·B 길이·C 두께의 검사 대상 확인",
+      "notes": "",
+      "section": "prep",
+      "image": "slides/assets/current_v2/prep/prep-04-inputs.jpg",
+      "viewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "scroll_y": 920,
+      "targets": [
+        {
+          "selector": "a[download][href=\"scenarios/measurement_input_demo/drawing.pdf\"]",
+          "label": "1",
+          "box": {
+            "x": 482.65625,
+            "y": 336.625,
+            "width": 314.671875,
+            "height": 46.609375
+          },
+          "text": "검사 도면\nPDF",
+          "click": true
+        },
+        {
+          "selector": "a[download][href=\"scenarios/measurement_input_demo/criteria.csv\"]",
+          "label": "2",
+          "box": {
+            "x": 482.65625,
+            "y": 392.234375,
+            "width": 314.671875,
+            "height": 46.609375
+          },
+          "text": "검사 기준\nCSV",
+          "click": true
+        }
+      ],
+      "raw_sha256": "29d75a25a4b92ae41f31ff40b2133362e43e2e6c38458f35f14d5b2e86e63063",
+      "sha256": "dace1b02e0a1beaa7b6debd3d9d3f5bdb86a3274d4d00ea3a81de0ac0cee1f81"
+    },
+    {
+      "key": "prep-05-example",
+      "title": "실습 준비: 완성 문서 예제",
+      "action": "전자 조립 검수 보고서의 ‘보고서 미리보기’ 선택",
+      "outcome": "최종 제출 문서의 검사표·사진 형식 확인",
+      "notes": "",
+      "section": "prep",
+      "image": "slides/assets/current_v2/prep/prep-05-example.jpg",
+      "viewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "scroll_y": 1309,
+      "targets": [
+        {
+          "selector": "a[href=\"assets/worker-flow/examples/inspection.html\"]",
+          "label": "1",
+          "box": {
+            "x": 232.75,
+            "y": 340.203125,
+            "width": 120.09375,
+            "height": 39.59375
+          },
+          "text": "보고서 미리보기",
+          "click": true
+        }
+      ],
+      "raw_sha256": "005b13bdb5f714227441323cff5a7966782fb77fc3cc3de932a6cff47c9d3606",
+      "sha256": "663bf46a5daefe9e4d1c10d2eafc014cbad6b7843746f9867a4a0b147281b1fc"
+    },
+    {
+      "key": "prep-06-labs",
+      "title": "실습 준비: 실습 선택",
+      "action": "전자 조립·계측 검사·기계 조립 중 강사 안내에 따라 선택",
+      "outcome": "실습별 회사·제품·기준 연결",
+      "notes": "",
+      "section": "prep",
+      "image": "slides/assets/current_v2/prep/prep-06-labs.jpg",
+      "viewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "scroll_y": 555,
+      "targets": [
+        {
+          "selector": "[data-select=\"electronics_demo\"]",
+          "label": "1",
+          "box": {
+            "x": 286,
+            "y": 338.203125,
+            "width": 266.65625,
+            "height": 44.390625
+          },
+          "text": "전자 조립 실습 시작",
+          "click": true
+        },
+        {
+          "selector": "[data-select=\"measurement_input_demo\"]",
+          "label": "2",
+          "box": {
+            "x": 620.65625,
+            "y": 338.203125,
+            "width": 266.671875,
+            "height": 44.390625
+          },
+          "text": "이 실습 시작",
+          "click": true
+        },
+        {
+          "selector": "[data-select=\"mechanical_demo\"]",
+          "label": "3",
+          "box": {
+            "x": 955.328125,
+            "y": 338.203125,
+            "width": 266.65625,
+            "height": 44.390625
+          },
+          "text": "이 실습 시작",
+          "click": true
+        }
+      ],
+      "raw_sha256": "012ef81008eb3ca2dbb9571b3565a166d0ea5b468b265cdc8baa77eac1cc38ae",
+      "sha256": "62c1dbffe2e925c5a66c1f16e8f3300e3dcb3b63e7dcbb2439e5b22a737ee22b"
+    },
+    {
+      "key": "lab1-01-select",
+      "title": "실습 1 (전자 조립): 전자 조립 실습 선택",
+      "action": "전자 조립 실습 시작 선택",
+      "outcome": "회사 자료 구축 화면",
+      "phase": "실습 선택",
+      "input": "전자 조립 실습 시작 선택",
+      "process": "현재 실습 화면에서 입력·상태 반영",
+      "notes": "",
+      "section": "lab1",
+      "image": "slides/assets/current_v2/lab1/01-select.jpg",
+      "targets": [
+        {
+          "selector": "[data-select=\"electronics_demo\"]",
+          "box": {
+            "x": 234.6875,
+            "y": 386.5,
+            "width": 348.453125,
+            "height": 36.40625
+          },
+          "label": "1"
+        }
+      ],
+      "viewport": {
+        "width": 1440,
+        "height": 810
+      },
+      "scroll_y": 326,
+      "raw_sha256": "9b971bab8da77895f402fc24b5cc2df27e1782f29793ee6b8e26612104c252a3",
+      "sha256": "356a6992fbfbc76c0f7677bc684e5dcf96ba4fb6c8b0e052e9de645619f0b486"
+    },
+    {
+      "key": "lab1-02-company-download",
+      "title": "실습 1 (전자 조립): 회사 자료 준비",
+      "action": "전체 회사 자료 ZIP 받기 선택",
+      "outcome": "회사별 폴더에 SOP·기준·도면 구성",
+      "phase": "자료 구축",
+      "input": "전체 회사 자료 ZIP 받기 선택",
+      "process": "현재 실습 화면에서 입력·상태 반영",
+      "notes": "ZIP 압축을 푼 뒤 다온에듀테크 폴더 선택. 운영체제의 파일 선택창은 슬라이드 대신 실제 실습에서 표시됩니다.",
+      "section": "lab1",
+      "image": "slides/assets/current_v2/lab1/02-company-download.jpg",
+      "targets": [
+        {
+          "selector": "#company-zip",
+          "box": {
+            "x": 1231.4375,
+            "y": 307.90625,
+            "width": 160.015625,
+            "height": 36.40625
+          },
+          "label": "1"
+        }
+      ],
+      "viewport": {
+        "width": 1440,
+        "height": 810
+      },
+      "scroll_y": 0,
+      "raw_sha256": "062eeb1d49813ac6bcfbacd3141aaaf2eb10d4c549674b34cf74350d6e264fad",
+      "sha256": "51bcee833f3b5d0e80d733e54e6f6243075e8cbfeca0b6d69a0a318724a23bf9"
+    },
+    {
+      "key": "lab1-03-folder-upload",
+      "title": "실습 1 (전자 조립): 회사 폴더 업로드",
+      "action": "폴더 전체 업로드 선택",
+      "outcome": "내 PC의 다온에듀테크 자료 선택",
+      "phase": "자료 구축",
+      "input": "폴더 전체 업로드 선택",
+      "process": "현재 실습 화면에서 입력·상태 반영",
+      "notes": "",
+      "section": "lab1",
+      "image": "slides/assets/current_v2/lab1/03-folder-upload.jpg",
+      "targets": [
+        {
+          "selector": "#choose-company-folder",
+          "box": {
+            "x": 235.5,
+            "y": 387.0625,
+            "width": 119.65625,
+            "height": 36.40625
+          },
+          "label": "1"
+        }
+      ],
+      "viewport": {
+        "width": 1440,
+        "height": 810
+      },
+      "scroll_y": 115,
+      "raw_sha256": "36ec97595278efd8a985370035ad287816c124cc0eab7587b897c53d1dd6401a",
+      "sha256": "1a09a11ec0a6fdcc845a3bde411bfc1f107192950cf8ce2a88b076545d2768ac"
+    },
+    {
+      "key": "lab1-04-file-select",
+      "title": "실습 1 (전자 조립): 구축 자료 선택",
+      "action": "필요한 파일의 체크 표시 선택·해제",
+      "outcome": "7개 중 6개 선택 상태",
+      "phase": "자료 구축",
+      "input": "필요한 파일의 체크 표시 선택·해제",
+      "process": "현재 실습 화면에서 입력·상태 반영",
+      "notes": "파일 조합과 관계없이 공통 교육용 예제로 구축. 원문 미리보기는 업로드한 파일 그대로 제공.",
+      "section": "lab1",
+      "image": "slides/assets/current_v2/lab1/04-file-select.jpg",
+      "targets": [
+        {
+          "selector": "[data-file-select=\"file-0001\"]",
+          "box": {
+            "x": 247.953125,
+            "y": 222.890625,
+            "width": 14.75,
+            "height": 14.75
+          },
+          "label": "1"
+        }
+      ],
+      "viewport": {
+        "width": 1440,
+        "height": 810
+      },
+      "scroll_y": 493,
+      "raw_sha256": "e9836ba0e3e55ede8246cc4d910800e855dd3cfe14586422bd925c6f53b4df7a",
+      "sha256": "4cac766f26b57246a38058bff26a5762998fc44f479cf212e39b21e3224dbc5c"
+    },
+    {
+      "key": "lab1-05-preview-sop",
+      "title": "실습 1 (전자 조립): 작업지시서 원문",
+      "action": "파일 이름 선택",
+      "outcome": "다운로드 없이 원문과 검사 대상 확인",
+      "phase": "자료 구축",
+      "input": "파일 이름 선택",
+      "process": "현재 실습 화면에서 입력·상태 반영",
+      "notes": "",
+      "section": "lab1",
+      "image": "slides/assets/current_v2/lab1/05-preview-sop.jpg",
+      "targets": [
+        {
+          "selector": "[data-preview=\"file-0002\"]",
+          "box": {
+            "x": 273.34375,
+            "y": 271.578125,
+            "width": 403.390625,
+            "height": 34.40625
+          },
+          "label": "1"
+        }
+      ],
+      "viewport": {
+        "width": 1440,
+        "height": 810
+      },
+      "scroll_y": 493,
+      "raw_sha256": "5fc1fdeaa729da9ba2ade5bdaa76f0531271a2d8346f8e23cd5a6a08553b34f0",
+      "sha256": "1362d2ed7062113e24b15de891e0b398752a34280448594915e7735fe9287820"
+    },
+    {
+      "key": "lab1-06-preview-criteria",
+      "title": "실습 1 (전자 조립): 검사 기준 미리보기",
+      "action": "파일 이름 선택",
+      "outcome": "다운로드 없이 원문과 검사 대상 확인",
+      "phase": "자료 구축",
+      "input": "파일 이름 선택",
+      "process": "현재 실습 화면에서 입력·상태 반영",
+      "notes": "",
+      "section": "lab1",
+      "image": "slides/assets/current_v2/lab1/06-preview-criteria.jpg",
+      "targets": [
+        {
+          "selector": "[data-preview=\"file-0003\"]",
+          "box": {
+            "x": 273.34375,
+            "y": 330.09375,
+            "width": 404.171875,
+            "height": 34.40625
+          },
+          "label": "1"
+        }
+      ],
+      "viewport": {
+        "width": 1440,
+        "height": 810
+      },
+      "scroll_y": 493,
+      "raw_sha256": "be83174f9b1fa7cf0b10920455cd4fd341937fe80e6728e1385d2bd982ebb96a",
+      "sha256": "f4f2697418ed63c8025f00091f96244e85a1623ac1947e0a4c206a1c78cc6e9e"
+    },
+    {
+      "key": "lab1-07-preview-drawing",
+      "title": "실습 1 (전자 조립): 조립 구성도 미리보기",
+      "action": "파일 이름 선택",
+      "outcome": "다운로드 없이 원문과 검사 대상 확인",
+      "phase": "자료 구축",
+      "input": "파일 이름 선택",
+      "process": "현재 실습 화면에서 입력·상태 반영",
+      "notes": "",
+      "section": "lab1",
+      "image": "slides/assets/current_v2/lab1/07-preview-drawing.jpg",
+      "targets": [
+        {
+          "selector": "[data-preview=\"file-0006\"]",
+          "box": {
+            "x": 273.34375,
+            "y": 505.640625,
+            "width": 403.625,
+            "height": 34.40625
+          },
+          "label": "1"
+        }
+      ],
+      "viewport": {
+        "width": 1440,
+        "height": 810
+      },
+      "scroll_y": 493,
+      "raw_sha256": "7c497cfbfaaee567b9ff7c91920c7d6134e1a0b2265ee89001fb2f47ca98c93b",
+      "sha256": "e4a7750ac97d317ce45e6e3b487954f8546af776f9884dc9443c00b3f962d11b"
+    },
+    {
+      "key": "lab1-08-build-start",
+      "title": "실습 1 (전자 조립): 정보 구축 시작",
+      "action": "선택 자료로 정보 구축 선택",
+      "outcome": "문서·도면·기준의 단계별 처리 시작",
+      "phase": "자료 구축",
+      "input": "선택 자료로 정보 구축 선택",
+      "process": "현재 실습 화면에서 입력·상태 반영",
+      "notes": "",
+      "section": "lab1",
+      "image": "slides/assets/current_v2/lab1/08-build-start.jpg",
+      "targets": [
+        {
+          "selector": "#compile",
+          "box": {
+            "x": 235.5,
+            "y": 674.046875,
+            "width": 489.3125,
+            "height": 36.40625
+          },
+          "label": "1"
+        }
+      ],
+      "viewport": {
+        "width": 1440,
+        "height": 810
+      },
+      "scroll_y": 519,
+      "raw_sha256": "24f87b20e80d0e51d5c9d6cda157dc4a557018e5bc2dff8ffbe55a744d0d1a48",
+      "sha256": "00e3e583113921c94e2ba7b685de933a1f39490592fd6d59510f9d4ff4982a16"
+    },
+    {
+      "key": "lab1-09-build-classify",
+      "title": "실습 1 (전자 조립): 파일 분류",
+      "action": "단계별 진행률과 처리 로그 확인",
+      "outcome": "출력 내용과 다음 단계 연결",
+      "phase": "자료 구축",
+      "input": "단계별 진행률과 처리 로그 확인",
+      "process": "현재 실습 화면에서 입력·상태 반영",
+      "notes": "PDF·CSV 추출과 SQLite 저장은 실제 처리. 도면 해석 출력은 강의용 예시.",
+      "section": "lab1",
+      "image": "slides/assets/current_v2/lab1/09-build-classify.jpg",
+      "targets": [],
+      "viewport": {
+        "width": 1440,
+        "height": 810
+      },
+      "scroll_y": 0,
+      "raw_sha256": "833c1bed364c8a6547973007f88714756c5108efdb32a54e1663ae6a4db9563a",
+      "sha256": "1c4a0c532033bfe7d218e8103971ceb28413d9f66a43e6dfdcb741de6674f74d"
+    },
+    {
+      "key": "lab1-10-build-pdf",
+      "title": "실습 1 (전자 조립): PDF 텍스트 추출",
+      "action": "단계별 진행률과 처리 로그 확인",
+      "outcome": "출력 내용과 다음 단계 연결",
+      "phase": "자료 구축",
+      "input": "단계별 진행률과 처리 로그 확인",
+      "process": "현재 실습 화면에서 입력·상태 반영",
+      "notes": "PDF·CSV 추출과 SQLite 저장은 실제 처리. 도면 해석 출력은 강의용 예시.",
+      "section": "lab1",
+      "image": "slides/assets/current_v2/lab1/10-build-pdf.jpg",
+      "targets": [],
+      "viewport": {
+        "width": 1440,
+        "height": 810
+      },
+      "scroll_y": 0,
+      "raw_sha256": "64a1df530d8b40e8de8f015cdcf0cbd5852e93666e5c569dd58e0980cf4d63d8",
+      "sha256": "d3db7fbe21093c3b751a975d9b2f1a4fd9326417dcbc4299babfecaea38a7af0"
+    },
+    {
+      "key": "lab1-11-build-drawing",
+      "title": "실습 1 (전자 조립): 도면·부품표 분석",
+      "action": "단계별 진행률과 처리 로그 확인",
+      "outcome": "출력 내용과 다음 단계 연결",
+      "phase": "자료 구축",
+      "input": "단계별 진행률과 처리 로그 확인",
+      "process": "현재 실습 화면에서 입력·상태 반영",
+      "notes": "PDF·CSV 추출과 SQLite 저장은 실제 처리. 도면 해석 출력은 강의용 예시.",
+      "section": "lab1",
+      "image": "slides/assets/current_v2/lab1/11-build-drawing.jpg",
+      "targets": [],
+      "viewport": {
+        "width": 1440,
+        "height": 810
+      },
+      "scroll_y": 0,
+      "raw_sha256": "aa2d5a0569341d0a131d12c9b5ddb4b70e87effa2320b13685ec2ba499b5cb26",
+      "sha256": "91e65f2296dc1f5d2dff35bbba5a27eaaeb8387830e72e930f3894b4dbe29bbf"
+    },
+    {
+      "key": "lab1-12-build-link",
+      "title": "실습 1 (전자 조립): 공정·검사 기준 연결",
+      "action": "단계별 진행률과 처리 로그 확인",
+      "outcome": "출력 내용과 다음 단계 연결",
+      "phase": "자료 구축",
+      "input": "단계별 진행률과 처리 로그 확인",
+      "process": "현재 실습 화면에서 입력·상태 반영",
+      "notes": "PDF·CSV 추출과 SQLite 저장은 실제 처리. 도면 해석 출력은 강의용 예시.",
+      "section": "lab1",
+      "image": "slides/assets/current_v2/lab1/12-build-link.jpg",
+      "targets": [],
+      "viewport": {
+        "width": 1440,
+        "height": 810
+      },
+      "scroll_y": 0,
+      "raw_sha256": "cf3f1932af38cddbf2a50e56ed64194a855eb06cc95d161ea38e70de23ca081d",
+      "sha256": "df06be30b0541a38e3ee0bb253a17ef9e7c557220030ebe17a5696bcb65d32f0"
+    },
+    {
+      "key": "lab1-13-build-sql",
+      "title": "실습 1 (전자 조립): SQL DB 구성",
+      "action": "단계별 진행률과 처리 로그 확인",
+      "outcome": "출력 내용과 다음 단계 연결",
+      "phase": "자료 구축",
+      "input": "단계별 진행률과 처리 로그 확인",
+      "process": "현재 실습 화면에서 입력·상태 반영",
+      "notes": "PDF·CSV 추출과 SQLite 저장은 실제 처리. 도면 해석 출력은 강의용 예시.",
+      "section": "lab1",
+      "image": "slides/assets/current_v2/lab1/13-build-sql.jpg",
+      "targets": [],
+      "viewport": {
+        "width": 1440,
+        "height": 810
+      },
+      "scroll_y": 0,
+      "raw_sha256": "2ffc7c09202b00461418eb6dcc4bf4acfd9d94cf954e7e7b10aa751250f073a7",
+      "sha256": "6d29e828c98c52b93123cceea4ec09f8511df720d33b395b7c28d56107836072"
+    },
+    {
+      "key": "lab1-14-build-review",
+      "title": "실습 1 (전자 조립): 검토 항목 확인",
+      "action": "단계별 진행률과 처리 로그 확인",
+      "outcome": "출력 내용과 다음 단계 연결",
+      "phase": "자료 구축",
+      "input": "단계별 진행률과 처리 로그 확인",
+      "process": "현재 실습 화면에서 입력·상태 반영",
+      "notes": "PDF·CSV 추출과 SQLite 저장은 실제 처리. 도면 해석 출력은 강의용 예시.",
+      "section": "lab1",
+      "image": "slides/assets/current_v2/lab1/14-build-review.jpg",
+      "targets": [],
+      "viewport": {
+        "width": 1440,
+        "height": 810
+      },
+      "scroll_y": 0,
+      "raw_sha256": "e4f51fd69f58d8b7ca0123ca0852e2dfaf5c7821736f7682df6e108a7f397ea0",
+      "sha256": "10ebcf5d2fc0f3cda8eb936a48c8f0ad4638c2be0bb6e93e6340717b37c7d027"
+    },
+    {
+      "key": "lab1-15-review-mismatch",
+      "title": "실습 1 (전자 조립): 작업 연결 검토",
+      "action": "배터리 검사 기준의 연결 작업 확인",
+      "outcome": "회로 연결로 등록된 초안 오류 1건",
+      "phase": "자료 구축",
+      "input": "배터리 검사 기준의 연결 작업 확인",
+      "process": "현재 실습 화면에서 입력·상태 반영",
+      "notes": "",
+      "section": "lab1",
+      "image": "slides/assets/current_v2/lab1/15-review-mismatch.jpg",
+      "targets": [
+        {
+          "selector": "#review-task",
+          "box": {
+            "x": 843.15625,
+            "y": 387.859375,
+            "width": 548.296875,
+            "height": 34.375
+          },
+          "label": "1"
+        }
+      ],
+      "viewport": {
+        "width": 1440,
+        "height": 810
+      },
+      "scroll_y": 146,
+      "raw_sha256": "2432557e3030b3ab3907fedcf11c8391e3e4ffa0489ac2227bb5e348a5adff50",
+      "sha256": "5614265e3c1b4914cf4da04a51ddaf5a7bf7296457726187cc9d93005b9f179b"
+    },
+    {
+      "key": "lab1-16-review-edit",
+      "title": "실습 1 (전자 조립): 연결 작업 수정",
+      "action": "배터리 삽입 선택 후 수정 내용 저장",
+      "outcome": "검사 기준을 올바른 작업에 연결",
+      "phase": "자료 구축",
+      "input": "배터리 삽입 선택 후 수정 내용 저장",
+      "process": "현재 실습 화면에서 입력·상태 반영",
+      "notes": "",
+      "section": "lab1",
+      "image": "slides/assets/current_v2/lab1/16-review-edit.jpg",
+      "targets": [
+        {
+          "selector": "#review-task",
+          "box": {
+            "x": 843.15625,
+            "y": 274.859375,
+            "width": 548.296875,
+            "height": 34.375
+          },
+          "label": "1"
+        },
+        {
+          "selector": "#save-review",
+          "box": {
+            "x": 843.15625,
+            "y": 386.65625,
+            "width": 107.59375,
+            "height": 36.40625
+          },
+          "label": "2"
+        }
+      ],
+      "viewport": {
+        "width": 1440,
+        "height": 810
+      },
+      "scroll_y": 259,
+      "raw_sha256": "955b08ab0d8246cbb5458b41cf79a9dce5d6227820aa6cf7947fb2701bd31daa",
+      "sha256": "baaf69c7c9e01435f60a4adc27612bd88437f65de3efe3a41ddcc28a12348503"
+    },
+    {
+      "key": "lab1-17-sql-table",
+      "title": "실습 1 (전자 조립): 수정된 검사 기준 DB",
+      "action": "criteria 테이블의 task_id 확인",
+      "outcome": "E-BATTERY → battery 연결 저장",
+      "phase": "자료 구축",
+      "input": "criteria 테이블의 task_id 확인",
+      "process": "현재 실습 화면에서 입력·상태 반영",
+      "notes": "",
+      "section": "lab1",
+      "image": "slides/assets/current_v2/lab1/17-sql-table.jpg",
+      "targets": [
+        {
+          "selector": "#company-query-table",
+          "box": {
+            "x": 1259.796875,
+            "y": 386.75,
+            "width": 131.65625,
+            "height": 37.375
+          },
+          "label": "1"
+        }
+      ],
+      "viewport": {
+        "width": 1440,
+        "height": 810
+      },
+      "scroll_y": 642,
+      "raw_sha256": "b1fabd58286fcd5fca18a3afa5dd15700a4830cd3250b07b5e9bc8081cd4f359",
+      "sha256": "3d46ce6d59aa34a3fc57572c643295e2f6badf0da1f7fdddafd9717ae4b77922"
+    },
+    {
+      "key": "lab1-18-review-complete",
+      "title": "실습 1 (전자 조립): 검토 완료",
+      "action": "검토 완료 · 온톨로지 보기 선택",
+      "outcome": "검토된 회사 정보 구조로 전환",
+      "phase": "자료 구축",
+      "input": "검토 완료 · 온톨로지 보기 선택",
+      "process": "현재 실습 화면에서 입력·상태 반영",
+      "notes": "",
+      "section": "lab1",
+      "image": "slides/assets/current_v2/lab1/18-review-complete.jpg",
+      "targets": [
+        {
+          "selector": "#show-ontology",
+          "box": {
+            "x": 214.828125,
+            "y": 695.171875,
+            "width": 167.359375,
+            "height": 36.40625
+          },
+          "label": "1"
+        }
+      ],
+      "viewport": {
+        "width": 1440,
+        "height": 810
+      },
+      "scroll_y": 785,
+      "raw_sha256": "298adb2d3d1cb5e8ea3fecc5bdf3736a49f1360f6af29287f9116ba4cde653fd",
+      "sha256": "1962c9fea4089b673a6195bd699644b5846eb8477394ebeab072f9ba0909239f"
+    },
+    {
+      "key": "lab1-19-ontology",
+      "title": "실습 1 (전자 조립): 회사 정보의 연결 구조",
+      "action": "배터리 삽입 작업 선택",
+      "outcome": "회사 → 공정 → 작업 → 검사 기준 연결",
+      "phase": "자료 구축",
+      "input": "배터리 삽입 작업 선택",
+      "process": "현재 실습 화면에서 입력·상태 반영",
+      "notes": "",
+      "section": "lab1",
+      "image": "slides/assets/current_v2/lab1/19-ontology.jpg",
+      "targets": [
+        {
+          "selector": "[data-ontology-task=\"battery\"]",
+          "box": {
+            "x": 817.15625,
+            "y": 459.546875,
+            "width": 186.515625,
+            "height": 78.984375
+          },
+          "label": "1"
+        }
+      ],
+      "viewport": {
+        "width": 1440,
+        "height": 810
+      },
+      "scroll_y": 247,
+      "raw_sha256": "109f533e658389d5a02debc445a0464056c9f8fd557075798bdfe4766f2f1fbd",
+      "sha256": "6feffba6f6284b84a899e7468ec448982d450d883b3b94bb642edc374138ff33"
+    },
+    {
+      "key": "lab1-20-setup-next",
+      "title": "실습 1 (전자 조립): 작업 설정으로 이동",
+      "action": "자료 구축 완료 · 작업 설정으로 선택",
+      "outcome": "작업자 등록 화면",
+      "phase": "자료 구축",
+      "input": "자료 구축 완료 · 작업 설정으로 선택",
+      "process": "현재 실습 화면에서 입력·상태 반영",
+      "notes": "",
+      "section": "lab1",
+      "image": "slides/assets/current_v2/lab1/20-setup-next.jpg",
+      "targets": [
+        {
+          "selector": "#next-setup",
+          "box": {
+            "x": 214.828125,
+            "y": 694.796875,
+            "width": 195.140625,
+            "height": 36.40625
+          },
+          "label": "1"
+        }
+      ],
+      "viewport": {
+        "width": 1440,
+        "height": 810
+      },
+      "scroll_y": 784,
+      "raw_sha256": "76ffe64a5d6327f8b47883b8b6b6c4a4095f0a46263243af5c10f08ec0b73c19",
+      "sha256": "f620fb5c34e4fc43e642483f744e08e460e3053c386b541ac13d3288b61300a2"
+    },
+    {
+      "key": "lab1-21-register",
+      "title": "실습 1 (전자 조립): 작업자 등록",
+      "action": "이름·사번 확인 후 등록하고 인증으로 선택",
+      "outcome": "작업자 정보와 현재 세션 연결",
+      "phase": "작업 설정",
+      "input": "이름·사번 확인 후 등록하고 인증으로 선택",
+      "process": "현재 실습 화면에서 입력·상태 반영",
+      "notes": "",
+      "section": "lab1",
+      "image": "slides/assets/current_v2/lab1/21-register.jpg",
+      "targets": [
+        {
+          "selector": "#worker-name",
+          "box": {
+            "x": 773.484375,
+            "y": 389.84375,
+            "width": 604.84375,
+            "height": 34.375
+          },
+          "label": "1"
+        },
+        {
+          "selector": "#worker-id",
+          "box": {
+            "x": 773.484375,
+            "y": 456.609375,
+            "width": 604.84375,
+            "height": 34.375
+          },
+          "label": "2"
+        },
+        {
+          "selector": "#worker-register-next",
+          "box": {
+            "x": 773.484375,
+            "y": 601.015625,
+            "width": 122.0625,
+            "height": 35.28125
+          },
+          "label": "3"
+        }
+      ],
+      "viewport": {
+        "width": 1440,
+        "height": 810
+      },
+      "scroll_y": 0,
+      "raw_sha256": "36386b648e8f7c16968d57c208a69f6ac67081b6019c80fd452f30c1b2dd31cb",
+      "sha256": "bb74998724f75390abdc1357c553a5b8580b43f27986b90c17fd071e14995afa"
+    },
+    {
+      "key": "lab1-22-auth",
+      "title": "실습 1 (전자 조립): 화면 인증",
+      "action": "등록 정보 확인·인증 번호 입력 후 인증 확인",
+      "outcome": "교육용 화면 인증 완료",
+      "phase": "작업 설정",
+      "input": "등록 정보 확인·인증 번호 입력 후 인증 확인",
+      "process": "현재 실습 화면에서 입력·상태 반영",
+      "notes": "인증 번호 6421. 실제 얼굴 인식이나 회사 계정 인증은 아닌 강의용 화면 인증.",
+      "section": "lab1",
+      "image": "slides/assets/current_v2/lab1/22-auth.jpg",
+      "targets": [
+        {
+          "selector": "#worker-auth-code",
+          "box": {
+            "x": 773.484375,
+            "y": 505.734375,
+            "width": 604.84375,
+            "height": 34.375
+          },
+          "label": "1"
+        },
+        {
+          "selector": "#worker-auth-next",
+          "box": {
+            "x": 773.484375,
+            "y": 550.765625,
+            "width": 76.703125,
+            "height": 35.28125
+          },
+          "label": "2"
+        }
+      ],
+      "viewport": {
+        "width": 1440,
+        "height": 810
+      },
+      "scroll_y": 0,
+      "raw_sha256": "408983be6ca27eb30b3fa5d557a17231a361d38f7753ddb6caa7f8cd6c96e97f",
+      "sha256": "f1982986e5191e3c0fee2f476ba0518864fd5d49f0fed709c0c799084e4a5444"
+    },
+    {
+      "key": "lab1-23-process",
+      "title": "실습 1 (전자 조립): 공정 선택과 기준 호출",
+      "action": "바람빛 회로 키트 선택 후 작업 시작 · 영상 연결",
+      "outcome": "6개 작업 단계·18개 세부 확인 항목 연결",
+      "phase": "작업 설정",
+      "input": "바람빛 회로 키트 선택 후 작업 시작 · 영상 연결",
+      "process": "현재 실습 화면에서 입력·상태 반영",
+      "notes": "",
+      "section": "lab1",
+      "image": "slides/assets/current_v2/lab1/23-process.jpg",
+      "targets": [
+        {
+          "selector": "#worker-process",
+          "box": {
+            "x": 248.625,
+            "y": 444.609375,
+            "width": 483.859375,
+            "height": 34.375
+          },
+          "label": "1"
+        },
+        {
+          "selector": "#start-session",
+          "box": {
+            "x": 248.625,
+            "y": 578.046875,
+            "width": 136.359375,
+            "height": 35.28125
+          },
+          "label": "2"
+        }
+      ],
+      "viewport": {
+        "width": 1440,
+        "height": 810
+      },
+      "scroll_y": 12,
+      "raw_sha256": "b464b9dd5973f32a014102340987d5229c1ba0044603c17357b57950e9855fb4",
+      "sha256": "41a792026b56654877b5042cd83a5edf152a229313f525bd0fb5410918bbeadf"
+    },
+    {
+      "key": "lab1-24-video-start",
+      "title": "실습 1 (전자 조립): 작업 영상 연결",
+      "action": "영상 재생 선택",
+      "outcome": "영상 진행률과 검사 항목의 동시 갱신",
+      "phase": "영상 검사",
+      "input": "영상 재생 선택",
+      "process": "현재 실습 화면에서 입력·상태 반영",
+      "notes": "",
+      "section": "lab1",
+      "image": "slides/assets/current_v2/lab1/24-video-start.jpg",
+      "targets": [
+        {
+          "selector": "#worker-play",
+          "box": {
+            "x": 230.578125,
+            "y": 464.875,
+            "width": 76.703125,
+            "height": 35.28125
+          },
+          "label": "1"
+        },
+        {
+          "selector": "#worker-speed",
+          "box": {
+            "x": 371.0625,
+            "y": 467.78125,
+            "width": 53.296875,
+            "height": 29.46875
+          },
+          "label": "2"
+        }
+      ],
+      "viewport": {
+        "width": 1440,
+        "height": 810
+      },
+      "scroll_y": 271,
+      "raw_sha256": "bcf171ca77382e29b0719c6fa9f8b91f393c37fcf39d03dee63a13a26e9d2c31",
+      "sha256": "034b1c77cb050b55e9e304aa6cf8743a81ff01013432226e4aa23810ca5e9fe6"
+    },
+    {
+      "key": "lab1-25-preparation",
+      "title": "실습 1 (전자 조립): 준비 상태 검사",
+      "action": "Agent 통과 신호 확인 후 다음 단계 선택",
+      "outcome": "3개 항목 충족 및 현재 단계 통과 기록",
+      "phase": "영상 검사",
+      "input": "Agent 통과 신호 확인 후 다음 단계 선택",
+      "process": "현재 실습 화면에서 입력·상태 반영",
+      "notes": "",
+      "section": "lab1",
+      "image": "slides/assets/current_v2/lab1/25-preparation.jpg",
+      "targets": [
+        {
+          "selector": "#worker-next",
+          "box": {
+            "x": 230.578125,
+            "y": 646.3125,
+            "width": 102.84375,
+            "height": 35.28125
+          },
+          "label": "1"
+        }
+      ],
+      "viewport": {
+        "width": 1440,
+        "height": 810
+      },
+      "scroll_y": 271,
+      "raw_sha256": "55d6c150aa30ebc22b0d2d73c38244e62977359cd05b6b93e9a33c4eb3d8606d",
+      "sha256": "540dd0c338d3ad4bd1ebe2ef6427af33156f4f28287a9cea0333dc22534c2bae"
+    },
+    {
+      "key": "lab1-26-circuit",
+      "title": "실습 1 (전자 조립): 회로 연결 검사",
+      "action": "Agent 통과 신호 확인 후 다음 단계 선택",
+      "outcome": "3개 항목 충족 및 현재 단계 통과 기록",
+      "phase": "영상 검사",
+      "input": "Agent 통과 신호 확인 후 다음 단계 선택",
+      "process": "현재 실습 화면에서 입력·상태 반영",
+      "notes": "",
+      "section": "lab1",
+      "image": "slides/assets/current_v2/lab1/26-circuit.jpg",
+      "targets": [
+        {
+          "selector": "#worker-next",
+          "box": {
+            "x": 230.578125,
+            "y": 646.3125,
+            "width": 102.84375,
+            "height": 35.28125
+          },
+          "label": "1"
+        }
+      ],
+      "viewport": {
+        "width": 1440,
+        "height": 810
+      },
+      "scroll_y": 271,
+      "raw_sha256": "022e366acd0381d102055661e8ccfc6ad17b15abb46c970f44f1194aab8c6087",
+      "sha256": "1c97ced3d382cf4bc9b6f825affa06d608a3bdfcb7deb52e2fe6af371d2b40d7"
+    },
+    {
+      "key": "lab1-27-propeller",
+      "title": "실습 1 (전자 조립): 프로펠러 장착 검사",
+      "action": "Agent 통과 신호 확인 후 다음 단계 선택",
+      "outcome": "3개 항목 충족 및 현재 단계 통과 기록",
+      "phase": "영상 검사",
+      "input": "Agent 통과 신호 확인 후 다음 단계 선택",
+      "process": "현재 실습 화면에서 입력·상태 반영",
+      "notes": "",
+      "section": "lab1",
+      "image": "slides/assets/current_v2/lab1/27-propeller.jpg",
+      "targets": [
+        {
+          "selector": "#worker-next",
+          "box": {
+            "x": 230.578125,
+            "y": 646.3125,
+            "width": 102.84375,
+            "height": 35.28125
+          },
+          "label": "1"
+        }
+      ],
+      "viewport": {
+        "width": 1440,
+        "height": 810
+      },
+      "scroll_y": 271,
+      "raw_sha256": "0dce9b64f884cf461d8660b75eecd94197f2dc754cc52d69f5b6e0d587d18cae",
+      "sha256": "23e59537c4764011d6747e851a10cc6ef061b783b4758fa520b7fbc634566906"
+    },
+    {
+      "key": "lab1-28-battery-hold",
+      "title": "실습 1 (전자 조립): 배터리 방향 확인 요청",
+      "action": "질문 확인 선택",
+      "outcome": "가려진 배터리 방향을 작업자에게 확인",
+      "phase": "질문과 확인",
+      "input": "질문 확인 선택",
+      "process": "현재 실습 화면에서 입력·상태 반영",
+      "notes": "",
+      "section": "lab1",
+      "image": "slides/assets/current_v2/lab1/28-battery-hold.jpg",
+      "targets": [
+        {
+          "selector": ".worker-deliver",
+          "box": {
+            "x": 983.875,
+            "y": 387.84375,
+            "width": 76.703125,
+            "height": 35.28125
+          },
+          "label": "1"
+        }
+      ],
+      "viewport": {
+        "width": 1440,
+        "height": 810
+      },
+      "scroll_y": 431,
+      "raw_sha256": "f159630a842252f5acf0732037f78202aece919d37df66c1afe20193bbd80f30",
+      "sha256": "128c8f5cd9ed3dd656698d93eb075571a3c81b2d1bc883362ad43e8f2d6afab6"
+    },
+    {
+      "key": "lab1-29-battery-answer",
+      "title": "실습 1 (전자 조립): 작업자 답변",
+      "action": "방향 확인 결과 선택",
+      "outcome": "답변 전까지 다음 작업 보류",
+      "phase": "질문과 확인",
+      "input": "방향 확인 결과 선택",
+      "process": "현재 실습 화면에서 입력·상태 반영",
+      "notes": "정확한 버튼 문구는 화면 참조. 영상에서 확인하지 못한 내용을 작업자 답변으로 보완.",
+      "section": "lab1",
+      "image": "slides/assets/current_v2/lab1/29-battery-answer.jpg",
+      "targets": [
+        {
+          "selector": ".worker-answer[data-verdict=\"met\"]",
+          "box": {
+            "x": 983.875,
+            "y": 387.84375,
+            "width": 410.84375,
+            "height": 35.28125
+          },
+          "label": "1"
+        },
+        {
+          "selector": ".worker-answer[data-verdict=\"unknown\"]",
+          "box": {
+            "x": 983.875,
+            "y": 473.15625,
+            "width": 410.84375,
+            "height": 37.28125
+          },
+          "label": "2"
+        }
+      ],
+      "viewport": {
+        "width": 1440,
+        "height": 810
+      },
+      "scroll_y": 431,
+      "raw_sha256": "8c72b98ac779c545b4cb4f5e81a102248893b5d702d572180a44061fa6391599",
+      "sha256": "2d9f98564a7d85c1c6ab7c0009bbc008cfa40f6925c68c28ef27752e1c53e95e"
+    },
+    {
+      "key": "lab1-30-battery-pass",
+      "title": "실습 1 (전자 조립): 작업자 확인과 단계 통과",
+      "action": "다음 작업 시작 선택",
+      "outcome": "원래 미확인 기록과 작업자 확인을 구분하여 저장",
+      "phase": "질문과 확인",
+      "input": "다음 작업 시작 선택",
+      "process": "현재 실습 화면에서 입력·상태 반영",
+      "notes": "",
+      "section": "lab1",
+      "image": "slides/assets/current_v2/lab1/30-battery-pass.jpg",
+      "targets": [
+        {
+          "selector": "#worker-next",
+          "box": {
+            "x": 230.578125,
+            "y": 387.3125,
+            "width": 102.84375,
+            "height": 35.28125
+          },
+          "label": "1"
+        }
+      ],
+      "viewport": {
+        "width": 1440,
+        "height": 810
+      },
+      "scroll_y": 530,
+      "raw_sha256": "e67b5196a21f218fb02682038c967fdc64262500615f206ad2802bbfd9894dcf",
+      "sha256": "e698678aff04157afde1c1ff05c2e3da223389537c9ec4a98236b7ffc1378db5"
+    },
+    {
+      "key": "lab1-31-switch",
+      "title": "실습 1 (전자 조립): 스위치 동작 검사",
+      "action": "Agent 통과 신호 확인 후 다음 단계 선택",
+      "outcome": "3개 항목 충족 및 현재 단계 통과 기록",
+      "phase": "영상 검사",
+      "input": "Agent 통과 신호 확인 후 다음 단계 선택",
+      "process": "현재 실습 화면에서 입력·상태 반영",
+      "notes": "",
+      "section": "lab1",
+      "image": "slides/assets/current_v2/lab1/31-switch.jpg",
+      "targets": [
+        {
+          "selector": "#worker-next",
+          "box": {
+            "x": 230.578125,
+            "y": 646.3125,
+            "width": 102.84375,
+            "height": 35.28125
+          },
+          "label": "1"
+        }
+      ],
+      "viewport": {
+        "width": 1440,
+        "height": 810
+      },
+      "scroll_y": 271,
+      "raw_sha256": "75af247a2f1eb1e831185ac12f88727fa85404a739e21a09cccb1f6ee5890ca4",
+      "sha256": "19aa30a9ae16e764ea34d1372aad8a22099a73848bcf767660e4ae79616e015d"
+    },
+    {
+      "key": "lab1-32-final",
+      "title": "실습 1 (전자 조립): 최종 외관 검사",
+      "action": "검수 완료 · 결과 보기 선택",
+      "outcome": "3개 항목 충족 및 현재 단계 통과 기록",
+      "phase": "영상 검사",
+      "input": "검수 완료 · 결과 보기 선택",
+      "process": "현재 실습 화면에서 입력·상태 반영",
+      "notes": "",
+      "section": "lab1",
+      "image": "slides/assets/current_v2/lab1/32-final.jpg",
+      "targets": [
+        {
+          "selector": "#worker-next",
+          "box": {
+            "x": 230.578125,
+            "y": 646.3125,
+            "width": 136.359375,
+            "height": 35.28125
+          },
+          "label": "1"
+        }
+      ],
+      "viewport": {
+        "width": 1440,
+        "height": 810
+      },
+      "scroll_y": 271,
+      "raw_sha256": "29cb819c2396fe5f280deabb30b170653bfa79df62528666b585507c508869d0",
+      "sha256": "eab488878b2c42992a93ec45434135423cb8d20fb8419eed901066e403bc01f8"
+    },
+    {
+      "key": "lab1-33-review",
+      "title": "실습 1 (전자 조립): 전체 검수 결과",
+      "action": "작업 단계와 세부 검사 결과 확인",
+      "outcome": "6개 단계·18개 항목 결과와 작업자 답변 기록",
+      "phase": "결과 문서",
+      "input": "작업 단계와 세부 검사 결과 확인",
+      "process": "현재 실습 화면에서 입력·상태 반영",
+      "notes": "",
+      "section": "lab1",
+      "image": "slides/assets/current_v2/lab1/33-review.jpg",
+      "targets": [],
+      "viewport": {
+        "width": 1440,
+        "height": 810
+      },
+      "scroll_y": 0,
+      "raw_sha256": "7f9e19280692a8ca69e1a721962f5dfab5910f784a8bae519c2c7ab793375abe",
+      "sha256": "7369315059e56c355915013603a803ccb0ad62d2773e2ba7197237d5ba573a6b"
+    },
+    {
+      "key": "lab1-34-report-open",
+      "title": "실습 1 (전자 조립): 검수 보고서 생성",
+      "action": "검수 보고서 보기 선택",
+      "outcome": "사진·검사표·질문 이력의 보고서 구성",
+      "phase": "결과 문서",
+      "input": "검수 보고서 보기 선택",
+      "process": "현재 실습 화면에서 입력·상태 반영",
+      "notes": "",
+      "section": "lab1",
+      "image": "slides/assets/current_v2/lab1/34-report-open.jpg",
+      "targets": [
+        {
+          "selector": "#worker-open-report",
+          "box": {
+            "x": 347.609375,
+            "y": 317.28125,
+            "width": 119.65625,
+            "height": 36.40625
+          },
+          "label": "1"
+        }
+      ],
+      "viewport": {
+        "width": 1440,
+        "height": 810
+      },
+      "scroll_y": 0,
+      "raw_sha256": "7f9e19280692a8ca69e1a721962f5dfab5910f784a8bae519c2c7ab793375abe",
+      "sha256": "8f50b0a12c55e5b1a3af460e38defb04c4e60e2d59482a117c5a1f06701a879c"
+    },
+    {
+      "key": "lab1-35-report-preview",
+      "title": "실습 1 (전자 조립): 검수 보고서 미리보기",
+      "action": "검수 보고서 본문 확인",
+      "outcome": "작업자·공정·18개 항목의 표 중심 검수 기록",
+      "phase": "결과 문서",
+      "input": "검수 보고서 본문 확인",
+      "process": "현재 실습 화면에서 입력·상태 반영",
+      "notes": "",
+      "section": "lab1",
+      "image": "slides/assets/current_v2/lab1/35-report-preview.jpg",
+      "targets": [],
+      "viewport": {
+        "width": 1440,
+        "height": 810
+      },
+      "scroll_y": 398,
+      "raw_sha256": "1f4572c27e1a9e10520abfa8e05c7c6f2a036ce78f88ed8fbe6de8d530623714",
+      "sha256": "11ee5e8bee9a34bff01248520bb766ecd74e50811e2c83d932f6bab0824b8f90"
+    },
+    {
+      "key": "lab1-35b-report-questions",
+      "title": "실습 1 (전자 조립): 질문·답변의 검수 기록",
+      "action": "보고서에서 해당 항목과 증거 사진 확인",
+      "outcome": "영상 미확인과 작업자 확인의 출처 구분",
+      "phase": "결과 문서",
+      "input": "완료한 조립 검수 기록",
+      "process": "검사·질문·장면을 보고서 항목에 연결",
+      "notes": "같은 실제 UI 완료 기록을 가져와 보고서 상세 부분을 캡처. 새 모델 출력이나 별도 실험이 아님.",
+      "section": "lab1",
+      "image": "slides/assets/current_v2/lab1/35b-report-questions.jpg",
+      "targets": [],
+      "viewport": {
+        "width": 1440,
+        "height": 810
+      },
+      "sha256": "7342a23b29f7ef9f16e97e943807538b98ddcbde8b713b5ec06a7d3239330d91"
+    },
+    {
+      "key": "lab1-35c-report-evidence",
+      "title": "실습 1 (전자 조립): 공정별 증거 사진",
+      "action": "보고서에서 해당 항목과 증거 사진 확인",
+      "outcome": "6개 작업 단계의 장면·시각·검사 근거 보존",
+      "phase": "결과 문서",
+      "input": "완료한 조립 검수 기록",
+      "process": "검사·질문·장면을 보고서 항목에 연결",
+      "notes": "같은 실제 UI 완료 기록을 가져와 보고서 상세 부분을 캡처. 새 모델 출력이나 별도 실험이 아님.",
+      "section": "lab1",
+      "image": "slides/assets/current_v2/lab1/35c-report-evidence.jpg",
+      "targets": [],
+      "viewport": {
+        "width": 1440,
+        "height": 810
+      },
+      "sha256": "5bc1c28e7fd95c6c8cb2c476cb6e3a1cb9fbd66fd614d777a1ecea1940bdaa01"
+    },
+    {
+      "key": "lab1-36-report-save",
+      "title": "실습 1 (전자 조립): 검수 보고서 저장",
+      "action": "DOCX 또는 사진 포함 HTML 저장",
+      "outcome": "내 PC 저장과 문서 보관함에 기록",
+      "phase": "결과 문서",
+      "input": "DOCX 또는 사진 포함 HTML 저장",
+      "process": "현재 실습 화면에서 입력·상태 반영",
+      "notes": "",
+      "section": "lab1",
+      "image": "slides/assets/current_v2/lab1/36-report-save.jpg",
+      "targets": [
+        {
+          "selector": "#worker-docx",
+          "box": {
+            "x": 235.5,
+            "y": 247.109375,
+            "width": 159.1875,
+            "height": 36.40625
+          },
+          "label": "1"
+        },
+        {
+          "selector": "#worker-html",
+          "box": {
+            "x": 402.875,
+            "y": 247.109375,
+            "width": 147.90625,
+            "height": 36.40625
+          },
+          "label": "2"
+        }
+      ],
+      "viewport": {
+        "width": 1440,
+        "height": 810
+      },
+      "scroll_y": 0,
+      "raw_sha256": "292bdce2d0b1546ac57fe2f7fd90185a181d20c359c4e22f2f09344f6a18527c",
+      "sha256": "3e45ba65bd454dae0406e98ab4f49f562a861ae9a8b5eaf9cb5dd7f7093b1572"
+    },
+    {
+      "key": "lab1-37-policy-change",
+      "title": "실습 1 (전자 조립): 확인 근거 변경 · 선택 비교",
+      "action": "영상 근거만 인정 선택 후 기준 적용 · 재검토",
+      "outcome": "동일 기록을 변경된 증거 인정 기준으로 재판정",
+      "phase": "선택 비교",
+      "input": "영상 근거만 인정 선택 후 기준 적용 · 재검토",
+      "process": "현재 실습 화면에서 입력·상태 반영",
+      "notes": "",
+      "section": "lab1",
+      "image": "slides/assets/current_v2/lab1/37-policy-change.jpg",
+      "targets": [
+        {
+          "selector": "#worker-policy",
+          "box": {
+            "x": 235.5,
+            "y": 342.15625,
+            "width": 369,
+            "height": 34.375
+          },
+          "label": "1"
+        },
+        {
+          "selector": "#worker-apply-policy",
+          "box": {
+            "x": 235.5,
+            "y": 387.1875,
+            "width": 127.5,
+            "height": 36.40625
+          },
+          "label": "2"
+        }
+      ],
+      "viewport": {
+        "width": 1440,
+        "height": 810
+      },
+      "scroll_y": 937,
+      "raw_sha256": "883878dd1d70ff4aaeda4f68dab414e375902fd42ba644d9ac4048a300139d22",
+      "sha256": "974ad251fb29b9fa6b9f4bc76ae9f8927ea54242e5fc5079f1d0882db44d5962"
+    },
+    {
+      "key": "lab1-38-policy-hold",
+      "title": "실습 1 (전자 조립): 기준 변경 후 보류 · 선택 비교",
+      "action": "배터리 방향의 확인 필요 상태와 이전 기록 비교",
+      "outcome": "작업자 답변 보존 · 영상 근거 부족으로 완료 보류",
+      "phase": "선택 비교",
+      "input": "배터리 방향의 확인 필요 상태와 이전 기록 비교",
+      "process": "현재 실습 화면에서 입력·상태 반영",
+      "notes": "",
+      "section": "lab1",
+      "image": "slides/assets/current_v2/lab1/38-policy-hold.jpg",
+      "targets": [],
+      "viewport": {
+        "width": 1440,
+        "height": 810
+      },
+      "scroll_y": 0,
+      "raw_sha256": "477d34334cac52245edbf3dd46cafe5d85bfec82e0e6dcde4cf8b232432ffa97",
+      "sha256": "59e0c8c5d1a65d701b71ae7f27dfb54b316cba7f9db8dd4f31a35e8f781eb139"
+    },
+    {
+      "key": "lab2-01-select",
+      "title": "실습 2 (계측 검사): 실습 선택",
+      "action": "계측 판독 실습 시작 선택",
+      "outcome": "계측 제품과 검사 자료 화면으로 이동",
+      "notes": "",
+      "section": "lab2",
+      "image": "slides/assets/current_v2/lab2/lab2-01-select.jpg",
+      "viewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "scroll_y": 555,
+      "targets": [
+        {
+          "selector": "[data-select=\"measurement_input_demo\"]",
+          "label": "1",
+          "box": {
+            "x": 620.65625,
+            "y": 338.203125,
+            "width": 266.671875,
+            "height": 44.390625
+          },
+          "text": "이 실습 시작",
+          "click": true
+        }
+      ],
+      "raw_sha256": "51befc2de3b0906e981acde195867401d831417920656af9388f44fda433f695",
+      "sha256": "9e95390157753446113d78254d078e180d371ee03fe0367897b77db350ae7383",
+      "phase": "제품·자료",
+      "input": "실습 목록",
+      "process": "계측 실습 열기",
+      "output": "계측 제품과 검사 자료 화면으로 이동",
+      "optional": false
+    },
+    {
+      "key": "lab2-02-product",
+      "title": "실습 2 (계측 검사): 검사 제품 선택",
+      "action": "표준형 플랜지 부시 선택",
+      "outcome": "BSH-2630에 맞는 도면·검사 기준 연결",
+      "notes": "",
+      "section": "lab2",
+      "image": "slides/assets/current_v2/lab2/lab2-02-product.jpg",
+      "viewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "scroll_y": 99,
+      "targets": [
+        {
+          "selector": "[data-product-scenario=\"measurement_input_demo\"]",
+          "label": "1",
+          "box": {
+            "x": 287,
+            "y": 307.703125,
+            "width": 460,
+            "height": 108.875
+          },
+          "text": "BSH-2630\n표준형 플랜지 부시\n먼저 시작하기 · 기본 허용 범위",
+          "click": true
+        }
+      ],
+      "raw_sha256": "c9d50d087ce2654250cc9cf6fc5f5355c1cdfb99f6fe7d54593a1e9e2fd09857",
+      "sha256": "9c68988b310624f4f266945f2481b61af796ecf4c86709ab8afac7be74812a5b",
+      "phase": "제품·자료",
+      "input": "제품 코드 BSH-2630",
+      "process": "제품별 도면·기준 조회",
+      "output": "BSH-2630에 맞는 도면·검사 기준 연결",
+      "optional": false
+    },
+    {
+      "key": "lab2-03-drawing",
+      "title": "실습 2 (계측 검사): 도면과 검사 위치",
+      "action": "도면의 A·B·C 위치 확인",
+      "outcome": "A 외경 · B 길이 · C 두께 구분",
+      "notes": "",
+      "section": "lab2",
+      "image": "slides/assets/current_v2/lab2/lab2-03-drawing.jpg",
+      "viewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "scroll_y": 639,
+      "targets": [
+        {
+          "selector": ".inspection-drawing",
+          "label": "1",
+          "box": {
+            "x": 697.59375,
+            "y": 185.609375,
+            "width": 522.40625,
+            "height": 348.265625
+          },
+          "text": "",
+          "click": false
+        }
+      ],
+      "raw_sha256": "de9ada0c9dd96b0afbee98265db00e74e757583a92535c97c815135d98f9bf51",
+      "sha256": "15644aede43a10c1e9375efde6902084b46a77cab39024609ed7012590f5f685",
+      "phase": "제품·자료",
+      "input": "제품 도면 DR-BSH-2630",
+      "process": "측정 위치와 허용 범위 대조",
+      "output": "A 외경 · B 길이 · C 두께 구분",
+      "optional": false
+    },
+    {
+      "key": "lab2-04-compile",
+      "title": "실습 2 (계측 검사): 검사 기준 구축",
+      "action": "검사 기준 불러오기 · 정보 구축 선택",
+      "outcome": "PDF 텍스트 추출과 검사 기준 DB 구성",
+      "notes": "",
+      "section": "lab2",
+      "image": "slides/assets/current_v2/lab2/lab2-04-compile.jpg",
+      "viewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "scroll_y": 1524,
+      "targets": [
+        {
+          "selector": "#compile",
+          "label": "1",
+          "box": {
+            "x": 287,
+            "y": 343.078125,
+            "width": 238.15625,
+            "height": 44.390625
+          },
+          "text": "검사 기준 불러오기 · 정보 구축",
+          "click": true
+        }
+      ],
+      "raw_sha256": "5d53685b56b599c09875782d2020c9f63226c4a04a32bda58c013ae4df4bc2da",
+      "sha256": "ec99f47ebd5468220fd0fcdead7aac6482b648c9d66e6a9d58b942dcccf8d215",
+      "phase": "제품·자료",
+      "input": "작업 문서 PDF · 검사 기준 CSV",
+      "process": "PDF 추출·CSV 검증·SQLite 저장",
+      "output": "PDF 텍스트 추출과 검사 기준 DB 구성",
+      "optional": false
+    },
+    {
+      "key": "lab2-05-compiled",
+      "title": "실습 2 (계측 검사): 구축 결과 확인",
+      "action": "검사 시작 준비 선택",
+      "outcome": "제품별 검사 기준을 고정하고 작업 설정으로 이동",
+      "notes": "",
+      "section": "lab2",
+      "image": "slides/assets/current_v2/lab2/lab2-05-compiled.jpg",
+      "viewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "scroll_y": 1524,
+      "targets": [
+        {
+          "selector": "#next-setup",
+          "label": "1",
+          "box": {
+            "x": 861.625,
+            "y": 441.8125,
+            "width": 131.28125,
+            "height": 44.390625
+          },
+          "text": "검사 시작 준비",
+          "click": true
+        }
+      ],
+      "raw_sha256": "71f46826c1fa3a5519bd185a398380cbc5f16a4438be2d63866d3025fd40b5d8",
+      "sha256": "24e2c02ef4704af4f28ef20fa03ebd160136b4a4f06179d89f0c561f52b94515",
+      "phase": "제품·자료",
+      "input": "추출 문서와 검사 항목 3개",
+      "process": "제품·도면·검사 기준 연결",
+      "output": "제품별 검사 기준을 고정하고 작업 설정으로 이동",
+      "optional": false
+    },
+    {
+      "key": "lab2-06-identity",
+      "title": "실습 2 (계측 검사): 검사자와 LOT 입력",
+      "action": "검사자 이름과 LOT 입력",
+      "outcome": "검수조서에 검사자·대상 생산 묶음 기록",
+      "notes": "",
+      "section": "lab2",
+      "image": "slides/assets/current_v2/lab2/lab2-06-identity.jpg",
+      "viewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "scroll_y": 523,
+      "targets": [
+        {
+          "selector": "#inspection-inspector",
+          "label": "1",
+          "box": {
+            "x": 861.625,
+            "y": 338.71875,
+            "width": 179,
+            "height": 42
+          },
+          "text": "김민수",
+          "click": true
+        },
+        {
+          "selector": "#inspection-lot",
+          "label": "2",
+          "box": {
+            "x": 1046.3125,
+            "y": 338.71875,
+            "width": 179,
+            "height": 42
+          },
+          "text": "CLASS-LOT-01",
+          "click": true
+        }
+      ],
+      "raw_sha256": "7f257069cdcbff5dc8859a95a63407da3b2c9e9a1af31a21e698f350d9888ee3",
+      "sha256": "5a3882438ab28a6b6a93e8f1698b0c36735cad7381fcb9a8a4fbbf3412f4e7a7",
+      "phase": "검사 시작",
+      "input": "김민수 · CLASS-LOT-01",
+      "process": "검사 대상과 기록 책임 연결",
+      "output": "검수조서에 검사자·대상 생산 묶음 기록",
+      "optional": false
+    },
+    {
+      "key": "lab2-07-start",
+      "title": "실습 2 (계측 검사): 측정 기록 시작",
+      "action": "측정 기록 시작 선택",
+      "outcome": "A 외경 측정 장면으로 이동",
+      "notes": "",
+      "section": "lab2",
+      "image": "slides/assets/current_v2/lab2/lab2-07-start.jpg",
+      "viewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "scroll_y": 622,
+      "targets": [
+        {
+          "selector": "#start-session",
+          "label": "1",
+          "box": {
+            "x": 861.625,
+            "y": 476.875,
+            "width": 131.28125,
+            "height": 44.390625
+          },
+          "text": "측정 기록 시작",
+          "click": true
+        }
+      ],
+      "raw_sha256": "33091c9dfd71064ef9108a793df89dac932a9ce3a95f91f604ad99e96e8b2664",
+      "sha256": "a0361bf1219c5130ad44713ed61efe6408dc6ae4637e5400a25010091d57dce6",
+      "phase": "검사 시작",
+      "input": "제품·도면·검사자·LOT",
+      "process": "현재 검사 세션 생성",
+      "output": "A 외경 측정 장면으로 이동",
+      "optional": false
+    },
+    {
+      "key": "lab2-08-a-scene",
+      "title": "실습 2 (계측 검사): A 외경 장면",
+      "action": "장면과 도면의 A 위치 대조",
+      "outcome": "측정 대상과 장비 표시 확인",
+      "notes": "AI 생성 이미지 기반 스마트 글래스 시점 모의 영상과 자체 제작 수치 도해입니다. 실제 촬영 또는 OCR 모델 판독이 아닙니다. 재생 없이도 입력 가능.",
+      "section": "lab2",
+      "image": "slides/assets/current_v2/lab2/lab2-08-a-scene.jpg",
+      "viewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "scroll_y": 316,
+      "targets": [],
+      "raw_sha256": "d02c440b241aef7cc31220e6bf94d24828cd25af8480eddba0f91693a24cfb19",
+      "sha256": "3706e649cced229b13685021e07032041a6f1ff9c265264d9a4695d899142b6c",
+      "phase": "측정·확인",
+      "input": "디지털 캘리퍼스 장면",
+      "process": "도면 A 외경과 장면 연결",
+      "output": "측정 대상과 장비 표시 확인",
+      "optional": false
+    },
+    {
+      "key": "lab2-09-a-input",
+      "title": "실습 2 (계측 검사): A 외경 직접 입력",
+      "action": "26.30과 mm 입력 후 A 측정값 기록 선택",
+      "outcome": "A 외경 26.30 mm 기록 및 범위 판정",
+      "notes": "",
+      "section": "lab2",
+      "image": "slides/assets/current_v2/lab2/lab2-09-a-input.jpg",
+      "viewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "scroll_y": 874,
+      "targets": [
+        {
+          "selector": "#measurement-value",
+          "label": "1",
+          "box": {
+            "x": 842.546875,
+            "y": 298.796875,
+            "width": 257.4375,
+            "height": 42
+          },
+          "text": "26.30",
+          "click": true
+        },
+        {
+          "selector": "#measurement-entry [type=\"submit\"]",
+          "label": "2",
+          "box": {
+            "x": 842.546875,
+            "y": 353.796875,
+            "width": 126.75,
+            "height": 44.390625
+          },
+          "text": "A 측정값 기록",
+          "click": true
+        }
+      ],
+      "raw_sha256": "fedfd004277b93b36a3d8e59ae2aa80d8c34704988173cb53228a5f3141d58e0",
+      "sha256": "050a560a0469b3344635af38322bef7597d761f6b1e903bb17e49206c6254c17",
+      "phase": "측정·확인",
+      "input": "26.30 mm · 허용 범위 26.10–26.50 mm",
+      "process": "단위·숫자 검증 후 범위 비교",
+      "output": "A 외경 26.30 mm 기록 및 범위 판정",
+      "optional": false
+    },
+    {
+      "key": "lab2-10-a-recorded",
+      "title": "실습 2 (계측 검사): A 기록과 다음 위치",
+      "action": "A 결과 확인 후 B 측정 장면으로 선택",
+      "outcome": "A 기록 보존 · B 길이 장면으로 이동",
+      "notes": "",
+      "section": "lab2",
+      "image": "slides/assets/current_v2/lab2/lab2-10-a-recorded.jpg",
+      "viewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "scroll_y": 1153,
+      "targets": [
+        {
+          "selector": "#measurement-next-scene",
+          "label": "1",
+          "box": {
+            "x": 823.546875,
+            "y": 337.921875,
+            "width": 142.140625,
+            "height": 44.390625
+          },
+          "text": "B 측정 장면으로",
+          "click": true
+        }
+      ],
+      "raw_sha256": "2881c9cb2e98953d7db2ba4292014bf76aa2e55c639a705418551c5908cf375a",
+      "sha256": "f882fbb20686839e34275b2449966003c4e7ce0cf589bb83824458a40ba5ba88",
+      "phase": "측정·확인",
+      "input": "A 26.30 mm 확인값",
+      "process": "도면 위치별 기록과 다음 장면 연결",
+      "output": "A 기록 보존 · B 길이 장면으로 이동",
+      "optional": false
+    },
+    {
+      "key": "lab2-10b-b-scene",
+      "title": "실습 2 (계측 검사): B 길이 측정 장면",
+      "action": "모의 영상과 입력용 수치 도해 확인",
+      "outcome": "B 길이 장면·40.02 mm 예시 표시 대조",
+      "notes": "AI 생성 이미지 기반 스마트 글래스 시점 모의 영상입니다. 실제 작업 촬영 또는 OCR 판독 결과가 아닙니다. 재생 없이도 입력 가능.",
+      "section": "lab2",
+      "image": "slides/assets/current_v2/lab2/lab2-10b-b-scene.jpg",
+      "viewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "scroll_y": 316,
+      "targets": [],
+      "raw_sha256": "9c1571ac58670cd880b41b9e7a4cc70636d90c1bcce99db6afae1af4e7cba159",
+      "sha256": "44e096cef9835823cfea5a1018f014b676fcd6b050bcc9dc3be2b86533b4c31e",
+      "phase": "측정·확인",
+      "input": "B 디지털 하이트 게이지 모의 영상",
+      "process": "생성 영상은 참고 · 직접 입력값과 규격으로 판정",
+      "output": "B 길이 장면·40.02 mm 예시 표시 대조",
+      "optional": false
+    },
+    {
+      "key": "lab2-11-b-input",
+      "title": "실습 2 (계측 검사): B 길이 직접 입력",
+      "action": "40.02와 mm 입력 후 B 측정값 기록 선택",
+      "outcome": "B 길이 40.02 mm 기록 및 범위 판정",
+      "notes": "",
+      "section": "lab2",
+      "image": "slides/assets/current_v2/lab2/lab2-11-b-input.jpg",
+      "viewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "scroll_y": 876,
+      "targets": [
+        {
+          "selector": "#measurement-value",
+          "label": "1",
+          "box": {
+            "x": 842.546875,
+            "y": 298.796875,
+            "width": 257.4375,
+            "height": 42
+          },
+          "text": "40.02",
+          "click": true
+        },
+        {
+          "selector": "#measurement-entry [type=\"submit\"]",
+          "label": "2",
+          "box": {
+            "x": 842.546875,
+            "y": 353.796875,
+            "width": 127.421875,
+            "height": 44.390625
+          },
+          "text": "B 측정값 기록",
+          "click": true
+        }
+      ],
+      "raw_sha256": "d00a7726426b35aee0de0e80ed1d688aa23d4c57a3c01e8fff0ca49b0e6f1bb2",
+      "sha256": "0db3ebec597c319e8c6104290c0baf9a23a2189346cf690243d84ae864cf7582",
+      "phase": "측정·확인",
+      "input": "40.02 mm · 허용 범위 39.90–40.10 mm",
+      "process": "측정값 입력·검증·판정",
+      "output": "B 길이 40.02 mm 기록 및 범위 판정",
+      "optional": false
+    },
+    {
+      "key": "lab2-11b-c-scene",
+      "title": "실습 2 (계측 검사): C 두께의 불명확한 표시",
+      "action": "모의 영상과 가려진 수치 도해 대조",
+      "outcome": "확정할 수 없는 C값을 작업자에게 질문",
+      "notes": "사진의 숫자를 정답으로 사용하지 않습니다. 기존 수치 도해의 5.?8 mm를 원시 표시로 보존합니다.",
+      "section": "lab2",
+      "image": "slides/assets/current_v2/lab2/lab2-11b-c-scene.jpg",
+      "viewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "scroll_y": 316,
+      "targets": [],
+      "raw_sha256": "95d1df45c4bde21feb4f46e4ad406b602462b996c715c6b49ef6bfd9d1fb23d4",
+      "sha256": "95d1df45c4bde21feb4f46e4ad406b602462b996c715c6b49ef6bfd9d1fb23d4",
+      "phase": "측정·확인",
+      "input": "C 마이크로미터 모의 영상 · 5.?8 mm",
+      "process": "숫자 추정 대신 확인 질문",
+      "output": "확정할 수 없는 C값을 작업자에게 질문",
+      "optional": false
+    },
+    {
+      "key": "lab2-12-c-uncertain",
+      "title": "실습 2 (계측 검사): 가려진 C 두께 표시",
+      "action": "가려진 표시 확인 · Agent 질문 선택",
+      "outcome": "5.?8 mm를 임의 확정하지 않고 질문 생성",
+      "notes": "",
+      "section": "lab2",
+      "image": "slides/assets/current_v2/lab2/lab2-12-c-uncertain.jpg",
+      "viewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "scroll_y": 775,
+      "targets": [
+        {
+          "selector": "#advance",
+          "label": "1",
+          "box": {
+            "x": 823.546875,
+            "y": 337.796875,
+            "width": 239.296875,
+            "height": 44.390625
+          },
+          "text": "가려진 표시 확인 · Agent 질문",
+          "click": true
+        }
+      ],
+      "raw_sha256": "945019fa48f66f1c29e108cc389cb57fc90f0356b2e15aeba451143b222b253c",
+      "sha256": "4873f1fac9217d2ce3d7a753516eb4d67c7a546abdd1d4b997c319825629d0b5",
+      "phase": "측정·확인",
+      "input": "C 두께 표시 5.?8 mm",
+      "process": "불확실한 원문 보존·확인 질문 준비",
+      "output": "5.?8 mm를 임의 확정하지 않고 질문 생성",
+      "optional": false
+    },
+    {
+      "key": "lab2-13-deliver",
+      "title": "실습 2 (계측 검사): 작업자 확인 요청",
+      "action": "질문 확인 선택",
+      "outcome": "C 두께 확인값 입력란 활성화",
+      "notes": "음성이 가능한 브라우저에서는 음성 안내를 사용할 수 있습니다. 강의 진행은 화면의 질문 확인으로도 동일합니다.",
+      "section": "lab2",
+      "image": "slides/assets/current_v2/lab2/lab2-13-deliver.jpg",
+      "viewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "scroll_y": 1097,
+      "targets": [
+        {
+          "selector": "#questions .deliver",
+          "label": "1",
+          "box": {
+            "x": 841.546875,
+            "y": 342.53125,
+            "width": 73.390625,
+            "height": 35.46875
+          },
+          "text": "질문 확인",
+          "click": true
+        }
+      ],
+      "raw_sha256": "ebfe996fc8d80136ce36215b38bccceac6a50b162df5843a70d8e1eec901399d",
+      "sha256": "f776a8fbc348d62869e31d3d4a6e254c2129ab6e625a4d8ba2eca46dafb9e2ed",
+      "phase": "질문·답변",
+      "input": "C 두께의 가려진 숫자",
+      "process": "작업자 확인 요청과 전달 기록",
+      "output": "C 두께 확인값 입력란 활성화",
+      "optional": false
+    },
+    {
+      "key": "lab2-14-c-answer",
+      "title": "실습 2 (계측 검사): 확인값과 단위 입력",
+      "action": "확인값 5.78 · 단위 mm 입력 후 확인값 기록",
+      "outcome": "최초 표시와 작업자 확인값을 구분해 저장",
+      "notes": "",
+      "section": "lab2",
+      "image": "slides/assets/current_v2/lab2/lab2-14-c-answer.jpg",
+      "viewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "scroll_y": 1276,
+      "targets": [
+        {
+          "selector": ".answer-form [name=\"value\"]",
+          "label": "1",
+          "box": {
+            "x": 841.546875,
+            "y": 240,
+            "width": 270.4375,
+            "height": 42
+          },
+          "text": "5.78",
+          "click": true
+        },
+        {
+          "selector": ".answer-form [type=\"submit\"]",
+          "label": "2",
+          "box": {
+            "x": 841.546875,
+            "y": 425,
+            "width": 84.859375,
+            "height": 35.46875
+          },
+          "text": "확인값 기록",
+          "click": true
+        }
+      ],
+      "raw_sha256": "9c00003c61ff2e96cd8c76a54935a0d01fdc50fa9e8205ce27c20d425ded3ac4",
+      "sha256": "980978ecea884f60e34c99c46bd66c5a1524feb7b7f6e9823c41e8be81350a82",
+      "phase": "질문·답변",
+      "input": "5.?8 mm 원문 · 작업자 확인 5.78 mm",
+      "process": "답변 검증·이력 저장·범위 판정",
+      "output": "최초 표시와 작업자 확인값을 구분해 저장",
+      "optional": false
+    },
+    {
+      "key": "lab2-15-c-complete",
+      "title": "실습 2 (계측 검사): 측정 결과 검토",
+      "action": "검수조서 만들기 선택",
+      "outcome": "세 위치의 기록과 판정 검토 화면으로 이동",
+      "notes": "",
+      "section": "lab2",
+      "image": "slides/assets/current_v2/lab2/lab2-15-c-complete.jpg",
+      "viewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "scroll_y": 0,
+      "targets": [
+        {
+          "selector": "#to-review",
+          "label": "1",
+          "box": {
+            "x": 1114.71875,
+            "y": 185.078125,
+            "width": 131.28125,
+            "height": 44.390625
+          },
+          "text": "전체 검사 결과",
+          "click": true
+        }
+      ],
+      "raw_sha256": "86e8a3a3f2af7fac5ca8a3daf2c920f7e7bc3d348cc5aabe6bc3b271544cc77c",
+      "sha256": "fcb074b4e551c518ce1ac54e9ed4ba661d06736b0de2ea1747ad71588fef129e",
+      "phase": "결과·문서",
+      "input": "A 26.30 · B 40.02 · C 5.78 mm",
+      "process": "검사 항목별 완료와 남은 확인 사항 집계",
+      "output": "세 위치의 기록과 판정 검토 화면으로 이동",
+      "optional": false
+    },
+    {
+      "key": "lab2-16-review",
+      "title": "실습 2 (계측 검사): 세 위치의 검사 결과",
+      "action": "측정값·허용 범위·기록 출처 대조",
+      "outcome": "표준형 세 항목 충족 확인",
+      "notes": "",
+      "section": "lab2",
+      "image": "slides/assets/current_v2/lab2/lab2-16-review.jpg",
+      "viewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "scroll_y": 354,
+      "targets": [
+        {
+          "selector": ".measurement-table",
+          "label": "1",
+          "box": {
+            "x": 287,
+            "y": 227.859375,
+            "width": 934,
+            "height": 264.3125
+          },
+          "text": "검사 위치\t허용 범위\t기록값\t판정\t기록 출처\nA · 플랜지 외경\n디지털 캘리퍼스\n\t26.10–26.50 mm\n도면 기준\n\t26.30 mm\n최초 후보: 26.30 mm\n\t충족\t작업자 확인\n확인값 26.30 mm\n\nB · 전체 길이\n디지털 하이트 게이지\n\t39.90–40.",
+          "click": false
+        }
+      ],
+      "raw_sha256": "af4aa2bcc72395a0b1e25763a543a8ae482543d7e9386e2e5a8e4f96f2eef916",
+      "sha256": "7fc25b78ca1f02de0d2e8a7fa1e76e048f36515f3e80bba118fa8efb7ec051e6",
+      "phase": "결과·문서",
+      "input": "위치별 확인값과 적용 기준",
+      "process": "판정 및 작업자 확인 출처 표시",
+      "output": "표준형 세 항목 충족 확인",
+      "optional": false
+    },
+    {
+      "key": "lab2-17-generate",
+      "title": "실습 2 (계측 검사): 검수조서 생성",
+      "action": "검수조서 만들기 선택",
+      "outcome": "현재 검사 기록으로 보고서 미리보기 생성",
+      "notes": "",
+      "section": "lab2",
+      "image": "slides/assets/current_v2/lab2/lab2-17-generate.jpg",
+      "viewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "scroll_y": 605,
+      "targets": [
+        {
+          "selector": "#go-report",
+          "label": "1",
+          "box": {
+            "x": 287,
+            "y": 337.375,
+            "width": 141.53125,
+            "height": 44.390625
+          },
+          "text": "검수조서 만들기",
+          "click": true
+        }
+      ],
+      "raw_sha256": "49adf13e35f11bb0f393dd870a32b689015a9fce1e327e70c965d92123b4b9b0",
+      "sha256": "635eaf94c2107f5f8ba720383a70f67032f7c5a8637f33d0b897adc9f892148e",
+      "phase": "결과·문서",
+      "input": "최종 검사표·도면·질문 이력",
+      "process": "하나의 검사 기록에서 문서 구성",
+      "output": "현재 검사 기록으로 보고서 미리보기 생성",
+      "optional": false
+    },
+    {
+      "key": "lab2-18-report",
+      "title": "실습 2 (계측 검사): 보고서와 검수조서 저장",
+      "action": "검수조서 저장 또는 도면 포함 HTML 저장 선택",
+      "outcome": "도면·검사표·답변 이력을 담은 파일 저장",
+      "notes": "",
+      "section": "lab2",
+      "image": "slides/assets/current_v2/lab2/lab2-18-report.jpg",
+      "viewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "scroll_y": 0,
+      "targets": [
+        {
+          "selector": "#inspection-html",
+          "label": "1",
+          "box": {
+            "x": 477.5,
+            "y": 281.46875,
+            "width": 126.8125,
+            "height": 44.390625
+          },
+          "text": "검수조서 저장",
+          "click": true
+        },
+        {
+          "selector": "#report-html",
+          "label": "2",
+          "box": {
+            "x": 287,
+            "y": 281.46875,
+            "width": 180.5,
+            "height": 44.390625
+          },
+          "text": "도면 포함 HTML 저장",
+          "click": true
+        }
+      ],
+      "raw_sha256": "0dfcd5e7f77886a806f9490c03de1926ee762a4d6b841ee2b5498fefb25ec533",
+      "sha256": "62065778b86f15e8acc1235cf85e42653f52b6647e742951740929c115cc8c84",
+      "phase": "결과·문서",
+      "input": "현재 기준·측정값·작업자 답변",
+      "process": "그림과 기록을 포함한 독립 HTML 생성",
+      "output": "도면·검사표·답변 이력을 담은 파일 저장",
+      "optional": false
+    },
+    {
+      "key": "lab2-19-data",
+      "title": "실습 2 (계측 검사): 구조화된 검사 기록",
+      "action": "검사 CSV · 실행 JSON · SQLite DB 선택",
+      "outcome": "표 형식 결과와 진행 복원용 기록 저장",
+      "notes": "HTML·검수조서는 제출용, JSON은 실습 진행 복원용입니다.",
+      "section": "lab2",
+      "image": "slides/assets/current_v2/lab2/lab2-19-data.jpg",
+      "viewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "scroll_y": 0,
+      "targets": [
+        {
+          "selector": "#export-csv",
+          "label": "1",
+          "box": {
+            "x": 768.125,
+            "y": 281.8125,
+            "width": 91.90625,
+            "height": 43.703125
+          },
+          "text": "검사 CSV",
+          "click": true
+        },
+        {
+          "selector": "#export-json",
+          "label": "2",
+          "box": {
+            "x": 870.03125,
+            "y": 281.8125,
+            "width": 103.78125,
+            "height": 43.703125
+          },
+          "text": "실행 JSON",
+          "click": true
+        },
+        {
+          "selector": "#export-db",
+          "label": "3",
+          "box": {
+            "x": 983.8125,
+            "y": 281.8125,
+            "width": 104.90625,
+            "height": 43.703125
+          },
+          "text": "SQLite DB",
+          "click": true
+        }
+      ],
+      "raw_sha256": "5176bbb71294709bc773f7fa591e50663b15999b9f106e704926a9c3c85886c7",
+      "sha256": "a78cc5a5492229c167b3c6af698960fe5690ba9085571d7c6ef6460f6bb5aa70",
+      "phase": "결과·문서",
+      "input": "동일한 검사 세션",
+      "process": "필요한 파일 형식으로 내보내기",
+      "output": "표 형식 결과와 진행 복원용 기록 저장",
+      "optional": false
+    },
+    {
+      "key": "lab2-optional20-range-fail",
+      "title": "실습 2 (계측 검사): 선택 비교 · 범위 초과",
+      "action": "A 외경 26.60 mm의 결과 비교",
+      "outcome": "A 불일치 · 나머지 측정 기록 보존",
+      "notes": "추가 절차가 필요한 필수 실습이 아닙니다. 강사 시연 또는 조기 완료자 비교입니다.",
+      "section": "lab2",
+      "image": "slides/assets/current_v2/lab2/lab2-optional20-range-fail.jpg",
+      "viewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "scroll_y": 354,
+      "targets": [
+        {
+          "selector": ".measurement-table",
+          "label": "1",
+          "box": {
+            "x": 287,
+            "y": 227.859375,
+            "width": 934,
+            "height": 264.3125
+          },
+          "text": "검사 위치\t허용 범위\t기록값\t판정\t기록 출처\nA · 플랜지 외경\n디지털 캘리퍼스\n\t26.10–26.50 mm\n도면 기준\n\t26.60 mm\n최초 후보: 26.30 mm\n\t불일치\t작업자 확인\n확인값 26.60 mm\n\nB · 전체 길이\n디지털 하이트 게이지\n\t39.90–40",
+          "click": false
+        }
+      ],
+      "raw_sha256": "f5d5aea4bb7ee68975243f74d2f53cef15738c76b76e7e17bf60917a726114bf",
+      "sha256": "a492531baa74a2347897e05fb712a610e5ace445446c4718ccd9ad3be7d8d6fb",
+      "phase": "선택 비교",
+      "input": "A 확인값 26.60 mm",
+      "process": "26.10–26.50 mm와 비교",
+      "output": "A 불일치 · 나머지 측정 기록 보존",
+      "optional": true
+    },
+    {
+      "key": "lab2-optional21-history",
+      "title": "실습 2 (계측 검사): 선택 비교 · 확인값 수정 이력",
+      "action": "A의 이전 값과 현재 값 비교",
+      "outcome": "26.60 → 26.30 수정과 현재 충족 판정 보존",
+      "notes": "",
+      "section": "lab2",
+      "image": "slides/assets/current_v2/lab2/lab2-optional21-history.jpg",
+      "viewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "scroll_y": 1198,
+      "targets": [
+        {
+          "selector": ".reopen-answer[data-id=\"M-OD\"]",
+          "label": "1",
+          "box": {
+            "x": 798,
+            "y": 391.421875,
+            "width": 147.453125,
+            "height": 43.703125
+          },
+          "text": "A 확인값 다시 입력",
+          "click": true
+        }
+      ],
+      "raw_sha256": "ead84adfe8ee6e07888d23ba2d1efdf78088081cf32ad7d17fa36d0eac9e3f8e",
+      "sha256": "78f13a348791f6390c72a5780d197ed6615456d79b65ad5e8a2e3bd22617c663",
+      "phase": "선택 비교",
+      "input": "최초·이전·현재 작업자 확인값",
+      "process": "덮어쓰기 대신 답변 이력 추가",
+      "output": "26.60 → 26.30 수정과 현재 충족 판정 보존",
+      "optional": true
+    },
+    {
+      "key": "lab2-optional22-decimal",
+      "title": "실습 2 (계측 검사): 선택 비교 · 소수점 확인",
+      "action": "578 mm 입력의 판정 확인",
+      "outcome": "소수점 자동 보정 없이 범위 불일치",
+      "notes": "정상 범위에 맞춰 578을 5.78로 바꾸지 않습니다. 원문과 작업자 재확인이 별개로 보존됩니다.",
+      "section": "lab2",
+      "image": "slides/assets/current_v2/lab2/lab2-optional22-decimal.jpg",
+      "viewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "scroll_y": 354,
+      "targets": [
+        {
+          "selector": ".measurement-table",
+          "label": "1",
+          "box": {
+            "x": 287,
+            "y": 227.859375,
+            "width": 934,
+            "height": 264.3125
+          },
+          "text": "검사 위치\t허용 범위\t기록값\t판정\t기록 출처\nA · 플랜지 외경\n디지털 캘리퍼스\n\t26.10–26.50 mm\n도면 기준\n\t26.30 mm\n최초 후보: 26.30 mm\n\t충족\t작업자 확인\n확인값 26.30 mm\n\nB · 전체 길이\n디지털 하이트 게이지\n\t39.90–40.",
+          "click": false
+        }
+      ],
+      "raw_sha256": "86430200c072107a1324981c1f331cbdbdb6cd16e1b093ea9aeccef9ef2deb02",
+      "sha256": "9a1b2c95d55944f4067dc7d756e7e1d4529df86ed6c566b81bfb1e916e678898",
+      "phase": "선택 비교",
+      "input": "입력값 578 mm",
+      "process": "입력값 그대로 단위·범위 대조",
+      "output": "소수점 자동 보정 없이 범위 불일치",
+      "optional": true
+    },
+    {
+      "key": "lab2-optional23-criteria",
+      "title": "실습 2 (계측 검사): 선택 비교 · 검사 기준 변경",
+      "action": "A 상한을 26.25로 변경 후 새 기준 적용",
+      "outcome": "측정값을 유지한 상태로 새 기준 재판정",
+      "notes": "",
+      "section": "lab2",
+      "image": "slides/assets/current_v2/lab2/lab2-optional23-criteria.jpg",
+      "viewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "scroll_y": 891,
+      "targets": [
+        {
+          "selector": ".range-form[data-id=\"M-OD\"] [name=\"upper\"]",
+          "label": "1",
+          "box": {
+            "x": 444.21875,
+            "y": 374.09375,
+            "width": 179,
+            "height": 42
+          },
+          "text": "26.25",
+          "click": true
+        },
+        {
+          "selector": ".range-form[data-id=\"M-OD\"] [type=\"submit\"]",
+          "label": "2",
+          "box": {
+            "x": 601.4375,
+            "y": 384.703125,
+            "width": 116.5625,
+            "height": 44.390625
+          },
+          "text": "새 기준 적용",
+          "click": true
+        }
+      ],
+      "raw_sha256": "f85d4b5a7b2a281eed689517e75d8d9dea499f747de8582935b1d63bc75d446e",
+      "sha256": "912ac5e6c08857fe2793910f10c963b860e518a86fb97920fcbc86ac43c27e35",
+      "phase": "선택 비교",
+      "input": "동일한 확인값 26.30 mm · 상한 26.25 mm",
+      "process": "적용 기준 버전 변경과 재계산",
+      "output": "측정값을 유지한 상태로 새 기준 재판정",
+      "optional": true
+    },
+    {
+      "key": "lab2-optional24-rejudged",
+      "title": "실습 2 (계측 검사): 선택 비교 · 같은 값의 다른 판정",
+      "action": "A 결과와 새 허용 범위 확인",
+      "outcome": "26.30 mm 유지 · 새 기준에서 불일치",
+      "notes": "",
+      "section": "lab2",
+      "image": "slides/assets/current_v2/lab2/lab2-optional24-rejudged.jpg",
+      "viewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "scroll_y": 361,
+      "targets": [
+        {
+          "selector": ".measurement-table",
+          "label": "1",
+          "box": {
+            "x": 287,
+            "y": 220.859375,
+            "width": 934,
+            "height": 278.421875
+          },
+          "text": "검사 위치\t허용 범위\t기록값\t판정\t기록 출처\nA · 플랜지 외경\n디지털 캘리퍼스\n\t26.10–26.25 mm\n변경된 실습 기준\n도면 26.10–26.50 mm\n\t26.30 mm\n최초 후보: 26.30 mm\n\t불일치\t작업자 확인\n확인값 26.30 mm\n\nB · 전체 길이",
+          "click": false
+        }
+      ],
+      "raw_sha256": "5a579967f0adf6653bf8af43efbcc57be02f6a6b239cd98bdaf203c06ee42fec",
+      "sha256": "7c044387700ac55dd2321c279c404ca375879fcc84156aa2dbc8d53e45dde340",
+      "phase": "선택 비교",
+      "input": "26.30 mm · 새 허용 범위 26.10–26.25 mm",
+      "process": "원기록 유지·현재 기준 대조",
+      "output": "26.30 mm 유지 · 새 기준에서 불일치",
+      "optional": true
+    },
+    {
+      "key": "lab2-precision-optional25-precision",
+      "title": "실습 2 (계측 검사): 선택 비교 · 정밀형 제품",
+      "action": "정밀형 플랜지 부시 선택",
+      "outcome": "정밀형 도면과 좁은 허용 범위 호출",
+      "notes": "",
+      "section": "lab2-precision",
+      "image": "slides/assets/current_v2/lab2/lab2-precision-optional25-precision.jpg",
+      "viewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "scroll_y": 196,
+      "targets": [
+        {
+          "selector": "[data-product-scenario=\"measurement_input_precision_demo\"]",
+          "label": "1",
+          "box": {
+            "x": 761,
+            "y": 210.703125,
+            "width": 460,
+            "height": 108.875
+          },
+          "text": "BSH-2630-P\n정밀형 플랜지 부시\n비교 실습 · 더 좁은 길이 허용 범위",
+          "click": true
+        }
+      ],
+      "raw_sha256": "873e32650947def89377121beedcc0356d0f995c4fe7fe3a03247537f95dcd55",
+      "sha256": "567c0ee37bc17200d564af59269f67c1b7285ab74de6c665b1980e03c910db0f",
+      "phase": "선택 비교",
+      "input": "제품 BSH-2630-P",
+      "process": "제품별 기준과 검사 기록 분리",
+      "output": "정밀형 도면과 좁은 허용 범위 호출",
+      "optional": true
+    },
+    {
+      "key": "lab2-precision-optional26-precision-result",
+      "title": "실습 2 (계측 검사): 선택 비교 · 제품별 허용 범위",
+      "action": "정밀형 B 길이 결과 확인",
+      "outcome": "40.02 mm는 정밀형 기준에서 불일치",
+      "notes": "표준형 39.90–40.10 mm에서는 충족이었던 동일한 값의 비교입니다.",
+      "section": "lab2-precision",
+      "image": "slides/assets/current_v2/lab2/lab2-precision-optional26-precision-result.jpg",
+      "viewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "scroll_y": 354,
+      "targets": [
+        {
+          "selector": ".measurement-table",
+          "label": "1",
+          "box": {
+            "x": 287,
+            "y": 227.859375,
+            "width": 934,
+            "height": 264.3125
+          },
+          "text": "검사 위치\t허용 범위\t기록값\t판정\t기록 출처\nA · 플랜지 외경\n디지털 캘리퍼스\n\t26.25–26.35 mm\n도면 기준\n\t26.30 mm\n최초 후보: 26.30 mm\n\t충족\t작업자 확인\n확인값 26.30 mm\n\nB · 전체 길이\n디지털 하이트 게이지\n\t39.99–40.",
+          "click": false
+        }
+      ],
+      "raw_sha256": "b5e8478b2c3ca48ca6ef7de3fbf2b0ce3037de6cded3438dacf76da4a687aa41",
+      "sha256": "49c9150d45fd0a0c65514dc1402fce5847940b1839d03938734faf55aeb7c7ee",
+      "phase": "선택 비교",
+      "input": "B 40.02 mm · 정밀형 39.99–40.01 mm",
+      "process": "같은 값에 다른 제품 기준 적용",
+      "output": "40.02 mm는 정밀형 기준에서 불일치",
+      "optional": true
+    },
+    {
+      "input": "작업지시서·공정 순서·검사 기준 6개",
+      "process": "기계 조립의 ‘이 실습 시작’ 선택",
+      "output": "차체와 바퀴 키트의 문서와 공정 호출",
+      "key": "lab3-01-select",
+      "title": "실습 3 (기계 조립): 실습 선택",
+      "action": "기계 조립의 ‘이 실습 시작’ 선택",
+      "outcome": "차체와 바퀴 키트의 문서와 공정 호출",
+      "notes": "\n강의용 관찰 예시를 실제 브라우저에서 재생한 화면입니다. 모델 추론이나 물리적 품질 검증 결과가 아닙니다.",
+      "section": "lab3",
+      "image": "slides/assets/current_v2/lab3/01-select.jpg",
+      "viewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "scroll_y": 555,
+      "targets": [
+        {
+          "selector": "[data-select=\"mechanical_demo\"]",
+          "label": "1",
+          "box": {
+            "x": 955.328125,
+            "y": 338.203125,
+            "width": 266.65625,
+            "height": 44.390625
+          },
+          "text": "이 실습 시작",
+          "click": true
+        }
+      ],
+      "raw_sha256": "51befc2de3b0906e981acde195867401d831417920656af9388f44fda433f695",
+      "sha256": "7b817f6ec82d6815c47d89d2b174414e6430116a56fcfba26a6deb8cf5f99982",
+      "mode": "authored_demo",
+      "phase": "자료 구축",
+      "phases": [
+        "자료 구축",
+        "작업 설정",
+        "영상·질문",
+        "검수·보고서"
+      ]
+    },
+    {
+      "input": "기계 조립 작업지시서와 여섯 검사 기준",
+      "process": "PDF·CSV 확인 후 ‘정보 구축’ 선택",
+      "output": "작업 4개·확인 기준 6개의 구성",
+      "key": "lab3-02-documents",
+      "title": "실습 3 (기계 조립): 작업 기준 불러오기",
+      "action": "PDF·CSV 확인 후 ‘정보 구축’ 선택",
+      "outcome": "작업 4개·확인 기준 6개의 구성",
+      "notes": "기계 조립 작업지시서와 여섯 검사 기준 | PDF 텍스트 추출·CSV 검사·SQLite 생성은 실제 처리\n강의용 관찰 예시를 실제 브라우저에서 재생한 화면입니다. 모델 추론이나 물리적 품질 검증 결과가 아닙니다.",
+      "section": "lab3",
+      "image": "slides/assets/current_v2/lab3/02-documents.jpg",
+      "viewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "scroll_y": 238,
+      "targets": [
+        {
+          "selector": "#compile",
+          "label": "1",
+          "box": {
+            "x": 287,
+            "y": 343.390625,
+            "width": 97.375,
+            "height": 44.390625
+          },
+          "text": "정보 구축",
+          "click": true
+        }
+      ],
+      "raw_sha256": "ae5817d82aaf4ced045378c1924aea68a9e86e3360814f957e38da6c2bf8dedf",
+      "sha256": "05c19cbe54ddb5e7f6a37ef168c53563627d32dc57a270f8b56b4f05a5ba5759",
+      "mode": "authored_demo",
+      "phase": "자료 구축",
+      "phases": [
+        "자료 구축",
+        "작업 설정",
+        "영상·질문",
+        "검수·보고서"
+      ]
+    },
+    {
+      "input": "작업지시서·공정 순서·검사 기준 6개",
+      "process": "구축된 기준 확인 후 ‘작업 설정으로’ 선택",
+      "output": "차체·브래킷·축·최종 외관과 검사 기준의 연결",
+      "key": "lab3-03-compiled",
+      "title": "실습 3 (기계 조립): 공정별 검사 기준",
+      "action": "구축된 기준 확인 후 ‘작업 설정으로’ 선택",
+      "outcome": "차체·브래킷·축·최종 외관과 검사 기준의 연결",
+      "notes": "\n강의용 관찰 예시를 실제 브라우저에서 재생한 화면입니다. 모델 추론이나 물리적 품질 검증 결과가 아닙니다.",
+      "section": "lab3",
+      "image": "slides/assets/current_v2/lab3/03-compiled.jpg",
+      "viewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "scroll_y": 515,
+      "targets": [
+        {
+          "selector": "#next-setup",
+          "label": "1",
+          "box": {
+            "x": 861.625,
+            "y": 473.1875,
+            "width": 126.8125,
+            "height": 44.390625
+          },
+          "text": "작업 설정으로",
+          "click": true
+        }
+      ],
+      "raw_sha256": "25e1eb79a71fd9e4bf2392f3d09f4950486dff04db49ee5cc39f3f28fc34e512",
+      "sha256": "32d83e6331687504e109970d761dd2baf46609536a77f2f29b59d8e995c0d8b8",
+      "mode": "authored_demo",
+      "phase": "자료 구축",
+      "phases": [
+        "자료 구축",
+        "작업 설정",
+        "영상·질문",
+        "검수·보고서"
+      ]
+    },
+    {
+      "input": "작업지시서·공정 순서·검사 기준 6개",
+      "process": "공정과 4개 작업 순서 확인 후 ‘작업 시작하기’ 선택",
+      "output": "작업지시 MECH-001과 현재 기준의 적용",
+      "key": "lab3-04-setup",
+      "title": "실습 3 (기계 조립): 작업 지시와 순서",
+      "action": "공정과 4개 작업 순서 확인 후 ‘작업 시작하기’ 선택",
+      "outcome": "작업지시 MECH-001과 현재 기준의 적용",
+      "notes": "\n강의용 관찰 예시를 실제 브라우저에서 재생한 화면입니다. 모델 추론이나 물리적 품질 검증 결과가 아닙니다.",
+      "section": "lab3",
+      "image": "slides/assets/current_v2/lab3/04-setup.jpg",
+      "viewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "scroll_y": 268,
+      "targets": [
+        {
+          "selector": "#start-session",
+          "label": "1",
+          "box": {
+            "x": 287,
+            "y": 554.671875,
+            "width": 126.8125,
+            "height": 44.390625
+          },
+          "text": "작업 시작하기",
+          "click": true
+        }
+      ],
+      "raw_sha256": "3cb09b3d2ae55df942c66c232704999e9a742f7f7685c52fe3a9a738463c0b51",
+      "sha256": "7f0679fc8016ecfb42cbf98b9eb86072867c177fd59ebe1e4ade4431124964e3",
+      "mode": "authored_demo",
+      "phase": "작업 설정",
+      "phases": [
+        "자료 구축",
+        "작업 설정",
+        "영상·질문",
+        "검수·보고서"
+      ]
+    },
+    {
+      "input": "공개 조립 영상",
+      "process": "‘영상 재생’ 선택",
+      "output": "영상 진행과 해당 단계 확인 항목의 표시",
+      "key": "lab3-05-video",
+      "title": "실습 3 (기계 조립): 차체 연결 영상",
+      "action": "‘영상 재생’ 선택",
+      "outcome": "영상 진행과 해당 단계 확인 항목의 표시",
+      "notes": "공개 조립 영상 | 본 캡처는 실제 4배 재생, 관찰 결과는 강의용 예시\n강의용 관찰 예시를 실제 브라우저에서 재생한 화면입니다. 모델 추론이나 물리적 품질 검증 결과가 아닙니다.",
+      "section": "lab3",
+      "image": "slides/assets/current_v2/lab3/05-video.jpg",
+      "viewport": {
+        "width": 1440,
+        "height": 810
+      },
+      "scroll_y": 311,
+      "targets": [
+        {
+          "selector": "#mechanical-play",
+          "label": "1",
+          "box": {
+            "x": 229.765625,
+            "y": 480.140625,
+            "width": 77.875,
+            "height": 35.5
+          },
+          "text": "영상 재생",
+          "click": true
+        },
+        {
+          "selector": "#mechanical-speed",
+          "label": "2",
+          "box": {
+            "x": 362.390625,
+            "y": 481.390625,
+            "width": 55.1875,
+            "height": 33
+          },
+          "text": "4",
+          "click": true
+        }
+      ],
+      "raw_sha256": "dd76609290451f7f344bb833ce4cc013021f5dbb5618003fc56952257d104b4c",
+      "sha256": "ca5edf691ed453cb27018e373c734a08467489d1addec6b40e3f0fc0015ba2bf",
+      "mode": "authored_demo",
+      "phase": "영상·질문",
+      "phases": [
+        "자료 구축",
+        "작업 설정",
+        "영상·질문",
+        "검수·보고서"
+      ],
+      "document_zoom": 0.8,
+      "video_box": {
+        "x": 229.765625,
+        "y": 76.84375,
+        "width": 672.921875,
+        "height": 378.515625
+      },
+      "video_fully_visible": true
+    },
+    {
+      "input": "작업지시서·공정 순서·검사 기준 6개",
+      "process": "차체 연결 확인 후 다음 작업 진행",
+      "output": "통과 신호·확인 결과·증거 사진의 기록",
+      "key": "lab3-06-chassis-pass",
+      "title": "실습 3 (기계 조립): 첫 단계 통과",
+      "action": "차체 연결 확인 후 다음 작업 진행",
+      "outcome": "통과 신호·확인 결과·증거 사진의 기록",
+      "notes": "\n강의용 관찰 예시를 실제 브라우저에서 재생한 화면입니다. 모델 추론이나 물리적 품질 검증 결과가 아닙니다.",
+      "section": "lab3",
+      "image": "slides/assets/current_v2/lab3/06-chassis-pass.jpg",
+      "viewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "scroll_y": 679,
+      "targets": [
+        {
+          "selector": "#mechanical-next",
+          "label": "1",
+          "box": {
+            "x": 287,
+            "y": 337.59375,
+            "width": 131.28125,
+            "height": 44.390625
+          },
+          "text": "다음 작업 시작",
+          "click": true
+        }
+      ],
+      "raw_sha256": "b0ac050743b095dbea68c8d53254bf729d16f2ab01e04c95a373297807d7e8d1",
+      "sha256": "b8624b88924199089e08c05a0c02aeb66da02263db2edf5b562e42b5fed924b6",
+      "mode": "authored_demo",
+      "phase": "영상·질문",
+      "phases": [
+        "자료 구축",
+        "작업 설정",
+        "영상·질문",
+        "검수·보고서"
+      ]
+    },
+    {
+      "input": "작업지시서·공정 순서·검사 기준 6개",
+      "process": "‘다음 작업은 어떻게 하나요?’ 선택",
+      "output": "필요할 때 작업 순서와 방법의 요청",
+      "key": "lab3-07-guidance-request",
+      "title": "실습 3 (기계 조립): 다음 작업 질문",
+      "action": "‘다음 작업은 어떻게 하나요?’ 선택",
+      "outcome": "필요할 때 작업 순서와 방법의 요청",
+      "notes": "\n강의용 관찰 예시를 실제 브라우저에서 재생한 화면입니다. 모델 추론이나 물리적 품질 검증 결과가 아닙니다.",
+      "section": "lab3",
+      "image": "slides/assets/current_v2/lab3/07-guidance-request.jpg",
+      "viewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "scroll_y": 704,
+      "targets": [
+        {
+          "selector": "#mechanical-ask-guidance",
+          "label": "1",
+          "box": {
+            "x": 287,
+            "y": 393.984375,
+            "width": 197.484375,
+            "height": 43.703125
+          },
+          "text": "다음 작업은 어떻게 하나요?",
+          "click": true
+        }
+      ],
+      "raw_sha256": "db34df1847a88236f04b5d38d748e794397427652f4d6259c687363c15dfc480",
+      "sha256": "ab5b9c96993ef884b1ebedc4c5efdbd56069f104fcc7001962ce2d634e5dfff8",
+      "mode": "authored_demo",
+      "phase": "영상·질문",
+      "phases": [
+        "자료 구축",
+        "작업 설정",
+        "영상·질문",
+        "검수·보고서"
+      ]
+    },
+    {
+      "input": "기존 작업 순서에 따른 안내",
+      "process": "작업자 질문과 Agent 안내 확인",
+      "output": "등록된 브래킷 작업 방법의 안내",
+      "key": "lab3-08-guidance-answer",
+      "title": "실습 3 (기계 조립): Agent 작업 절차 안내",
+      "action": "작업자 질문과 Agent 안내 확인",
+      "outcome": "등록된 브래킷 작업 방법의 안내",
+      "notes": "기존 작업 순서에 따른 안내 | 안내 자체를 다음 단계의 완료 근거로 사용하지 않음\n강의용 관찰 예시를 실제 브라우저에서 재생한 화면입니다. 모델 추론이나 물리적 품질 검증 결과가 아닙니다.",
+      "section": "lab3",
+      "image": "slides/assets/current_v2/lab3/08-guidance-answer.jpg",
+      "viewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "scroll_y": 868,
+      "targets": [],
+      "raw_sha256": "0c0ab15a9efe1ce1ee4c74ad7a94547e8a94efc6c0bf217710b994d669bb7956",
+      "sha256": "0c0ab15a9efe1ce1ee4c74ad7a94547e8a94efc6c0bf217710b994d669bb7956",
+      "mode": "authored_demo",
+      "phase": "영상·질문",
+      "phases": [
+        "자료 구축",
+        "작업 설정",
+        "영상·질문",
+        "검수·보고서"
+      ]
+    },
+    {
+      "input": "브래킷 구간 원본 70–90초",
+      "process": "‘질문 확인’ 선택",
+      "output": "연결 핀을 확인할 때까지 다음 작업 보류",
+      "key": "lab3-09-pin-question",
+      "title": "실습 3 (기계 조립): 가려진 연결 핀",
+      "action": "‘질문 확인’ 선택",
+      "outcome": "연결 핀을 확인할 때까지 다음 작업 보류",
+      "notes": "브래킷 구간 원본 70–90초 | 손에 가려진 내부 연결 상태는 외관으로 확정하지 않음\n강의용 관찰 예시를 실제 브라우저에서 재생한 화면입니다. 모델 추론이나 물리적 품질 검증 결과가 아닙니다.",
+      "section": "lab3",
+      "image": "slides/assets/current_v2/lab3/09-pin-question.jpg",
+      "viewport": {
+        "width": 1440,
+        "height": 810
+      },
+      "scroll_y": 311,
+      "targets": [
+        {
+          "selector": "[data-deliver]",
+          "label": "1",
+          "box": {
+            "x": 957.453125,
+            "y": 427.234375,
+            "width": 77.875,
+            "height": 35.5
+          },
+          "text": "질문 확인",
+          "click": true
+        }
+      ],
+      "raw_sha256": "a0a324d36a7b9fdaa43b7f24630fa13325504f4523aa640b105bc2a6ec07bb7e",
+      "sha256": "ca2f677f8c655f1639b4f3f1ad3a154ebf49508646ea12a2b326a0a217679e46",
+      "mode": "authored_demo",
+      "phase": "영상·질문",
+      "phases": [
+        "자료 구축",
+        "작업 설정",
+        "영상·질문",
+        "검수·보고서"
+      ],
+      "document_zoom": 0.8,
+      "video_box": {
+        "x": 229.765625,
+        "y": 76.84375,
+        "width": 672.921875,
+        "height": 378.515625
+      },
+      "video_fully_visible": true
+    },
+    {
+      "input": "작업지시서·공정 순서·검사 기준 6개",
+      "process": "직접 확인한 핀 삽입 상태 선택",
+      "output": "답변과 답변 출처의 별도 기록",
+      "key": "lab3-10-answer",
+      "title": "실습 3 (기계 조립): 작업자 확인값",
+      "action": "직접 확인한 핀 삽입 상태 선택",
+      "outcome": "답변과 답변 출처의 별도 기록",
+      "notes": "\n강의용 관찰 예시를 실제 브라우저에서 재생한 화면입니다. 모델 추론이나 물리적 품질 검증 결과가 아닙니다.",
+      "section": "lab3",
+      "image": "slides/assets/current_v2/lab3/10-answer.jpg",
+      "viewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "scroll_y": 684,
+      "targets": [
+        {
+          "selector": "[data-confirmation=\"met\"]",
+          "label": "1",
+          "box": {
+            "x": 884.59375,
+            "y": 336.984375,
+            "width": 336.390625,
+            "height": 46
+          },
+          "text": "핀을 제자리에 끼운 것을 확인했습니다",
+          "click": true
+        }
+      ],
+      "raw_sha256": "ab345bc8ca01edae87fb4015511eddcbd7d48af74276c541415968b5350dedbf",
+      "sha256": "103d4d6edffdb1f7dd5f89d6bdd5e85a44d3e1d0bee9f6db0253ea9f5b24e16b",
+      "mode": "authored_demo",
+      "phase": "영상·질문",
+      "phases": [
+        "자료 구축",
+        "작업 설정",
+        "영상·질문",
+        "검수·보고서"
+      ]
+    },
+    {
+      "input": "작업지시서·공정 순서·검사 기준 6개",
+      "process": "답변 기록과 통과 신호 확인 후 ‘다음 작업 시작’ 선택",
+      "output": "최초 확인 불가 기록을 보존한 작업자 확인",
+      "key": "lab3-11-confirmed",
+      "title": "실습 3 (기계 조립): 확인 후 다음 단계",
+      "action": "답변 기록과 통과 신호 확인 후 ‘다음 작업 시작’ 선택",
+      "outcome": "최초 확인 불가 기록을 보존한 작업자 확인",
+      "notes": "\n강의용 관찰 예시를 실제 브라우저에서 재생한 화면입니다. 모델 추론이나 물리적 품질 검증 결과가 아닙니다.",
+      "section": "lab3",
+      "image": "slides/assets/current_v2/lab3/11-confirmed.jpg",
+      "viewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "scroll_y": 705,
+      "targets": [
+        {
+          "selector": "#mechanical-next",
+          "label": "1",
+          "box": {
+            "x": 287,
+            "y": 337.84375,
+            "width": 131.28125,
+            "height": 44.390625
+          },
+          "text": "다음 작업 시작",
+          "click": true
+        }
+      ],
+      "raw_sha256": "0b499c55bdc5ce70f1af4c41c1ce195e672f6001ce9ed6d1aec9bf8a99cacfd2",
+      "sha256": "f2f766a8244c31abd704464d65799f9d60bff570e08370094f54f9dfd7fb6c8a",
+      "mode": "authored_demo",
+      "phase": "영상·질문",
+      "phases": [
+        "자료 구축",
+        "작업 설정",
+        "영상·질문",
+        "검수·보고서"
+      ]
+    },
+    {
+      "input": "원본 90–178초",
+      "process": "두 축의 바퀴 배치 확인 후 다음 작업 진행",
+      "output": "한쪽 축과 다른 축의 관찰을 각각 기록",
+      "key": "lab3-12-wheels",
+      "title": "실습 3 (기계 조립): 바퀴 축 조립",
+      "action": "두 축의 바퀴 배치 확인 후 다음 작업 진행",
+      "outcome": "한쪽 축과 다른 축의 관찰을 각각 기록",
+      "notes": "원본 90–178초 | 바퀴 배치 외관만 확인, 체결 토크나 주행 성능의 보장은 아님\n강의용 관찰 예시를 실제 브라우저에서 재생한 화면입니다. 모델 추론이나 물리적 품질 검증 결과가 아닙니다.",
+      "section": "lab3",
+      "image": "slides/assets/current_v2/lab3/12-wheels.jpg",
+      "viewport": {
+        "width": 1440,
+        "height": 810
+      },
+      "scroll_y": 311,
+      "targets": [
+        {
+          "selector": "#mechanical-next",
+          "label": "1",
+          "box": {
+            "x": 229.765625,
+            "y": 643.4375,
+            "width": 105,
+            "height": 35.5
+          },
+          "text": "다음 작업 시작",
+          "click": true
+        }
+      ],
+      "raw_sha256": "90b10c59de5d397d359be465e47e2b10701e5006c8ef411a181ddde0fcedad83",
+      "sha256": "d734f37ae5100ffc5fedd91e9505ef8773773dc8222f1bf63173630a531e54c0",
+      "mode": "authored_demo",
+      "phase": "영상·질문",
+      "phases": [
+        "자료 구축",
+        "작업 설정",
+        "영상·질문",
+        "검수·보고서"
+      ],
+      "document_zoom": 0.8,
+      "video_box": {
+        "x": 229.765625,
+        "y": 76.84375,
+        "width": 672.921875,
+        "height": 378.515625
+      },
+      "video_fully_visible": true
+    },
+    {
+      "input": "작업지시서·공정 순서·검사 기준 6개",
+      "process": "‘검수 완료 · 결과 보기’ 선택",
+      "output": "차체·브래킷·네 바퀴의 최종 외관 저장",
+      "key": "lab3-13-final",
+      "title": "실습 3 (기계 조립): 최종 외관 확인",
+      "action": "‘검수 완료 · 결과 보기’ 선택",
+      "outcome": "차체·브래킷·네 바퀴의 최종 외관 저장",
+      "notes": "\n강의용 관찰 예시를 실제 브라우저에서 재생한 화면입니다. 모델 추론이나 물리적 품질 검증 결과가 아닙니다.",
+      "section": "lab3",
+      "image": "slides/assets/current_v2/lab3/13-final.jpg",
+      "viewport": {
+        "width": 1440,
+        "height": 810
+      },
+      "scroll_y": 311,
+      "targets": [
+        {
+          "selector": "#mechanical-next",
+          "label": "1",
+          "box": {
+            "x": 229.765625,
+            "y": 643.4375,
+            "width": 139.796875,
+            "height": 35.5
+          },
+          "text": "검수 완료 · 결과 보기",
+          "click": true
+        }
+      ],
+      "raw_sha256": "964b71c612aecebac46f9513ad3cd73ab1f60d4ed585ee6970cee901f012f3d6",
+      "sha256": "a0e429da00f2c7b18c211c545a42a0a9b93d5e13b9068ee9b6702fa4f44f7817",
+      "mode": "authored_demo",
+      "phase": "영상·질문",
+      "phases": [
+        "자료 구축",
+        "작업 설정",
+        "영상·질문",
+        "검수·보고서"
+      ],
+      "document_zoom": 0.8,
+      "video_box": {
+        "x": 229.765625,
+        "y": 76.84375,
+        "width": 672.921875,
+        "height": 378.515625
+      },
+      "video_fully_visible": true
+    },
+    {
+      "input": "작업지시서·공정 순서·검사 기준 6개",
+      "process": "6개 기준과 작업자 확인 출처 검토",
+      "output": "충족 결과와 가려진 부분의 확인 이력",
+      "key": "lab3-14-review",
+      "title": "실습 3 (기계 조립): 검사 결과 검토",
+      "action": "6개 기준과 작업자 확인 출처 검토",
+      "outcome": "충족 결과와 가려진 부분의 확인 이력",
+      "notes": "\n강의용 관찰 예시를 실제 브라우저에서 재생한 화면입니다. 모델 추론이나 물리적 품질 검증 결과가 아닙니다.",
+      "section": "lab3",
+      "image": "slides/assets/current_v2/lab3/14-review.jpg",
+      "viewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "scroll_y": 0,
+      "targets": [],
+      "raw_sha256": "fcee3e0abcf93489dfeb840594de7dc0fcafbd43ed717f825d5ed1d2073fb0d6",
+      "sha256": "fcee3e0abcf93489dfeb840594de7dc0fcafbd43ed717f825d5ed1d2073fb0d6",
+      "mode": "authored_demo",
+      "phase": "검수·보고서",
+      "phases": [
+        "자료 구축",
+        "작업 설정",
+        "영상·질문",
+        "검수·보고서"
+      ]
+    },
+    {
+      "input": "작업지시서·공정 순서·검사 기준 6개",
+      "process": "‘보고서 만들기’ 선택",
+      "output": "검사 결과·사진·질문·작업 안내 이력의 연결",
+      "key": "lab3-15-report-generate",
+      "title": "실습 3 (기계 조립): 검수 문서 생성",
+      "action": "‘보고서 만들기’ 선택",
+      "outcome": "검사 결과·사진·질문·작업 안내 이력의 연결",
+      "notes": "\n강의용 관찰 예시를 실제 브라우저에서 재생한 화면입니다. 모델 추론이나 물리적 품질 검증 결과가 아닙니다.",
+      "section": "lab3",
+      "image": "slides/assets/current_v2/lab3/15-report-generate.jpg",
+      "viewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "scroll_y": 1055,
+      "targets": [
+        {
+          "selector": "#go-report",
+          "label": "1",
+          "box": {
+            "x": 287,
+            "y": 337.40625,
+            "width": 126.8125,
+            "height": 44.390625
+          },
+          "text": "보고서 만들기",
+          "click": true
+        }
+      ],
+      "raw_sha256": "f848d9e8afdf058a53be237da263074004fad643487650e331671a292fe4adae",
+      "sha256": "f771849dc2b448d0b9003dbb08b47641028e688067991802c4efa01d11a04ee3",
+      "mode": "authored_demo",
+      "phase": "검수·보고서",
+      "phases": [
+        "자료 구축",
+        "작업 설정",
+        "영상·질문",
+        "검수·보고서"
+      ]
+    },
+    {
+      "input": "작업지시서·공정 순서·검사 기준 6개",
+      "process": "보고서 미리보기와 저장 항목 확인",
+      "output": "검수 결과와 사진을 포함한 실제 문서 생성",
+      "key": "lab3-16-report",
+      "title": "실습 3 (기계 조립): 사진 포함 보고서",
+      "action": "보고서 미리보기와 저장 항목 확인",
+      "outcome": "검수 결과와 사진을 포함한 실제 문서 생성",
+      "notes": "\n강의용 관찰 예시를 실제 브라우저에서 재생한 화면입니다. 모델 추론이나 물리적 품질 검증 결과가 아닙니다.",
+      "section": "lab3",
+      "image": "slides/assets/current_v2/lab3/16-report.jpg",
+      "viewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "scroll_y": 0,
+      "targets": [
+        {
+          "selector": "#report-html",
+          "label": "1",
+          "box": {
+            "x": 287,
+            "y": 281.46875,
+            "width": 180.5,
+            "height": 44.390625
+          },
+          "text": "사진 포함 HTML 저장",
+          "click": true
+        },
+        {
+          "selector": "#inspection-html",
+          "label": "2",
+          "box": {
+            "x": 477.5,
+            "y": 281.46875,
+            "width": 126.8125,
+            "height": 44.390625
+          },
+          "text": "검수조서 저장",
+          "click": true
+        }
+      ],
+      "raw_sha256": "21b760ac87b80f53945a258a9cc062750460f1e5665fc2ac4bb5de91732f35a1",
+      "sha256": "a4dfe9651dd764350de47a5bbf2063702e366f157df37907eebb88fd26c7fc31",
+      "mode": "authored_demo",
+      "phase": "검수·보고서",
+      "phases": [
+        "자료 구축",
+        "작업 설정",
+        "영상·질문",
+        "검수·보고서"
+      ]
+    },
+    {
+      "input": "작업지시서·공정 순서·검사 기준 6개",
+      "process": "‘문서 보관함’ 선택",
+      "output": "지금 저장한 문서 사본의 자동 보관",
+      "key": "lab3-17-save-library",
+      "title": "실습 3 (기계 조립): 문서 보관함 연결",
+      "action": "‘문서 보관함’ 선택",
+      "outcome": "지금 저장한 문서 사본의 자동 보관",
+      "notes": "\n강의용 관찰 예시를 실제 브라우저에서 재생한 화면입니다. 모델 추론이나 물리적 품질 검증 결과가 아닙니다.",
+      "section": "lab3",
+      "image": "slides/assets/current_v2/lab3/17-save-library.jpg",
+      "viewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "scroll_y": 875,
+      "targets": [
+        {
+          "selector": "#open-document-library",
+          "label": "1",
+          "box": {
+            "x": 1079.46875,
+            "y": 549.90625,
+            "width": 141.53125,
+            "height": 44.390625
+          },
+          "text": "문서 보관함으로",
+          "click": true
+        }
+      ],
+      "raw_sha256": "a884d8c8ddcdd3ddf8afbea5a05cc372f0d1e91e336c7879478f669ea1bc5b8e",
+      "sha256": "8932cf078b4857a2e84b1653a6319ef81df26701a7bc5090c6be696a409f6f4d",
+      "mode": "authored_demo",
+      "phase": "검수·보고서",
+      "phases": [
+        "자료 구축",
+        "작업 설정",
+        "영상·질문",
+        "검수·보고서"
+      ]
+    },
+    {
+      "input": "선택 비교",
+      "process": "‘아직 확인할 수 없습니다’ 답변의 결과 확인",
+      "output": "확인 필요 유지와 다음 작업 보류",
+      "key": "lab3-18-optional-hold",
+      "title": "실습 3 (기계 조립): 선택 비교 · 확인 불가 답변",
+      "action": "‘아직 확인할 수 없습니다’ 답변의 결과 확인",
+      "outcome": "확인 필요 유지와 다음 작업 보류",
+      "notes": "선택 비교 | 별도 브라우저에서 같은 중간 기록을 불러와 답변만 변경한 예시\n강의용 관찰 예시를 실제 브라우저에서 재생한 화면입니다. 모델 추론이나 물리적 품질 검증 결과가 아닙니다.",
+      "section": "lab3",
+      "image": "slides/assets/current_v2/lab3/18-optional-hold.jpg",
+      "viewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "scroll_y": 705,
+      "targets": [
+        {
+          "selector": "#mechanical-next",
+          "label": "1",
+          "box": {
+            "x": 287,
+            "y": 337.84375,
+            "width": 131.28125,
+            "height": 44.390625
+          },
+          "text": "다음 작업 시작",
+          "click": false
+        }
+      ],
+      "raw_sha256": "8ff48ba7a4ae2136b0290efb9e70355193063afc16592e0692a6a2259b904bb4",
+      "sha256": "a1168c92896d39a957c2834a0eaec2e89a54e14e283ac54abe96254783e654b5",
+      "mode": "authored_demo",
+      "phase": "선택 비교",
+      "phases": [
+        "자료 구축",
+        "작업 설정",
+        "영상·질문",
+        "검수·보고서"
+      ]
+    },
+    {
+      "input": "현재 브라우저에 저장한 문서와 수업 제공 예제",
+      "process": "마지막 메뉴 ‘문서 보관함’ 선택",
+      "output": "전자·계측·기계 조립 문서의 통합 조회",
+      "key": "library-01-library",
+      "title": "결과 정리: 모든 실습 문서 모아보기",
+      "action": "마지막 메뉴 ‘문서 보관함’ 선택",
+      "outcome": "전자·계측·기계 조립 문서의 통합 조회",
+      "notes": "현재 브라우저에 저장한 문서와 수업 제공 예제 | 다른 기기와 자동 공유하지 않음\n강의용 관찰 예시를 실제 브라우저에서 재생한 화면입니다. 모델 추론이나 물리적 품질 검증 결과가 아닙니다.",
+      "section": "library",
+      "image": "slides/assets/current_v2/library/01-library.jpg",
+      "viewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "scroll_y": 0,
+      "targets": [
+        {
+          "selector": "[data-page=\"library\"]",
+          "label": "1",
+          "box": {
+            "x": 18,
+            "y": 465.6875,
+            "width": 192,
+            "height": 47.28125
+          },
+          "text": "07\n문서 보관함",
+          "click": true
+        }
+      ],
+      "raw_sha256": "645aa16a3a23cf272c7f53f09142d83fbbf71083c27a9b2dd400aad8084aaafb",
+      "sha256": "f358822d92a5f956c39d2645a74b1652db53c9dc7313360817c442a3c435a8ed",
+      "mode": "authored_demo",
+      "phase": "문서 보관함",
+      "phases": [
+        "보고서 저장",
+        "문서 보관함",
+        "파일 보관"
+      ]
+    },
+    {
+      "input": "실습에서 저장한 보고서와 수업 제공 완성 예제",
+      "process": "저장한 문서의 ‘미리보기’ 선택",
+      "output": "내 검사 결과와 문서 사본의 확인",
+      "key": "library-02-own-documents",
+      "title": "결과 정리: 내가 만든 보고서",
+      "action": "저장한 문서의 ‘미리보기’ 선택",
+      "outcome": "내 검사 결과와 문서 사본의 확인",
+      "notes": "\n강의용 관찰 예시를 실제 브라우저에서 재생한 화면입니다. 모델 추론이나 물리적 품질 검증 결과가 아닙니다.",
+      "section": "library",
+      "image": "slides/assets/current_v2/library/02-own-documents.jpg",
+      "viewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "scroll_y": 282,
+      "targets": [
+        {
+          "selector": ".dl-card[data-sample=\"false\"]:first-child .dl-preview",
+          "label": "1",
+          "box": {
+            "x": 285,
+            "y": 428.25,
+            "width": 81.84375,
+            "height": 40.1875
+          },
+          "text": "미리보기",
+          "click": true
+        }
+      ],
+      "raw_sha256": "b8689bb4ececfe901876936730d8a756625dd6c8b53af95fa5c1e35dbfb1a614",
+      "sha256": "1267f364805618f5397b33b30f3237dc8bc4e9e9ad6bb4c79d18136e467f335e",
+      "mode": "authored_demo",
+      "phase": "문서 보관함",
+      "phases": [
+        "보고서 저장",
+        "문서 보관함",
+        "파일 보관"
+      ]
+    },
+    {
+      "input": "실습에서 저장한 보고서와 수업 제공 완성 예제",
+      "process": "사진과 검사 결과 확인 후 ‘닫기’ 선택",
+      "output": "다운로드 없이 저장 문서의 내용 확인",
+      "key": "library-03-preview",
+      "title": "결과 정리: 보고서 미리보기",
+      "action": "사진과 검사 결과 확인 후 ‘닫기’ 선택",
+      "outcome": "다운로드 없이 저장 문서의 내용 확인",
+      "notes": "\n강의용 관찰 예시를 실제 브라우저에서 재생한 화면입니다. 모델 추론이나 물리적 품질 검증 결과가 아닙니다.",
+      "section": "library",
+      "image": "slides/assets/current_v2/library/03-preview.jpg",
+      "viewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "scroll_y": 282,
+      "targets": [
+        {
+          "selector": ".dl-dialog-heading button",
+          "label": "1",
+          "box": {
+            "x": 1137.09375,
+            "y": 49.796875,
+            "width": 61.90625,
+            "height": 43.703125
+          },
+          "text": "닫기",
+          "click": true
+        }
+      ],
+      "raw_sha256": "e7064d126019c51707985a9a22963746491925bd90091b16cc495f0463c817d6",
+      "sha256": "10664d683ba946d6b22fcb5b907bb7b9d872f0ea8cac6bf0f6484c9818dbe3d6",
+      "mode": "authored_demo",
+      "phase": "문서 보관함",
+      "phases": [
+        "보고서 저장",
+        "문서 보관함",
+        "파일 보관"
+      ]
+    },
+    {
+      "input": "실습에서 저장한 보고서와 수업 제공 완성 예제",
+      "process": "실습 구분에서 ‘실습 3 · 기계 조립’ 선택",
+      "output": "기계 조립에서 만든 문서와 완성 예제의 구분",
+      "key": "library-04-filter",
+      "title": "결과 정리: 실습별 문서 조회",
+      "action": "실습 구분에서 ‘실습 3 · 기계 조립’ 선택",
+      "outcome": "기계 조립에서 만든 문서와 완성 예제의 구분",
+      "notes": "\n강의용 관찰 예시를 실제 브라우저에서 재생한 화면입니다. 모델 추론이나 물리적 품질 검증 결과가 아닙니다.",
+      "section": "library",
+      "image": "slides/assets/current_v2/library/04-filter.jpg",
+      "viewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "scroll_y": 52,
+      "targets": [
+        {
+          "selector": "select[aria-label=\"실습 구분\"]",
+          "label": "1",
+          "box": {
+            "x": 1075,
+            "y": 334.484375,
+            "width": 171,
+            "height": 52
+          },
+          "text": "lab3",
+          "click": true
+        }
+      ],
+      "raw_sha256": "a699374a66826321a8947d8803fd2cf03a45095e4fda270e9a9aa080d43835b3",
+      "sha256": "2efc161183bdb753b0b5ca4b8be629c99746125670003d907a8bd2cce8d311cb",
+      "mode": "authored_demo",
+      "phase": "문서 보관함",
+      "phases": [
+        "보고서 저장",
+        "문서 보관함",
+        "파일 보관"
+      ]
+    },
+    {
+      "input": "실습에서 저장한 보고서와 수업 제공 완성 예제",
+      "process": "파일명 검색 후 ‘다운로드’ 선택",
+      "output": "기존 검수조서를 다시 내려받아 보관",
+      "key": "library-05-search-download",
+      "title": "결과 정리: 검수조서 검색과 저장",
+      "action": "파일명 검색 후 ‘다운로드’ 선택",
+      "outcome": "기존 검수조서를 다시 내려받아 보관",
+      "notes": "\n강의용 관찰 예시를 실제 브라우저에서 재생한 화면입니다. 모델 추론이나 물리적 품질 검증 결과가 아닙니다.",
+      "section": "library",
+      "image": "slides/assets/current_v2/library/05-search-download.jpg",
+      "viewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "scroll_y": 52,
+      "targets": [
+        {
+          "selector": "input[aria-label=\"문서 검색\"]",
+          "label": "1",
+          "box": {
+            "x": 262,
+            "y": 334.484375,
+            "width": 801,
+            "height": 52
+          },
+          "text": "inspection",
+          "click": true
+        },
+        {
+          "selector": ".dl-card[data-sample=\"false\"]:first-child .dl-download",
+          "label": "2",
+          "box": {
+            "x": 375.84375,
+            "y": 658.25,
+            "width": 81.84375,
+            "height": 40.1875
+          },
+          "text": "다운로드",
+          "click": true
+        }
+      ],
+      "raw_sha256": "3eaf48497d7189629acb6211175841d4ebf89291d42a090316367b98af694e21",
+      "sha256": "7c4621c91811737a4e0a74140a928260a23f8c9dfa0598a5e469725f310d588a",
+      "mode": "authored_demo",
+      "phase": "문서 보관함",
+      "phases": [
+        "보고서 저장",
+        "문서 보관함",
+        "파일 보관"
+      ]
+    },
+    {
+      "input": "실습에서 저장한 보고서와 수업 제공 완성 예제",
+      "process": "Word 또는 PDF 예제 다운로드",
+      "output": "실습 완료 전에도 최종 보고서 형식 확인",
+      "key": "library-06-examples",
+      "title": "결과 정리: 수업 제공 완성 예제",
+      "action": "Word 또는 PDF 예제 다운로드",
+      "outcome": "실습 완료 전에도 최종 보고서 형식 확인",
+      "notes": "\n강의용 관찰 예시를 실제 브라우저에서 재생한 화면입니다. 모델 추론이나 물리적 품질 검증 결과가 아닙니다.",
+      "section": "library",
+      "image": "slides/assets/current_v2/library/06-examples.jpg",
+      "viewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "scroll_y": 354,
+      "targets": [
+        {
+          "selector": ".dl-card[data-document-id=\"lab1-inspection-docx\"] .dl-download",
+          "label": "1",
+          "box": {
+            "x": 619,
+            "y": 522.796875,
+            "width": 81.84375,
+            "height": 40.1875
+          },
+          "text": "다운로드",
+          "click": true
+        }
+      ],
+      "raw_sha256": "13da51ad4f827a8d750a3879acfe24509a6fb3bdf118ab8f14d800e78f277a04",
+      "sha256": "09eb2458a1ee0950645fa854bdbb38d992f3c938699b29d7610812d18745478c",
+      "mode": "authored_demo",
+      "phase": "문서 보관함",
+      "phases": [
+        "보고서 저장",
+        "문서 보관함",
+        "파일 보관"
+      ]
+    },
+    {
+      "input": "브라우저 데이터를 지우면 문서함 사본도 삭제",
+      "process": "완성 문서를 컴퓨터에도 저장",
+      "output": "브라우저 기록과 별도 파일의 이중 보관",
+      "key": "library-07-local-storage",
+      "title": "결과 정리: 결과 파일 보관",
+      "action": "완성 문서를 컴퓨터에도 저장",
+      "outcome": "브라우저 기록과 별도 파일의 이중 보관",
+      "notes": "브라우저 데이터를 지우면 문서함 사본도 삭제 | 중요한 결과물은 HTML·Word·CSV 등으로 따로 저장\n강의용 관찰 예시를 실제 브라우저에서 재생한 화면입니다. 모델 추론이나 물리적 품질 검증 결과가 아닙니다.",
+      "section": "library",
+      "image": "slides/assets/current_v2/library/07-local-storage.jpg",
+      "viewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "scroll_y": 0,
+      "targets": [],
+      "raw_sha256": "5f59df21a247a9bb42b398f2ebe97963d587379d9892ed4aa42adb1cacdb86f8",
+      "sha256": "5f59df21a247a9bb42b398f2ebe97963d587379d9892ed4aa42adb1cacdb86f8",
+      "mode": "authored_demo",
+      "phase": "문서 보관함",
+      "phases": [
+        "보고서 저장",
+        "문서 보관함",
+        "파일 보관"
+      ]
+    }
+  ],
+  "runtime_model_calls": 0,
+  "provenance": "actual_browser_screens_of_authored_classroom_demo"
+}

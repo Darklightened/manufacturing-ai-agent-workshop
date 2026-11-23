@@ -1,0 +1,51 @@
+{
+  "version": "measurement-photo-v1",
+  "label_ko": "AI 생성 이미지 · 가상 계측 장면",
+  "purpose": "Classroom visual illustration; not a real photo, model prediction, calibration record, or measurement ground truth.",
+  "generation": "Built-in image_gen, no CLI/API fallback",
+  "part": "Fictional single-flanged aluminum sleeve bushing, nominal26.30mm flange outside diameter,40mm total height,5.8mm flange thickness. Images are illustrative and not dimensionally certified.",
+  "interpretation": "Authored numeric values and observations remain separate from image pixels. Do not infer OCR accuracy or physical conformity.",
+  "prompts": "assets/measurement-photo-v1/prompts.json",
+  "assets": [
+    {
+      "id": "product",
+      "path": "assets/measurement-photo-v1/product.png",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 2524000,
+      "sha256": "75052a738d41db78cec8c4b987217427728156301cf788c3eeca2f902d46f377",
+      "provenance": "generated_fictional_training_visual",
+      "visual_review": "Single flange and hollow sleeve visible; illustrative proportions only."
+    },
+    {
+      "id": "scene-a",
+      "path": "assets/measurement-photo-v1/scene-a.png",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 2474310,
+      "sha256": "390ea255ffcda7315558a07f38ef3626753c2d7bf20e7b367296e29bc0362cae",
+      "provenance": "generated_fictional_training_visual",
+      "visual_review": "Outside caliper jaws shown at opposing outside flange edges; LCD26.30mm visible."
+    },
+    {
+      "id": "scene-b",
+      "path": "assets/measurement-photo-v1/scene-b.png",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 2516406,
+      "sha256": "d1c9ad3df431f4968cf615257ee1a45ddb1ff92f71a8f3f46214a4c04907f207",
+      "provenance": "generated_fictional_training_visual",
+      "visual_review": "Part rests on single flange; height probe contacts top annular rim; LCD40.02mm visible."
+    },
+    {
+      "id": "scene-c",
+      "path": "assets/measurement-photo-v1/scene-c.png",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 2393751,
+      "sha256": "76a9803665154c07a3595c862aecc1924c499819f1bf9347895bdae39222a1dd",
+      "provenance": "generated_fictional_training_visual",
+      "visual_review": "Corrected horizontal micrometer contacts on opposed axial flange faces; decimal and leading5/final8 visible, glare obscures intermediate digit. Original wrong diameter-contact generation rejected."
+    }
+  ]
+}

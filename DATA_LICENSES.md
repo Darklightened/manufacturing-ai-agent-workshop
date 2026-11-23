@@ -24,3 +24,7 @@ Noto Sans KR은 SIL Open Font License 1.1로 포함합니다. 원문 고지는 `
 ## 새 계측 강의용 도해
 
 `scenarios/measurement_demo`와 `scenarios/measurement_precision_demo`의 플랜지 부시·도면·계측 장면 SVG 및 PDF는 이번 강의를 위해 작성한 도해입니다. 실제 회사 도면, 실측 사진, OCR/모델 결과가 아닙니다. 두 제품의 회사명·제품번호·검사 대상·수치·허용 범위는 가상의 수업 설정입니다. 기존 제3자 계측 사진은 강사용 독립 사례에 남아 있으며 새 제품의 실측 증거로 재사용하지 않습니다. 도해의 글꼴에는 위 Noto 고지를 적용합니다.
+
+## 계측 사진형 예시와 모의 영상
+
+`assets/measurement-photo-v1/`의 제품·계측 사진은 built-in image_gen으로 만든 가상의 강의용 이미지입니다. 프롬프트·검수 결과는 같은 폴더의 `prompts.json`, `manifest.json`에 보관합니다. 10초 계측 구간과30초 모음 영상은 이 정지 이미지에 시선 이동을 표현한 교육용 모사물입니다. 실제 촬영·실측·OCR 정답·제품 인증 자료가 아닙니다. 원본 회사 사진이나 비공개 현장 자료는 사용하지 않았습니다.
