@@ -22,7 +22,7 @@
       "title": "자료 접속·다운로드·준비",
       "explanationMinutes": 7,
       "activityMinutes": 18,
-      "slides": "14–20"
+      "slides": "14–23"
     },
     {
       "time": "00:50–01:00",
@@ -38,7 +38,7 @@
       "title": "실습 1: 전자 조립",
       "explanationMinutes": 9,
       "activityMinutes": 46,
-      "slides": "21–75"
+      "slides": "24–80"
     },
     {
       "time": "01:55–02:05",
@@ -54,7 +54,7 @@
       "title": "실습 2: 계측 검사",
       "explanationMinutes": 8,
       "activityMinutes": 37,
-      "slides": "76–113"
+      "slides": "81–119"
     },
     {
       "time": "02:50–03:00",
@@ -70,7 +70,7 @@
       "title": "실습 3: 기계 조립",
       "explanationMinutes": 7,
       "activityMinutes": 38,
-      "slides": "114–139"
+      "slides": "120–146"
     },
     {
       "time": "03:45–04:00",
@@ -78,7 +78,7 @@
       "title": "문서 보관함·결과 정리",
       "explanationMinutes": 3,
       "activityMinutes": 12,
-      "slides": "140–148"
+      "slides": "147–155"
     }
   ],
   "sources": [
@@ -108,14 +108,15 @@
         "첫 50분: 솔루션 소개 25분 + 실습 준비 25분"
       ],
       "minutes": 0.962,
-      "activityMinutes": 0.0,
+      "activityMinutes": 0,
       "notes": "0–30초: 오늘은 회사의 작업 기준과 현장의 관찰을 연결하는 제조 AI Agent를 소개합니다. 전자 조립·계측 검사·기계 조립 세 가지 예시로, 무엇을 보고 무엇을 물으며 어떤 근거를 남기는지 확인할 예정이라고 안내합니다.\n30–60초: 첫 25분은 배경과 DyninAI 구조 설명, 다음 25분은 접속·파일 다운로드·실습 준비입니다. 이후 10분 휴식과 전자 조립 실습이 이어집니다. 지금은 강사 화면을 보고, 접속 시작을 안내한 뒤 함께 조작하도록 요청합니다.\n참고: R1:5,16; R6:1–3. 자료 번호와 원본 페이지는 slides/REFERENCES.ko.md 참조.",
       "visualKey": "overview",
       "references": [
         "R1:5,16",
         "R6:1–3"
       ],
-      "section": "intro"
+      "section": "intro",
+      "previous_slide_id": "01"
     },
     {
       "section": "intro",
@@ -130,9 +131,10 @@
       ],
       "visualKey": "agenda",
       "minutes": 0.962,
-      "activityMinutes": 0.0,
+      "activityMinutes": 0,
       "notes": "시간표는 강사의 진행 기준입니다. 화면 수만큼 설명 시간을 늘리지 않습니다. 기본 경로를 함께 진행하고 선택 비교는 남은 시간에 시연합니다.",
-      "id": "02"
+      "id": "02",
+      "previous_slide_id": "02"
     },
     {
       "id": "03",
@@ -146,7 +148,7 @@
         "기록 업무: 사진·측정값·검토 이력의 연결"
       ],
       "minutes": 1.923,
-      "activityMinutes": 0.0,
+      "activityMinutes": 0,
       "notes": "0–1분: 수강생이 앞선 교육에서 만든 품질 검사 화면과 검사 이력을 떠올리게 합니다. 예를 들어 작업자는 도면을 찾고, 치수를 재고, 표에 쓰고, 사진을 다시 첨부합니다. 각각의 도구가 있어도 같은 제품·같은 작업의 정보로 연결하는 일이 남아 있습니다.\n1–2분: AI 도입의 목적을 단순한 문서 요약보다 기준과 현장 기록의 연결로 설명합니다. 현장에서 자료를 다시 찾거나 수기로 옮겨 적는 단계가 어디인지 한 가지 짧게 물어봅니다. 회사 소개자료의 비용·기간 수치는 검증된 일반 통계로 제시하지 않습니다.\n참고: R3:2–4; R6:2–3. 자료 번호와 원본 페이지는 slides/REFERENCES.ko.md 참조.",
       "visualKey": "opening_cards",
       "visualSpec": {
@@ -175,7 +177,8 @@
         "R3:2–4",
         "R6:2–3"
       ],
-      "section": "intro"
+      "section": "intro",
+      "previous_slide_id": "03"
     },
     {
       "id": "04",
@@ -189,7 +192,7 @@
         "상태 관리: 이전 결과와 미해결 항목의 유지"
       ],
       "minutes": 1.923,
-      "activityMinutes": 0.0,
+      "activityMinutes": 0,
       "notes": "0–1분: 흐릿한 숫자 사진을 설명하는 답변만으로 검사가 끝나지 않는다는 예를 듭니다. 어떤 제품의 어느 치수인지 조회하고, 값을 확정할 수 없으면 질문하고, 답변을 받은 뒤 기준과 비교하는 연속 처리가 필요합니다. 이를 수행하는 업무 단위를 Agent로 소개합니다.\n1–2분: 모델은 관찰 내용을 해석하고, 프로그램은 자료 조회와 비교·저장을 실행합니다. 모든 단계를 LLM으로 처리할 필요는 없습니다. 앞선 질문이 해결되지 않은 상태를 유지하는 기능도 Agent 시스템의 일부입니다.\n참고: R6:12–14; R7:13. 자료 번호와 원본 페이지는 slides/REFERENCES.ko.md 참조.",
       "visualKey": "opening_flow",
       "visualSpec": {
@@ -218,7 +221,8 @@
         "R6:12–14",
         "R7:13"
       ],
-      "section": "intro"
+      "section": "intro",
+      "previous_slide_id": "04"
     },
     {
       "id": "05",
@@ -232,7 +236,7 @@
         "Dynin-Robotics: 로봇 작업 이해·제어 연계"
       ],
       "minutes": 2.885,
-      "activityMinutes": 0.0,
+      "activityMinutes": 0,
       "notes": "0–1분: DyninAI는 전체 플랫폼 이름이고 Dynin-Omni는 그 안에서 문서·이미지·영상·음성을 다루는 모델이라고 구분합니다. 회사 소개자료에는 Dynin-Omni, Field Ontology, Dynin-Robotics가 공통 현장 정보를 활용하는 구성으로 제시되어 있습니다.\n1–2분: 온톨로지에는 제품, 부품, 공구, 작업 순서와 검사 기준의 관계가 들어갑니다. 업무 Agent는 이 정보를 꺼내 관찰 결과와 연결하고, 질문이나 기록 도구를 실행합니다. 이 슬라이드는 제공 자료를 바탕으로 수업 목적에 맞게 재구성한 개념도이며 실제 배포 서버 구성을 그대로 그린 것은 아닙니다.\n2–3분: Physical AI는 물리 환경의 상태와 행동을 다루는 영역으로 소개합니다. Dynin-Robotics는 작업 이해와 상태 예측, 로봇 제어를 다루는 확장 축입니다. 오늘은 작업자를 지원하는 문서·영상·계측 흐름을 체험하며, 실제 로봇이나 설비는 제어하지 않습니다.\n참고: R1:5,10–12; R3:3–5,13–14; R7:13. 자료 번호와 원본 페이지는 slides/REFERENCES.ko.md 참조.",
       "visualKey": "opening_platform",
       "visualSpec": {
@@ -244,7 +248,8 @@
         "R3:3–5,13–14",
         "R7:13"
       ],
-      "section": "intro"
+      "section": "intro",
+      "previous_slide_id": "05"
     },
     {
       "id": "06",
@@ -258,7 +263,7 @@
         "현장 적용: 회사 기준과 현재 상황의 동시 참조"
       ],
       "minutes": 1.923,
-      "activityMinutes": 0.0,
+      "activityMinutes": 0,
       "notes": "0–1분: 옴니모달은 입력 형식이 서로 달라도 함께 다룬다는 뜻으로 풉니다. SOP 문장, 손과 부품이 보이는 영상, 작업자가 말한 확인값을 같은 작업의 맥락으로 연결하는 예를 듭니다. 이해와 생성은 각각 입력 해석과 결과 표현을 뜻합니다.\n1–2분: 소개자료에서는 Dynin-Omni를 단일 백본과 Masked Diffusion 기반의 통합 모델로 설명합니다. 기술 질문이 나오면 가려진 토큰을 문맥으로 반복 복원하는 방식이라고 짧게 풉니다. 이 방식만으로 모든 현장 업무에서 더 빠르거나 정확하다고 단정하지 않습니다. 오늘 앱은 이 모델을 실시간 실행하지 않고 준비된 관찰 예시를 사용합니다.\n참고: R1:6–9; R3:6–9; R4:3–5,7; R5:2–4. 자료 번호와 원본 페이지는 slides/REFERENCES.ko.md 참조.",
       "visualKey": "opening_omni",
       "visualSpec": {
@@ -271,7 +276,8 @@
         "R4:3–5,7",
         "R5:2–4"
       ],
-      "section": "intro"
+      "section": "intro",
+      "previous_slide_id": "06"
     },
     {
       "id": "07",
@@ -285,7 +291,7 @@
         "조회 예시: 제품 선택 → 관련 도면과 기준 호출"
       ],
       "minutes": 1.923,
-      "activityMinutes": 0.0,
+      "activityMinutes": 0,
       "notes": "0–1분: 온톨로지를 현장에 있는 대상과 관계를 정리한 정보 구조로 설명합니다. 표의 숫자 40.02만 저장하면 어느 제품의 어느 치수인지 알 수 없습니다. BSH-2630 제품, B 전체 길이, mm 단위, 적용 도면과 허용 범위를 함께 연결해야 합니다. 그림의 제품과 값은 강의를 위한 가상 예시입니다.\n1–2분: 실제 현장에서는 문서와 도면의 검토를 거쳐 기준을 확정합니다. 이번 앱에서는 준비된 SOP PDF와 검사 기준 CSV를 읽어 SQLite 표로 구성합니다. 완성된 범용 온톨로지를 자동 생성하는 실습은 아니며, 제품을 선택하면 연결된 기준을 일관되게 불러오는 원리를 체험합니다.\n참고: R3:3–5; R6:4–7,9; R7:3,5. 자료 번호와 원본 페이지는 slides/REFERENCES.ko.md 참조.",
       "visualKey": "opening_ontology",
       "visualSpec": {
@@ -297,7 +303,8 @@
         "R6:4–7,9",
         "R7:3,5"
       ],
-      "section": "intro"
+      "section": "intro",
+      "previous_slide_id": "07"
     },
     {
       "id": "08",
@@ -311,7 +318,7 @@
         "모니터링 화면: 같은 기록의 근거·판정·보고서 확인"
       ],
       "minutes": 2.885,
-      "activityMinutes": 0.0,
+      "activityMinutes": 0,
       "notes": "0–1분: 관리자 준비와 작업자 실행을 나누어 설명합니다. 관리자는 SOP, 도면, 검사 기준과 적용 버전을 등록하고 확인합니다. 작업자는 자신이 수행할 제품과 공정을 선택합니다. 기준이 확정되면 매번 문서를 새로 해석하지 않고 필요한 정보를 불러올 수 있습니다.\n1–2분: 이후 영상에서 진행을 관찰하고, 가려진 장면이나 불명확한 숫자는 질문으로 연결합니다. 질문에 답했는지와 해당 답변을 어떤 기준에서 인정하는지까지 함께 확인합니다. 실제 현장의 스마트 글래스 입력은 이번 강의에서 영상·장면 사진으로 대체합니다.\n2–3분: 확인된 결과는 중간 기록에 누적합니다. 다음 장면으로 넘어가도 앞 작업의 미해결 항목은 남습니다. 마지막 보고서에는 작업 중 쌓인 기준, 사진, 측정값, 질문과 답변이 들어갑니다. 현장용 시스템은 권한·연결·승인 절차를 추가로 갖춰야 합니다.\n참고: R2:2; R6:3–19; R7:4,6–7,11–13. 자료 번호와 원본 페이지는 slides/REFERENCES.ko.md 참조.\n현재 화면 연결: 작업자 화면에는 영상 위 검사 목록과 필요한 질문만 표시합니다. 통과한 항목의 체크 표시를 유지하고 다음 미완료 항목을 강조합니다. 모니터링 화면에서는 같은 작업 기록의 검사 결과와 증거를 확인합니다.",
       "visualKey": "opening_flow",
       "visualSpec": {
@@ -357,7 +364,8 @@
         "R6:3–19",
         "R7:4,6–7,11–13"
       ],
-      "section": "intro"
+      "section": "intro",
+      "previous_slide_id": "08"
     },
     {
       "id": "09",
@@ -371,7 +379,7 @@
         "검토자: 근거·미해결 항목·최종 결과 검토"
       ],
       "minutes": 1.923,
-      "activityMinutes": 0.0,
+      "activityMinutes": 0,
       "notes": "0–1분: 영상에 체결 동작이 보여도 실제 토크는 영상만으로 확정할 수 없다는 예를 듭니다. 보이는 동작, 장비나 센서가 제공한 수치, 작업자의 확인은 서로 다른 종류의 근거입니다. 확인할 수 없는 항목을 자동 합격으로 바꾸지 않습니다.\n1–2분: 원자료는 충족·위반·판단 유보·관찰 불가를 구분합니다. 수업 앱은 충족·불일치·확인 필요의 세 결과를 보여 주고, 정보 부족의 이유를 기록합니다. 작업자 답변은 출처가 있는 추가 증거이며 최종 품질 승인과 같지 않습니다. 기준 변경도 원기록을 지우지 않고 새 판정을 만드는 과정입니다.\n참고: R5:10; R6:7,13,15,17; R7:9–10,13. 자료 번호와 원본 페이지는 slides/REFERENCES.ko.md 참조.",
       "visualKey": "opening_cards",
       "visualSpec": {
@@ -401,7 +409,8 @@
         "R6:7,13,15,17",
         "R7:9–10,13"
       ],
-      "section": "intro"
+      "section": "intro",
+      "previous_slide_id": "09"
     },
     {
       "id": "10",
@@ -415,7 +424,7 @@
         "라인 점검: 사진·음성 메모·이상 보고"
       ],
       "minutes": 1.923,
-      "activityMinutes": 0.0,
+      "activityMinutes": 0,
       "notes": "0–1분: 회사 Use-case 자료에서 네 가지 적용 유형을 골라 소개합니다. 조립은 해야 할 동작과 실제 장면의 대조, 검사는 도면과 값의 대조, 정비는 증상과 점검 절차의 연결, 순회 점검은 현장 사진과 기록의 연결입니다. 원자료에는 개념·가상 예시도 포함되어 있으므로 모두 실제 고객 적용 실적처럼 설명하지 않습니다.\n1–2분: 서로 다른 분야에서도 대상 선택, 관련 기준 조회, 확인, 기록이라는 공통 흐름을 찾을 수 있습니다. 오늘은 앞의 두 가지를 직접 조작하며 정비와 순회 점검은 적용 가능성을 이해하는 사례로 소개합니다. 수강생에게 자기 업무가 어느 유형에 가까운지 잠깐 생각하도록 안내합니다.\n참고: R1:16–31; R2:3–10; R5:5. 자료 번호와 원본 페이지는 slides/REFERENCES.ko.md 참조.",
       "visualKey": "opening_cards",
       "visualSpec": {
@@ -445,7 +454,8 @@
         "R2:3–10",
         "R5:5"
       ],
-      "section": "intro"
+      "section": "intro",
+      "previous_slide_id": "10"
     },
     {
       "id": "11",
@@ -460,7 +470,7 @@
       ],
       "visualKey": "electronics_question",
       "minutes": 1.923,
-      "activityMinutes": 0.0,
+      "activityMinutes": 0,
       "notes": "0–45초: 화면의 배터리 질문을 가리키고, 손에 가린 부분을 정상이라고 추측하는 대신 확인 요청으로 남기는 이유를 설명합니다. 화면은 실제 앱 캡처이며 관찰 내용은 수업을 위해 구성한 예시입니다.\n45–90초: 작업자가 방향을 확인했다고 답하면 해당 기준이 작업자 확인을 인정하는지에 따라 판정이 달라집니다. 반대로 들어가 있다고 답하면 불일치를 남깁니다. 영상만 인정하는 조건이라면 작업자 답변이 있어도 확인 필요일 수 있습니다.\n90–120초: 지금은 강사 화면만 보게 하고, 질문 확인·답변 버튼의 실제 조작은 전자 실습에서 진행한다고 알립니다. 합격 개수보다 어떤 근거로 판단했는지를 읽는 것이 목표입니다.\n참고: R5:3–10; R6:11–18; 현재 실습 앱과 검사 기준. 자료 번호와 원본 페이지는 slides/REFERENCES.ko.md 참조.",
       "references": [
         "R5:3–10",
@@ -474,7 +484,8 @@
         "caption": "현재 전자 조립 실습 · 배터리 극성 확인",
         "url": "https://darklightened.github.io/manufacturing-ai-agent-workshop/",
         "linkLabel": "실습 페이지"
-      }
+      },
+      "previous_slide_id": "11"
     },
     {
       "id": "12",
@@ -489,14 +500,15 @@
       ],
       "visualKey": "measurement_compare",
       "minutes": 1.923,
-      "activityMinutes": 0.0,
+      "activityMinutes": 0,
       "notes": "0–45초: 숫자를 잘 읽는 문제와 읽은 숫자를 판정하는 문제를 구분합니다. 표준형과 정밀형은 제품과 허용 범위가 다르며, 같은 40.02 mm가 다른 판정으로 연결됩니다.\n45–90초: 표에서 40.02가 표준형 상한 40.10보다 작고 정밀형 상한 40.01보다 크다는 점을 같이 계산합니다. 모델이 합격 여부를 추측할 필요 없이 숫자와 규칙을 정확히 연결하면 됩니다.\n90–120초: C의 한 자리가 가려지면 최초 표시 5.?8 mm를 남기고 답변으로 확인값을 받습니다. 수업에서는 5.78 mm를 작업자 역할로 입력하며 실제 장비를 읽었다고 설명하지 않습니다.\n참고: R5:3–10; R6:11–18; 현재 실습 앱과 검사 기준. 자료 번호와 원본 페이지는 slides/REFERENCES.ko.md 참조.",
       "references": [
         "R5:3–10",
         "R6:11–18",
         "현재 실습 앱과 검사 기준"
       ],
-      "section": "intro"
+      "section": "intro",
+      "previous_slide_id": "12"
     },
     {
       "id": "13",
@@ -511,14 +523,39 @@
       ],
       "visualKey": "boundaries",
       "minutes": 1.922,
-      "activityMinutes": 0.0,
+      "activityMinutes": 0,
       "notes": "0–1분: 화면의 강의용 예시 표시를 설명합니다. 앱은 라이브 AI를 호출하는 제품 시연이 아니라 동일한 상황에서 조건을 바꾸어 업무 흐름을 이해하는 실습입니다. 준비된 관찰에 대한 판단을 직접 확인할 수 있습니다.\n1–2분: 문서에서 정보를 추출하고, 입력값을 검사하고, 보고서를 만드는 부분은 실제 동작입니다. 현장 정확도나 로봇 제어 성능을 검증하는 수업은 아닙니다. 이제부터는 수강생이 함께 접속하고 자료를 여는 25분 준비 활동으로 전환합니다.\n참고: R5:10–11; R7:10–14; 현재 실습 앱의 구현·검수 기록. 자료 번호와 원본 페이지는 slides/REFERENCES.ko.md 참조.\n새 실습은 영상 재생과 검사 진행을 연결합니다. 교육용 관찰이며 실제 모델 호출은 없습니다. 작업자 등록과 화면 인증도 실습용입니다.",
       "references": [
         "R5:10–11",
         "R7:10–14",
         "현재 실습 앱의 구현·검수 기록"
       ],
-      "section": "intro"
+      "section": "intro",
+      "previous_slide_id": "13"
+    },
+    {
+      "section": "prep",
+      "title": "실습 준비: 접속 QR과 자료실",
+      "kicker": "실습 접속",
+      "lead": "QR 접속 또는 아래 주소 입력",
+      "bullets": [
+        "Chrome·Edge에서 실습 페이지 접속",
+        "로그인·API 키·모델 설치 불필요",
+        "상단 「강의 자료」 선택",
+        "진행 기록의 브라우저별 저장"
+      ],
+      "visualSpec": {
+        "kind": "access_qr",
+        "path": "slides/assets/access_qr/workshop.png",
+        "url": "https://darklightened.github.io/manufacturing-ai-agent-workshop/",
+        "button": "상단 「강의 자료」",
+        "caption": "실습 페이지 · QR과 주소는 동일한 페이지 연결"
+      },
+      "minutes": 0.246,
+      "activityMinutes": 0.947,
+      "notes": "스마트폰에서는 QR을 스캔하고, 실습은 가급적 노트북의 Chrome 또는 Edge에서 진행합니다. 이미 실습 탭이 열려 있으면 그대로 사용합니다. GitHub 접속이 차단된 경우 강사가 안내한 대체 주소로 접속합니다. 다른 주소는 별도의 브라우저 저장 공간이므로 전환 전에 진행 JSON을 내보내고 새 주소에서 가져옵니다. 새 주소가 기존 기록을 자동으로 옮기지는 않습니다.",
+      "screen_type": "access_qr",
+      "id": "14"
     },
     {
       "section": "prep",
@@ -557,8 +594,8 @@
         ],
         "note": "앱은 웹 주소에서 실행 · 저장한 HTML 발표본·보고서는 더블클릭 열기"
       },
-      "minutes": 3.182,
-      "activityMinutes": 2.571,
+      "minutes": 2.239,
+      "activityMinutes": 2.436,
       "notes": "화면과 예시 자료를 웹에서 내려받고, 각 수강생의 브라우저 안에서 입력·판정·문서 생성 처리.\n완성 예제는 참고 자료. 본인 기록은 실습 후 별도 저장.\n앱은 웹 주소에서 실행 · 저장한 HTML 발표본·보고서는 더블클릭 열기\n출력은 구조 설명용 축약 예시이며 실제 모델 응답이 아닙니다. 화면 조작 후 변경된 기록과 상태를 함께 확인합니다.",
       "screen_type": "pipeline_explanation",
       "technical": {
@@ -578,7 +615,8 @@
         "provenance": "authored_explanatory_example",
         "exact_api_schema": false
       },
-      "id": "14"
+      "id": "15",
+      "previous_slide_id": "14"
     },
     {
       "section": "prep",
@@ -590,8 +628,8 @@
         "자료 열람과 실습 준비",
         "실습 탭과 자료실 탭 준비"
       ],
-      "minutes": 0.636,
-      "activityMinutes": 2.571,
+      "minutes": 0.447,
+      "activityMinutes": 2.436,
       "notes": "조작: 실습 주소 접속 후 상단 ‘강의 자료’ 선택\n확인할 결과: 실습 탭과 자료실 탭 준비\n\n빨간 표시는 실제 버튼·입력란 위치입니다. 슬라이드가 아닌 실습 탭에서 조작합니다. 관찰·Agent 응답은 강의용 예시입니다.",
       "screen_type": "actual_ui",
       "capture_key": "prep-01-home",
@@ -610,7 +648,8 @@
         "mode": "실제 실습 화면 · 강의용 예시",
         "tip": "빨간 네모: 조작 위치 · 그림 클릭 확대"
       },
-      "id": "15"
+      "id": "16",
+      "previous_slide_id": "15"
     },
     {
       "section": "prep",
@@ -622,8 +661,8 @@
         "자료 열람과 실습 준비",
         "PDF 저장 · 강사는 HTML 또는 PPTX 준비"
       ],
-      "minutes": 0.636,
-      "activityMinutes": 2.571,
+      "minutes": 0.447,
+      "activityMinutes": 2.436,
       "notes": "조작: 필요한 발표본 선택 · 수강생은 PDF 다운로드\n확인할 결과: PDF 저장 · 강사는 HTML 또는 PPTX 준비\nHTML 발표본은 자체 포함 파일이므로 더블클릭으로 열립니다. 전체 실습 앱은 웹 주소 또는 로컬 서버가 필요합니다.\n빨간 표시는 실제 버튼·입력란 위치입니다. 슬라이드가 아닌 실습 탭에서 조작합니다. 관찰·Agent 응답은 강의용 예시입니다.",
       "screen_type": "actual_ui",
       "capture_key": "prep-02-slides",
@@ -642,7 +681,8 @@
         "mode": "실제 실습 화면 · 강의용 예시",
         "tip": "빨간 네모: 조작 위치 · 그림 클릭 확대"
       },
-      "id": "16"
+      "id": "17",
+      "previous_slide_id": "16"
     },
     {
       "section": "prep",
@@ -654,8 +694,8 @@
         "자료 열람과 실습 준비",
         "회사 이름별 폴더와 입력 자료 확보"
       ],
-      "minutes": 0.636,
-      "activityMinutes": 2.571,
+      "minutes": 0.447,
+      "activityMinutes": 2.436,
       "notes": "조작: ‘회사별 입력 자료 ZIP’ 선택 후 압축 해제\n확인할 결과: 회사 이름별 폴더와 입력 자료 확보\n필수 업로드 실습용은 이 회사 자료 ZIP입니다. 완성 예제 참고 ZIP은 선택 자료입니다. 압축 해제는 운영체제의 기본 기능으로 진행합니다.\n빨간 표시는 실제 버튼·입력란 위치입니다. 슬라이드가 아닌 실습 탭에서 조작합니다. 관찰·Agent 응답은 강의용 예시입니다.",
       "screen_type": "actual_ui",
       "capture_key": "prep-03-company-zip",
@@ -674,7 +714,56 @@
         "mode": "실제 실습 화면 · 강의용 예시",
         "tip": "빨간 네모: 조작 위치 · 그림 클릭 확대"
       },
-      "id": "17"
+      "id": "18",
+      "previous_slide_id": "17"
+    },
+    {
+      "section": "prep",
+      "title": "실습 준비 (예제 자료): 도면과 검사 기준",
+      "kicker": "예제 해설",
+      "lead": "품번·검사 위치·허용 범위의 구분",
+      "bullets": [
+        "품번·도면 번호: 제품과 적용 문서의 식별",
+        "A 외경·B 길이·C 두께: 측정 대상의 구분",
+        "허용 범위: 적합한 치수의 구간",
+        "측정값: 원래 도면 치수와 구분한 추가 기록"
+      ],
+      "visualSpec": {
+        "kind": "reference_sheet",
+        "path": "scenarios/measurement_input_demo/drawing.svg",
+        "caption": "실습 2의 실제 제공 도면 · 표준형 플랜지 부시",
+        "headers": [
+          "검사 위치",
+          "허용 범위 (mm)",
+          "입력 예시",
+          "판정"
+        ],
+        "rows": [
+          [
+            "A 외경",
+            "26.10–26.50",
+            "26.30",
+            "충족"
+          ],
+          [
+            "B 전체 길이",
+            "39.90–40.10",
+            "40.02",
+            "충족"
+          ],
+          [
+            "C 플랜지 두께",
+            "5.70–5.90",
+            "미확정",
+            "확인 필요"
+          ]
+        ]
+      },
+      "minutes": 0.915,
+      "activityMinutes": 0.0,
+      "notes": "먼저 제품 번호와 도면 개정을 맞춥니다. A/B/C는 검사 위치를 가리키는 이름이고 숫자는 해당 위치에서 허용되는 범위입니다. 영상에서 읽은 숫자가 무엇을 측정한 값인지 연결해야 판정할 수 있습니다. 기준 치수는 지우지 않고 실측값을 별도로 추가합니다. 이 표는 표준형 기준이며 정밀형은 B 허용 범위가 다릅니다.",
+      "screen_type": "reference_explanation",
+      "id": "19"
     },
     {
       "section": "prep",
@@ -686,8 +775,8 @@
         "자료 열람과 실습 준비",
         "A 외경·B 길이·C 두께의 검사 대상 확인"
       ],
-      "minutes": 0.636,
-      "activityMinutes": 2.571,
+      "minutes": 0.447,
+      "activityMinutes": 2.436,
       "notes": "조작: 검사 도면·검사 기준 파일의 위치 확인\n확인할 결과: A 외경·B 길이·C 두께의 검사 대상 확인\n\n빨간 표시는 실제 버튼·입력란 위치입니다. 슬라이드가 아닌 실습 탭에서 조작합니다. 관찰·Agent 응답은 강의용 예시입니다.",
       "screen_type": "actual_ui",
       "capture_key": "prep-04-inputs",
@@ -706,7 +795,48 @@
         "mode": "실제 실습 화면 · 강의용 예시",
         "tip": "빨간 네모: 조작 위치 · 그림 클릭 확대"
       },
-      "id": "18"
+      "id": "20",
+      "previous_slide_id": "18"
+    },
+    {
+      "section": "prep",
+      "title": "실습 준비 (결과 문서): 검수조서와 검사 보고서",
+      "kicker": "예제 해설",
+      "lead": "같은 검사 기록을 목적별 양식으로 정리",
+      "bullets": [
+        "검수조서: 대상·규격·항목·결과의 요약",
+        "상세 검사표: 기준·관찰·판정의 대조",
+        "증거 기록: 사진·질문·답변·수정 이력",
+        "승인란: 담당자 검토와 서명을 위한 별도 영역"
+      ],
+      "visualSpec": {
+        "kind": "reference_sheet",
+        "path": "slides/assets/worker_checklist_v3/lab1/42-report-cover.jpg",
+        "caption": "전자 조립 실습에서 저장하는 물품 검수조서 예시",
+        "headers": [
+          "문서 영역",
+          "확인할 내용"
+        ],
+        "rows": [
+          [
+            "표지·요약",
+            "제품·작업자·검사 범위·결과"
+          ],
+          [
+            "상세 검사표·증거",
+            "항목별 판정·사진·답변 이력"
+          ],
+          [
+            "승인·서명",
+            "담당자의 별도 검토와 확인"
+          ]
+        ]
+      },
+      "minutes": 0.915,
+      "activityMinutes": 0.0,
+      "notes": "다음 화면에서 실제 완성 문서 예제를 엽니다. 보고서 버튼은 새로운 판정을 내리는 기능이 아니라, 저장된 기준·관찰·확인값을 양식으로 옮기는 기능입니다. 사진을 포함한 상세 문서는 판정 근거를 추적하는 용도이고 검수조서는 결과를 요약하는 용도입니다. 서명과 생산 승인까지 자동으로 완료되는 의미는 아닙니다.",
+      "screen_type": "reference_explanation",
+      "id": "21"
     },
     {
       "section": "prep",
@@ -718,8 +848,8 @@
         "자료 열람과 실습 준비",
         "최종 제출 문서의 검사표·사진 형식 확인"
       ],
-      "minutes": 0.636,
-      "activityMinutes": 2.571,
+      "minutes": 0.447,
+      "activityMinutes": 2.436,
       "notes": "조작: 전자 조립 검수 보고서의 ‘보고서 미리보기’ 선택\n확인할 결과: 최종 제출 문서의 검사표·사진 형식 확인\n\n빨간 표시는 실제 버튼·입력란 위치입니다. 슬라이드가 아닌 실습 탭에서 조작합니다. 관찰·Agent 응답은 강의용 예시입니다.",
       "screen_type": "actual_ui",
       "capture_key": "prep-05-example",
@@ -738,7 +868,8 @@
         "mode": "실제 실습 화면 · 강의용 예시",
         "tip": "빨간 네모: 조작 위치 · 그림 클릭 확대"
       },
-      "id": "19"
+      "id": "22",
+      "previous_slide_id": "19"
     },
     {
       "section": "prep",
@@ -750,8 +881,8 @@
         "자료 열람과 실습 준비",
         "실습별 회사·제품·기준 연결"
       ],
-      "minutes": 0.638,
-      "activityMinutes": 2.574,
+      "minutes": 0.45,
+      "activityMinutes": 2.437,
       "notes": "조작: 전자 조립·계측 검사·기계 조립 중 강사 안내에 따라 선택\n확인할 결과: 실습별 회사·제품·기준 연결\n\n빨간 표시는 실제 버튼·입력란 위치입니다. 슬라이드가 아닌 실습 탭에서 조작합니다. 관찰·Agent 응답은 강의용 예시입니다.",
       "screen_type": "actual_ui",
       "capture_key": "prep-06-labs",
@@ -770,7 +901,32 @@
         "mode": "실제 실습 화면 · 강의용 예시",
         "tip": "빨간 네모: 조작 위치 · 그림 클릭 확대"
       },
-      "id": "20"
+      "id": "23",
+      "previous_slide_id": "20"
+    },
+    {
+      "section": "lab1",
+      "title": "실습 1 (전자 조립): 접속 및 시작",
+      "kicker": "실습 접속",
+      "lead": "QR 접속 또는 아래 주소 입력",
+      "bullets": [
+        "Chrome·Edge에서 실습 페이지 접속",
+        "로그인·API 키·모델 설치 불필요",
+        "「전자 조립 실습 시작」 선택",
+        "진행 기록의 브라우저별 저장"
+      ],
+      "visualSpec": {
+        "kind": "access_qr",
+        "path": "slides/assets/access_qr/workshop.png",
+        "url": "https://darklightened.github.io/manufacturing-ai-agent-workshop/",
+        "button": "「전자 조립 실습 시작」",
+        "caption": "실습 페이지 · QR과 주소는 동일한 페이지 연결"
+      },
+      "minutes": 0.296,
+      "activityMinutes": 0.979,
+      "notes": "스마트폰에서는 QR을 스캔하고, 실습은 가급적 노트북의 Chrome 또는 Edge에서 진행합니다. 이미 실습 탭이 열려 있으면 그대로 사용합니다. GitHub 접속이 차단된 경우 강사가 안내한 대체 주소로 접속합니다. 다른 주소는 별도의 브라우저 저장 공간이므로 전환 전에 진행 JSON을 내보내고 새 주소에서 가져옵니다. 새 주소가 기존 기록을 자동으로 옮기지는 않습니다.",
+      "screen_type": "access_qr",
+      "id": "24"
     },
     {
       "section": "lab1",
@@ -814,8 +970,8 @@
         ],
         "note": "관찰·단계별 신호는 강의용 예시 · 답변·기준에 따른 판정과 문서는 실제 처리"
       },
-      "minutes": 0.553,
-      "activityMinutes": 0.846,
+      "minutes": 0.467,
+      "activityMinutes": 0.828,
       "notes": "현재 작업과 검사 항목을 연결하고, 단계 통과·추가 질문·보고서 생성을 순서대로 실행.\n영상으로 보이는 내용과 작업자가 확인한 내용을 구분하여 기록.\n관찰·단계별 신호는 강의용 예시 · 답변·기준에 따른 판정과 문서는 실제 처리\n출력은 구조 설명용 축약 예시이며 실제 모델 응답이 아닙니다. 화면 조작 후 변경된 기록과 상태를 함께 확인합니다.",
       "screen_type": "pipeline_explanation",
       "technical": {
@@ -835,7 +991,8 @@
         "provenance": "authored_explanatory_example",
         "exact_api_schema": false
       },
-      "id": "21"
+      "id": "25",
+      "previous_slide_id": "21"
     },
     {
       "section": "lab1",
@@ -847,8 +1004,8 @@
         "전자 조립의 회사 자료 호출",
         "회사 자료 구축 화면"
       ],
-      "minutes": 0.11,
-      "activityMinutes": 0.846,
+      "minutes": 0.093,
+      "activityMinutes": 0.828,
       "notes": "조작: 전자 조립 실습 시작 선택\n확인할 결과: 회사 자료 구축 화면\n\n빨간 표시는 실제 버튼·입력란 위치입니다. 슬라이드가 아닌 실습 탭에서 조작합니다. 관찰·Agent 응답은 강의용 예시입니다.",
       "screen_type": "actual_ui",
       "capture_key": "lab1-01-select",
@@ -868,7 +1025,8 @@
         "mode": "실제 실습 화면 · 강의용 예시",
         "tip": "빨간 네모: 조작 위치 · 그림 클릭 확대"
       },
-      "id": "22"
+      "id": "26",
+      "previous_slide_id": "22"
     },
     {
       "section": "lab1",
@@ -876,9 +1034,9 @@
       "kicker": "파이프라인 · 기술 배경",
       "lead": "선택 파일의 미리보기부터 검토 가능한 작업 정보까지",
       "bullets": [
-        "PDF.js: 문자 추출",
-        "CSV: 원본 기준 6개",
-        "SQLite: 작업 연결 조회"
+        "SOP: 순서·주의사항",
+        "도면·부품표: 대상·연결 위치",
+        "CSV: 확인 항목·허용 조건"
       ],
       "visualKey": "opening_flow",
       "visualSpec": {
@@ -907,17 +1065,17 @@
         ],
         "note": "파일 선택과 미리보기는 실제 동작 · 어떤 파일 조합도 같은 교육용 기준 구축 · 도면 해석은 예시"
       },
-      "minutes": 0.553,
-      "activityMinutes": 0.846,
+      "minutes": 0.467,
+      "activityMinutes": 0.828,
       "notes": "PDF의 문자를 꺼내고 CSV 항목·단위를 검증한 뒤, 작업 ID와 검사 기준을 SQLite 표로 연결.\n틀린 작업 연결 한 건을 직접 수정하고 관계 그래프에서 재확인.\n파일 선택과 미리보기는 실제 동작 · 어떤 파일 조합도 같은 교육용 기준 구축 · 도면 해석은 예시\n출력은 구조 설명용 축약 예시이며 실제 모델 응답이 아닙니다. 화면 조작 후 변경된 기록과 상태를 함께 확인합니다.",
       "screen_type": "pipeline_explanation",
       "technical": {
         "principle_title": "문서 추출과 구조화",
-        "principle": "PDF의 문자를 꺼내고 CSV 항목·단위를 검증한 뒤, 작업 ID와 검사 기준을 SQLite 표로 연결.",
+        "principle": "SOP의 작업 순서, 도면·부품표의 대상과 위치, CSV의 확인 조건을 추출·검증한 뒤 작업 ID로 SQLite 표에 연결.",
         "method_tags": [
-          "PDF.js: 문자 추출",
-          "CSV: 원본 기준 6개",
-          "SQLite: 작업 연결 조회"
+          "SOP: 순서·주의사항",
+          "도면·부품표: 대상·연결 위치",
+          "CSV: 확인 항목·허용 조건"
         ],
         "input": "회사 폴더의 SOP·도면·검사 기준",
         "output_label": "처리 결과 · 설명용 축약 예시",
@@ -928,7 +1086,8 @@
         "provenance": "authored_explanatory_example",
         "exact_api_schema": false
       },
-      "id": "23"
+      "id": "27",
+      "previous_slide_id": "23"
     },
     {
       "section": "lab1",
@@ -940,8 +1099,8 @@
         "회사별 입력 ZIP 다운로드",
         "회사별 폴더에 SOP·기준·도면 구성"
       ],
-      "minutes": 0.11,
-      "activityMinutes": 0.846,
+      "minutes": 0.093,
+      "activityMinutes": 0.828,
       "notes": "조작: 전체 회사 자료 ZIP 받기 선택\n확인할 결과: 회사별 폴더에 SOP·기준·도면 구성\nZIP 압축을 푼 뒤 다온에듀테크 폴더 선택. 운영체제의 파일 선택창은 슬라이드 대신 실제 실습에서 표시됩니다.\n빨간 표시는 실제 버튼·입력란 위치입니다. 슬라이드가 아닌 실습 탭에서 조작합니다. 관찰·Agent 응답은 강의용 예시입니다.",
       "screen_type": "actual_ui",
       "capture_key": "lab1-02-company-download",
@@ -961,7 +1120,8 @@
         "mode": "실제 실습 화면 · 강의용 예시",
         "tip": "빨간 네모: 조작 위치 · 그림 클릭 확대"
       },
-      "id": "24"
+      "id": "28",
+      "previous_slide_id": "24"
     },
     {
       "section": "lab1",
@@ -973,8 +1133,8 @@
         "로컬 폴더의 파일 목록 확인",
         "내 PC의 다온에듀테크 자료 선택"
       ],
-      "minutes": 0.11,
-      "activityMinutes": 0.846,
+      "minutes": 0.093,
+      "activityMinutes": 0.828,
       "notes": "조작: 폴더 전체 업로드 선택\n확인할 결과: 내 PC의 다온에듀테크 자료 선택\n\n빨간 표시는 실제 버튼·입력란 위치입니다. 슬라이드가 아닌 실습 탭에서 조작합니다. 관찰·Agent 응답은 강의용 예시입니다.",
       "screen_type": "actual_ui",
       "capture_key": "lab1-03-folder-upload",
@@ -994,7 +1154,8 @@
         "mode": "실제 실습 화면 · 강의용 예시",
         "tip": "빨간 네모: 조작 위치 · 그림 클릭 확대"
       },
-      "id": "25"
+      "id": "29",
+      "previous_slide_id": "25"
     },
     {
       "section": "lab1",
@@ -1006,8 +1167,8 @@
         "구축 대상 파일 선택",
         "7개 중 6개 선택 상태"
       ],
-      "minutes": 0.11,
-      "activityMinutes": 0.846,
+      "minutes": 0.093,
+      "activityMinutes": 0.828,
       "notes": "조작: 필요한 파일의 체크 표시 선택·해제\n확인할 결과: 7개 중 6개 선택 상태\n파일 조합과 관계없이 공통 교육용 예제로 구축. 원문 미리보기는 업로드한 파일 그대로 제공.\n빨간 표시는 실제 버튼·입력란 위치입니다. 슬라이드가 아닌 실습 탭에서 조작합니다. 관찰·Agent 응답은 강의용 예시입니다.",
       "screen_type": "actual_ui",
       "capture_key": "lab1-04-file-select",
@@ -1027,7 +1188,8 @@
         "mode": "실제 실습 화면 · 강의용 예시",
         "tip": "빨간 네모: 조작 위치 · 그림 클릭 확대"
       },
-      "id": "26"
+      "id": "30",
+      "previous_slide_id": "26"
     },
     {
       "section": "lab1",
@@ -1039,8 +1201,8 @@
         "PDF 원문 미리보기",
         "다운로드 없이 원문과 검사 대상 확인"
       ],
-      "minutes": 0.11,
-      "activityMinutes": 0.846,
+      "minutes": 0.093,
+      "activityMinutes": 0.828,
       "notes": "조작: 파일 이름 선택\n확인할 결과: 다운로드 없이 원문과 검사 대상 확인\n\n빨간 표시는 실제 버튼·입력란 위치입니다. 슬라이드가 아닌 실습 탭에서 조작합니다. 관찰·Agent 응답은 강의용 예시입니다.",
       "screen_type": "actual_ui",
       "capture_key": "lab1-05-preview-sop",
@@ -1060,7 +1222,8 @@
         "mode": "실제 실습 화면 · 강의용 예시",
         "tip": "빨간 네모: 조작 위치 · 그림 클릭 확대"
       },
-      "id": "27"
+      "id": "31",
+      "previous_slide_id": "27"
     },
     {
       "section": "lab1",
@@ -1072,8 +1235,8 @@
         "검사 항목·작업 연결 표 열람",
         "다운로드 없이 원문과 검사 대상 확인"
       ],
-      "minutes": 0.11,
-      "activityMinutes": 0.846,
+      "minutes": 0.093,
+      "activityMinutes": 0.828,
       "notes": "조작: 파일 이름 선택\n확인할 결과: 다운로드 없이 원문과 검사 대상 확인\n\n빨간 표시는 실제 버튼·입력란 위치입니다. 슬라이드가 아닌 실습 탭에서 조작합니다. 관찰·Agent 응답은 강의용 예시입니다.",
       "screen_type": "actual_ui",
       "capture_key": "lab1-06-preview-criteria",
@@ -1093,21 +1256,22 @@
         "mode": "실제 실습 화면 · 강의용 예시",
         "tip": "빨간 네모: 조작 위치 · 그림 클릭 확대"
       },
-      "id": "28"
+      "id": "32",
+      "previous_slide_id": "28"
     },
     {
       "section": "lab1",
       "title": "실습 1 (전자 조립): 조립 구성도 미리보기",
       "kicker": "실습 화면",
-      "lead": "파일 이름 선택",
+      "lead": "부품 이름·연결 위치와 이후 조립 장면의 대응",
       "bullets": [
         "파일 이름 선택",
         "조립 구성도 미리보기",
         "다운로드 없이 원문과 검사 대상 확인"
       ],
-      "minutes": 0.11,
-      "activityMinutes": 0.846,
-      "notes": "조작: 파일 이름 선택\n확인할 결과: 다운로드 없이 원문과 검사 대상 확인\n\n빨간 표시는 실제 버튼·입력란 위치입니다. 슬라이드가 아닌 실습 탭에서 조작합니다. 관찰·Agent 응답은 강의용 예시입니다.",
+      "minutes": 0.093,
+      "activityMinutes": 0.828,
+      "notes": "조작: 파일 이름 선택\n확인할 결과: 다운로드 없이 원문과 검사 대상 확인\n\n빨간 표시는 실제 버튼·입력란 위치입니다. 슬라이드가 아닌 실습 탭에서 조작합니다. 관찰·Agent 응답은 강의용 예시입니다.\n구성도에서 무엇을 어디에 조립하는지 먼저 확인합니다. 도면에 표시되어 있다는 이유만으로 실제 조립이 완료된 것으로 판단하지 않습니다.",
       "screen_type": "actual_ui",
       "capture_key": "lab1-07-preview-drawing",
       "optional": false,
@@ -1120,13 +1284,60 @@
           "영상·질문",
           "결과 문서"
         ],
-        "input": "파일 이름 선택",
-        "process": "조립 구성도 미리보기",
-        "output": "다운로드 없이 원문과 검사 대상 확인",
+        "input": "회로 보드·모터·프로펠러·배터리의 구성도",
+        "process": "부품 위치와 연결 관계를 이후 영상과 대조",
+        "output": "검사 대상의 위치 확인 · 실제 조립 완료 판정과 구분",
         "mode": "실제 실습 화면 · 강의용 예시",
         "tip": "빨간 네모: 조작 위치 · 그림 클릭 확대"
       },
-      "id": "29"
+      "id": "33",
+      "previous_slide_id": "29"
+    },
+    {
+      "section": "lab1",
+      "title": "실습 1 (자료 구축): 검사 기준표와 연결 관계",
+      "kicker": "예제 해설",
+      "lead": "기준 문장과 해당 작업을 함께 저장하는 구조",
+      "bullets": [
+        "작업 표: 작업 이름과 진행 순서",
+        "검사 기준표: 확인 항목·대상·연결 작업",
+        "작업 ID: 두 표를 잇는 공통 값",
+        "온톨로지: 저장된 관계를 펼친 구조"
+      ],
+      "visualSpec": {
+        "kind": "record_relation",
+        "headers": [
+          "검사 항목",
+          "연결 작업",
+          "검사 내용"
+        ],
+        "rows": [
+          [
+            "E-BATTERY",
+            "circuit → battery",
+            "배터리 두 개의 방향과 홀더 표시 일치"
+          ]
+        ],
+        "items": [
+          [
+            "작업 표 tasks",
+            "battery · 배터리 삽입"
+          ],
+          [
+            "기준표 criteria",
+            "E-BATTERY · 연결 작업 battery"
+          ],
+          [
+            "관계 화면",
+            "회사 → 공정 → 배터리 삽입 → 방향 확인"
+          ]
+        ]
+      },
+      "minutes": 1.099,
+      "activityMinutes": 0.0,
+      "notes": "다음 화면은 PDF·CSV에서 꺼낸 내용을 표로 만드는 과정입니다. 표는 이름만 모아 두는 곳이 아니라 어떤 기준을 어느 작업에서 확인할지 연결하는 곳입니다. 이번 예시는 기준 문장은 맞지만 교육용 초안에서 연결 작업만 circuit으로 잘못 지정되어 있습니다. 수강생이 battery로 바꾸면 원본과 수정 이력이 함께 남습니다. SQL 표와 온톨로지는 별개의 AI 정답이 아니라 같은 정보를 표와 관계로 보는 두 표현입니다.",
+      "screen_type": "reference_explanation",
+      "id": "34"
     },
     {
       "section": "lab1",
@@ -1138,8 +1349,8 @@
         "선택 자료로 교육용 구축 시작",
         "문서·도면·기준의 단계별 처리 시작"
       ],
-      "minutes": 0.11,
-      "activityMinutes": 0.846,
+      "minutes": 0.093,
+      "activityMinutes": 0.828,
       "notes": "조작: 선택 자료로 정보 구축 선택\n확인할 결과: 문서·도면·기준의 단계별 처리 시작\n\n빨간 표시는 실제 버튼·입력란 위치입니다. 슬라이드가 아닌 실습 탭에서 조작합니다. 관찰·Agent 응답은 강의용 예시입니다.",
       "screen_type": "actual_ui",
       "capture_key": "lab1-08-build-start",
@@ -1159,7 +1370,8 @@
         "mode": "실제 실습 화면 · 강의용 예시",
         "tip": "빨간 네모: 조작 위치 · 그림 클릭 확대"
       },
-      "id": "30"
+      "id": "35",
+      "previous_slide_id": "30"
     },
     {
       "section": "lab1",
@@ -1171,8 +1383,8 @@
         "확장자·문서 종류별 분류",
         "출력 내용과 다음 단계 연결"
       ],
-      "minutes": 0.11,
-      "activityMinutes": 0.846,
+      "minutes": 0.093,
+      "activityMinutes": 0.828,
       "notes": "조작: 단계별 진행률과 처리 로그 확인\n확인할 결과: 출력 내용과 다음 단계 연결\nPDF·CSV 추출과 SQLite 저장은 실제 처리. 도면 해석 출력은 강의용 예시.\n빨간 표시는 실제 버튼·입력란 위치입니다. 슬라이드가 아닌 실습 탭에서 조작합니다. 관찰·Agent 응답은 강의용 예시입니다.",
       "screen_type": "actual_ui",
       "capture_key": "lab1-09-build-classify",
@@ -1192,7 +1404,8 @@
         "mode": "실제 실습 화면 · 강의용 예시",
         "tip": "확인 화면 · 그림 클릭 확대"
       },
-      "id": "31"
+      "id": "36",
+      "previous_slide_id": "31"
     },
     {
       "section": "lab1",
@@ -1204,8 +1417,8 @@
         "PDF.js로 문서 문자 추출",
         "출력 내용과 다음 단계 연결"
       ],
-      "minutes": 0.11,
-      "activityMinutes": 0.846,
+      "minutes": 0.093,
+      "activityMinutes": 0.828,
       "notes": "조작: 단계별 진행률과 처리 로그 확인\n확인할 결과: 출력 내용과 다음 단계 연결\nPDF·CSV 추출과 SQLite 저장은 실제 처리. 도면 해석 출력은 강의용 예시.\n빨간 표시는 실제 버튼·입력란 위치입니다. 슬라이드가 아닌 실습 탭에서 조작합니다. 관찰·Agent 응답은 강의용 예시입니다.",
       "screen_type": "actual_ui",
       "capture_key": "lab1-10-build-pdf",
@@ -1225,7 +1438,8 @@
         "mode": "실제 실습 화면 · 강의용 예시",
         "tip": "확인 화면 · 그림 클릭 확대"
       },
-      "id": "32"
+      "id": "37",
+      "previous_slide_id": "32"
     },
     {
       "section": "lab1",
@@ -1237,8 +1451,8 @@
         "작성된 도면·부품 해석 예시 표시",
         "출력 내용과 다음 단계 연결"
       ],
-      "minutes": 0.11,
-      "activityMinutes": 0.846,
+      "minutes": 0.093,
+      "activityMinutes": 0.828,
       "notes": "조작: 단계별 진행률과 처리 로그 확인\n확인할 결과: 출력 내용과 다음 단계 연결\nPDF·CSV 추출과 SQLite 저장은 실제 처리. 도면 해석 출력은 강의용 예시.\n빨간 표시는 실제 버튼·입력란 위치입니다. 슬라이드가 아닌 실습 탭에서 조작합니다. 관찰·Agent 응답은 강의용 예시입니다.",
       "screen_type": "actual_ui",
       "capture_key": "lab1-11-build-drawing",
@@ -1258,7 +1472,8 @@
         "mode": "실제 실습 화면 · 강의용 예시",
         "tip": "확인 화면 · 그림 클릭 확대"
       },
-      "id": "33"
+      "id": "38",
+      "previous_slide_id": "33"
     },
     {
       "section": "lab1",
@@ -1270,8 +1485,8 @@
         "공정 ID와 검사 기준 연결",
         "출력 내용과 다음 단계 연결"
       ],
-      "minutes": 0.11,
-      "activityMinutes": 0.846,
+      "minutes": 0.093,
+      "activityMinutes": 0.828,
       "notes": "조작: 단계별 진행률과 처리 로그 확인\n확인할 결과: 출력 내용과 다음 단계 연결\nPDF·CSV 추출과 SQLite 저장은 실제 처리. 도면 해석 출력은 강의용 예시.\n빨간 표시는 실제 버튼·입력란 위치입니다. 슬라이드가 아닌 실습 탭에서 조작합니다. 관찰·Agent 응답은 강의용 예시입니다.",
       "screen_type": "actual_ui",
       "capture_key": "lab1-12-build-link",
@@ -1291,7 +1506,8 @@
         "mode": "실제 실습 화면 · 강의용 예시",
         "tip": "확인 화면 · 그림 클릭 확대"
       },
-      "id": "34"
+      "id": "39",
+      "previous_slide_id": "34"
     },
     {
       "section": "lab1",
@@ -1303,8 +1519,8 @@
         "SQLite 표 구성",
         "출력 내용과 다음 단계 연결"
       ],
-      "minutes": 0.11,
-      "activityMinutes": 0.846,
+      "minutes": 0.093,
+      "activityMinutes": 0.828,
       "notes": "조작: 단계별 진행률과 처리 로그 확인\n확인할 결과: 출력 내용과 다음 단계 연결\nPDF·CSV 추출과 SQLite 저장은 실제 처리. 도면 해석 출력은 강의용 예시.\n빨간 표시는 실제 버튼·입력란 위치입니다. 슬라이드가 아닌 실습 탭에서 조작합니다. 관찰·Agent 응답은 강의용 예시입니다.",
       "screen_type": "actual_ui",
       "capture_key": "lab1-13-build-sql",
@@ -1324,7 +1540,8 @@
         "mode": "실제 실습 화면 · 강의용 예시",
         "tip": "확인 화면 · 그림 클릭 확대"
       },
-      "id": "35"
+      "id": "40",
+      "previous_slide_id": "35"
     },
     {
       "section": "lab1",
@@ -1336,8 +1553,8 @@
         "검토 대상 연결 표시",
         "출력 내용과 다음 단계 연결"
       ],
-      "minutes": 0.11,
-      "activityMinutes": 0.846,
+      "minutes": 0.093,
+      "activityMinutes": 0.828,
       "notes": "조작: 단계별 진행률과 처리 로그 확인\n확인할 결과: 출력 내용과 다음 단계 연결\nPDF·CSV 추출과 SQLite 저장은 실제 처리. 도면 해석 출력은 강의용 예시.\n빨간 표시는 실제 버튼·입력란 위치입니다. 슬라이드가 아닌 실습 탭에서 조작합니다. 관찰·Agent 응답은 강의용 예시입니다.",
       "screen_type": "actual_ui",
       "capture_key": "lab1-14-build-review",
@@ -1357,7 +1574,8 @@
         "mode": "실제 실습 화면 · 강의용 예시",
         "tip": "확인 화면 · 그림 클릭 확대"
       },
-      "id": "36"
+      "id": "41",
+      "previous_slide_id": "36"
     },
     {
       "section": "lab1",
@@ -1369,8 +1587,8 @@
         "배터리 기준의 잘못된 작업 확인",
         "회로 연결로 등록된 초안 오류 1건"
       ],
-      "minutes": 0.11,
-      "activityMinutes": 0.846,
+      "minutes": 0.093,
+      "activityMinutes": 0.828,
       "notes": "조작: 배터리 검사 기준의 연결 작업 확인\n확인할 결과: 회로 연결로 등록된 초안 오류 1건\n\n빨간 표시는 실제 버튼·입력란 위치입니다. 슬라이드가 아닌 실습 탭에서 조작합니다. 관찰·Agent 응답은 강의용 예시입니다.",
       "screen_type": "actual_ui",
       "capture_key": "lab1-15-review-mismatch",
@@ -1390,7 +1608,8 @@
         "mode": "실제 실습 화면 · 강의용 예시",
         "tip": "빨간 네모: 조작 위치 · 그림 클릭 확대"
       },
-      "id": "37"
+      "id": "42",
+      "previous_slide_id": "37"
     },
     {
       "section": "lab1",
@@ -1402,8 +1621,8 @@
         "circuit → battery 연결 수정",
         "검사 기준을 올바른 작업에 연결"
       ],
-      "minutes": 0.11,
-      "activityMinutes": 0.846,
+      "minutes": 0.093,
+      "activityMinutes": 0.828,
       "notes": "조작: 배터리 삽입 선택 후 수정 내용 저장\n확인할 결과: 검사 기준을 올바른 작업에 연결\n\n빨간 표시는 실제 버튼·입력란 위치입니다. 슬라이드가 아닌 실습 탭에서 조작합니다. 관찰·Agent 응답은 강의용 예시입니다.",
       "screen_type": "actual_ui",
       "capture_key": "lab1-16-review-edit",
@@ -1423,7 +1642,8 @@
         "mode": "실제 실습 화면 · 강의용 예시",
         "tip": "빨간 네모: 조작 위치 · 그림 클릭 확대"
       },
-      "id": "38"
+      "id": "43",
+      "previous_slide_id": "38"
     },
     {
       "section": "lab1",
@@ -1435,8 +1655,8 @@
         "수정된 DB 행 조회",
         "E-BATTERY → battery 연결 저장"
       ],
-      "minutes": 0.11,
-      "activityMinutes": 0.846,
+      "minutes": 0.093,
+      "activityMinutes": 0.828,
       "notes": "조작: criteria 테이블의 task_id 확인\n확인할 결과: E-BATTERY → battery 연결 저장\n\n빨간 표시는 실제 버튼·입력란 위치입니다. 슬라이드가 아닌 실습 탭에서 조작합니다. 관찰·Agent 응답은 강의용 예시입니다.",
       "screen_type": "actual_ui",
       "capture_key": "lab1-17-sql-table",
@@ -1456,7 +1676,8 @@
         "mode": "실제 실습 화면 · 강의용 예시",
         "tip": "빨간 네모: 조작 위치 · 그림 클릭 확대"
       },
-      "id": "39"
+      "id": "44",
+      "previous_slide_id": "39"
     },
     {
       "section": "lab1",
@@ -1468,8 +1689,8 @@
         "수정 내용 저장·검토 완료",
         "검토된 회사 정보 구조로 전환"
       ],
-      "minutes": 0.11,
-      "activityMinutes": 0.846,
+      "minutes": 0.093,
+      "activityMinutes": 0.828,
       "notes": "조작: 검토 완료 · 온톨로지 보기 선택\n확인할 결과: 검토된 회사 정보 구조로 전환\n\n빨간 표시는 실제 버튼·입력란 위치입니다. 슬라이드가 아닌 실습 탭에서 조작합니다. 관찰·Agent 응답은 강의용 예시입니다.",
       "screen_type": "actual_ui",
       "capture_key": "lab1-18-review-complete",
@@ -1489,7 +1710,8 @@
         "mode": "실제 실습 화면 · 강의용 예시",
         "tip": "빨간 네모: 조작 위치 · 그림 클릭 확대"
       },
-      "id": "40"
+      "id": "45",
+      "previous_slide_id": "40"
     },
     {
       "section": "lab1",
@@ -1501,8 +1723,8 @@
         "제품·작업·기준 관계 표시",
         "회사 → 공정 → 작업 → 검사 기준 연결"
       ],
-      "minutes": 0.11,
-      "activityMinutes": 0.846,
+      "minutes": 0.093,
+      "activityMinutes": 0.828,
       "notes": "조작: 배터리 삽입 작업 선택\n확인할 결과: 회사 → 공정 → 작업 → 검사 기준 연결\n\n빨간 표시는 실제 버튼·입력란 위치입니다. 슬라이드가 아닌 실습 탭에서 조작합니다. 관찰·Agent 응답은 강의용 예시입니다.",
       "screen_type": "actual_ui",
       "capture_key": "lab1-19-ontology",
@@ -1522,7 +1744,8 @@
         "mode": "실제 실습 화면 · 강의용 예시",
         "tip": "빨간 네모: 조작 위치 · 그림 클릭 확대"
       },
-      "id": "41"
+      "id": "46",
+      "previous_slide_id": "41"
     },
     {
       "section": "lab1",
@@ -1534,8 +1757,8 @@
         "검토된 기준으로 작업 설정",
         "작업자 등록 화면"
       ],
-      "minutes": 0.11,
-      "activityMinutes": 0.846,
+      "minutes": 0.093,
+      "activityMinutes": 0.828,
       "notes": "조작: 자료 구축 완료 · 작업 설정으로 선택\n확인할 결과: 작업자 등록 화면\n\n빨간 표시는 실제 버튼·입력란 위치입니다. 슬라이드가 아닌 실습 탭에서 조작합니다. 관찰·Agent 응답은 강의용 예시입니다.",
       "screen_type": "actual_ui",
       "capture_key": "lab1-20-setup-next",
@@ -1555,7 +1778,8 @@
         "mode": "실제 실습 화면 · 강의용 예시",
         "tip": "빨간 네모: 조작 위치 · 그림 클릭 확대"
       },
-      "id": "42"
+      "id": "47",
+      "previous_slide_id": "42"
     },
     {
       "section": "lab1",
@@ -1594,8 +1818,8 @@
         ],
         "note": "인증번호 6421은 교육용 화면 인증 · 생체 인증 또는 실제 출입 인증 아님"
       },
-      "minutes": 0.553,
-      "activityMinutes": 0.846,
+      "minutes": 0.467,
+      "activityMinutes": 0.828,
       "notes": "작업자·공정·기준을 하나의 작업 기록에 연결하고, 선택한 공정의 단계와 검사 목록을 준비.\nDB 상위 기준 6개를 영상 단계의 세부 확인 18개로 전개. 실제 현장에서는 사내 인증·작업지시와 연동하는 시작 화면.\n인증번호 6421은 교육용 화면 인증 · 생체 인증 또는 실제 출입 인증 아님\n출력은 구조 설명용 축약 예시이며 실제 모델 응답이 아닙니다. 화면 조작 후 변경된 기록과 상태를 함께 확인합니다.",
       "screen_type": "pipeline_explanation",
       "technical": {
@@ -1615,11 +1839,12 @@
         "provenance": "authored_explanatory_example",
         "exact_api_schema": false
       },
-      "id": "43"
+      "id": "48",
+      "previous_slide_id": "43"
     },
     {
       "section": "lab1",
-      "id": "44",
+      "id": "49",
       "title": "실습 1 (전자 조립): 작업자 등록",
       "kicker": "실습 화면",
       "lead": "이름·사번 입력 후 등록하고 인증으로 선택",
@@ -1628,8 +1853,8 @@
         "현재 실습 화면에서 입력·상태 반영",
         "작업자 정보와 이번 조립 기록의 연결"
       ],
-      "minutes": 0.12,
-      "activityMinutes": 0.828,
+      "minutes": 0.101,
+      "activityMinutes": 0.81,
       "notes": "조작: 이름·사번 입력 후 등록하고 인증으로 선택\n확인: 작업자 정보와 이번 조립 기록의 연결\n\n슬라이드의 빨간 네모는 실제 실습 화면의 버튼·입력란 위치. 실습 탭에서 조작.",
       "screen_type": "actual_ui",
       "capture_key": "lab1-21-register",
@@ -1648,11 +1873,12 @@
         "output": "작업자 정보와 이번 조립 기록의 연결",
         "mode": "실제 실습 화면 · 강의용 예시",
         "tip": "빨간 네모: 조작 위치 · 그림 클릭 확대"
-      }
+      },
+      "previous_slide_id": "44"
     },
     {
       "section": "lab1",
-      "id": "45",
+      "id": "50",
       "title": "실습 1 (전자 조립): 화면 인증",
       "kicker": "실습 화면",
       "lead": "등록 정보 확인·인증 번호 6421 입력 후 인증 확인",
@@ -1661,8 +1887,8 @@
         "현재 실습 화면에서 입력·상태 반영",
         "작업자 확인 후 공정 선택 화면"
       ],
-      "minutes": 0.12,
-      "activityMinutes": 0.828,
+      "minutes": 0.101,
+      "activityMinutes": 0.81,
       "notes": "조작: 등록 정보 확인·인증 번호 6421 입력 후 인증 확인\n확인: 작업자 확인 후 공정 선택 화면\n교육용 인증 번호 6421. 이번 실습의 화면 인증 단계.\n슬라이드의 빨간 네모는 실제 실습 화면의 버튼·입력란 위치. 실습 탭에서 조작.",
       "screen_type": "actual_ui",
       "capture_key": "lab1-22-auth",
@@ -1681,11 +1907,12 @@
         "output": "작업자 확인 후 공정 선택 화면",
         "mode": "실제 실습 화면 · 강의용 예시",
         "tip": "빨간 네모: 조작 위치 · 그림 클릭 확대"
-      }
+      },
+      "previous_slide_id": "45"
     },
     {
       "section": "lab1",
-      "id": "46",
+      "id": "51",
       "title": "실습 1 (전자 조립): 공정 선택과 기준 호출",
       "kicker": "실습 화면",
       "lead": "바람빛 회로 키트 선택 후 작업 시작 · 영상 연결",
@@ -1694,8 +1921,8 @@
         "현재 실습 화면에서 입력·상태 반영",
         "6개 작업 단계와 18개 세부 항목의 호출"
       ],
-      "minutes": 0.12,
-      "activityMinutes": 0.828,
+      "minutes": 0.101,
+      "activityMinutes": 0.81,
       "notes": "조작: 바람빛 회로 키트 선택 후 작업 시작 · 영상 연결\n확인: 6개 작업 단계와 18개 세부 항목의 호출\n\n슬라이드의 빨간 네모는 실제 실습 화면의 버튼·입력란 위치. 실습 탭에서 조작.",
       "screen_type": "actual_ui",
       "capture_key": "lab1-23-process",
@@ -1714,7 +1941,8 @@
         "output": "6개 작업 단계와 18개 세부 항목의 호출",
         "mode": "실제 실습 화면 · 강의용 예시",
         "tip": "빨간 네모: 조작 위치 · 그림 클릭 확대"
-      }
+      },
+      "previous_slide_id": "46"
     },
     {
       "section": "lab1",
@@ -1753,8 +1981,8 @@
         ],
         "note": "작업자·모니터링은 동일 기록 사용 · 미확인·불일치의 자동 통과 없음"
       },
-      "minutes": 0.553,
-      "activityMinutes": 0.846,
+      "minutes": 0.467,
+      "activityMinutes": 0.828,
       "notes": "영상 진행에 따라 각 항목의 상태 갱신. 통과한 항목은 체크로 유지하고 다음 미완료 항목을 강조. 작업자 화면에서는 영상과 알림, 모니터링에서는 검사표와 작업 이력 확인. 화면 전환만으로 미확인 항목이 통과하지 않는 구조. 강의용 예시의 동작 설명.",
       "screen_type": "pipeline_explanation",
       "technical": {
@@ -1774,11 +2002,12 @@
         "provenance": "authored_explanatory_example",
         "exact_api_schema": false
       },
-      "id": "47"
+      "id": "52",
+      "previous_slide_id": "47"
     },
     {
       "section": "lab1",
-      "id": "48",
+      "id": "53",
       "title": "실습 1 (전자 조립): 작업자 화면과 검사 항목",
       "kicker": "실습 화면",
       "lead": "영상 재생 선택",
@@ -1787,8 +2016,8 @@
         "현재 실습 화면에서 입력·상태 반영",
         "큰 작업 영상과 오른쪽 위 검사 목록"
       ],
-      "minutes": 0.12,
-      "activityMinutes": 0.828,
+      "minutes": 0.101,
+      "activityMinutes": 0.81,
       "notes": "조작: 영상 재생 선택\n확인: 큰 작업 영상과 오른쪽 위 검사 목록\n\n슬라이드의 빨간 네모는 실제 실습 화면의 버튼·입력란 위치. 실습 탭에서 조작.",
       "screen_type": "actual_ui",
       "capture_key": "lab1-24-worker-start",
@@ -1807,11 +2036,12 @@
         "output": "큰 작업 영상과 오른쪽 위 검사 목록",
         "mode": "실제 실습 화면 · 강의용 예시",
         "tip": "빨간 네모: 조작 위치 · 그림 클릭 확대"
-      }
+      },
+      "previous_slide_id": "48"
     },
     {
       "section": "lab1",
-      "id": "49",
+      "id": "54",
       "title": "실습 1 (전자 조립): 통과 표시와 다음 검사 항목",
       "kicker": "실습 화면",
       "lead": "오른쪽 위 검사 목록 확인",
@@ -1820,8 +2050,8 @@
         "통과 상태 표시 후 다음 미완료 항목 선택",
         "첫 항목 ✓ 유지 · 두 번째 항목 자동 강조"
       ],
-      "minutes": 0.12,
-      "activityMinutes": 0.828,
+      "minutes": 0.101,
+      "activityMinutes": 0.81,
       "notes": "조작: 오른쪽 위 검사 목록 확인\n확인: 첫 항목 ✓ 유지 · 두 번째 항목 자동 강조\n\n슬라이드의 빨간 네모는 실제 실습 화면의 버튼·입력란 위치. 실습 탭에서 조작.",
       "screen_type": "actual_ui",
       "capture_key": "lab1-25-first-check",
@@ -1840,11 +2070,12 @@
         "output": "첫 항목 ✓ 유지 · 두 번째 항목 자동 강조",
         "mode": "실제 실습 화면 · 강의용 예시",
         "tip": "확인 화면 · 그림 클릭 확대"
-      }
+      },
+      "previous_slide_id": "49"
     },
     {
       "section": "lab1",
-      "id": "50",
+      "id": "55",
       "title": "실습 1 (전자 조립): 준비 단계 통과",
       "kicker": "실습 화면",
       "lead": "기록 확인 · 모니터링으로 선택",
@@ -1853,8 +2084,8 @@
         "현재 실습 화면에서 입력·상태 반영",
         "3개 항목 통과 후 검사 기록 확인"
       ],
-      "minutes": 0.12,
-      "activityMinutes": 0.828,
+      "minutes": 0.101,
+      "activityMinutes": 0.81,
       "notes": "조작: 기록 확인 · 모니터링으로 선택\n확인: 3개 항목 통과 후 검사 기록 확인\n\n슬라이드의 빨간 네모는 실제 실습 화면의 버튼·입력란 위치. 실습 탭에서 조작.",
       "screen_type": "actual_ui",
       "capture_key": "lab1-26-preparation-pass",
@@ -1873,11 +2104,12 @@
         "output": "3개 항목 통과 후 검사 기록 확인",
         "mode": "실제 실습 화면 · 강의용 예시",
         "tip": "빨간 네모: 조작 위치 · 그림 클릭 확대"
-      }
+      },
+      "previous_slide_id": "50"
     },
     {
       "section": "lab1",
-      "id": "51",
+      "id": "56",
       "title": "실습 1 (전자 조립): 작업자 화면과 모니터링",
       "kicker": "실습 화면",
       "lead": "관리 화면의 작업 영상과 검사표 확인",
@@ -1886,8 +2118,8 @@
         "영상·검사표·기록을 모니터링 화면에 배치",
         "동일한 작업 기록을 두 화면으로 조회"
       ],
-      "minutes": 0.12,
-      "activityMinutes": 0.828,
+      "minutes": 0.101,
+      "activityMinutes": 0.81,
       "notes": "조작: 관리 화면의 작업 영상과 검사표 확인\n확인: 동일한 작업 기록을 두 화면으로 조회\n자연 재생으로 저장한 동일 완료 기록을 UI의 진행 가져오기로 복원. 새 검사 결과 생성 없음.\n슬라이드의 빨간 네모는 실제 실습 화면의 버튼·입력란 위치. 실습 탭에서 조작.",
       "screen_type": "actual_ui",
       "capture_key": "lab1-27b-monitor-overview",
@@ -1906,11 +2138,12 @@
         "output": "동일한 작업 기록을 두 화면으로 조회",
         "mode": "실제 실습 화면 · 강의용 예시",
         "tip": "확인 화면 · 그림 클릭 확대"
-      }
+      },
+      "previous_slide_id": "51"
     },
     {
       "section": "lab1",
-      "id": "52",
+      "id": "57",
       "title": "실습 1 (전자 조립): 모니터링의 검사 기록",
       "kicker": "실습 화면",
       "lead": "검사 항목·증거·작업 기록 확인 후 다음 작업 시작",
@@ -1919,8 +2152,8 @@
         "관리 화면의 검사표와 이벤트 이력에 반영",
         "작업자 화면과 동일한 검사 결과"
       ],
-      "minutes": 0.12,
-      "activityMinutes": 0.828,
+      "minutes": 0.101,
+      "activityMinutes": 0.81,
       "notes": "조작: 검사 항목·증거·작업 기록 확인 후 다음 작업 시작\n확인: 작업자 화면과 동일한 검사 결과\n\n슬라이드의 빨간 네모는 실제 실습 화면의 버튼·입력란 위치. 실습 탭에서 조작.",
       "screen_type": "actual_ui",
       "capture_key": "lab1-27-preparation-monitor",
@@ -1939,11 +2172,12 @@
         "output": "작업자 화면과 동일한 검사 결과",
         "mode": "실제 실습 화면 · 강의용 예시",
         "tip": "빨간 네모: 조작 위치 · 그림 클릭 확대"
-      }
+      },
+      "previous_slide_id": "52"
     },
     {
       "section": "lab1",
-      "id": "53",
+      "id": "58",
       "title": "실습 1 (전자 조립): 다음 작업의 검사 목록",
       "kicker": "실습 화면",
       "lead": "회로 연결 영상과 새 검사 항목 확인",
@@ -1952,8 +2186,8 @@
         "작업별 검사 기준 로드 · 영상 진행에 따라 항목 갱신",
         "현재 단계의 항목으로 목록 자동 교체"
       ],
-      "minutes": 0.12,
-      "activityMinutes": 0.828,
+      "minutes": 0.101,
+      "activityMinutes": 0.81,
       "notes": "조작: 회로 연결 영상과 새 검사 항목 확인\n확인: 현재 단계의 항목으로 목록 자동 교체\n\n슬라이드의 빨간 네모는 실제 실습 화면의 버튼·입력란 위치. 실습 탭에서 조작.",
       "screen_type": "actual_ui",
       "capture_key": "lab1-28-circuit-working",
@@ -1972,11 +2206,12 @@
         "output": "현재 단계의 항목으로 목록 자동 교체",
         "mode": "실제 실습 화면 · 강의용 예시",
         "tip": "확인 화면 · 그림 클릭 확대"
-      }
+      },
+      "previous_slide_id": "53"
     },
     {
       "section": "lab1",
-      "id": "54",
+      "id": "59",
       "title": "실습 1 (전자 조립): 회로 연결 검사",
       "kicker": "실습 화면",
       "lead": "기록 확인 · 모니터링으로 선택",
@@ -1985,8 +2220,8 @@
         "현재 실습 화면에서 입력·상태 반영",
         "기판 배치·연결 작업·연결 후 상태의 확인"
       ],
-      "minutes": 0.12,
-      "activityMinutes": 0.828,
+      "minutes": 0.101,
+      "activityMinutes": 0.81,
       "notes": "조작: 기록 확인 · 모니터링으로 선택\n확인: 기판 배치·연결 작업·연결 후 상태의 확인\n\n슬라이드의 빨간 네모는 실제 실습 화면의 버튼·입력란 위치. 실습 탭에서 조작.",
       "screen_type": "actual_ui",
       "capture_key": "lab1-29-circuit-pass",
@@ -2005,11 +2240,12 @@
         "output": "기판 배치·연결 작업·연결 후 상태의 확인",
         "mode": "실제 실습 화면 · 강의용 예시",
         "tip": "빨간 네모: 조작 위치 · 그림 클릭 확대"
-      }
+      },
+      "previous_slide_id": "54"
     },
     {
       "section": "lab1",
-      "id": "55",
+      "id": "60",
       "title": "실습 1 (전자 조립): 회로 연결 기록 검토",
       "kicker": "실습 화면",
       "lead": "검사 결과 확인 후 다음 작업 시작",
@@ -2018,8 +2254,8 @@
         "현재 실습 화면에서 입력·상태 반영",
         "단계별 검사 결과와 기록 시각의 보존"
       ],
-      "minutes": 0.12,
-      "activityMinutes": 0.828,
+      "minutes": 0.101,
+      "activityMinutes": 0.81,
       "notes": "조작: 검사 결과 확인 후 다음 작업 시작\n확인: 단계별 검사 결과와 기록 시각의 보존\n\n슬라이드의 빨간 네모는 실제 실습 화면의 버튼·입력란 위치. 실습 탭에서 조작.",
       "screen_type": "actual_ui",
       "capture_key": "lab1-30-circuit-monitor",
@@ -2038,11 +2274,12 @@
         "output": "단계별 검사 결과와 기록 시각의 보존",
         "mode": "실제 실습 화면 · 강의용 예시",
         "tip": "빨간 네모: 조작 위치 · 그림 클릭 확대"
-      }
+      },
+      "previous_slide_id": "55"
     },
     {
       "section": "lab1",
-      "id": "56",
+      "id": "61",
       "title": "실습 1 (전자 조립): 프로펠러 장착 검사",
       "kicker": "실습 화면",
       "lead": "통과 표시 확인 후 모니터링으로 이동",
@@ -2051,8 +2288,8 @@
         "현재 실습 화면에서 입력·상태 반영",
         "장착 작업과 장착 후 상태의 검사"
       ],
-      "minutes": 0.12,
-      "activityMinutes": 0.828,
+      "minutes": 0.101,
+      "activityMinutes": 0.81,
       "notes": "조작: 통과 표시 확인 후 모니터링으로 이동\n확인: 장착 작업과 장착 후 상태의 검사\n\n슬라이드의 빨간 네모는 실제 실습 화면의 버튼·입력란 위치. 실습 탭에서 조작.",
       "screen_type": "actual_ui",
       "capture_key": "lab1-31-propeller-pass",
@@ -2071,7 +2308,8 @@
         "output": "장착 작업과 장착 후 상태의 검사",
         "mode": "실제 실습 화면 · 강의용 예시",
         "tip": "빨간 네모: 조작 위치 · 그림 클릭 확대"
-      }
+      },
+      "previous_slide_id": "56"
     },
     {
       "section": "lab1",
@@ -2110,8 +2348,8 @@
         ],
         "note": "작업자 답변의 출처 보존 · 영상 근거만 인정 시 같은 답변으로 통과 불가"
       },
-      "minutes": 0.553,
-      "activityMinutes": 0.846,
+      "minutes": 0.467,
+      "activityMinutes": 0.828,
       "notes": "보이지 않는 항목을 자동 통과시키지 않고, 확인 질문의 답변과 해당 항목의 인정 기준을 함께 검증.\n확인 불가·반대 방향 답변은 정상 완료와 구별.\n선택 비교: 영상 근거만 인정 시 같은 답변으로 통과 불가\n출력은 구조 설명용 축약 예시이며 실제 모델 응답이 아닙니다. 화면 조작 후 변경된 기록과 상태를 함께 확인합니다.",
       "screen_type": "pipeline_explanation",
       "technical": {
@@ -2131,11 +2369,12 @@
         "provenance": "authored_explanatory_example",
         "exact_api_schema": false
       },
-      "id": "57"
+      "id": "62",
+      "previous_slide_id": "57"
     },
     {
       "section": "lab1",
-      "id": "58",
+      "id": "63",
       "title": "실습 1 (전자 조립): 배터리 방향 확인 요청",
       "kicker": "실습 화면",
       "lead": "질문 확인 선택",
@@ -2144,8 +2383,8 @@
         "자동 통과 대신 작업자 확인 요청",
         "가려진 방향은 ? 유지 · 다음 작업 보류"
       ],
-      "minutes": 0.12,
-      "activityMinutes": 0.828,
+      "minutes": 0.101,
+      "activityMinutes": 0.81,
       "notes": "조작: 질문 확인 선택\n확인: 가려진 방향은 ? 유지 · 다음 작업 보류\n\n슬라이드의 빨간 네모는 실제 실습 화면의 버튼·입력란 위치. 실습 탭에서 조작.",
       "screen_type": "actual_ui",
       "capture_key": "lab1-32-battery-question",
@@ -2164,11 +2403,12 @@
         "output": "가려진 방향은 ? 유지 · 다음 작업 보류",
         "mode": "실제 실습 화면 · 강의용 예시",
         "tip": "빨간 네모: 조작 위치 · 그림 클릭 확대"
-      }
+      },
+      "previous_slide_id": "58"
     },
     {
       "section": "lab1",
-      "id": "59",
+      "id": "64",
       "title": "실습 1 (전자 조립): 작업자 답변",
       "kicker": "실습 화면",
       "lead": "확인 결과에 맞는 답변 선택",
@@ -2177,8 +2417,8 @@
         "현재 실습 화면에서 입력·상태 반영",
         "답변과 출처를 검사 기록에 추가"
       ],
-      "minutes": 0.12,
-      "activityMinutes": 0.828,
+      "minutes": 0.101,
+      "activityMinutes": 0.81,
       "notes": "조작: 확인 결과에 맞는 답변 선택\n확인: 답변과 출처를 검사 기록에 추가\n\n슬라이드의 빨간 네모는 실제 실습 화면의 버튼·입력란 위치. 실습 탭에서 조작.",
       "screen_type": "actual_ui",
       "capture_key": "lab1-33-battery-answer",
@@ -2197,11 +2437,12 @@
         "output": "답변과 출처를 검사 기록에 추가",
         "mode": "실제 실습 화면 · 강의용 예시",
         "tip": "빨간 네모: 조작 위치 · 그림 클릭 확대"
-      }
+      },
+      "previous_slide_id": "59"
     },
     {
       "section": "lab1",
-      "id": "60",
+      "id": "65",
       "title": "실습 1 (전자 조립): 작업자 확인 후 통과",
       "kicker": "실습 화면",
       "lead": "기록 확인 · 모니터링으로 선택",
@@ -2210,8 +2451,8 @@
         "현재 실습 화면에서 입력·상태 반영",
         "배터리 방향 ✓ 변경 · 단계 통과"
       ],
-      "minutes": 0.12,
-      "activityMinutes": 0.828,
+      "minutes": 0.101,
+      "activityMinutes": 0.81,
       "notes": "조작: 기록 확인 · 모니터링으로 선택\n확인: 배터리 방향 ✓ 변경 · 단계 통과\n\n슬라이드의 빨간 네모는 실제 실습 화면의 버튼·입력란 위치. 실습 탭에서 조작.",
       "screen_type": "actual_ui",
       "capture_key": "lab1-34-battery-pass",
@@ -2230,11 +2471,12 @@
         "output": "배터리 방향 ✓ 변경 · 단계 통과",
         "mode": "실제 실습 화면 · 강의용 예시",
         "tip": "빨간 네모: 조작 위치 · 그림 클릭 확대"
-      }
+      },
+      "previous_slide_id": "60"
     },
     {
       "section": "lab1",
-      "id": "61",
+      "id": "66",
       "title": "실습 1 (전자 조립): 질문·답변의 모니터링",
       "kicker": "실습 화면",
       "lead": "확인 출처와 작업 기록 확인 후 다음 작업 시작",
@@ -2243,8 +2485,8 @@
         "현재 실습 화면에서 입력·상태 반영",
         "영상 미확인과 작업자 확인을 분리한 기록"
       ],
-      "minutes": 0.12,
-      "activityMinutes": 0.828,
+      "minutes": 0.101,
+      "activityMinutes": 0.81,
       "notes": "조작: 확인 출처와 작업 기록 확인 후 다음 작업 시작\n확인: 영상 미확인과 작업자 확인을 분리한 기록\n\n슬라이드의 빨간 네모는 실제 실습 화면의 버튼·입력란 위치. 실습 탭에서 조작.",
       "screen_type": "actual_ui",
       "capture_key": "lab1-35-battery-monitor",
@@ -2263,11 +2505,12 @@
         "output": "영상 미확인과 작업자 확인을 분리한 기록",
         "mode": "실제 실습 화면 · 강의용 예시",
         "tip": "빨간 네모: 조작 위치 · 그림 클릭 확대"
-      }
+      },
+      "previous_slide_id": "61"
     },
     {
       "section": "lab1",
-      "id": "62",
+      "id": "67",
       "title": "실습 1 (전자 조립): 스위치 동작 검사",
       "kicker": "실습 화면",
       "lead": "통과 확인 후 모니터링으로 이동",
@@ -2276,8 +2519,8 @@
         "현재 실습 화면에서 입력·상태 반영",
         "스위치 조작 장면과 확인 항목의 기록"
       ],
-      "minutes": 0.12,
-      "activityMinutes": 0.828,
+      "minutes": 0.101,
+      "activityMinutes": 0.81,
       "notes": "조작: 통과 확인 후 모니터링으로 이동\n확인: 스위치 조작 장면과 확인 항목의 기록\n\n슬라이드의 빨간 네모는 실제 실습 화면의 버튼·입력란 위치. 실습 탭에서 조작.",
       "screen_type": "actual_ui",
       "capture_key": "lab1-36-switch-pass",
@@ -2296,11 +2539,12 @@
         "output": "스위치 조작 장면과 확인 항목의 기록",
         "mode": "실제 실습 화면 · 강의용 예시",
         "tip": "빨간 네모: 조작 위치 · 그림 클릭 확대"
-      }
+      },
+      "previous_slide_id": "62"
     },
     {
       "section": "lab1",
-      "id": "63",
+      "id": "68",
       "title": "실습 1 (전자 조립): 최종 외관 검사",
       "kicker": "실습 화면",
       "lead": "기록 확인 · 모니터링으로 선택",
@@ -2309,8 +2553,8 @@
         "현재 실습 화면에서 입력·상태 반영",
         "6개 단계의 검사 종료"
       ],
-      "minutes": 0.12,
-      "activityMinutes": 0.828,
+      "minutes": 0.101,
+      "activityMinutes": 0.81,
       "notes": "조작: 기록 확인 · 모니터링으로 선택\n확인: 6개 단계의 검사 종료\n\n슬라이드의 빨간 네모는 실제 실습 화면의 버튼·입력란 위치. 실습 탭에서 조작.",
       "screen_type": "actual_ui",
       "capture_key": "lab1-37-final-pass",
@@ -2329,11 +2573,12 @@
         "output": "6개 단계의 검사 종료",
         "mode": "실제 실습 화면 · 강의용 예시",
         "tip": "빨간 네모: 조작 위치 · 그림 클릭 확대"
-      }
+      },
+      "previous_slide_id": "63"
     },
     {
       "section": "lab1",
-      "id": "64",
+      "id": "69",
       "title": "실습 1 (전자 조립): 최종 작업 기록",
       "kicker": "실습 화면",
       "lead": "검수 완료 · 결과 보기 선택",
@@ -2342,8 +2587,8 @@
         "현재 실습 화면에서 입력·상태 반영",
         "모든 단계의 검사 결과 화면으로 이동"
       ],
-      "minutes": 0.12,
-      "activityMinutes": 0.828,
+      "minutes": 0.101,
+      "activityMinutes": 0.81,
       "notes": "조작: 검수 완료 · 결과 보기 선택\n확인: 모든 단계의 검사 결과 화면으로 이동\n\n슬라이드의 빨간 네모는 실제 실습 화면의 버튼·입력란 위치. 실습 탭에서 조작.",
       "screen_type": "actual_ui",
       "capture_key": "lab1-38-final-monitor",
@@ -2362,11 +2607,12 @@
         "output": "모든 단계의 검사 결과 화면으로 이동",
         "mode": "실제 실습 화면 · 강의용 예시",
         "tip": "빨간 네모: 조작 위치 · 그림 클릭 확대"
-      }
+      },
+      "previous_slide_id": "64"
     },
     {
       "section": "lab1",
-      "id": "65",
+      "id": "70",
       "title": "실습 1 (전자 조립): 전체 검수 결과",
       "kicker": "실습 화면",
       "lead": "단계별 검사 결과와 확인 출처 확인",
@@ -2375,8 +2621,8 @@
         "현재 실습 화면에서 입력·상태 반영",
         "6개 단계 · 18개 항목의 검수 현황"
       ],
-      "minutes": 0.12,
-      "activityMinutes": 0.828,
+      "minutes": 0.101,
+      "activityMinutes": 0.81,
       "notes": "조작: 단계별 검사 결과와 확인 출처 확인\n확인: 6개 단계 · 18개 항목의 검수 현황\n\n슬라이드의 빨간 네모는 실제 실습 화면의 버튼·입력란 위치. 실습 탭에서 조작.",
       "screen_type": "actual_ui",
       "capture_key": "lab1-39-review",
@@ -2395,7 +2641,8 @@
         "output": "6개 단계 · 18개 항목의 검수 현황",
         "mode": "실제 실습 화면 · 강의용 예시",
         "tip": "확인 화면 · 그림 클릭 확대"
-      }
+      },
+      "previous_slide_id": "65"
     },
     {
       "section": "lab1",
@@ -2434,8 +2681,8 @@
         ],
         "note": "검수 결과는 교육용 예시 · 문서 보관함은 같은 브라우저에서 조회"
       },
-      "minutes": 0.553,
-      "activityMinutes": 0.846,
+      "minutes": 0.467,
+      "activityMinutes": 0.828,
       "notes": "저장된 상태와 검사 기록을 문서 양식에 배치. 보고서 작성 단계에서 새로운 검사 결과를 만들지 않는 방식.\nDOCX는 문서 편집용, HTML은 사진 포함 열람용.\n검수 결과는 교육용 예시 · 문서 보관함은 같은 브라우저에서 조회\n출력은 구조 설명용 축약 예시이며 실제 모델 응답이 아닙니다. 화면 조작 후 변경된 기록과 상태를 함께 확인합니다.",
       "screen_type": "pipeline_explanation",
       "technical": {
@@ -2455,11 +2702,12 @@
         "provenance": "authored_explanatory_example",
         "exact_api_schema": false
       },
-      "id": "66"
+      "id": "71",
+      "previous_slide_id": "66"
     },
     {
       "section": "lab1",
-      "id": "67",
+      "id": "72",
       "title": "실습 1 (전자 조립): 검수 보고서 생성",
       "kicker": "실습 화면",
       "lead": "검수 보고서 보기 선택",
@@ -2468,8 +2716,8 @@
         "현재 실습 화면에서 입력·상태 반영",
         "검수조서·검사표·증거 사진의 문서 구성"
       ],
-      "minutes": 0.12,
-      "activityMinutes": 0.828,
+      "minutes": 0.101,
+      "activityMinutes": 0.81,
       "notes": "조작: 검수 보고서 보기 선택\n확인: 검수조서·검사표·증거 사진의 문서 구성\n\n슬라이드의 빨간 네모는 실제 실습 화면의 버튼·입력란 위치. 실습 탭에서 조작.",
       "screen_type": "actual_ui",
       "capture_key": "lab1-40-open-report",
@@ -2488,11 +2736,12 @@
         "output": "검수조서·검사표·증거 사진의 문서 구성",
         "mode": "실제 실습 화면 · 강의용 예시",
         "tip": "빨간 네모: 조작 위치 · 그림 클릭 확대"
-      }
+      },
+      "previous_slide_id": "67"
     },
     {
       "section": "lab1",
-      "id": "68",
+      "id": "73",
       "title": "실습 1 (전자 조립): 물품 검수조서",
       "kicker": "실습 화면",
       "lead": "검수조서 본문과 승인란 확인",
@@ -2501,8 +2750,8 @@
         "현재 실습 화면에서 입력·상태 반영",
         "작업 정보·검수 결과·서명란을 갖춘 A4 양식"
       ],
-      "minutes": 0.12,
-      "activityMinutes": 0.828,
+      "minutes": 0.101,
+      "activityMinutes": 0.81,
       "notes": "조작: 검수조서 본문과 승인란 확인\n확인: 작업 정보·검수 결과·서명란을 갖춘 A4 양식\n\n슬라이드의 빨간 네모는 실제 실습 화면의 버튼·입력란 위치. 실습 탭에서 조작.",
       "screen_type": "actual_ui",
       "capture_key": "lab1-41-report-preview",
@@ -2521,11 +2770,12 @@
         "output": "작업 정보·검수 결과·서명란을 갖춘 A4 양식",
         "mode": "실제 실습 화면 · 강의용 예시",
         "tip": "확인 화면 · 그림 클릭 확대"
-      }
+      },
+      "previous_slide_id": "68"
     },
     {
       "section": "lab1",
-      "id": "69",
+      "id": "74",
       "title": "실습 1 (전자 조립): 검수조서 표지",
       "kicker": "실습 화면",
       "lead": "보고서 해당 페이지 확인",
@@ -2534,8 +2784,8 @@
         "기록·근거를 A4 문서의 항목에 연결",
         "작업자·품목·검수 기준과 종합 결과"
       ],
-      "minutes": 0.12,
-      "activityMinutes": 0.828,
+      "minutes": 0.101,
+      "activityMinutes": 0.81,
       "notes": "조작: 보고서 해당 페이지 확인\n확인: 작업자·품목·검수 기준과 종합 결과\n실제 앱이 같은 완료 기록으로 생성한 보고서 페이지.\n슬라이드의 빨간 네모는 실제 실습 화면의 버튼·입력란 위치. 실습 탭에서 조작.",
       "screen_type": "actual_ui",
       "capture_key": "lab1-42-report-cover",
@@ -2554,11 +2804,12 @@
         "output": "작업자·품목·검수 기준과 종합 결과",
         "mode": "실제 실습 화면 · 강의용 예시",
         "tip": "확인 화면 · 그림 클릭 확대"
-      }
+      },
+      "previous_slide_id": "69"
     },
     {
       "section": "lab1",
-      "id": "70",
+      "id": "75",
       "title": "실습 1 (전자 조립): 세부 검사표",
       "kicker": "실습 화면",
       "lead": "검수조서 확인",
@@ -2567,8 +2818,8 @@
         "검사·답변·장면을 문서 양식에 배치",
         "18개 항목의 결과·근거·확인 출처"
       ],
-      "minutes": 0.12,
-      "activityMinutes": 0.828,
+      "minutes": 0.101,
+      "activityMinutes": 0.81,
       "notes": "조작: 검수조서 확인\n확인: 18개 항목의 결과·근거·확인 출처\n실제 앱에서 생성해 저장한 동일 보고서의 해당 영역. 새로운 검사값 생성 없음.\n슬라이드의 빨간 네모는 실제 실습 화면의 버튼·입력란 위치. 실습 탭에서 조작.",
       "screen_type": "actual_ui",
       "capture_key": "lab1-43-report-checks",
@@ -2587,11 +2838,12 @@
         "output": "18개 항목의 결과·근거·확인 출처",
         "mode": "실제 실습 화면 · 강의용 예시",
         "tip": "확인 화면 · 그림 클릭 확대"
-      }
+      },
+      "previous_slide_id": "70"
     },
     {
       "section": "lab1",
-      "id": "71",
+      "id": "76",
       "title": "실습 1 (전자 조립): 질문·답변 기록",
       "kicker": "실습 화면",
       "lead": "검수조서 확인",
@@ -2600,8 +2852,8 @@
         "검사·답변·장면을 문서 양식에 배치",
         "영상 미확인과 작업자 확인을 구분한 기록"
       ],
-      "minutes": 0.12,
-      "activityMinutes": 0.828,
+      "minutes": 0.101,
+      "activityMinutes": 0.81,
       "notes": "조작: 검수조서 확인\n확인: 영상 미확인과 작업자 확인을 구분한 기록\n실제 앱에서 생성해 저장한 동일 보고서의 해당 영역. 새로운 검사값 생성 없음.\n슬라이드의 빨간 네모는 실제 실습 화면의 버튼·입력란 위치. 실습 탭에서 조작.",
       "screen_type": "actual_ui",
       "capture_key": "lab1-43b-report-answers",
@@ -2620,11 +2872,12 @@
         "output": "영상 미확인과 작업자 확인을 구분한 기록",
         "mode": "실제 실습 화면 · 강의용 예시",
         "tip": "확인 화면 · 그림 클릭 확대"
-      }
+      },
+      "previous_slide_id": "71"
     },
     {
       "section": "lab1",
-      "id": "72",
+      "id": "77",
       "title": "실습 1 (전자 조립): 공정별 증거 사진",
       "kicker": "실습 화면",
       "lead": "검수조서 확인",
@@ -2633,8 +2886,8 @@
         "검사·답변·장면을 문서 양식에 배치",
         "6개 작업 단계의 사진과 원본 시각"
       ],
-      "minutes": 0.12,
-      "activityMinutes": 0.828,
+      "minutes": 0.101,
+      "activityMinutes": 0.81,
       "notes": "조작: 검수조서 확인\n확인: 6개 작업 단계의 사진과 원본 시각\n실제 앱에서 생성해 저장한 동일 보고서의 해당 영역. 새로운 검사값 생성 없음.\n슬라이드의 빨간 네모는 실제 실습 화면의 버튼·입력란 위치. 실습 탭에서 조작.",
       "screen_type": "actual_ui",
       "capture_key": "lab1-44-report-evidence",
@@ -2653,11 +2906,12 @@
         "output": "6개 작업 단계의 사진과 원본 시각",
         "mode": "실제 실습 화면 · 강의용 예시",
         "tip": "확인 화면 · 그림 클릭 확대"
-      }
+      },
+      "previous_slide_id": "72"
     },
     {
       "section": "lab1",
-      "id": "73",
+      "id": "78",
       "title": "실습 1 (전자 조립): 검수 보고서 저장",
       "kicker": "실습 화면",
       "lead": "DOCX·사진 포함 HTML·인쇄 중 선택",
@@ -2666,8 +2920,8 @@
         "현재 실습 화면에서 입력·상태 반영",
         "편집용 Word 파일과 열람용 보고서 저장"
       ],
-      "minutes": 0.12,
-      "activityMinutes": 0.828,
+      "minutes": 0.101,
+      "activityMinutes": 0.81,
       "notes": "조작: DOCX·사진 포함 HTML·인쇄 중 선택\n확인: 편집용 Word 파일과 열람용 보고서 저장\n\n슬라이드의 빨간 네모는 실제 실습 화면의 버튼·입력란 위치. 실습 탭에서 조작.",
       "screen_type": "actual_ui",
       "capture_key": "lab1-45-report-save",
@@ -2686,11 +2940,12 @@
         "output": "편집용 Word 파일과 열람용 보고서 저장",
         "mode": "실제 실습 화면 · 강의용 예시",
         "tip": "빨간 네모: 조작 위치 · 그림 클릭 확대"
-      }
+      },
+      "previous_slide_id": "73"
     },
     {
       "section": "lab1",
-      "id": "74",
+      "id": "79",
       "title": "실습 1 (전자 조립): 확인 근거 변경 · 선택 비교",
       "kicker": "실습 화면",
       "lead": "영상 근거만 인정 선택 후 기준 적용 · 재검토",
@@ -2699,8 +2954,8 @@
         "현재 실습 화면에서 입력·상태 반영",
         "같은 관찰·답변에 대한 인정 기준 변경"
       ],
-      "minutes": 0.12,
-      "activityMinutes": 0.828,
+      "minutes": 0.101,
+      "activityMinutes": 0.81,
       "notes": "조작: 영상 근거만 인정 선택 후 기준 적용 · 재검토\n확인: 같은 관찰·답변에 대한 인정 기준 변경\n\n슬라이드의 빨간 네모는 실제 실습 화면의 버튼·입력란 위치. 실습 탭에서 조작.",
       "screen_type": "actual_ui",
       "capture_key": "lab1-46-policy-change",
@@ -2719,11 +2974,12 @@
         "output": "같은 관찰·답변에 대한 인정 기준 변경",
         "mode": "실제 실습 화면 · 강의용 예시",
         "tip": "빨간 네모: 조작 위치 · 그림 클릭 확대"
-      }
+      },
+      "previous_slide_id": "74"
     },
     {
       "section": "lab1",
-      "id": "75",
+      "id": "80",
       "title": "실습 1 (전자 조립): 기준 변경 후 보류 · 선택 비교",
       "kicker": "실습 화면",
       "lead": "변경된 결과와 보존된 답변 확인",
@@ -2732,8 +2988,8 @@
         "현재 실습 화면에서 입력·상태 반영",
         "영상에서 보이지 않은 방향은 미확인 유지"
       ],
-      "minutes": 0.122,
-      "activityMinutes": 0.82,
+      "minutes": 0.115,
+      "activityMinutes": 0.813,
       "notes": "조작: 변경된 결과와 보존된 답변 확인\n확인: 영상에서 보이지 않은 방향은 미확인 유지\n\n슬라이드의 빨간 네모는 실제 실습 화면의 버튼·입력란 위치. 실습 탭에서 조작.",
       "screen_type": "actual_ui",
       "capture_key": "lab1-47-policy-hold",
@@ -2752,7 +3008,32 @@
         "output": "영상에서 보이지 않은 방향은 미확인 유지",
         "mode": "실제 실습 화면 · 강의용 예시",
         "tip": "확인 화면 · 그림 클릭 확대"
-      }
+      },
+      "previous_slide_id": "75"
+    },
+    {
+      "section": "lab2",
+      "title": "실습 2 (계측 검사): 접속 및 시작",
+      "kicker": "실습 접속",
+      "lead": "QR 접속 또는 아래 주소 입력",
+      "bullets": [
+        "Chrome·Edge에서 실습 페이지 접속",
+        "로그인·API 키·모델 설치 불필요",
+        "계측 판독 카드의 「이 실습 시작」 선택",
+        "진행 기록의 브라우저별 저장"
+      ],
+      "visualSpec": {
+        "kind": "access_qr",
+        "path": "slides/assets/access_qr/workshop.png",
+        "url": "https://darklightened.github.io/manufacturing-ai-agent-workshop/",
+        "button": "계측 판독 카드의 「이 실습 시작」",
+        "caption": "실습 페이지 · QR과 주소는 동일한 페이지 연결"
+      },
+      "minutes": 0.335,
+      "activityMinutes": 0.974,
+      "notes": "스마트폰에서는 QR을 스캔하고, 실습은 가급적 노트북의 Chrome 또는 Edge에서 진행합니다. 이미 실습 탭이 열려 있으면 그대로 사용합니다. GitHub 접속이 차단된 경우 강사가 안내한 대체 주소로 접속합니다. 다른 주소는 별도의 브라우저 저장 공간이므로 전환 전에 진행 JSON을 내보내고 새 주소에서 가져옵니다. 새 주소가 기존 기록을 자동으로 옮기지는 않습니다.",
+      "screen_type": "access_qr",
+      "id": "81"
     },
     {
       "section": "lab2",
@@ -2796,8 +3077,8 @@
         ],
         "note": "강의용 예시 · 입력값·단위·적용 기준에 따른 판정"
       },
-      "minutes": 0.652,
-      "activityMinutes": 1.094,
+      "minutes": 0.625,
+      "activityMinutes": 1.065,
       "notes": "제품·도면·검사 기준이 연결된 뒤 작업자 화면에서 값을 기록합니다. 모니터링은 같은 기록을 도면 위에 표시하며, 화면 전환 자체가 새로운 검사를 만들지는 않습니다. 기록된 값과 현재 기준으로 판정하고 미확인 표시는 작업자 답변으로 보완합니다.",
       "screen_type": "pipeline_explanation",
       "technical": {
@@ -2817,7 +3098,8 @@
         "provenance": "authored_explanatory_example",
         "exact_api_schema": false
       },
-      "id": "76"
+      "id": "82",
+      "previous_slide_id": "76"
     },
     {
       "section": "lab2",
@@ -2839,11 +3121,12 @@
         "url": "https://darklightened.github.io/manufacturing-ai-agent-workshop/assets/measurement-operator-v2/scene-a.mp4",
         "caption": "A 외경 측정 장면 · 강의용 예시"
       },
-      "minutes": 0.435,
-      "activityMinutes": 1.094,
+      "minutes": 0.417,
+      "activityMinutes": 1.065,
       "screen_type": "simulated_pov_video",
       "notes": "10초 계측 장면입니다. A 외경에서 장비 표시, 도면 위치, 기록값의 연결을 설명합니다. HTML/PPTX는 영상 재생, PDF는 영상 링크로 확인합니다. 판정은 수강생이 입력한 값과 검사 기준으로 계산합니다.",
-      "id": "77"
+      "id": "83",
+      "previous_slide_id": "77"
     },
     {
       "section": "lab2",
@@ -2855,8 +3138,8 @@
         "계측 실습 열기",
         "제품과 검사 자료 화면"
       ],
-      "minutes": 0.134,
-      "activityMinutes": 0.976,
+      "minutes": 0.128,
+      "activityMinutes": 0.95,
       "notes": "조작: 계측 판독 실습 시작 선택\n확인할 결과: 제품과 검사 자료 화면\n\n\n빨간 네모는 실제 조작 위치입니다. 실습 탭에서 조작합니다. 강의용 예시로 구성한 검사 기록입니다.",
       "screen_type": "actual_ui",
       "capture_key": "lab2-01-select",
@@ -2876,7 +3159,8 @@
         "mode": "실제 실습 화면 · 강의용 예시",
         "tip": "빨간 네모: 조작 위치 · 그림 클릭 확대"
       },
-      "id": "78"
+      "id": "84",
+      "previous_slide_id": "78"
     },
     {
       "section": "lab2",
@@ -2888,8 +3172,8 @@
         "제품별 도면·기준 조회",
         "BSH-2630 도면·검사 기준 연결"
       ],
-      "minutes": 0.134,
-      "activityMinutes": 0.976,
+      "minutes": 0.128,
+      "activityMinutes": 0.95,
       "notes": "조작: 표준형 플랜지 부시 선택\n확인할 결과: BSH-2630 도면·검사 기준 연결\n\n\n빨간 네모는 실제 조작 위치입니다. 실습 탭에서 조작합니다. 강의용 예시로 구성한 검사 기록입니다.",
       "screen_type": "actual_ui",
       "capture_key": "lab2-02-product",
@@ -2909,21 +3193,22 @@
         "mode": "실제 실습 화면 · 강의용 예시",
         "tip": "빨간 네모: 조작 위치 · 그림 클릭 확대"
       },
-      "id": "79"
+      "id": "85",
+      "previous_slide_id": "79"
     },
     {
       "section": "lab2",
       "title": "실습 2 (계측 검사): 도면과 검사 위치",
       "kicker": "실습 화면",
-      "lead": "A·B·C 위치와 허용 범위 확인",
+      "lead": "표준형 제품의 A 외경·B 길이·C 두께 확인",
       "bullets": [
         "도면 DR-BSH-2630",
         "측정 특성과 검사 위치 연결",
         "A 외경 · B 길이 · C 두께"
       ],
-      "minutes": 0.134,
-      "activityMinutes": 0.976,
-      "notes": "조작: A·B·C 위치와 허용 범위 확인\n확인할 결과: A 외경 · B 길이 · C 두께\n\n\n빨간 네모는 실제 조작 위치입니다. 실습 탭에서 조작합니다. 강의용 예시로 구성한 검사 기록입니다.",
+      "minutes": 0.128,
+      "activityMinutes": 0.95,
+      "notes": "조작: A·B·C 위치와 허용 범위 확인\n확인할 결과: A 외경 · B 길이 · C 두께\n\n\n빨간 네모는 실제 조작 위치입니다. 실습 탭에서 조작합니다. 강의용 예시로 구성한 검사 기록입니다.\n앞서 설명한 A/B/C를 실제 선택한 제품 도면에서 다시 찾습니다. 이후 입력값은 이 제품의 허용 범위와 비교합니다.",
       "screen_type": "actual_ui",
       "capture_key": "lab2-03-drawing",
       "optional": false,
@@ -2936,13 +3221,14 @@
           "확인 질문",
           "검수조서"
         ],
-        "input": "도면 DR-BSH-2630",
-        "process": "측정 특성과 검사 위치 연결",
-        "output": "A 외경 · B 길이 · C 두께",
+        "input": "표준형 제품과 적용 도면·개정",
+        "process": "A26.10–26.50 · B39.90–40.10 · C5.70–5.90 mm",
+        "output": "제품·검사 위치·단위·허용 범위를 함께 연결",
         "mode": "실제 실습 화면 · 강의용 예시",
         "tip": "빨간 네모: 확인 위치 · 그림 클릭 확대"
       },
-      "id": "80"
+      "id": "86",
+      "previous_slide_id": "80"
     },
     {
       "section": "lab2",
@@ -2954,8 +3240,8 @@
         "PDF 추출·CSV 검증·SQLite 저장",
         "문서 추출과 검사 기준 DB 구성"
       ],
-      "minutes": 0.134,
-      "activityMinutes": 0.976,
+      "minutes": 0.128,
+      "activityMinutes": 0.95,
       "notes": "조작: 검사 기준 불러오기 · 정보 구축 선택\n확인할 결과: 문서 추출과 검사 기준 DB 구성\n\n\n빨간 네모는 실제 조작 위치입니다. 실습 탭에서 조작합니다. 강의용 예시로 구성한 검사 기록입니다.",
       "screen_type": "actual_ui",
       "capture_key": "lab2-04-compile",
@@ -2975,7 +3261,8 @@
         "mode": "실제 실습 화면 · 강의용 예시",
         "tip": "빨간 네모: 조작 위치 · 그림 클릭 확대"
       },
-      "id": "81"
+      "id": "87",
+      "previous_slide_id": "81"
     },
     {
       "section": "lab2",
@@ -2987,8 +3274,8 @@
         "제품·도면·기준 연결",
         "제품별 검사 기준 연결"
       ],
-      "minutes": 0.134,
-      "activityMinutes": 0.976,
+      "minutes": 0.128,
+      "activityMinutes": 0.95,
       "notes": "조작: 검사 시작 준비 선택\n확인할 결과: 제품별 검사 기준 연결\n\n\n빨간 네모는 실제 조작 위치입니다. 실습 탭에서 조작합니다. 강의용 예시로 구성한 검사 기록입니다.",
       "screen_type": "actual_ui",
       "capture_key": "lab2-05-compiled",
@@ -3008,7 +3295,8 @@
         "mode": "실제 실습 화면 · 강의용 예시",
         "tip": "빨간 네모: 조작 위치 · 그림 클릭 확대"
       },
-      "id": "82"
+      "id": "88",
+      "previous_slide_id": "82"
     },
     {
       "section": "lab2",
@@ -3047,8 +3335,8 @@
         ],
         "note": "선택 비교: A26.60 입력 시 불일치 · 값 수정 시 이전 입력 보존"
       },
-      "minutes": 0.652,
-      "activityMinutes": 1.094,
+      "minutes": 0.625,
+      "activityMinutes": 1.065,
       "notes": "입력한 값을 임의로 범위 안에 맞추지 않고, 위치·단위·범위를 확인해 현재 판정과 입력 이력을 함께 저장.\n직접 입력 두 번으로 자동 기록과 위치 연결의 의미를 확인.\n선택 비교: A26.60 입력 시 불일치 · 값 수정 시 이전 입력 보존\n출력은 구조 설명용 축약 예시이며 실제 모델 응답이 아닙니다. 화면 조작 후 변경된 기록과 상태를 함께 확인합니다.",
       "screen_type": "pipeline_explanation",
       "technical": {
@@ -3068,7 +3356,8 @@
         "provenance": "authored_explanatory_example",
         "exact_api_schema": false
       },
-      "id": "83"
+      "id": "89",
+      "previous_slide_id": "83"
     },
     {
       "section": "lab2",
@@ -3080,8 +3369,8 @@
         "대상과 기록 책임 연결",
         "검수조서의 검사자·생산 묶음"
       ],
-      "minutes": 0.134,
-      "activityMinutes": 0.976,
+      "minutes": 0.128,
+      "activityMinutes": 0.95,
       "notes": "조작: 검사자 이름과 LOT 입력\n확인할 결과: 검수조서의 검사자·생산 묶음\n\n\n빨간 네모는 실제 조작 위치입니다. 실습 탭에서 조작합니다. 강의용 예시로 구성한 검사 기록입니다.",
       "screen_type": "actual_ui",
       "capture_key": "lab2-06-identity",
@@ -3101,7 +3390,8 @@
         "mode": "실제 실습 화면 · 강의용 예시",
         "tip": "빨간 네모: 조작 위치 · 그림 클릭 확대"
       },
-      "id": "84"
+      "id": "90",
+      "previous_slide_id": "84"
     },
     {
       "section": "lab2",
@@ -3113,8 +3403,8 @@
         "검사 세션과 화면 구성",
         "A 외경 작업자 화면"
       ],
-      "minutes": 0.134,
-      "activityMinutes": 0.976,
+      "minutes": 0.128,
+      "activityMinutes": 0.95,
       "notes": "조작: 측정 기록 시작 선택\n확인할 결과: A 외경 작업자 화면\n\n\n빨간 네모는 실제 조작 위치입니다. 실습 탭에서 조작합니다. 강의용 예시로 구성한 검사 기록입니다.",
       "screen_type": "actual_ui",
       "capture_key": "lab2-07-start",
@@ -3134,7 +3424,8 @@
         "mode": "실제 실습 화면 · 강의용 예시",
         "tip": "빨간 네모: 조작 위치 · 그림 클릭 확대"
       },
-      "id": "85"
+      "id": "91",
+      "previous_slide_id": "85"
     },
     {
       "section": "lab2",
@@ -3168,8 +3459,8 @@
         ],
         "note": "체크 표시는 통과 결과의 표시 · 화면 전환에 따른 판정 변경 없음"
       },
-      "minutes": 0.67,
-      "activityMinutes": 0.293,
+      "minutes": 0.642,
+      "activityMinutes": 0.285,
       "notes": "현재 작업 화면과 다음 미완료 항목 강조는 별개입니다. A 값을 기록하면 A 영상은 그대로이고 B 검사 항목이 강조됩니다. 모니터링에서 도면 기록을 확인한 다음 B 측정 시작을 누르면 B 영상으로 전환됩니다. 확인되지 않은 값은 자동 통과하지 않습니다.",
       "screen_type": "pipeline_explanation",
       "technical": {
@@ -3189,7 +3480,8 @@
         "provenance": "authored_explanatory_example",
         "exact_api_schema": false
       },
-      "id": "86"
+      "id": "92",
+      "previous_slide_id": "86"
     },
     {
       "section": "lab2",
@@ -3201,8 +3493,8 @@
         "영상 위 검사 목록과 현재 위치 표시",
         "A 확인 중 · B/C 기록 대기"
       ],
-      "minutes": 0.134,
-      "activityMinutes": 0.976,
+      "minutes": 0.128,
+      "activityMinutes": 0.95,
       "notes": "조작: 오른쪽 위 현재 검사 항목 확인\n확인할 결과: A 확인 중 · B/C 기록 대기\n\n\n빨간 네모는 실제 조작 위치입니다. 실습 탭에서 조작합니다. 강의용 예시로 구성한 검사 기록입니다.",
       "screen_type": "actual_ui",
       "capture_key": "lab2-08-a-worker",
@@ -3222,7 +3514,8 @@
         "mode": "실제 실습 화면 · 강의용 예시",
         "tip": "확인 화면 · 그림 클릭 확대"
       },
-      "id": "87"
+      "id": "93",
+      "previous_slide_id": "87"
     },
     {
       "section": "lab2",
@@ -3234,8 +3527,8 @@
         "숫자·단위 검증과 범위 대조",
         "도면 A의 확인값 기록"
       ],
-      "minutes": 0.134,
-      "activityMinutes": 0.976,
+      "minutes": 0.128,
+      "activityMinutes": 0.95,
       "notes": "조작: 26.30과 mm 입력 후 A 측정값 기록 선택\n확인할 결과: 도면 A의 확인값 기록\n\n\n빨간 네모는 실제 조작 위치입니다. 실습 탭에서 조작합니다. 강의용 예시로 구성한 검사 기록입니다.",
       "screen_type": "actual_ui",
       "capture_key": "lab2-09-a-input",
@@ -3255,7 +3548,8 @@
         "mode": "실제 실습 화면 · 강의용 예시",
         "tip": "빨간 네모: 조작 위치 · 그림 클릭 확대"
       },
-      "id": "88"
+      "id": "94",
+      "previous_slide_id": "88"
     },
     {
       "section": "lab2",
@@ -3267,8 +3561,8 @@
         "판정 반영·다음 미완료 항목 강조",
         "A ✓ 유지 · B 항목 자동 강조"
       ],
-      "minutes": 0.134,
-      "activityMinutes": 0.976,
+      "minutes": 0.128,
+      "activityMinutes": 0.95,
       "notes": "조작: 모니터링에서 기록 확인 선택\n확인할 결과: A ✓ 유지 · B 항목 자동 강조\n\n\n빨간 네모는 실제 조작 위치입니다. 실습 탭에서 조작합니다. 강의용 예시로 구성한 검사 기록입니다.",
       "screen_type": "actual_ui",
       "capture_key": "lab2-10-a-check",
@@ -3288,7 +3582,8 @@
         "mode": "실제 실습 화면 · 강의용 예시",
         "tip": "빨간 네모: 조작 위치 · 그림 클릭 확대"
       },
-      "id": "89"
+      "id": "95",
+      "previous_slide_id": "89"
     },
     {
       "section": "lab2",
@@ -3300,8 +3595,8 @@
         "도면 위치별 기입·다음 장면 연결",
         "A 도면 기입과 검사 이력 보존"
       ],
-      "minutes": 0.134,
-      "activityMinutes": 0.976,
+      "minutes": 0.128,
+      "activityMinutes": 0.95,
       "notes": "조작: 도면의 A 기입값 확인 후 B 측정 시작 선택\n확인할 결과: A 도면 기입과 검사 이력 보존\n\n\n빨간 네모는 실제 조작 위치입니다. 실습 탭에서 조작합니다. 강의용 예시로 구성한 검사 기록입니다.",
       "screen_type": "actual_ui",
       "capture_key": "lab2-11-a-monitor",
@@ -3321,7 +3616,8 @@
         "mode": "실제 실습 화면 · 강의용 예시",
         "tip": "빨간 네모: 조작 위치 · 그림 클릭 확대"
       },
-      "id": "90"
+      "id": "96",
+      "previous_slide_id": "90"
     },
     {
       "section": "lab2",
@@ -3333,8 +3629,8 @@
         "현재 작업 화면과 검사 항목 전환",
         "A 통과 상태를 유지한 B 검사"
       ],
-      "minutes": 0.134,
-      "activityMinutes": 0.976,
+      "minutes": 0.128,
+      "activityMinutes": 0.95,
       "notes": "조작: B 위치와 높이 게이지 표시 확인\n확인할 결과: A 통과 상태를 유지한 B 검사\n\n\n빨간 네모는 실제 조작 위치입니다. 실습 탭에서 조작합니다. 강의용 예시로 구성한 검사 기록입니다.",
       "screen_type": "actual_ui",
       "capture_key": "lab2-12-b-worker",
@@ -3354,7 +3650,8 @@
         "mode": "실제 실습 화면 · 강의용 예시",
         "tip": "확인 화면 · 그림 클릭 확대"
       },
-      "id": "91"
+      "id": "97",
+      "previous_slide_id": "91"
     },
     {
       "section": "lab2",
@@ -3366,8 +3663,8 @@
         "입력·검증·현재 범위 대조",
         "B 40.02 mm 기록과 판정"
       ],
-      "minutes": 0.134,
-      "activityMinutes": 0.976,
+      "minutes": 0.128,
+      "activityMinutes": 0.95,
       "notes": "조작: 40.02와 mm 입력 후 B 측정값 기록 선택\n확인할 결과: B 40.02 mm 기록과 판정\n\n\n빨간 네모는 실제 조작 위치입니다. 실습 탭에서 조작합니다. 강의용 예시로 구성한 검사 기록입니다.",
       "screen_type": "actual_ui",
       "capture_key": "lab2-13-b-input",
@@ -3387,7 +3684,8 @@
         "mode": "실제 실습 화면 · 강의용 예시",
         "tip": "빨간 네모: 조작 위치 · 그림 클릭 확대"
       },
-      "id": "92"
+      "id": "98",
+      "previous_slide_id": "92"
     },
     {
       "section": "lab2",
@@ -3399,8 +3697,8 @@
         "통과 상태 유지·미완료 항목 강조",
         "A/B ✓ 유지 · C 항목 자동 강조"
       ],
-      "minutes": 0.134,
-      "activityMinutes": 0.976,
+      "minutes": 0.128,
+      "activityMinutes": 0.95,
       "notes": "조작: 모니터링에서 기록 확인 선택\n확인할 결과: A/B ✓ 유지 · C 항목 자동 강조\n\n\n빨간 네모는 실제 조작 위치입니다. 실습 탭에서 조작합니다. 강의용 예시로 구성한 검사 기록입니다.",
       "screen_type": "actual_ui",
       "capture_key": "lab2-14-b-check",
@@ -3420,7 +3718,8 @@
         "mode": "실제 실습 화면 · 강의용 예시",
         "tip": "빨간 네모: 조작 위치 · 그림 클릭 확대"
       },
-      "id": "93"
+      "id": "99",
+      "previous_slide_id": "93"
     },
     {
       "section": "lab2",
@@ -3432,8 +3731,8 @@
         "동일 도면 위 측정값 누적",
         "A 26.30 · B 40.02 mm 기록"
       ],
-      "minutes": 0.134,
-      "activityMinutes": 0.976,
+      "minutes": 0.128,
+      "activityMinutes": 0.95,
       "notes": "조작: A/B 기입값 확인 후 C 측정 시작 선택\n확인할 결과: A 26.30 · B 40.02 mm 기록\n\n\n빨간 네모는 실제 조작 위치입니다. 실습 탭에서 조작합니다. 강의용 예시로 구성한 검사 기록입니다.",
       "screen_type": "actual_ui",
       "capture_key": "lab2-15-b-monitor",
@@ -3453,7 +3752,8 @@
         "mode": "실제 실습 화면 · 강의용 예시",
         "tip": "빨간 네모: 조작 위치 · 그림 클릭 확대"
       },
-      "id": "94"
+      "id": "100",
+      "previous_slide_id": "94"
     },
     {
       "section": "lab2",
@@ -3492,8 +3792,8 @@
         ],
         "note": "표시가 불명확하면 확인 필요 유지 · 정답으로 자동 보정하지 않는 구조"
       },
-      "minutes": 0.652,
-      "activityMinutes": 1.094,
+      "minutes": 0.625,
+      "activityMinutes": 1.065,
       "notes": "가려진 C 숫자는 원문 5.?8 mm로 보존합니다. 표시 확인 요청 → 질문 확인 → 5.78 mm 입력 → 확인값 기록 순서로 진행합니다. 전달 전에 답변을 확정하지 않으며, 답변 후에도 원래 관찰은 그대로 유지됩니다.",
       "screen_type": "pipeline_explanation",
       "technical": {
@@ -3513,7 +3813,8 @@
         "provenance": "authored_explanatory_example",
         "exact_api_schema": false
       },
-      "id": "95"
+      "id": "101",
+      "previous_slide_id": "95"
     },
     {
       "section": "lab2",
@@ -3525,8 +3826,8 @@
         "원문 보존·값 확정 전 확인 요청",
         "C 확인 질문 생성"
       ],
-      "minutes": 0.134,
-      "activityMinutes": 0.976,
+      "minutes": 0.128,
+      "activityMinutes": 0.95,
       "notes": "조작: 표시 확인 요청 선택\n확인할 결과: C 확인 질문 생성\n\n\n빨간 네모는 실제 조작 위치입니다. 실습 탭에서 조작합니다. 강의용 예시로 구성한 검사 기록입니다.",
       "screen_type": "actual_ui",
       "capture_key": "lab2-16-c-worker",
@@ -3546,7 +3847,8 @@
         "mode": "실제 실습 화면 · 강의용 예시",
         "tip": "빨간 네모: 조작 위치 · 그림 클릭 확대"
       },
-      "id": "96"
+      "id": "102",
+      "previous_slide_id": "96"
     },
     {
       "section": "lab2",
@@ -3558,8 +3860,8 @@
         "작업자 요청과 전달 기록",
         "C 미확인 유지 · 답변 입력 활성화"
       ],
-      "minutes": 0.134,
-      "activityMinutes": 0.976,
+      "minutes": 0.128,
+      "activityMinutes": 0.95,
       "notes": "조작: 질문 확인 선택\n확인할 결과: C 미확인 유지 · 답변 입력 활성화\n\n작업자 확인 전에는 C 항목에 체크가 붙지 않습니다.\n빨간 네모는 실제 조작 위치입니다. 실습 탭에서 조작합니다. 강의용 예시로 구성한 검사 기록입니다.",
       "screen_type": "actual_ui",
       "capture_key": "lab2-17-c-question",
@@ -3579,7 +3881,8 @@
         "mode": "실제 실습 화면 · 강의용 예시",
         "tip": "빨간 네모: 조작 위치 · 그림 클릭 확대"
       },
-      "id": "97"
+      "id": "103",
+      "previous_slide_id": "97"
     },
     {
       "section": "lab2",
@@ -3591,8 +3894,8 @@
         "답변 이력 저장·허용 범위 대조",
         "원래 표시와 확인값의 분리 보존"
       ],
-      "minutes": 0.134,
-      "activityMinutes": 0.976,
+      "minutes": 0.128,
+      "activityMinutes": 0.95,
       "notes": "조작: 5.78 mm 입력 후 확인값 기록 선택\n확인할 결과: 원래 표시와 확인값의 분리 보존\n\n\n빨간 네모는 실제 조작 위치입니다. 실습 탭에서 조작합니다. 강의용 예시로 구성한 검사 기록입니다.",
       "screen_type": "actual_ui",
       "capture_key": "lab2-18-c-answer",
@@ -3612,7 +3915,8 @@
         "mode": "실제 실습 화면 · 강의용 예시",
         "tip": "빨간 네모: 조작 위치 · 그림 클릭 확대"
       },
-      "id": "98"
+      "id": "104",
+      "previous_slide_id": "98"
     },
     {
       "section": "lab2",
@@ -3624,8 +3928,8 @@
         "검사 완료 집계·답변 출처 유지",
         "A/B/C ✓ · 모든 항목 통과"
       ],
-      "minutes": 0.134,
-      "activityMinutes": 0.976,
+      "minutes": 0.128,
+      "activityMinutes": 0.95,
       "notes": "조작: 모니터링에서 기록 확인 선택\n확인할 결과: A/B/C ✓ · 모든 항목 통과\n\n\n빨간 네모는 실제 조작 위치입니다. 실습 탭에서 조작합니다. 강의용 예시로 구성한 검사 기록입니다.",
       "screen_type": "actual_ui",
       "capture_key": "lab2-19-all-checked",
@@ -3645,7 +3949,8 @@
         "mode": "실제 실습 화면 · 강의용 예시",
         "tip": "빨간 네모: 조작 위치 · 그림 클릭 확대"
       },
-      "id": "99"
+      "id": "105",
+      "previous_slide_id": "99"
     },
     {
       "section": "lab2",
@@ -3657,8 +3962,8 @@
         "도면·검사표의 동일 기록 조회",
         "세 위치의 도면 기입 완료"
       ],
-      "minutes": 0.134,
-      "activityMinutes": 0.976,
+      "minutes": 0.128,
+      "activityMinutes": 0.95,
       "notes": "조작: 검사 결과 검토 선택\n확인할 결과: 세 위치의 도면 기입 완료\n\n\n빨간 네모는 실제 조작 위치입니다. 실습 탭에서 조작합니다. 강의용 예시로 구성한 검사 기록입니다.",
       "screen_type": "actual_ui",
       "capture_key": "lab2-20-final-monitor",
@@ -3678,7 +3983,8 @@
         "mode": "실제 실습 화면 · 강의용 예시",
         "tip": "빨간 네모: 조작 위치 · 그림 클릭 확대"
       },
-      "id": "100"
+      "id": "106",
+      "previous_slide_id": "100"
     },
     {
       "section": "lab2",
@@ -3690,8 +3996,8 @@
         "판정 및 작업자 확인 출처 표시",
         "표준형 세 항목 충족 확인"
       ],
-      "minutes": 0.134,
-      "activityMinutes": 0.976,
+      "minutes": 0.128,
+      "activityMinutes": 0.95,
       "notes": "조작: 측정값·허용 범위·출처 대조\n확인할 결과: 표준형 세 항목 충족 확인\n\n\n빨간 네모는 실제 조작 위치입니다. 실습 탭에서 조작합니다. 강의용 예시로 구성한 검사 기록입니다.",
       "screen_type": "actual_ui",
       "capture_key": "lab2-21-review",
@@ -3711,7 +4017,8 @@
         "mode": "실제 실습 화면 · 강의용 예시",
         "tip": "빨간 네모: 확인 위치 · 그림 클릭 확대"
       },
-      "id": "101"
+      "id": "107",
+      "previous_slide_id": "101"
     },
     {
       "section": "lab2",
@@ -3723,8 +4030,8 @@
         "같은 검사 기록에서 문서 구성",
         "현재 기록으로 문서 생성"
       ],
-      "minutes": 0.134,
-      "activityMinutes": 0.976,
+      "minutes": 0.128,
+      "activityMinutes": 0.95,
       "notes": "조작: 검수조서 만들기 선택\n확인할 결과: 현재 기록으로 문서 생성\n\n\n빨간 네모는 실제 조작 위치입니다. 실습 탭에서 조작합니다. 강의용 예시로 구성한 검사 기록입니다.",
       "screen_type": "actual_ui",
       "capture_key": "lab2-22-generate",
@@ -3744,7 +4051,8 @@
         "mode": "실제 실습 화면 · 강의용 예시",
         "tip": "빨간 네모: 조작 위치 · 그림 클릭 확대"
       },
-      "id": "102"
+      "id": "108",
+      "previous_slide_id": "102"
     },
     {
       "section": "lab2",
@@ -3756,9 +4064,9 @@
         "A4 검수 문서와 독립 HTML 저장",
         "도면·검사표·답변 이력 파일"
       ],
-      "minutes": 0.134,
-      "activityMinutes": 0.976,
-      "notes": "조작: 검수조서 저장 또는 도면 포함 HTML 저장 선택\n확인할 결과: 도면·검사표·답변 이력 파일\n\n\n빨간 네모는 실제 조작 위치입니다. 실습 탭에서 조작합니다. 강의용 예시로 구성한 검사 기록입니다.",
+      "minutes": 0.128,
+      "activityMinutes": 0.95,
+      "notes": "조작: 검수조서 저장 또는 도면 포함 HTML 저장 선택\n확인할 결과: 도면·검사표·답변 이력 파일\n\n\n빨간 네모는 실제 조작 위치입니다. 실습 탭에서 조작합니다. 강의용 예시로 구성한 검사 기록입니다.\n검수조서는 요약, 상세 보고서는 도면의 값과 질문 이력까지 확인하는 용도입니다.",
       "screen_type": "actual_ui",
       "capture_key": "lab2-23-report-save",
       "optional": false,
@@ -3771,13 +4079,14 @@
           "확인 질문",
           "검수조서"
         ],
-        "input": "현재 기준·측정값·작업자 답변",
-        "process": "A4 검수 문서와 독립 HTML 저장",
-        "output": "도면·검사표·답변 이력 파일",
+        "input": "현재 검사표·도면·사진·질문 이력",
+        "process": "검수조서: 결과 요약 · 상세 보고서: 근거와 이력",
+        "output": "같은 검사 기록의 문서 저장",
         "mode": "실제 실습 화면 · 강의용 예시",
         "tip": "빨간 네모: 조작 위치 · 그림 클릭 확대"
       },
-      "id": "103"
+      "id": "109",
+      "previous_slide_id": "103"
     },
     {
       "section": "lab2",
@@ -3789,8 +4098,8 @@
         "A4 검수 양식 구성",
         "품목·도면·판정과 서명란의 정형 문서"
       ],
-      "minutes": 0.134,
-      "activityMinutes": 0.976,
+      "minutes": 0.128,
+      "activityMinutes": 0.95,
       "notes": "조작: 문서번호·검수 내용·결재란 확인\n확인할 결과: 품목·도면·판정과 서명란의 정형 문서\n\n\n빨간 네모는 실제 조작 위치입니다. 실습 탭에서 조작합니다. 강의용 예시로 구성한 검사 기록입니다.",
       "screen_type": "actual_ui",
       "capture_key": "lab2-23b-formal-report",
@@ -3810,7 +4119,8 @@
         "mode": "실제 실습 화면 · 강의용 예시",
         "tip": "확인 화면 · 그림 클릭 확대"
       },
-      "id": "104"
+      "id": "110",
+      "previous_slide_id": "104"
     },
     {
       "section": "lab2",
@@ -3822,9 +4132,9 @@
         "필요한 파일 형식으로 내보내기",
         "제출용 표와 복원용 기록 저장"
       ],
-      "minutes": 0.134,
-      "activityMinutes": 0.976,
-      "notes": "조작: 검사 CSV · 실행 JSON · SQLite DB 선택\n확인할 결과: 제출용 표와 복원용 기록 저장\n\n\n빨간 네모는 실제 조작 위치입니다. 실습 탭에서 조작합니다. 강의용 예시로 구성한 검사 기록입니다.",
+      "minutes": 0.128,
+      "activityMinutes": 0.95,
+      "notes": "조작: 검사 CSV · 실행 JSON · SQLite DB 선택\n확인할 결과: 제출용 표와 복원용 기록 저장\n\n\n빨간 네모는 실제 조작 위치입니다. 실습 탭에서 조작합니다. 강의용 예시로 구성한 검사 기록입니다.\nCSV는 표 계산·후처리, 진행 JSON은 이어하기, SQLite는 구성한 표와 관계 조회에 사용합니다. 각각 복원 가능한 정보와 사용 목적이 다릅니다.",
       "screen_type": "actual_ui",
       "capture_key": "lab2-24-data",
       "optional": false,
@@ -3837,13 +4147,14 @@
           "확인 질문",
           "검수조서"
         ],
-        "input": "동일한 검사 세션",
-        "process": "필요한 파일 형식으로 내보내기",
-        "output": "제출용 표와 복원용 기록 저장",
+        "input": "화면에서 확인한 검사 기록",
+        "process": "CSV: 검사표 · JSON: 진행 복원 · SQLite: 구축된 DB",
+        "output": "목적에 맞는 파일 선택과 원본 보관",
         "mode": "실제 실습 화면 · 강의용 예시",
         "tip": "빨간 네모: 조작 위치 · 그림 클릭 확대"
       },
-      "id": "105"
+      "id": "111",
+      "previous_slide_id": "105"
     },
     {
       "section": "lab2",
@@ -3882,8 +4193,8 @@
         ],
         "note": "선택 활동 · 기본 경로 완료 후 한 조건만 변경하여 비교"
       },
-      "minutes": 0.652,
-      "activityMinutes": 1.094,
+      "minutes": 0.625,
+      "activityMinutes": 1.065,
       "notes": "관찰한 숫자 자체와 규격에 따른 판정을 별도로 관리하여, 제품 또는 기준 변경의 영향을 설명.\n새 제품을 선택하면 이전 기록을 섞지 않고 새 검사를 시작.\n선택 활동 · 기본 경로 완료 후 한 조건만 변경하여 비교\n출력은 구조 설명용 축약 예시이며 실제 모델 응답이 아닙니다. 화면 조작 후 변경된 기록과 상태를 함께 확인합니다.",
       "screen_type": "pipeline_explanation",
       "technical": {
@@ -3903,7 +4214,8 @@
         "provenance": "authored_explanatory_example",
         "exact_api_schema": false
       },
-      "id": "106"
+      "id": "112",
+      "previous_slide_id": "106"
     },
     {
       "section": "lab2",
@@ -3915,8 +4227,8 @@
         "허용 범위 26.10–26.50 mm와 비교",
         "A 불일치 · 나머지 기록 보존"
       ],
-      "minutes": 0.134,
-      "activityMinutes": 0.976,
+      "minutes": 0.128,
+      "activityMinutes": 0.95,
       "notes": "조작: A 외경 26.60 mm 결과 비교\n확인할 결과: A 불일치 · 나머지 기록 보존\n\n\n빨간 네모는 실제 조작 위치입니다. 실습 탭에서 조작합니다. 강의용 예시로 구성한 검사 기록입니다.",
       "screen_type": "actual_ui",
       "capture_key": "lab2-optional25-range",
@@ -3934,7 +4246,8 @@
         "mode": "실제 실습 화면 · 강의용 예시",
         "tip": "빨간 네모: 확인 위치 · 그림 클릭 확대"
       },
-      "id": "107"
+      "id": "113",
+      "previous_slide_id": "107"
     },
     {
       "section": "lab2",
@@ -3946,8 +4259,8 @@
         "덮어쓰기 대신 답변 이력 추가",
         "26.60 → 26.30 수정 이력 보존"
       ],
-      "minutes": 0.134,
-      "activityMinutes": 0.976,
+      "minutes": 0.128,
+      "activityMinutes": 0.95,
       "notes": "조작: A의 이전 값과 현재 값 비교\n확인할 결과: 26.60 → 26.30 수정 이력 보존\n\n\n빨간 네모는 실제 조작 위치입니다. 실습 탭에서 조작합니다. 강의용 예시로 구성한 검사 기록입니다.",
       "screen_type": "actual_ui",
       "capture_key": "lab2-optional26-history",
@@ -3965,7 +4278,8 @@
         "mode": "실제 실습 화면 · 강의용 예시",
         "tip": "빨간 네모: 조작 위치 · 그림 클릭 확대"
       },
-      "id": "108"
+      "id": "114",
+      "previous_slide_id": "108"
     },
     {
       "section": "lab2",
@@ -3977,8 +4291,8 @@
         "소수점 자동 보정 없는 범위 대조",
         "C 불일치 · 체크 없이 확인 유지"
       ],
-      "minutes": 0.134,
-      "activityMinutes": 0.976,
+      "minutes": 0.128,
+      "activityMinutes": 0.95,
       "notes": "조작: 578 mm 결과와 C 검사 항목 확인\n확인할 결과: C 불일치 · 체크 없이 확인 유지\n\n정상 범위에 맞추어 값을 고치지 않습니다. 재확인은 원문과 구분해 기록합니다.\n빨간 네모는 실제 조작 위치입니다. 실습 탭에서 조작합니다. 강의용 예시로 구성한 검사 기록입니다.",
       "screen_type": "actual_ui",
       "capture_key": "lab2-optional27-decimal",
@@ -3996,7 +4310,8 @@
         "mode": "실제 실습 화면 · 강의용 예시",
         "tip": "확인 화면 · 그림 클릭 확대"
       },
-      "id": "109"
+      "id": "115",
+      "previous_slide_id": "109"
     },
     {
       "section": "lab2",
@@ -4008,8 +4323,8 @@
         "기준 버전 변경과 재계산",
         "기록값을 유지한 기준별 재판정"
       ],
-      "minutes": 0.134,
-      "activityMinutes": 0.976,
+      "minutes": 0.128,
+      "activityMinutes": 0.95,
       "notes": "조작: A 상한 26.25 입력 후 새 기준 적용\n확인할 결과: 기록값을 유지한 기준별 재판정\n\n\n빨간 네모는 실제 조작 위치입니다. 실습 탭에서 조작합니다. 강의용 예시로 구성한 검사 기록입니다.",
       "screen_type": "actual_ui",
       "capture_key": "lab2-optional28-criteria",
@@ -4027,7 +4342,8 @@
         "mode": "실제 실습 화면 · 강의용 예시",
         "tip": "빨간 네모: 조작 위치 · 그림 클릭 확대"
       },
-      "id": "110"
+      "id": "116",
+      "previous_slide_id": "110"
     },
     {
       "section": "lab2",
@@ -4039,8 +4355,8 @@
         "원기록 보존·현재 기준 대조",
         "26.30 mm 유지 · 새 기준에서 불일치"
       ],
-      "minutes": 0.134,
-      "activityMinutes": 0.976,
+      "minutes": 0.128,
+      "activityMinutes": 0.95,
       "notes": "조작: A 값과 새 허용 범위 비교\n확인할 결과: 26.30 mm 유지 · 새 기준에서 불일치\n\n\n빨간 네모는 실제 조작 위치입니다. 실습 탭에서 조작합니다. 강의용 예시로 구성한 검사 기록입니다.",
       "screen_type": "actual_ui",
       "capture_key": "lab2-optional29-rejudged",
@@ -4058,7 +4374,8 @@
         "mode": "실제 실습 화면 · 강의용 예시",
         "tip": "빨간 네모: 확인 위치 · 그림 클릭 확대"
       },
-      "id": "111"
+      "id": "117",
+      "previous_slide_id": "111"
     },
     {
       "section": "lab2",
@@ -4070,8 +4387,8 @@
         "제품별 기준과 세션 분리",
         "정밀형 도면과 허용 범위 호출"
       ],
-      "minutes": 0.134,
-      "activityMinutes": 0.976,
+      "minutes": 0.128,
+      "activityMinutes": 0.95,
       "notes": "조작: 정밀형 플랜지 부시 선택\n확인할 결과: 정밀형 도면과 허용 범위 호출\n\n\n빨간 네모는 실제 조작 위치입니다. 실습 탭에서 조작합니다. 강의용 예시로 구성한 검사 기록입니다.",
       "screen_type": "actual_ui",
       "capture_key": "lab2-precision-optional30-product",
@@ -4089,7 +4406,8 @@
         "mode": "실제 실습 화면 · 강의용 예시",
         "tip": "빨간 네모: 조작 위치 · 그림 클릭 확대"
       },
-      "id": "112"
+      "id": "118",
+      "previous_slide_id": "112"
     },
     {
       "section": "lab2",
@@ -4101,8 +4419,8 @@
         "같은 값에 다른 제품 기준 적용",
         "40.02 mm는 정밀형에서 불일치"
       ],
-      "minutes": 0.133,
-      "activityMinutes": 0.981,
+      "minutes": 0.138,
+      "activityMinutes": 0.966,
       "notes": "조작: 정밀형 B 길이 결과 확인\n확인할 결과: 40.02 mm는 정밀형에서 불일치\n\n\n빨간 네모는 실제 조작 위치입니다. 실습 탭에서 조작합니다. 강의용 예시로 구성한 검사 기록입니다.",
       "screen_type": "actual_ui",
       "capture_key": "lab2-precision-optional31-precision",
@@ -4120,7 +4438,32 @@
         "mode": "실제 실습 화면 · 강의용 예시",
         "tip": "빨간 네모: 확인 위치 · 그림 클릭 확대"
       },
-      "id": "113"
+      "id": "119",
+      "previous_slide_id": "113"
+    },
+    {
+      "section": "lab3",
+      "title": "실습 3 (기계 조립): 접속 및 시작",
+      "kicker": "실습 접속",
+      "lead": "QR 접속 또는 아래 주소 입력",
+      "bullets": [
+        "Chrome·Edge에서 실습 페이지 접속",
+        "로그인·API 키·모델 설치 불필요",
+        "기계 조립 카드의 「이 실습 시작」 선택",
+        "진행 기록의 브라우저별 저장"
+      ],
+      "visualSpec": {
+        "kind": "access_qr",
+        "path": "slides/assets/access_qr/workshop.png",
+        "url": "https://darklightened.github.io/manufacturing-ai-agent-workshop/",
+        "button": "기계 조립 카드의 「이 실습 시작」",
+        "caption": "실습 페이지 · QR과 주소는 동일한 페이지 연결"
+      },
+      "minutes": 0.333,
+      "activityMinutes": 0.974,
+      "notes": "스마트폰에서는 QR을 스캔하고, 실습은 가급적 노트북의 Chrome 또는 Edge에서 진행합니다. 이미 실습 탭이 열려 있으면 그대로 사용합니다. GitHub 접속이 차단된 경우 강사가 안내한 대체 주소로 접속합니다. 다른 주소는 별도의 브라우저 저장 공간이므로 전환 전에 진행 JSON을 내보내고 새 주소에서 가져옵니다. 새 주소가 기존 기록을 자동으로 옮기지는 않습니다.",
+      "screen_type": "access_qr",
+      "id": "120"
     },
     {
       "section": "lab3",
@@ -4165,8 +4508,8 @@
         ],
         "note": "작업자 화면과 모니터링 화면은 같은 검사 기록 사용 · 미확인 항목은 질문 전후에도 별도 관리"
       },
-      "minutes": 0.954,
-      "activityMinutes": 2.082,
+      "minutes": 0.909,
+      "activityMinutes": 2.029,
       "notes": "작업자에게는 영상과 체크리스트를 크게 표시하고, 검사 기록 확인을 누르면 모니터링으로 전환합니다. 여기서 다음 작업 시작을 누르면 다시 작업자 화면으로 이동합니다. 통과 체크는 실제 저장된 판정과 연결되며, 화면 전환 자체가 작업 완료를 만들지 않습니다. 관찰은 강의용 예시입니다.",
       "screen_type": "pipeline_explanation",
       "technical": {
@@ -4186,7 +4529,8 @@
         "provenance": "authored_explanatory_example",
         "exact_api_schema": false
       },
-      "id": "114"
+      "id": "121",
+      "previous_slide_id": "114"
     },
     {
       "section": "lab3",
@@ -4198,8 +4542,8 @@
         "기계 조립의 이 실습 시작 선택",
         "기계 조립 문서와 작업 순서 호출"
       ],
-      "minutes": 0.18,
-      "activityMinutes": 1.381,
+      "minutes": 0.171,
+      "activityMinutes": 1.346,
       "notes": "조작: 기계 조립의 이 실습 시작 선택\n확인할 결과: 기계 조립 문서와 작업 순서 호출\n\n\n빨간 네모는 실습 화면의 실제 버튼·입력란 위치입니다. 실습 탭에서 조작합니다.",
       "screen_type": "actual_ui",
       "capture_key": "lab3-01-select",
@@ -4219,7 +4563,8 @@
         "mode": "실제 실습 화면 · 강의용 예시",
         "tip": "빨간 네모: 조작 위치 · 그림 클릭 확대"
       },
-      "id": "115"
+      "id": "122",
+      "previous_slide_id": "115"
     },
     {
       "section": "lab3",
@@ -4231,8 +4576,8 @@
         "작업지시서·검사 기준 확인 후 정보 구축 선택",
         "문서에서 작업과 검사 기준의 구성"
       ],
-      "minutes": 0.18,
-      "activityMinutes": 1.381,
+      "minutes": 0.171,
+      "activityMinutes": 1.346,
       "notes": "조작: 작업지시서·검사 기준 확인 후 정보 구축 선택\n확인할 결과: 문서에서 작업과 검사 기준의 구성\n\n기계 조립 작업지시서·검사 기준 | PDF 추출·CSV 검사·SQLite 구축\n빨간 네모는 실습 화면의 실제 버튼·입력란 위치입니다. 실습 탭에서 조작합니다.",
       "screen_type": "actual_ui",
       "capture_key": "lab3-02-documents",
@@ -4252,7 +4597,8 @@
         "mode": "실제 실습 화면 · 강의용 예시",
         "tip": "빨간 네모: 조작 위치 · 그림 클릭 확대"
       },
-      "id": "116"
+      "id": "123",
+      "previous_slide_id": "116"
     },
     {
       "section": "lab3",
@@ -4264,8 +4610,8 @@
         "자료 구축 결과 검토 후 작업 설정으로 선택",
         "4개 작업과 6개 검사 기준의 연결"
       ],
-      "minutes": 0.18,
-      "activityMinutes": 1.381,
+      "minutes": 0.171,
+      "activityMinutes": 1.346,
       "notes": "조작: 자료 구축 결과 검토 후 작업 설정으로 선택\n확인할 결과: 4개 작업과 6개 검사 기준의 연결\n\n\n빨간 네모는 실습 화면의 실제 버튼·입력란 위치입니다. 실습 탭에서 조작합니다.",
       "screen_type": "actual_ui",
       "capture_key": "lab3-03-compiled",
@@ -4285,7 +4631,8 @@
         "mode": "실제 실습 화면 · 강의용 예시",
         "tip": "빨간 네모: 조작 위치 · 그림 클릭 확대"
       },
-      "id": "117"
+      "id": "124",
+      "previous_slide_id": "117"
     },
     {
       "section": "lab3",
@@ -4297,8 +4644,8 @@
         "작업 순서 확인 후 작업 시작하기 선택",
         "현재 제품·작업지시·검사 기준의 적용"
       ],
-      "minutes": 0.18,
-      "activityMinutes": 1.381,
+      "minutes": 0.171,
+      "activityMinutes": 1.346,
       "notes": "조작: 작업 순서 확인 후 작업 시작하기 선택\n확인할 결과: 현재 제품·작업지시·검사 기준의 적용\n\n\n빨간 네모는 실습 화면의 실제 버튼·입력란 위치입니다. 실습 탭에서 조작합니다.",
       "screen_type": "actual_ui",
       "capture_key": "lab3-04-setup",
@@ -4318,7 +4665,8 @@
         "mode": "실제 실습 화면 · 강의용 예시",
         "tip": "빨간 네모: 조작 위치 · 그림 클릭 확대"
       },
-      "id": "118"
+      "id": "125",
+      "previous_slide_id": "118"
     },
     {
       "section": "lab3",
@@ -4330,8 +4678,8 @@
         "영상 재생 선택",
         "큰 작업 영상과 오른쪽 위 검사 목록"
       ],
-      "minutes": 0.18,
-      "activityMinutes": 1.381,
+      "minutes": 0.171,
+      "activityMinutes": 1.346,
       "notes": "조작: 영상 재생 선택\n확인할 결과: 큰 작업 영상과 오른쪽 위 검사 목록\n\n차체 연결 작업 | 영상 진행에 따라 해당 항목 확인\n빨간 네모는 실습 화면의 실제 버튼·입력란 위치입니다. 실습 탭에서 조작합니다.",
       "screen_type": "actual_ui",
       "capture_key": "lab3-05-video",
@@ -4351,7 +4699,8 @@
         "mode": "실제 실습 화면 · 강의용 예시",
         "tip": "빨간 네모: 조작 위치 · 그림 클릭 확대"
       },
-      "id": "119"
+      "id": "126",
+      "previous_slide_id": "119"
     },
     {
       "section": "lab3",
@@ -4363,8 +4712,8 @@
         "차체 연결 항목의 통과 상태 표시",
         "차체 연결 항목의 체크와 통과 신호"
       ],
-      "minutes": 0.18,
-      "activityMinutes": 1.381,
+      "minutes": 0.171,
+      "activityMinutes": 1.346,
       "notes": "작업자 화면에서 차체 연결 항목의 체크와 통과 신호 확인. 이 장에서는 모니터링으로 이동하지 않고 다음 작업 안내를 먼저 확인합니다. 항목을 직접 눌러 통과시키는 절차는 없습니다.\n다음 작업 질문은 선택 기능이며, 답변을 들은 뒤 검사 기록 확인으로 이동합니다.",
       "screen_type": "actual_ui",
       "capture_key": "chassis-pass-observe",
@@ -4384,7 +4733,8 @@
         "mode": "실제 실습 화면 · 강의용 예시",
         "tip": "확인 화면 · 그림 클릭 확대"
       },
-      "id": "120"
+      "id": "127",
+      "previous_slide_id": "120"
     },
     {
       "section": "lab3",
@@ -4423,8 +4773,8 @@
         ],
         "note": "음성 대신 예시 질문 버튼 사용 · 검사 판정과 별개의 작업 안내"
       },
-      "minutes": 0.954,
-      "activityMinutes": 2.082,
+      "minutes": 0.909,
+      "activityMinutes": 2.029,
       "notes": "작업자가 요청하면 미리 등록된 다음 공정과 작업 방법을 안내. 안내를 받았다는 사실만으로 검사 완료 처리하지 않는 구조.\n정해진 작업 정보의 조회 예시. 자유형 음성 인식·생성 기능은 포함하지 않음.\n음성 대신 예시 질문 버튼 사용 · 검사 판정과 별개의 작업 안내\n출력은 구조 설명용 축약 예시이며 실제 모델 응답이 아닙니다. 화면 조작 후 변경된 기록과 상태를 함께 확인합니다.",
       "screen_type": "pipeline_explanation",
       "technical": {
@@ -4444,7 +4794,8 @@
         "provenance": "authored_explanatory_example",
         "exact_api_schema": false
       },
-      "id": "121"
+      "id": "128",
+      "previous_slide_id": "121"
     },
     {
       "section": "lab3",
@@ -4456,8 +4807,8 @@
         "다음 작업은 어떻게 하나요? 선택",
         "다음 공정과 작업 방법의 요청"
       ],
-      "minutes": 0.18,
-      "activityMinutes": 1.381,
+      "minutes": 0.171,
+      "activityMinutes": 1.346,
       "notes": "조작: 다음 작업은 어떻게 하나요? 선택\n확인할 결과: 다음 공정과 작업 방법의 요청\n\n\n빨간 네모는 실습 화면의 실제 버튼·입력란 위치입니다. 실습 탭에서 조작합니다.",
       "screen_type": "actual_ui",
       "capture_key": "lab3-07-guidance-request",
@@ -4477,7 +4828,8 @@
         "mode": "실제 실습 화면 · 강의용 예시",
         "tip": "빨간 네모: 조작 위치 · 그림 클릭 확대"
       },
-      "id": "122"
+      "id": "129",
+      "previous_slide_id": "122"
     },
     {
       "section": "lab3",
@@ -4489,8 +4841,8 @@
         "다음 작업 안내 확인 후 모니터링으로 전환",
         "브래킷 설치 순서와 연결 핀 확인 방법"
       ],
-      "minutes": 0.18,
-      "activityMinutes": 1.381,
+      "minutes": 0.171,
+      "activityMinutes": 1.346,
       "notes": "다음 공정과 준비 사항을 확인한 뒤 오른쪽 아래 검사 기록 확인 버튼 선택. 이어지는 모니터링 화면에서 검사표·작업 기록을 확인하고 다음 작업을 시작합니다.\n작업 안내는 등록된 절차의 설명이며 검사 통과 근거로 추가하지 않습니다. 강의용 예시.",
       "screen_type": "actual_ui",
       "capture_key": "guidance-then-record",
@@ -4510,7 +4862,8 @@
         "mode": "실제 실습 화면 · 강의용 예시",
         "tip": "빨간 네모: 조작 위치 · 그림 클릭 확대"
       },
-      "id": "123"
+      "id": "130",
+      "previous_slide_id": "123"
     },
     {
       "section": "lab3",
@@ -4522,8 +4875,8 @@
         "검사표·증거·작업 이력 확인 후 다음 작업 시작 선택",
         "작업자 화면과 같은 기록을 관리 화면에서 조회"
       ],
-      "minutes": 0.18,
-      "activityMinutes": 1.381,
+      "minutes": 0.171,
+      "activityMinutes": 1.346,
       "notes": "조작: 검사표·증거·작업 이력 확인 후 다음 작업 시작 선택\n확인할 결과: 작업자 화면과 같은 기록을 관리 화면에서 조회\n\n\n빨간 네모는 실습 화면의 실제 버튼·입력란 위치입니다. 실습 탭에서 조작합니다.",
       "screen_type": "actual_ui",
       "capture_key": "lab3-08b-monitor",
@@ -4543,7 +4896,8 @@
         "mode": "실제 실습 화면 · 강의용 예시",
         "tip": "빨간 네모: 조작 위치 · 그림 클릭 확대"
       },
-      "id": "124"
+      "id": "131",
+      "previous_slide_id": "124"
     },
     {
       "section": "lab3",
@@ -4582,8 +4936,8 @@
         ],
         "note": "실제 체결 강도·토크 검사 없음 · 화면으로 확인한 범위만 기록"
       },
-      "minutes": 0.954,
-      "activityMinutes": 2.082,
+      "minutes": 0.909,
+      "activityMinutes": 2.029,
       "notes": "브래킷 외관이 통과해도 안쪽 연결 핀을 볼 수 없다면 해당 항목은 확인 대기로 남습니다. 질문 확인 후 작업자가 답하면 원래 미확인 관찰은 보존하고 작업자 확인 근거를 별도로 기록합니다.",
       "screen_type": "pipeline_explanation",
       "technical": {
@@ -4603,7 +4957,8 @@
         "provenance": "authored_explanatory_example",
         "exact_api_schema": false
       },
-      "id": "125"
+      "id": "132",
+      "previous_slide_id": "125"
     },
     {
       "section": "lab3",
@@ -4615,8 +4970,8 @@
         "연결 핀의 질문 확인 선택",
         "브래킷은 체크 유지·가려진 연결 핀은 확인 대기"
       ],
-      "minutes": 0.18,
-      "activityMinutes": 1.381,
+      "minutes": 0.171,
+      "activityMinutes": 1.346,
       "notes": "조작: 연결 핀의 질문 확인 선택\n확인할 결과: 브래킷은 체크 유지·가려진 연결 핀은 확인 대기\n\n브래킷과 연결 핀의 개별 상태 | 보이지 않는 핀은 자동 통과 없이 질문\n빨간 네모는 실습 화면의 실제 버튼·입력란 위치입니다. 실습 탭에서 조작합니다.",
       "screen_type": "actual_ui",
       "capture_key": "lab3-09-pin-question",
@@ -4636,7 +4991,8 @@
         "mode": "실제 실습 화면 · 강의용 예시",
         "tip": "빨간 네모: 조작 위치 · 그림 클릭 확대"
       },
-      "id": "126"
+      "id": "133",
+      "previous_slide_id": "126"
     },
     {
       "section": "lab3",
@@ -4648,8 +5004,8 @@
         "직접 확인한 핀 삽입 상태 선택",
         "질문 대상과 작업자 답변의 연결"
       ],
-      "minutes": 0.18,
-      "activityMinutes": 1.381,
+      "minutes": 0.171,
+      "activityMinutes": 1.346,
       "notes": "조작: 직접 확인한 핀 삽입 상태 선택\n확인할 결과: 질문 대상과 작업자 답변의 연결\n\n\n빨간 네모는 실습 화면의 실제 버튼·입력란 위치입니다. 실습 탭에서 조작합니다.",
       "screen_type": "actual_ui",
       "capture_key": "lab3-10-answer",
@@ -4669,7 +5025,8 @@
         "mode": "실제 실습 화면 · 강의용 예시",
         "tip": "빨간 네모: 조작 위치 · 그림 클릭 확대"
       },
-      "id": "127"
+      "id": "134",
+      "previous_slide_id": "127"
     },
     {
       "section": "lab3",
@@ -4681,8 +5038,8 @@
         "두 항목 체크 확인 후 검사 기록 확인 선택",
         "원래 미확인 기록과 작업자 확인 답변의 보존"
       ],
-      "minutes": 0.18,
-      "activityMinutes": 1.381,
+      "minutes": 0.171,
+      "activityMinutes": 1.346,
       "notes": "조작: 두 항목 체크 확인 후 검사 기록 확인 선택\n확인할 결과: 원래 미확인 기록과 작업자 확인 답변의 보존\n\n\n빨간 네모는 실습 화면의 실제 버튼·입력란 위치입니다. 실습 탭에서 조작합니다.",
       "screen_type": "actual_ui",
       "capture_key": "lab3-11-confirmed",
@@ -4702,7 +5059,8 @@
         "mode": "실제 실습 화면 · 강의용 예시",
         "tip": "빨간 네모: 조작 위치 · 그림 클릭 확대"
       },
-      "id": "128"
+      "id": "135",
+      "previous_slide_id": "128"
     },
     {
       "section": "lab3",
@@ -4714,8 +5072,8 @@
         "확인 출처 검토 후 다음 작업 시작 선택",
         "영상 확인과 작업자 확인의 구분"
       ],
-      "minutes": 0.18,
-      "activityMinutes": 1.381,
+      "minutes": 0.171,
+      "activityMinutes": 1.346,
       "notes": "조작: 확인 출처 검토 후 다음 작업 시작 선택\n확인할 결과: 영상 확인과 작업자 확인의 구분\n\n\n빨간 네모는 실습 화면의 실제 버튼·입력란 위치입니다. 실습 탭에서 조작합니다.",
       "screen_type": "actual_ui",
       "capture_key": "lab3-11b-monitor-answer",
@@ -4735,7 +5093,8 @@
         "mode": "실제 실습 화면 · 강의용 예시",
         "tip": "빨간 네모: 조작 위치 · 그림 클릭 확대"
       },
-      "id": "129"
+      "id": "136",
+      "previous_slide_id": "129"
     },
     {
       "section": "lab3",
@@ -4747,8 +5106,8 @@
         "두 축의 체크 확인 후 검사 기록 확인 선택",
         "한쪽 축과 다른 축의 바퀴 배치 기록"
       ],
-      "minutes": 0.18,
-      "activityMinutes": 1.381,
+      "minutes": 0.171,
+      "activityMinutes": 1.346,
       "notes": "조작: 두 축의 체크 확인 후 검사 기록 확인 선택\n확인할 결과: 한쪽 축과 다른 축의 바퀴 배치 기록\n\n두 축의 바퀴 배치 | 외관 확인 범위의 검사\n빨간 네모는 실습 화면의 실제 버튼·입력란 위치입니다. 실습 탭에서 조작합니다.",
       "screen_type": "actual_ui",
       "capture_key": "lab3-12-wheels",
@@ -4768,7 +5127,8 @@
         "mode": "실제 실습 화면 · 강의용 예시",
         "tip": "빨간 네모: 조작 위치 · 그림 클릭 확대"
       },
-      "id": "130"
+      "id": "137",
+      "previous_slide_id": "130"
     },
     {
       "section": "lab3",
@@ -4780,8 +5140,8 @@
         "차축별 결과 확인 후 다음 작업 시작 선택",
         "두 검사 항목과 작업 이력의 연결"
       ],
-      "minutes": 0.18,
-      "activityMinutes": 1.381,
+      "minutes": 0.171,
+      "activityMinutes": 1.346,
       "notes": "조작: 차축별 결과 확인 후 다음 작업 시작 선택\n확인할 결과: 두 검사 항목과 작업 이력의 연결\n\n\n빨간 네모는 실습 화면의 실제 버튼·입력란 위치입니다. 실습 탭에서 조작합니다.",
       "screen_type": "actual_ui",
       "capture_key": "lab3-12b-monitor-wheels",
@@ -4801,7 +5161,8 @@
         "mode": "실제 실습 화면 · 강의용 예시",
         "tip": "빨간 네모: 조작 위치 · 그림 클릭 확대"
       },
-      "id": "131"
+      "id": "138",
+      "previous_slide_id": "131"
     },
     {
       "section": "lab3",
@@ -4813,8 +5174,8 @@
         "최종 항목 체크 확인 후 검사 기록 확인 선택",
         "차체·브래킷·바퀴의 최종 외관 기록"
       ],
-      "minutes": 0.18,
-      "activityMinutes": 1.381,
+      "minutes": 0.171,
+      "activityMinutes": 1.346,
       "notes": "조작: 최종 항목 체크 확인 후 검사 기록 확인 선택\n확인할 결과: 차체·브래킷·바퀴의 최종 외관 기록\n\n\n빨간 네모는 실습 화면의 실제 버튼·입력란 위치입니다. 실습 탭에서 조작합니다.",
       "screen_type": "actual_ui",
       "capture_key": "lab3-13-final",
@@ -4834,7 +5195,8 @@
         "mode": "실제 실습 화면 · 강의용 예시",
         "tip": "빨간 네모: 조작 위치 · 그림 클릭 확대"
       },
-      "id": "132"
+      "id": "139",
+      "previous_slide_id": "132"
     },
     {
       "section": "lab3",
@@ -4846,8 +5208,8 @@
         "검수 완료 · 결과 보기 선택",
         "4개 단계와 6개 검사 항목의 완료"
       ],
-      "minutes": 0.18,
-      "activityMinutes": 1.381,
+      "minutes": 0.171,
+      "activityMinutes": 1.346,
       "notes": "조작: 검수 완료 · 결과 보기 선택\n확인할 결과: 4개 단계와 6개 검사 항목의 완료\n\n\n빨간 네모는 실습 화면의 실제 버튼·입력란 위치입니다. 실습 탭에서 조작합니다.",
       "screen_type": "actual_ui",
       "capture_key": "lab3-13b-monitor-final",
@@ -4867,7 +5229,8 @@
         "mode": "실제 실습 화면 · 강의용 예시",
         "tip": "빨간 네모: 조작 위치 · 그림 클릭 확대"
       },
-      "id": "133"
+      "id": "140",
+      "previous_slide_id": "133"
     },
     {
       "section": "lab3",
@@ -4879,8 +5242,8 @@
         "항목별 결과와 확인 출처 검토",
         "충족 결과·질문·작업자 답변의 확인"
       ],
-      "minutes": 0.18,
-      "activityMinutes": 1.381,
+      "minutes": 0.171,
+      "activityMinutes": 1.346,
       "notes": "조작: 항목별 결과와 확인 출처 검토\n확인할 결과: 충족 결과·질문·작업자 답변의 확인\n\n\n빨간 네모는 실습 화면의 실제 버튼·입력란 위치입니다. 실습 탭에서 조작합니다.",
       "screen_type": "actual_ui",
       "capture_key": "lab3-14-review",
@@ -4900,7 +5263,8 @@
         "mode": "실제 실습 화면 · 강의용 예시",
         "tip": "확인 화면 · 그림 클릭 확대"
       },
-      "id": "134"
+      "id": "141",
+      "previous_slide_id": "134"
     },
     {
       "section": "lab3",
@@ -4912,8 +5276,8 @@
         "보고서 만들기 선택",
         "검사 결과와 증거 사진의 문서화"
       ],
-      "minutes": 0.18,
-      "activityMinutes": 1.381,
+      "minutes": 0.171,
+      "activityMinutes": 1.346,
       "notes": "조작: 보고서 만들기 선택\n확인할 결과: 검사 결과와 증거 사진의 문서화\n\n\n빨간 네모는 실습 화면의 실제 버튼·입력란 위치입니다. 실습 탭에서 조작합니다.",
       "screen_type": "actual_ui",
       "capture_key": "lab3-15-report-generate",
@@ -4933,7 +5297,8 @@
         "mode": "실제 실습 화면 · 강의용 예시",
         "tip": "빨간 네모: 조작 위치 · 그림 클릭 확대"
       },
-      "id": "135"
+      "id": "142",
+      "previous_slide_id": "135"
     },
     {
       "section": "lab3",
@@ -4945,8 +5310,8 @@
         "검수조서 저장 또는 보고서 HTML 저장 선택",
         "검사표·증거 사진·질문 이력 포함 문서"
       ],
-      "minutes": 0.18,
-      "activityMinutes": 1.381,
+      "minutes": 0.171,
+      "activityMinutes": 1.346,
       "notes": "조작: 검수조서 저장 또는 보고서 HTML 저장 선택\n확인할 결과: 검사표·증거 사진·질문 이력 포함 문서\n\n\n빨간 네모는 실습 화면의 실제 버튼·입력란 위치입니다. 실습 탭에서 조작합니다.",
       "screen_type": "actual_ui",
       "capture_key": "lab3-16-report",
@@ -4966,7 +5331,8 @@
         "mode": "실제 실습 화면 · 강의용 예시",
         "tip": "빨간 네모: 조작 위치 · 그림 클릭 확대"
       },
-      "id": "136"
+      "id": "143",
+      "previous_slide_id": "136"
     },
     {
       "section": "lab3",
@@ -4978,8 +5344,8 @@
         "문서 번호·검사 결과·검수자 확인",
         "정식 표 양식의 검수조서와 서명란"
       ],
-      "minutes": 0.18,
-      "activityMinutes": 1.381,
+      "minutes": 0.171,
+      "activityMinutes": 1.346,
       "notes": "조작: 문서 번호·검사 결과·검수자 확인\n확인할 결과: 정식 표 양식의 검수조서와 서명란\n\n실습에서 실제 저장한 HTML 원문 | 서명란은 검수자가 작성\n빨간 네모는 실습 화면의 실제 버튼·입력란 위치입니다. 실습 탭에서 조작합니다.",
       "screen_type": "actual_ui",
       "capture_key": "lab3-16b-paper-form",
@@ -4999,7 +5365,8 @@
         "mode": "실제 실습 화면 · 강의용 예시",
         "tip": "확인 화면 · 그림 클릭 확대"
       },
-      "id": "137"
+      "id": "144",
+      "previous_slide_id": "137"
     },
     {
       "section": "lab3",
@@ -5011,8 +5378,8 @@
         "문서 보관함 선택",
         "저장한 검수 문서 사본의 통합 보관"
       ],
-      "minutes": 0.18,
-      "activityMinutes": 1.381,
+      "minutes": 0.171,
+      "activityMinutes": 1.346,
       "notes": "조작: 문서 보관함 선택\n확인할 결과: 저장한 검수 문서 사본의 통합 보관\n\n\n빨간 네모는 실습 화면의 실제 버튼·입력란 위치입니다. 실습 탭에서 조작합니다.",
       "screen_type": "actual_ui",
       "capture_key": "lab3-17-save-library",
@@ -5032,7 +5399,8 @@
         "mode": "실제 실습 화면 · 강의용 예시",
         "tip": "빨간 네모: 조작 위치 · 그림 클릭 확대"
       },
-      "id": "138"
+      "id": "145",
+      "previous_slide_id": "138"
     },
     {
       "section": "lab3",
@@ -5045,7 +5413,7 @@
         "연결 핀의 확인 대기 유지와 다음 단계 보류"
       ],
       "minutes": 0.178,
-      "activityMinutes": 1.372,
+      "activityMinutes": 1.327,
       "notes": "조작: 아직 확인할 수 없습니다 선택 후 상태 확인\n확인할 결과: 연결 핀의 확인 대기 유지와 다음 단계 보류\n\n별도 비교 세션 | 모르는 항목을 통과로 바꾸지 않는 처리\n빨간 네모는 실습 화면의 실제 버튼·입력란 위치입니다. 실습 탭에서 조작합니다.",
       "screen_type": "actual_ui",
       "capture_key": "lab3-18-optional-hold",
@@ -5065,7 +5433,8 @@
         "mode": "실제 실습 화면 · 강의용 예시",
         "tip": "빨간 네모: 확인 위치 · 그림 클릭 확대"
       },
-      "id": "139"
+      "id": "146",
+      "previous_slide_id": "139"
     },
     {
       "section": "library",
@@ -5125,7 +5494,8 @@
         "provenance": "authored_explanatory_example",
         "exact_api_schema": false
       },
-      "id": "140"
+      "id": "147",
+      "previous_slide_id": "140"
     },
     {
       "section": "library",
@@ -5157,7 +5527,8 @@
         "mode": "실제 실습 화면 · 강의용 예시",
         "tip": "빨간 네모: 조작 위치 · 그림 클릭 확대"
       },
-      "id": "141"
+      "id": "148",
+      "previous_slide_id": "141"
     },
     {
       "section": "library",
@@ -5189,7 +5560,8 @@
         "mode": "실제 실습 화면 · 강의용 예시",
         "tip": "빨간 네모: 조작 위치 · 그림 클릭 확대"
       },
-      "id": "142"
+      "id": "149",
+      "previous_slide_id": "142"
     },
     {
       "section": "library",
@@ -5221,7 +5593,8 @@
         "mode": "실제 실습 화면 · 강의용 예시",
         "tip": "빨간 네모: 조작 위치 · 그림 클릭 확대"
       },
-      "id": "143"
+      "id": "150",
+      "previous_slide_id": "143"
     },
     {
       "section": "library",
@@ -5253,7 +5626,8 @@
         "mode": "실제 실습 화면 · 강의용 예시",
         "tip": "빨간 네모: 조작 위치 · 그림 클릭 확대"
       },
-      "id": "144"
+      "id": "151",
+      "previous_slide_id": "144"
     },
     {
       "section": "library",
@@ -5285,7 +5659,8 @@
         "mode": "실제 실습 화면 · 강의용 예시",
         "tip": "빨간 네모: 조작 위치 · 그림 클릭 확대"
       },
-      "id": "145"
+      "id": "152",
+      "previous_slide_id": "145"
     },
     {
       "section": "library",
@@ -5317,7 +5692,8 @@
         "mode": "실제 실습 화면 · 강의용 예시",
         "tip": "빨간 네모: 조작 위치 · 그림 클릭 확대"
       },
-      "id": "146"
+      "id": "153",
+      "previous_slide_id": "146"
     },
     {
       "section": "library",
@@ -5349,7 +5725,8 @@
         "mode": "실제 실습 화면 · 강의용 예시",
         "tip": "확인 화면 · 그림 클릭 확대"
       },
-      "id": "147"
+      "id": "154",
+      "previous_slide_id": "147"
     },
     {
       "section": "library",
@@ -5366,10 +5743,11 @@
       "minutes": 0.645,
       "activityMinutes": 1.448,
       "notes": "세 사례의 공통 흐름을 정리합니다. 실제 현장 적용 시 회사 기준 검토와 인식 모델·장비·승인 절차 연결이 필요합니다. 완성 문서는 문서 보관함에서 열고 필요한 파일만 저장합니다. 추가 절차를 강제하지 않습니다.",
-      "id": "148"
+      "id": "155",
+      "previous_slide_id": "148"
     }
   ],
-  "revision": "whole-review-20261124",
+  "revision": "explanations-qr-20261124",
   "technicalExampleCount": 16,
   "walkthroughSummary": {
     "screens": 117,
@@ -5396,7 +5774,9 @@
       "title": "자료 접속·다운로드·준비",
       "explanationMinutes": 7,
       "activityMinutes": 18,
-      "slides": "14–20"
+      "slides": "14–23"
     }
-  ]
+  ],
+  "referenceExplanationCount": 3,
+  "accessQRCount": 4
 }

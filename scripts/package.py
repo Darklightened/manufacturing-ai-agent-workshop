@@ -37,7 +37,7 @@ def main():
  handouts += list((ROOT/'docs/measurement_input_v2/examples').glob('*.html'))
  handouts += [p for p in (ROOT/'assets/mechanical-flow/examples').glob('*') if p.suffix in {'.html','.pdf'}]
  handouts += [ROOT/'docs/MECHANICAL_DEMO.ko.md']
- handouts += [ROOT/'docs/worker_flow_v2/README.ko.md']
+ handouts += [ROOT/'docs/worker_monitor_v3/README.ko.md']
  handouts += [p for p in (ROOT/'assets/worker-flow/examples').glob('*') if p.suffix in {'.docx','.html','.pdf'}]
  records.append(write_zip(ROOT/'workshop-handouts.zip',[(p,'workshop-handouts/'+str(p.relative_to(ROOT))) for p in sorted(set(handouts))]))
  build=json.loads((ROOT/'dist/build-manifest.json').read_text())

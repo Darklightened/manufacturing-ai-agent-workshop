@@ -79,10 +79,25 @@ with sync_playwright() as pw:
     for media_index in media_placements:
         page.evaluate('(n)=>goSlide(n)',media_index)
         page.locator('.slide.active video').evaluate(poster_js)
+    page.emulate_media(media='print')
+    page.evaluate('document.fonts.ready')
+    page.evaluate('() => new Promise(r => requestAnimationFrame(() => requestAnimationFrame(r)))')
+    print_layout = page.evaluate('''() => Array.from(document.querySelectorAll('.slide')).flatMap((s,i) => {
+      const errors=[],r=s.getBoundingClientRect(),style=getComputedStyle(s);
+      if(style.display!=='flex'||style.flexDirection!=='column')errors.push({slide:i+1,medium:'print',issue:'slide must remain a vertical flex column'});
+      for(const sel of ['h1','.lead','.slide-body','.tech-flow','.tech-panels','.phase-strip','.slide-foot']){
+        const el=s.querySelector(sel);if(!el)continue;const b=el.getBoundingClientRect();
+        if(b.left<r.left-1||b.right>r.right+1||b.top<r.top-1||b.bottom>r.bottom+1)errors.push({slide:i+1,medium:'print',issue:'out of slide bounds',selector:sel});
+      }
+      const h=s.querySelector('h1')?.getBoundingClientRect(),l=s.querySelector('.lead')?.getBoundingClientRect();
+      if(h&&l&&h.bottom>l.top+1)errors.push({slide:i+1,medium:'print',issue:'heading and lead overlap'});
+      return errors;
+    })''')
+    layout.extend(print_layout)
     page.pdf(path=str(ROOT/'slides/실습_안내.pdf'),width='1600px',height='900px',print_background=True,prefer_css_page_size=True)
     browser.close()
 
-receipt={'status':'passed' if not(page_errors or external or layout) else 'failed','slides':n,'page_errors':page_errors,'external_requests':external,'layout_violations':layout,'checks':['file:// without external requests','all embedded images decode','keyboard prev/next','speaker notes','contents navigation','image zoom','all slide bounds','1280x720 fit','PDF export','embedded video playback'],'model_calls':0}
+receipt={'status':'passed' if not(page_errors or external or layout) else 'failed','slides':n,'page_errors':page_errors,'external_requests':external,'layout_violations':layout,'checks':['file:// without external requests','all embedded images decode','keyboard prev/next','speaker notes','contents navigation','image zoom','all slide bounds','1280x720 fit','all printed slide columns/bounds','PDF export','embedded video playback'],'model_calls':0,'printed_layout_slides':n}
 (out/'browser_receipt.json').write_text(json.dumps(receipt,ensure_ascii=False,indent=2)+'\n')
 assert not page_errors,page_errors
 assert not external,external

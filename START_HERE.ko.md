@@ -6,7 +6,7 @@
 
 **[제조 AI Agent 실습실](https://darklightened.github.io/manufacturing-ai-agent-workshop/)**을 열고 실습을 선택합니다. 설치·로그인 없이 사용할 수 있습니다. **[강의 자료 다운로드](https://darklightened.github.io/manufacturing-ai-agent-workshop/downloads.html)**에서 슬라이드, SOP, 검사 기준, 도면과 검수조서 예제를 받습니다.
 
-실습 1의 [회사 자료 ZIP](assets/company-materials/company-practice-materials.zip)은 약 0.69MB입니다. 업로드가 어려우면 **다운로드 없이 화면을 확인하려면 → 준비된 회사 자료로 시작**으로 같은 실습을 진행합니다. [회사 자료 구축 순서](docs/company_build_v2/README.ko.md). [최신 148장 슬라이드](slides/README.ko.md)에 회사 자료 구축부터 보고서 저장까지 현재 화면을 반영했습니다.
+실습 1의 [회사 자료 ZIP](assets/company-materials/company-practice-materials.zip)은 약 0.69MB입니다. 업로드가 어려우면 **다운로드 없이 화면을 확인하려면 → 준비된 회사 자료로 시작**으로 같은 실습을 진행합니다. [회사 자료 구축 순서](docs/company_build_v2/README.ko.md). [최신 155장 슬라이드](slides/README.ko.md)에 회사 자료 구축부터 보고서 저장까지 현재 화면을 반영했습니다.
 
 ## 인터넷 없이 시작
 

@@ -1,7 +1,7 @@
 {
   "schema": "seminar.slides.v1",
   "title": "제조 AI Agent 실습",
-  "slide_count": 148,
+  "slide_count": 155,
   "mode": "authored_classroom_explanation",
   "inference_calls": 0,
   "self_contained": true,
@@ -10,10 +10,13 @@
     "data/source_pack/electronics/S1790005/frame_04_0076.731s.jpg": "6a258d17a6ace40c919e7f093d86cf825f685c2656630996eecd059f1b8153c7",
     "scenarios/measurement_demo/scene-a.svg": "08e14f1dddb7bee17852508e2f06c083274dc0d7a00c845748184509b0dac0c8",
     "slides/assets/worker_checklist_v3/lab1/32-battery-question.jpg": "c114eb4956b2bb370906c4f6eafa277c116c4e4d437f9f52106df03be5135799",
+    "slides/assets/access_qr/workshop.png": "03434823a65f95c0ab0cd5b3b4a143ca662e8b4dbc4e49d74d4bad7b88eb9966",
     "slides/assets/worker_checklist_v3/prep/prep-01-home.jpg": "cd148bf1d2849dfe01c125c7ce4f1c9a29c85d1ca34d6e93d0bf8a8162aa8444",
     "slides/assets/worker_checklist_v3/prep/prep-02-slides.jpg": "e0fe7b732b43360f0ea322f4e86854975e50c06191f6dfa7c80effd9a2b36e3c",
     "slides/assets/worker_checklist_v3/prep/prep-03-company-zip.jpg": "54f3394a6de666fc46c780ff58e4b91c98033efff3a1b40dd7ce0ea4d4df16ec",
+    "scenarios/measurement_input_demo/drawing.svg": "3455e4c27652fba3f476719e5d74e76a397bcd8d865b4f8703de2df30e1a8362",
     "slides/assets/worker_checklist_v3/prep/prep-04-inputs.jpg": "dace1b02e0a1beaa7b6debd3d9d3f5bdb86a3274d4d00ea3a81de0ac0cee1f81",
+    "slides/assets/worker_checklist_v3/lab1/42-report-cover.jpg": "678c9b0873611e0b0fb2a8837e02934efdedbdc4b9b707de5c115e00b4faa4ec",
     "slides/assets/worker_checklist_v3/prep/prep-05-example.jpg": "663bf46a5daefe9e4d1c10d2eafc014cbad6b7843746f9867a4a0b147281b1fc",
     "slides/assets/worker_checklist_v3/prep/prep-06-labs.jpg": "62c1dbffe2e925c5a66c1f16e8f3300e3dcb3b63e7dcbb2439e5b22a737ee22b",
     "slides/assets/current_v2/lab1/01-select.jpg": "356a6992fbfbc76c0f7677bc684e5dcf96ba4fb6c8b0e052e9de645619f0b486",
@@ -57,7 +60,6 @@
     "slides/assets/worker_checklist_v3/lab1/39-review.jpg": "5ed4552abeaf6fe05078d5922fd3f8327f143f611c9cf8068fe78c4894364968",
     "slides/assets/worker_checklist_v3/lab1/40-open-report.jpg": "4fff41a75b699b348b81a498b566ed63085ffb1ac28068b7602c97be2182f9dd",
     "slides/assets/worker_checklist_v3/lab1/41-report-preview.jpg": "20da7aef53e3becf57e13dc6dee09b21ca510414360adb9004b9e31c6c739e4a",
-    "slides/assets/worker_checklist_v3/lab1/42-report-cover.jpg": "678c9b0873611e0b0fb2a8837e02934efdedbdc4b9b707de5c115e00b4faa4ec",
     "slides/assets/worker_checklist_v3/lab1/43-report-checks.jpg": "7e9ff506626b779aa458a6fc0a5be8174614ebbb498176a4da5b942846a584cc",
     "slides/assets/worker_checklist_v3/lab1/43b-report-answers.jpg": "555e7f3cbe53486ee6ef50e24ae7784018d11d02c991304e2048c69046237422",
     "slides/assets/worker_checklist_v3/lab1/44-report-evidence.jpg": "7c181e83ac3c56b47c3d156b78ef9c51d2c997d533aa8e1653d2d7a2e6cde60b",
@@ -131,7 +133,7 @@
     "slides/assets/worker_checklist_v3/lab3_library/library/07-local-storage.jpg": "a888cbc32ca604b5f346cb02725befecc6b21f77ea9d962e6d1fdbfff2b09557",
     "assets/fonts/NotoSansKR.woff2": "595d02b6812da7493347da4381fdeda9397992730c3cf038ccc15818ea9ac14a"
   },
-  "content_sha256": "f197a0a7e083aa52f2e2728253a68e2b61ee3c4fdf90196fc0417d0ae5c529d0",
-  "html_sha256": "1a7aa4fc33418bd4a7211615198d8a02e06087d0f9b8e5555bb7e5b123cc22b1",
+  "content_sha256": "e9492d3300d89387ea36272995009b095dc29925e25a13d9a2571c284a4a65da",
+  "html_sha256": "05bf72932d9c588d70396007c73e5c52774275e21fc34fcf3b04395d71c44ba9",
   "published": false
 }
