@@ -27,9 +27,9 @@
   "packages": [
     {
       "file": "workshop-source.zip",
-      "bytes": 231872246,
-      "sha256": "024e3a56a62f596d0d78e93a3160665be166d81d59ef96f2f9b497a6ff8da93c",
-      "files": 653
+      "bytes": 231893025,
+      "sha256": "34502abf031a1b0511f7e9118d0018a2e2e529536e23373473e2c0184ac0135d",
+      "files": 661
     },
     {
       "file": "workshop-media.zip",
@@ -39,15 +39,31 @@
     },
     {
       "file": "workshop-offline.zip",
-      "bytes": 456011229,
-      "sha256": "843b15c5af256fc32a2ecd099380b43764fa8a34fd29cdbcec7c0a1314f7ea2b",
-      "files": 689
+      "bytes": 456032008,
+      "sha256": "f2af14459721a903618209d40915c3cab3cfb050a088da8045eec326fa9485e2",
+      "files": 697
     },
     {
       "file": "workshop-handouts.zip",
       "bytes": 45277559,
       "sha256": "d1a6a795af98eabae801e4f8b1f9944e80efc64c30be58c8f4a5860853a685db",
       "files": 56
+    },
+    {
+      "file": "workshop-windows.zip",
+      "bytes": 468250811,
+      "sha256": "697967ac581a93dc3075676ce65cd2c58fb9dfa425b2a1da4c6384942f20cfbf",
+      "files": 677,
+      "runtime": {
+        "version": "3.14.10",
+        "platform": "Windows x64",
+        "url": "https://www.python.org/ftp/python/3.14.10/python-3.14.10-embed-amd64.zip",
+        "sha256": "90905e64a840557d8c1bc4f5b74db3d7ee85e3ffb217611cac1c7813acea4159",
+        "release": "https://www.python.org/downloads/release/python-31410/"
+      },
+      "entrypoint": "DyninWorkshop/START_WINDOWS.cmd",
+      "optional_backup": true,
+      "requires_python_install": false
     }
   ]
 }

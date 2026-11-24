@@ -1,0 +1,42 @@
+name: Verify optional Windows backup
+on:
+  workflow_dispatch:
+    inputs:
+      release_tag:
+        description: Draft or published release containing the exact Windows ZIP
+        required: true
+        type: string
+      archive_sha256:
+        description: Exact SHA256 of workshop-windows.zip
+        required: true
+        type: string
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: windows-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.14'
+      - name: Download the exact release candidate
+        env:
+          GH_TOKEN: ${{ github.token }}
+          WORKSHOP_TAG: ${{ inputs.release_tag }}
+          WORKSHOP_SHA: ${{ inputs.archive_sha256 }}
+        run: |
+          gh release download "$env:WORKSHOP_TAG" --repo "$env:GITHUB_REPOSITORY" --pattern workshop-windows.zip
+          if ((Get-FileHash workshop-windows.zip -Algorithm SHA256).Hash.ToLower() -ne $env:WORKSHOP_SHA) { throw 'Release archive SHA256 mismatch' }
+      - name: Launcher unit tests
+        run: python -m unittest discover -s tests -p test_offline_launcher.py -v
+      - name: Verify the bundled runtime and real CMD entrypoint
+        run: python scripts/verify_windows_bundle.py workshop-windows.zip --output validation/windows-native/RESULTS.json
+      - name: Preserve test evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: windows-native-verification
+          path: |
+            validation/windows-native/RESULTS.json

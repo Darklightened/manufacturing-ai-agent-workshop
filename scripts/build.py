@@ -25,7 +25,7 @@ def main():
   selected.append(source)
  for rel in DIRS:
   source=ROOT/rel
-  if source.exists():selected += [p for p in source.rglob('*') if p.is_file() and '__pycache__' not in p.parts]
+  if source.exists():selected += [p for p in source.rglob('*') if p.is_file() and '__pycache__' not in p.parts and not any(x.startswith('.') for x in p.relative_to(source).parts)]
  # Media required by scenario JSON are exact local references, not arbitrary source files.
  source_pack=ROOT/'data/source_pack'
  referenced=set()
@@ -53,7 +53,7 @@ def main():
  records=[]
  for source in sorted(set(selected)):
   safe_file(source);rel=source.relative_to(ROOT);dest=OUT/rel;dest.parent.mkdir(parents=True,exist_ok=True);shutil.copy2(source,dest)
-  records.append({'path':str(rel),'bytes':source.stat().st_size,'sha256':hashlib.sha256(source.read_bytes()).hexdigest()})
+  records.append({'path':rel.as_posix(),'bytes':source.stat().st_size,'sha256':hashlib.sha256(source.read_bytes()).hexdigest()})
  total=sum(x['bytes'] for x in records)
  if total>900*1024*1024:raise ValueError('static build exceeds configured size budget')
  (OUT/'.nojekyll').write_text('')

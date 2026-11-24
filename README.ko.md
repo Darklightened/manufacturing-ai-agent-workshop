@@ -32,7 +32,13 @@
 
 ## 오프라인 실습
 
-전체 실습팩을 풀고 `11_21_seminar` 폴더에서 실행합니다. Python 3과 브라우저가 필요합니다.
+**선택 항목입니다. 백업을 미리 다운로드할 필요 없이 수업은 웹 링크에서 시작합니다.**
+
+Windows 10·11 64비트에서는 [Windows용 실습팩](https://github.com/Darklightened/manufacturing-ai-agent-workshop/releases/download/v0.9.1/workshop-windows.zip)을 필요할 때 받습니다. ZIP을 모두 풀고 `DyninWorkshop/START_WINDOWS.cmd`를 더블클릭하면 브라우저가 열립니다. Python 설치나 명령어 입력은 필요 없습니다. 실행 창은 실습이 끝날 때 닫습니다. 주소는 `http://127.0.0.1:8922/`이며 다른 PC에 공개되지 않습니다.
+
+웹과 오프라인은 저장 영역이 다릅니다. 진행 중 이동하려면 웹에서 진행 JSON을 내보내고 오프라인에서 가져옵니다. 학교 PC가 실행 파일을 제한하면 기본 웹 링크를 사용합니다.
+
+macOS·Linux 또는 Python을 직접 사용하는 환경에서는 기존 `workshop-offline.zip`을 풀고 `11_21_seminar` 폴더에서 실행합니다. 이 팩은 Python 3과 브라우저가 필요합니다.
 
 ```sh
 python3 scripts/serve.py
@@ -97,4 +103,4 @@ python scripts/build.py
 python scripts/package.py
 ```
 
-`workshop-offline.zip`은 코드·라이브러리·선별 미디어를 포함한 실행팩입니다. `workshop-handouts.zip`은 수강생용 입력 자료·도면·검수조서 예제 묶음입니다. 코드와 미디어를 나눠 전달할 때는 `workshop-source.zip`, `workshop-media.zip`을 사용합니다. 전체 파일은 [GitHub Release v0.9.0](https://github.com/Darklightened/manufacturing-ai-agent-workshop/releases/tag/v0.9.0)에서 받습니다. GitHub Pages는 수동 workflow로 배포하며, 기업 비공개 자료와 HTech 영상은 포함하지 않습니다.
+`workshop-offline.zip`은 코드·라이브러리·선별 미디어를 포함한 실행팩입니다. `workshop-handouts.zip`은 수강생용 입력 자료·도면·검수조서 예제 묶음입니다. 코드와 미디어를 나눠 전달할 때는 `workshop-source.zip`, `workshop-media.zip`을 사용합니다. 전체 파일은 [GitHub Release v0.9.0](https://github.com/Darklightened/manufacturing-ai-agent-workshop/releases/tag/v0.9.1)에서 받습니다. GitHub Pages는 수동 workflow로 배포하며, 기업 비공개 자료와 HTech 영상은 포함하지 않습니다.
