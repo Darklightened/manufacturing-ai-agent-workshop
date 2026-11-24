@@ -92,7 +92,8 @@ def main():
             except OSError as error:
                 result['cleanup_error'] = repr(error)
         args.output.write_text(json.dumps(result, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
-    print(json.dumps(result, ensure_ascii=False))
+    # The runner console may be CP1252 even though the saved receipt is UTF-8.
+    print(json.dumps(result, ensure_ascii=True))
 
 
 if __name__ == '__main__':
